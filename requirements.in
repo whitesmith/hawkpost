@@ -1,0 +1,2 @@
+django==1.9.2
+django-dotenv==1.4.1
