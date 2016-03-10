@@ -35,6 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'humans',
     'boxes',
     'pages',
@@ -91,6 +95,21 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Authentication settings
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+
+# For Django AllAuth
+
+SITE_ID = 1
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -114,3 +133,9 @@ STATIC_URL = '/static/'
 # Custom User Model
 
 AUTH_USER_MODEL = 'humans.User'
+
+
+# AllAUth Config
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
