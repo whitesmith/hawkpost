@@ -1,5 +1,6 @@
 from django.views.generic import FormView
 from django.core.urlresolvers import reverse_lazy
+from django.contrib import messages
 from .forms import UpdateUserInfoForm
 
 
@@ -16,4 +17,5 @@ class UpdateSettingsView(FormView):
 
     def form_valid(self, form):
         form.save()
+        messages.info(self.request, "Settings successfully updated")
         return super().form_valid(form)
