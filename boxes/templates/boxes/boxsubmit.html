@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <div>
+        Created By:
+        <p> Name: {{object.owner.first_name}} {{object.owner.last_name}} </p>
+        <p> Email: {{object.owner.email}}</p>
+    </div>
+    <div>
+        Description:
+        {{object.description}}
+    </div>
+    <div>
+        The following people will receive the messages:
+        {% for recipient in object.recipients.all %}
+            <p> Name: {{recipient.first_name}} {{recipient.last_name}}</p>
+            <p> Email: {{recipient.email}}</p>
+            <div class="hidden public-key-js">{{recipient.public_key}}</div>
+        {% endfor %}
+    </div>
+    <div>
+        {{form.as_p}}
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+
+{% endblock scripts %}
