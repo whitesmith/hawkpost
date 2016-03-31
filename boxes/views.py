@@ -36,6 +36,10 @@ class BoxCreateView(CreateView):
 
 class BoxDeleteView(DeleteView):
     http_method_names = [u'post']
+    success_url = reverse_lazy("boxes_list")
+
+    def get_queryset(self):
+        return self.request.user.own_boxes.all()
 
 
 class BoxSubmitView(UpdateView):
