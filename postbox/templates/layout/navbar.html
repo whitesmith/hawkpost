@@ -2,7 +2,7 @@
     <li><a href="{% url "pages_index" %}">Home</a></li>
     {% if request.user.is_authenticated %}
         <li><a href="{% url "humans_update" %}">Settings</a></li>
-        <li><a href="">Boxes</a></li>
+        <li><a href="{% url "boxes_list" %}">Boxes</a></li>
         <li><a href="{% url "account_logout" %}">Logout</a></li>
     {% else %}
         <li><a href="{% url "account_login" %}">Sign In</a></li>

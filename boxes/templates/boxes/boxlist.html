@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+
+{% block content %}
+    <div>
+        <form action="{% url "boxes_create" %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Create"></input>
+        </form>
+    </div>
+    <div>
+        {% for box in object_list %}
+            <div>
+                <h3>{{box.name}}</h3>
+                <p>{{box.description}}</p>
+                <p>Created: {{box.created_at}}</p>
+                <p>Last Activity: {{box.updated_at}}</p>
+                <p>Expiraton Date: {{box.expires_at}}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

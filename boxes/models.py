@@ -1,11 +1,13 @@
 from django.db import models
 from django.conf import settings
+import uuid
 
 
 class Box(models.Model):
 
     name = models.CharField(max_length=128)
     description = models.TextField(null=True, blank=True)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL,
                               related_name='own_boxes')
