@@ -98,6 +98,7 @@ class BoxSubmitView(UpdateView):
     def process_email(self, data):
         subject = "New submission to your box: {}".format(self.object.name)
         # TODO SignMessage Here
-        email = EmailMessage(subject, data["message"], settings.NO_REPLY_ADDR,
+        email = EmailMessage(subject, data["message"],
+                             settings.DEFAULT_FROM_EMAIL,
                              [self.object.owner.email])
         email.send()

@@ -134,6 +134,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# Media Files
+
+MEDIA_URL = '/media/'
+
 # Custom User Model
 
 AUTH_USER_MODEL = 'humans.User'
@@ -152,4 +156,4 @@ GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
 
 
 # Email Settings
-NO_REPLY_ADDR = "noreply@postbox.io"
+DEFAULT_FROM_EMAIL = "noreply@postbox.io"
