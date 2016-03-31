@@ -19,6 +19,7 @@ class Box(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     expires_at = models.DateTimeField()
+    closed = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Box"

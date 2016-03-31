@@ -149,3 +149,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # GPG settings
 GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
+
+
+# Email Settings
+NO_REPLY_ADDR = "noreply@postbox.io"
