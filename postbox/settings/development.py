@@ -19,3 +19,6 @@ INSTALLED_APPS += (
     'debug_toolbar',
     'django_extensions'
 )
+
+EMAIL_HOST = "127.0.0.1"
+EMAIL_PORT = 1025
