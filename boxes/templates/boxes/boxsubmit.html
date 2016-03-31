@@ -20,7 +20,7 @@
         {% endfor %}
     </div>
     <div>
-        <form action="{% url 'boxes_show' object.uuid %}" method="post">
+        <form id="box" action="{% url 'boxes_show' object.uuid %}" method="post">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value="Encrypt and Send">
@@ -29,5 +29,7 @@
 {% endblock content %}
 
 {% block scripts %}
-
+{{super}}
+<script src="{% static 'javascripts/openpgp.min.js' %}"></script>
+<script src="{% static 'javascripts/encryptor.js' %}"></script>
 {% endblock scripts %}
