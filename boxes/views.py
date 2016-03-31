@@ -3,11 +3,12 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
+from humans.views import LoginRequiredMixin
 from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
 
 
-class BoxListView(ListView):
+class BoxListView(LoginRequiredMixin, ListView):
     template_name = "boxes/boxlist.html"
 
     def get_queryset(self):
@@ -21,7 +22,7 @@ class BoxListView(ListView):
         return context
 
 
-class BoxCreateView(CreateView):
+class BoxCreateView(LoginRequiredMixin, CreateView):
     http_method_names = [u'post']
     form_class = CreateBoxForm
     model = Box
@@ -40,7 +41,7 @@ class BoxCreateView(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class BoxDeleteView(DeleteView):
+class BoxDeleteView(LoginRequiredMixin, DeleteView):
     http_method_names = [u'post']
     success_url = reverse_lazy("boxes_list")
     model = Box
@@ -53,6 +54,7 @@ class BoxSubmitView(UpdateView):
     template_name = "boxes/boxsubmit.html"
     form_class = SubmitBoxForm
     model = Box
+    success_url = reverse_lazy("boxes_show")
 
     def get_form(self, form_class=None):
         if form_class is None:
@@ -64,6 +66,7 @@ class BoxSubmitView(UpdateView):
             queryset = self.get_queryset()
 
         try:
-            return queryset.get(uuid=self.kwargs.get("box_uuid"))
+            q = queryset.select_related('owner').prefetch_related('recipients')
+            return q.get(uuid=self.kwargs.get("box_uuid"))
         except ValueError:
             raise ObjectDoesNotExist("Not Found. Double check your URL")

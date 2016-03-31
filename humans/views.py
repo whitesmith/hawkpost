@@ -1,10 +1,16 @@
+from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
 from django.views.generic import FormView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 from .forms import UpdateUserInfoForm
 
 
-class UpdateSettingsView(FormView):
+class LoginRequiredMixin(LoginRequired):
+    login_url = reverse_lazy("account_login")
+    redirect_field_name = 'next'
+
+
+class UpdateSettingsView(LoginRequiredMixin, FormView):
     """Lets the user update his setttings"""
     template_name = "humans/update_user_form.html"
     form_class = UpdateUserInfoForm

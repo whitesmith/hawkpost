@@ -19,7 +19,11 @@
         {% endfor %}
     </div>
     <div>
-        {{form.as_p}}
+        <form action="{% url 'boxes_show' object.uuid %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Encrypt and Send">
+        </form>
     </div>
 {% endblock content %}
 
