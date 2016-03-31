@@ -17,8 +17,6 @@ class BoxListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = CreateBoxForm()
-        print(self.object_list)
-        print(self.request.user.boxes.all())
         return context
 
 
