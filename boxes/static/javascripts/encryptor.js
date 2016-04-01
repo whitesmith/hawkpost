@@ -5,11 +5,14 @@ function encrypt() {
 	};
 
 	openpgp.encrypt(options).then(function(ciphertext) {
-	    console.log(ciphertext.data);
+	    var $box = $("#box")
+      $("#id_message").val(ciphertext.data);
+      $box.unbind("submit");
+      $box.submit();
 	});
+  return false
 }
 
 window.onload = function() {
-    var box = $("#box");
-    box.submit(encrypt);
+    $("#box").on("submit", encrypt)
 }
