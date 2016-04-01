@@ -9,19 +9,23 @@
             <input type="submit" class="btn-default" value="Create"></input>
         </form>
     </div>
-    <div>
+
+
+    <div class="row box-list">
         {% for box in object_list %}
-            <div>
-                <h3>{{box.name}}</h3>
-                <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
-                <p>{{box.description}}</p>
-                <p>Created: {{box.created_at}}</p>
-                <p>Last Activity: {{box.updated_at}}</p>
-                <p>Expiraton Date: {{box.expires_at}}</p>
-                <form action="{% url "boxes_delete" box.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete"></input>
-                </form>
+            <div class="col-xs-12 col-sm-4">
+                <div class="box">
+                    <h3>{{box.name}}</h3>
+                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    <p>{{box.description}}</p>
+                    <p>Created: {{box.created_at}}</p>
+                    <p>Last Activity: {{box.updated_at}}</p>
+                    <p>Expiraton Date: {{box.expires_at}}</p>
+                    <form action="{% url "boxes_delete" box.id %}" method="post">
+                        {% csrf_token %}
+                        <input class="btn-dark" type="submit" value="Delete"></input>
+                    </form>
+                </div>
             </div>
         {% endfor %}
     </div>
