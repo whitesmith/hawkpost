@@ -16,6 +16,8 @@ The way it works is like this:
 
 # Getting started
 
+## Linux
+
 For now, here is the base info on how to setup the development environment on an Debian machine:
 
 Other requirements:
@@ -48,9 +50,44 @@ Steps:
 
 > python manage.py runserver
 
+## OSX
+
+First, install [Postgres.app](http://postgresapp.com/) and make sure it's in the Applications folder. Add `/Applications/Postgres.app/Contents/Versions/latest/bin` to your $PATH.
+
+Steps:
+
+* Update [Homebrew](http://brew.sh/)
+
+> brew update
+
+* Update [Pip](https://pip.pypa.io/en/stable/installing/)
+
+> sudo pip install --upgrade pip
+
+* Install the latest 2.7.x version and 3.x of Python via Homebrew
+
+> brew install python
+> brew install python3
+
+* Install Virtualenv
+
+> pip install virtualenv
+
+* Setup Virtualenv
+
+> mkdir ~/.virtualenvs
+> cd ~/.virtualenvs
+> virtualenv postbox --python=python3
+> cd postbox
+> source bin/activate
+
+* Clone the project, go to the folder and install the dependencies
+
+> pip install -r requirements_dev.txt
+
 *Optional 
 
-# How to add/remove dependencies
+## How to add/remove dependencies
 
 * Add/remove to the correct `.in` file the required package. For dev only dependencies `requirements_dev.in`, otherwise `requirements.in`. Note: you should pin the version number.
 
@@ -67,3 +104,19 @@ and
 *You will need to install pip-tools
 
 > pip install pip-tools
+
+# Start the server
+
+## Database
+
+* Create the database for the first time
+
+> psql CREATE DATABASE postbox_dev;
+
+* Prepare the database
+
+> python manage.py migrate
+
+## Run
+
+> python manage.py runserver
