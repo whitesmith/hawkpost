@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.conf import settings
+from django.utils import timezone
 from humans.views import LoginRequiredMixin
 from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
@@ -74,6 +75,10 @@ class BoxSubmitView(UpdateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
+        now = timezone.now()
+        if now > self.object.expires_at:
+            self.object.closed = True
+            self.object.save()
         if self.object.closed:
             return self.response_class(
                 request=self.request,
