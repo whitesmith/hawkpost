@@ -3,12 +3,11 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
-from django.core.mail import EmailMessage
-from django.conf import settings
 from django.utils import timezone
 from humans.views import LoginRequiredMixin
 from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
+from .tasks import process_email
 
 
 class BoxListView(LoginRequiredMixin, ListView):
@@ -90,7 +89,7 @@ class BoxSubmitView(UpdateView):
     def post(self, request, *args, **kwargs):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
-            self.process_email(form.cleaned_data)
+            process_email.delay(self.object.id, form.cleaned_data)
             self.object.closed = True
             self.object.save()
             return self.response_class(
@@ -99,11 +98,3 @@ class BoxSubmitView(UpdateView):
                 using=self.template_engine)
         else:
             return self.form_invalid(form)
-
-    def process_email(self, data):
-        subject = "New submission to your box: {}".format(self.object.name)
-        # TODO SignMessage Here
-        email = EmailMessage(subject, data["message"],
-                             settings.DEFAULT_FROM_EMAIL,
-                             [self.object.owner.email])
-        email.send()

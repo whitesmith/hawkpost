@@ -162,3 +162,7 @@ GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
 
 # Email Settings
 DEFAULT_FROM_EMAIL = "noreply@postbox.io"
+
+
+# Celerey Settings
+BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
