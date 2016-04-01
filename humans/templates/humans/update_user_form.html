@@ -2,10 +2,10 @@
 
 {% block content %}
     <h2>Update your user settings</h2>
-    <form action="" method="post">
+    <form action="" method="post" class="form__wrap">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Save"></input>
+        <input type="submit" class="btn-default" value="Save"></input>
     </form>
 {% endblock content %}
 
