@@ -25,6 +25,37 @@ input{
 	}
 }
 
+.box-list{
+  width: 950px;
+  margin: auto;
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 20px 10px;
+}
+
+.box{
+	border: 1px solid $light;
+    box-shadow: 0px 2px 6px 0px rgba($black,0.2);
+    margin:5px;
+    padding: 10px;
+}
+
+.box__desc{
+	font-size: 15px;
+	color: $main-color;
+}
+
+.box__info{
+	font-size: 13px;
+	color: $grey;
+	span{
+		color: $main-color-dark;
+		font-weight: 600;
+	}
+	
+}
+
+
 .btn-default{
 	border: none;
     padding: $spacing--small;
@@ -33,7 +64,16 @@ input{
     width: 100%;
     transition: all 0.2s ease-in-out;
     font-size: 0.9375rem;
+    cursor: pointer;
     &:hover{
     	background: $main-color-dark;
+    }
+}
+
+.btn-dark{
+	@extend .btn-default;
+	background: $main-color-dark;
+	&:hover{
+    	background: $black;
     }
 }
