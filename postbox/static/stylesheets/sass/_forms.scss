@@ -26,7 +26,6 @@ input{
 }
 
 .box-list{
-  border-top: 1px solid $main-color-dark;
   width: 950px;
   margin: auto;
   max-width: 100%;
@@ -39,6 +38,21 @@ input{
     box-shadow: 0px 2px 6px 0px rgba($black,0.2);
     margin:5px;
     padding: 10px;
+}
+
+.box__desc{
+	font-size: 15px;
+	color: $main-color;
+}
+
+.box__info{
+	font-size: 13px;
+	color: $grey;
+	span{
+		color: $main-color-dark;
+		font-weight: 600;
+	}
+	
 }
 
 
