@@ -122,3 +122,15 @@ and
 ## Run
 
 > python manage.py runserver
+
+
+
+# Celery workers
+
+To run the workers you just need to execute the following command:
+
+> celery -A postbox worker -l info 
+
+# Gunicorn
+
+> gunicorn -w 4 postbox.wsgi:application
