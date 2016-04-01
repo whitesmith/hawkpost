@@ -1,6 +1,8 @@
 Postbox
 =======
 
+**Warning:** This project is in pre-alpha state. This means it is not 100% ready and you should use it at your own risk.
+
 Rationale: For many web and mobile development studios, no matter how hard they try to secure their client secrets (passwords, API keys, etc), the weakest link resides on the client, most of the times when he's not a tech savvy person. This project tries to help minimize this issue on the communication between both parties.
 
 Postbox lets you create unique links that you can share with the person that desires to send you important information but doesn't know how to deal with PGP.
