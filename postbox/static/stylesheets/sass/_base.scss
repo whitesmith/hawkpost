@@ -28,12 +28,6 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-.main{
- padding-top: $nav-size+20px;
- text-align: center;
- padding-bottom: 100px;
-}
-
 h1{
  font-size: 1.5rem;
  margin: 0px;
@@ -53,6 +47,69 @@ a{
     text-decoration: none;
     opacity: 0.7;
   }
+}
+
+/* Temporary Remove at will */
+.hidden {
+    display:none;
+}
+
+
+.main{
+ padding-top: $nav-size+20px;
+ text-align: center;
+ padding-bottom: 100px;
+}
+
+.main-title{
+  font-size: 32px;
+  color: $main-color;
+}
+
+.main-title__sub{
+  color: $main-color-dark;
+  font-size: 15px;
+  margin: 0px;
+  font-weight: 600;
+}
+
+.logo-big{
+  padding: 20px 0px 0px;
+}
+
+.main-desc{
+  padding-top:20px;
+  font-size: 14px;
+}
+
+.how{
+ padding: 30px 0px;
+  width: 750px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.how__box{
+  border: 1px solid $light;
+  box-shadow: 0px 2px 6px 0px rgba($black,0.2);
+  padding: 20px;
+  margin: 10px;
+  height: 150px;
+}
+
+.how__num{
+  color:$main-color;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0px;
+  padding:0px 0px 5px;
+}
+
+.how__text{
+ margin: 0px;
+ padding: 0px;
+ font-size: 14px;
+ color:$main-color-dark;
 }
 
 .full-height{
