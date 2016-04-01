@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.utils import timezone
 from humans.views import LoginRequiredMixin
+from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
 from .tasks import process_email
@@ -19,6 +20,7 @@ class BoxListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = CreateBoxForm()
+        context["domain"] = settings.SITE_DOMAIN
         return context
 
 

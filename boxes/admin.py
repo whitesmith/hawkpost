@@ -9,4 +9,4 @@ class BoxAdmin(admin.ModelAdmin):
 
 @admin.register(Membership)
 class MembershipAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'box', 'access', 'created_at')

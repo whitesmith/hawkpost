@@ -13,6 +13,7 @@ django-allauth==0.24.1
 django-dotenv==1.4.1
 django==1.9.4
 gnupg==2.0.2
+gunicorn==19.4.5
 kombu==3.0.35             # via celery
 oauthlib==1.0.3           # via requests-oauthlib
 psutil==4.1.0             # via gnupg

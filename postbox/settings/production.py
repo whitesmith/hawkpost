@@ -4,7 +4,7 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get("SITE_DOMAIN")]
+ALLOWED_HOSTS = [SITE_DOMAIN]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

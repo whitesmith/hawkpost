@@ -166,3 +166,6 @@ DEFAULT_FROM_EMAIL = "noreply@postbox.io"
 
 # Celerey Settings
 BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
+
+# SITE DOMAIN
+SITE_DOMAIN = os.environ.get("SITE_DOMAIN")

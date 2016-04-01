@@ -13,7 +13,7 @@
         {% for box in object_list %}
             <div>
                 <h3>{{box.name}}</h3>
-                <a href="{% url "boxes_show" box.uuid %}">Box Url: {% url "boxes_show" box.uuid %} </a>
+                <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
                 <p>{{box.description}}</p>
                 <p>Created: {{box.created_at}}</p>
                 <p>Last Activity: {{box.updated_at}}</p>
