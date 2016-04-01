@@ -12,18 +12,52 @@
 html,body{
   width:100%;
   height: 100%;
+  margin: 0px;
 }
 
 html {
-  font-size: 100%;
+  font-size: 16px;
 }
 
 body{
-  min-width: 320px;
   min-height: 100%;
   height: auto;
 
-  font: normal normal 400 0.9375rem/1.3 "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
+  font: normal normal 400 1rem/1.3 "proxima-nova", "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main{
+ padding-top: $nav-size+20px;
+ text-align: center;
+}
+
+h1{
+ font-size: 1.5rem;
+ margin: 0px;
+}
+
+ul, ol{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  &:hover{
+    text-decoration: none;
+    opacity: 0.7;
+  }
+}
+
+.full-height{
+  height: 100%;
+}
+
+.full-width{
+  width: 100%;
 }
