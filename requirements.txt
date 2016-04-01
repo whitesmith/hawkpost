@@ -15,3 +15,4 @@ psycopg2==2.6.1
 python3-openid==3.0.9     # via django-allauth
 requests-oauthlib==0.6.1  # via django-allauth
 requests==2.9.1           # via django-allauth, requests-oauthlib
+whitenoise==3.0
