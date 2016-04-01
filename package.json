@@ -1,0 +1,40 @@
+{
+  "name": "loqutor",
+  "version": "0.0.1",
+  "description": "Loqutor, the perfect companion for radialists with no time to lose.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whitesmith/loqutor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whitesmith/loqutor/issues"
+  },
+  "homepage": "https://github.com/whitesmith/loqutor#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-concat": "^2.6.0",
+    "gulp-deploy-git": "^0.5.3",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sass-bulk-import": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "path": "^0.12.7",
+    "run-sequence": "^1.1.5",
+    "sass-module-importer": "^1.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "yargs": "^4.3.2"
+  }
+}
