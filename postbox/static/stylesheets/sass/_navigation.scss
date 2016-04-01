@@ -1,0 +1,23 @@
+.navbar{
+	position: fixed;
+    width: 100%;
+    height: $nav-size;
+	background: $main-color;
+	box-shadow: 0px 2px 6px 0px rgba($black,0.2);
+	color: #FFFFFF;
+	padding: 0px $spacing--medium;
+}
+
+.navbar__header{
+}
+
+.navbar__link{
+	display: inline;
+	padding: $spacing--x-small;
+	font-weight: 500;
+}
+
+.logo{
+	height: 25px;
+	margin-left: $spacing--small;
+}

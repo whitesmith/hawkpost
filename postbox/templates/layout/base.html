@@ -4,7 +4,10 @@
     <head>
         <title>PostBox - Submit your content securly</title>
         {% block styles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/style.css' %}">
+        <script src="https://use.typekit.net/byu0xri.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css" type="text/css" >
+        <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/css/style.css' %}">
         {% endblock styles %}
         <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
     </head>
@@ -21,9 +24,11 @@
             {% endif %}
 
         {% endblock header %}
-        {% block content %}
+        <div class="main">
+            {% block content %}
 
-        {% endblock content %}
+            {% endblock content %}
+        </div>
         {% block footer %}
 
         {% endblock footer %}

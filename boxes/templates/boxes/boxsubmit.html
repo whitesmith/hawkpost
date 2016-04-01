@@ -25,10 +25,10 @@
         {% endfor %}
     </div>
     <div>
-        <form id="box" action="{% url 'boxes_show' object.uuid %}" method="post">
+        <form id="box" action="{% url 'boxes_show' object.uuid %}" method="post" class="form__wrap">
             {% csrf_token %}
             {{form.as_p}}
-            <input type="submit" value="Encrypt and Send">
+            <input type="submit" class="btn-default" value="Encrypt and Send">
         </form>
     </div>
 {% endblock content %}

@@ -6,3 +6,4 @@ sec.gpg
 pub.gpg~
 sec.gpg~
 postbox/staticfiles/
+/node_modules
