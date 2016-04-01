@@ -1,5 +1,31 @@
 {% extends "layout/base.html" %}
-
+{% load staticfiles %}
 {% block content %}
-    Index
+	<img src="{% static 'images/logob.png' %}" class="logo-big">
+    <h1 class="main-title">HAWKPOST</h1>
+    <p class="main-title__sub">when a pigeon is not enough!</p>
+    <div>
+    	<p class="main-desc">If receiving confidential information in non-safe places makes you crazy, Hawkpost is for you!<br> 
+		No email, no tricky programs, just a link to share information safely.</p>
+    </div>
+    <div class=" row how">
+    	<div class="col-xs-12 col-sm-4">
+	    	<div class="how__box">
+		    	<p class="how__num">1</p>
+		    	<p class="how__text">Register your PGP key</p>
+	    	</div>
+    	</div>
+    	<div class="col-xs-12 col-sm-4">
+    		<div class="how__box">
+    			<p class="how__num">2</p>
+    			<p class="how__text">Send the link to share information - Wait for your friend write/upload the information</p>
+    		</div>
+    	</div>
+    	<div class="col-xs-12 col-sm-4">
+    		<div class="how__box">
+    			<p class="how__num">3</p>
+    			<p class="how__text">Receive the information safely by our hawk</p>
+    		</div>
+    	</div>
+	</div>
 {% endblock content %}
