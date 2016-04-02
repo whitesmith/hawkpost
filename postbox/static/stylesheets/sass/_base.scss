@@ -94,7 +94,13 @@ a{
   box-shadow: 0px 2px 6px 0px rgba($black,0.2);
   padding: 20px;
   margin: 10px;
-  height: 150px;
+  min-height: 150px;
+  height: auto;
+}
+
+.how__box--big{
+  min-height: 165px;
+  height: auto;
 }
 
 .how__num{
@@ -110,6 +116,10 @@ a{
  padding: 0px;
  font-size: 14px;
  color:$main-color-dark;
+}
+
+.text-dark{
+  color:$main-color-dark;
 }
 
 .full-height{
