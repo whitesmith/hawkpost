@@ -1,5 +1,5 @@
 {% extends "layout/base.html" %}
-
+{% load staticfiles %}
 
 {% block content %}
     <h2>Create New Box</h2>
@@ -32,5 +32,9 @@
             {% endfor %}
         </div>
     </div>
-
 {% endblock content %}
+
+{% block scripts %}
+{{super}}
+<script src="{% static 'javascripts/box.js' %}"></script>
+{% endblock scripts %}
