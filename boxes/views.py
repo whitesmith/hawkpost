@@ -42,6 +42,11 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
         messages.info(self.request, "Box created successfully")
         return HttpResponseRedirect(self.get_success_url())
 
+    # TODO improve this later
+    def form_invalid(self, form):
+        messages.error(self.request, "The expiration date in invalid")
+        return HttpResponseRedirect(self.success_url)
+
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
     http_method_names = [u'post']
