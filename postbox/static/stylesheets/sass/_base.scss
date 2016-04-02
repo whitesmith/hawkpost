@@ -40,7 +40,7 @@ ul, ol{
 }
 
 a{
-  color: inherit;
+  color: $main-color;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   &:hover{
