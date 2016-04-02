@@ -54,6 +54,34 @@ a{
     display:none;
 }
 
+.footer{
+  background: $light;
+  color: $main-color-dark;
+  padding: 0px $spacing--medium;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: $footer-size;
+
+  p{
+    margin: 0px;
+    font-size: 13px;
+  }
+
+  a{
+    font-size: 13px;
+    color: $main-color-dark;
+    svg{
+      height: 11px;
+      width: 75px;
+    }
+  }
+}
+
+.footer__links{
+  text-align: right;
+}
 
 .main{
  padding-top: $nav-size+20px;
@@ -120,6 +148,10 @@ a{
 
 .text-dark{
   color:$main-color-dark;
+}
+
+.text-bold{
+  font-weight: 600;
 }
 
 .full-height{
