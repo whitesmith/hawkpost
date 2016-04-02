@@ -40,7 +40,7 @@ ul, ol {
 
 /* line 42, /Users/bbeato/Desktop/postbox-repo/postbox/static/stylesheets/sass/_base.scss */
 a {
-  color: inherit;
+  color: #15B5A8;
   text-decoration: none;
   transition: all 0.2s ease-in-out; }
   /* line 46, /Users/bbeato/Desktop/postbox-repo/postbox/static/stylesheets/sass/_base.scss */
@@ -127,6 +127,11 @@ a {
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 22, 0.2);
   color: #FFFFFF;
   padding: 0px 0.9375rem; }
+
+/* line 25, /Users/bbeato/Desktop/postbox-repo/postbox/static/stylesheets/sass/_navigation.scss */
+.navbar a {
+  color: #FFFFFF;
+}
 
 /* line 14, /Users/bbeato/Desktop/postbox-repo/postbox/static/stylesheets/sass/_navigation.scss */
 .navbar__link {
