@@ -32,6 +32,7 @@ class UpdateUserInfoForm(ModelForm):
         # Fingerprint provided must match with one provided
         pub_key = self.cleaned_data.get("public_key", "")
         fingerprint = self.cleaned_data.get("fingerprint", "")
+        fingerprint = fingerprint.replace(" ", "")
         if pub_key:
             result = settings.GPG_OBJ.import_keys(pub_key).results[0]
             if fingerprint != result["fingerprint"]:
