@@ -158,6 +158,11 @@ LOGIN_URL = "/users/login"
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "/users/login"
 ACCOUNT_LOGOUT_ON_GET = True
 
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': ['user:email']
+    }
+}
 
 # GPG settings
 GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
