@@ -1,5 +1,6 @@
 from .common import *
 import os
+import raven
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -20,6 +21,12 @@ DATABASES = {
     }
 }
 
+
+# Installed Apps
+# Development Applications
+INSTALLED_APPS += (
+    'raven.contrib.django.raven_compat',
+)
 
 # Email Settings
 
@@ -43,3 +50,12 @@ USE_X_FORWARDED_HOST = True
 # Allauth Config
 ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_REQUIRED = True
+
+
+# Sentry Configuration
+RAVEN_CONFIG = {
+    'dsn': os.environ.get("SENTRY_URL"),
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(__file__)),
+}
