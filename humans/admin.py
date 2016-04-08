@@ -12,3 +12,8 @@ class UserAdmin(DefaultUserAdmin):
             'classes': ('collapse',),
             'fields': ('fingerprint', 'keyserver_url', 'public_key'),
         }),)
+
+
+admin.site.site_header = "HawkPost Administration"
+admin.site.site_title = "HawkPost Admin"
+admin.site.index_title = "Project Models"
