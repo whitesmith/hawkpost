@@ -5,4 +5,10 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(DefaultUserAdmin):
-    pass
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fieldsets += (('Key options', {
+            'classes': ('collapse',),
+            'fields': ('fingerprint', 'keyserver_url', 'public_key'),
+        }),)
