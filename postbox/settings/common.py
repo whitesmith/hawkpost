@@ -163,7 +163,7 @@ GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
 
 
 # Email Settings
-DEFAULT_FROM_EMAIL = "noreply@postbox.io"
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 
 # Celerey Settings
