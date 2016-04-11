@@ -7,3 +7,5 @@ pub.gpg~
 sec.gpg~
 postbox/staticfiles/
 /node_modules
+celerybeat-schedule.db
+trustdb.gpg
