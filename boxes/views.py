@@ -15,7 +15,10 @@ class BoxListView(LoginRequiredMixin, ListView):
     template_name = "boxes/box_list.html"
 
     def get_queryset(self):
-        return self.request.user.own_boxes.filter(closed=False)
+        display_param = self.request.GET.get("display", "Open")
+        query_filter = Box.get_status(display_param)
+        return self.request.user.own_boxes.filter(
+            status=query_filter).order_by("-created_at")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -42,11 +45,6 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
 
         messages.info(self.request, "Box created successfully")
         return HttpResponseRedirect(self.get_success_url())
-
-    # TODO improve this later
-    # def form_invalid(self, form):
-    #     messages.error(self.request, "The expiration date in invalid")
-    #     return HttpResponseRedirect(self.success_url)
 
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
@@ -84,9 +82,9 @@ class BoxSubmitView(UpdateView):
         self.object = self.get_object()
         now = timezone.now()
         if now > self.object.expires_at:
-            self.object.closed = True
+            self.object.status = Box.EXPIRED
             self.object.save()
-        if self.object.closed:
+        if self.object.status != Box.OPEN:
             return self.response_class(
                 request=self.request,
                 template="boxes/closed.html",
@@ -98,7 +96,7 @@ class BoxSubmitView(UpdateView):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
             process_email.delay(self.object.id, form.cleaned_data)
-            self.object.closed = True
+            self.object.status = Box.ONQUEUE
             self.object.save()
             return self.response_class(
                 request=self.request,

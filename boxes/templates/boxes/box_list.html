@@ -1,6 +1,15 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
+    <div>
+        <ul>
+            <li><a href="{% url "boxes_list" %}?display=Open">Open</a></li>
+            <li><a href="{% url "boxes_list" %}?display=On Queue">On Queue</a></li>
+            <li><a href="{% url "boxes_list" %}?display=Sent">Sent</a></li>
+            <li><a href="{% url "boxes_list" %}?display=Expired">Expired</a></li>
+            <li><a href="{% url "boxes_list" %}?display=Closed">Closed</a></li>
+        </ul>
+    </div>
     <div class="box-list">
         <h2>Manage Boxes</h2>
         <div class="row">
