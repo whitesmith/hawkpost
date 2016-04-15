@@ -12,6 +12,7 @@
             <li class="navbar__link"><a href="{% url "pages_about" %}">About</a></li>
             <li class="navbar__link"><a href="">Support</a></li>
             {% if request.user.is_authenticated %}
+                <li class="navbar__link"><a href="{% url "boxes_create" %}">New Box</a></li>
                 <li class="navbar__link"><a href="{% url "boxes_list" %}">Boxes</a></li>
                 <li class="navbar__link"><a href="{% url "humans_update" %}">Settings</a></li>
                 <li class="navbar__link"><a href="{% url "account_logout" %}">Logout</a></li>

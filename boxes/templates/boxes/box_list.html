@@ -1,16 +1,6 @@
 {% extends "layout/base.html" %}
-{% load staticfiles %}
 
 {% block content %}
-    <h2>Create New Box</h2>
-    <div>
-        <form action="{% url "boxes_create" %}" method="post" class="form__wrap">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" class="btn-default" value="Create"></input>
-        </form>
-    </div>
-
     <div class="box-list">
         <h2>Manage Boxes</h2>
         <div class="row">
@@ -33,8 +23,3 @@
         </div>
     </div>
 {% endblock content %}
-
-{% block scripts %}
-{{super}}
-<script src="{% static 'javascripts/box.js' %}"></script>
-{% endblock scripts %}

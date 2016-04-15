@@ -12,7 +12,7 @@ from .tasks import process_email
 
 
 class BoxListView(LoginRequiredMixin, ListView):
-    template_name = "boxes/boxlist.html"
+    template_name = "boxes/box_list.html"
 
     def get_queryset(self):
         return self.request.user.own_boxes.filter(closed=False)
@@ -25,7 +25,8 @@ class BoxListView(LoginRequiredMixin, ListView):
 
 
 class BoxCreateView(LoginRequiredMixin, CreateView):
-    http_method_names = [u'post']
+    template_name = "boxes/box_create.html"
+    http_method_names = [u'get', u'post']
     form_class = CreateBoxForm
     model = Box
     success_url = reverse_lazy("boxes_list")
@@ -43,9 +44,9 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
     # TODO improve this later
-    def form_invalid(self, form):
-        messages.error(self.request, "The expiration date in invalid")
-        return HttpResponseRedirect(self.success_url)
+    # def form_invalid(self, form):
+    #     messages.error(self.request, "The expiration date in invalid")
+    #     return HttpResponseRedirect(self.success_url)
 
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
@@ -58,7 +59,7 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class BoxSubmitView(UpdateView):
-    template_name = "boxes/boxsubmit.html"
+    template_name = "boxes/box_submit.html"
     form_class = SubmitBoxForm
     model = Box
     success_url = reverse_lazy("boxes_show")
