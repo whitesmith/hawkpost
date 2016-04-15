@@ -20,12 +20,15 @@
                         <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
                         <p class="box__desc">{{box.description}}</p>
                         <p class="box__info"><span>Created:</span><br>{{box.created_at}}</p>
+                        <p class="box__info"><span>Status:</span><br>{{box.get_status_display}}</p>
                         <p class="box__info"><span>Last Activity:</span><br>{{box.updated_at}}</p>
                         <p class="box__info"><span>Expiraton Date:</span><br>{{box.expires_at}}</p>
-                        <form action="{% url "boxes_delete" box.id %}" method="post">
-                            {% csrf_token %}
-                            <input class="btn-dark" type="submit" value="Delete"></input>
-                        </form>
+                        {% if box.status == allow_delete %}
+                            <form action="{% url "boxes_delete" box.id %}" method="post">
+                                {% csrf_token %}
+                                <input class="btn-dark" type="submit" value="Delete"></input>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

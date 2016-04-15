@@ -24,6 +24,7 @@ class BoxListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["form"] = CreateBoxForm()
         context["domain"] = settings.SITE_DOMAIN
+        context["allow_delete"] = Box.OPEN
         return context
 
 
@@ -54,6 +55,18 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         return self.request.user.own_boxes.all()
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = self.object.name
+        if self.object.status != Box.OPEN:
+            messages.error(request, "Only open boxes can be deleted")
+        else:
+            self.object.delete()
+            msg = "Box named {} deleted successfully".format(name)
+            messages.success(request, msg)
+        success_url = self.get_success_url()
+        return HttpResponseRedirect(success_url)
 
 
 class BoxSubmitView(UpdateView):
