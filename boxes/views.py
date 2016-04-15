@@ -12,20 +12,25 @@ from .tasks import process_email
 
 
 class BoxListView(LoginRequiredMixin, ListView):
-    template_name = "boxes/boxlist.html"
+    template_name = "boxes/box_list.html"
 
     def get_queryset(self):
-        return self.request.user.own_boxes.filter(closed=False)
+        display_param = self.request.GET.get("display", "Open")
+        query_filter = Box.get_status(display_param)
+        return self.request.user.own_boxes.filter(
+            status=query_filter).order_by("-created_at")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = CreateBoxForm()
         context["domain"] = settings.SITE_DOMAIN
+        context["allow_delete"] = Box.OPEN
         return context
 
 
 class BoxCreateView(LoginRequiredMixin, CreateView):
-    http_method_names = [u'post']
+    template_name = "boxes/box_create.html"
+    http_method_names = [u'get', u'post']
     form_class = CreateBoxForm
     model = Box
     success_url = reverse_lazy("boxes_list")
@@ -42,11 +47,6 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
         messages.info(self.request, "Box created successfully")
         return HttpResponseRedirect(self.get_success_url())
 
-    # TODO improve this later
-    def form_invalid(self, form):
-        messages.error(self.request, "The expiration date in invalid")
-        return HttpResponseRedirect(self.success_url)
-
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
     http_method_names = [u'post']
@@ -56,9 +56,21 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         return self.request.user.own_boxes.all()
 
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = self.object.name
+        if self.object.status != Box.OPEN:
+            messages.error(request, "Only open boxes can be deleted")
+        else:
+            self.object.delete()
+            msg = "Box named {} deleted successfully".format(name)
+            messages.success(request, msg)
+        success_url = self.get_success_url()
+        return HttpResponseRedirect(success_url)
+
 
 class BoxSubmitView(UpdateView):
-    template_name = "boxes/boxsubmit.html"
+    template_name = "boxes/box_submit.html"
     form_class = SubmitBoxForm
     model = Box
     success_url = reverse_lazy("boxes_show")
@@ -83,9 +95,9 @@ class BoxSubmitView(UpdateView):
         self.object = self.get_object()
         now = timezone.now()
         if now > self.object.expires_at:
-            self.object.closed = True
+            self.object.status = Box.EXPIRED
             self.object.save()
-        if self.object.closed:
+        if self.object.status != Box.OPEN:
             return self.response_class(
                 request=self.request,
                 template="boxes/closed.html",
@@ -97,7 +109,7 @@ class BoxSubmitView(UpdateView):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
             process_email.delay(self.object.id, form.cleaned_data)
-            self.object.closed = True
+            self.object.status = Box.ONQUEUE
             self.object.save()
             return self.response_class(
                 request=self.request,

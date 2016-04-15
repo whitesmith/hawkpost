@@ -5,6 +5,20 @@ import uuid
 
 class Box(models.Model):
 
+    OPEN = 10
+    EXPIRED = 20
+    SENT = 30
+    CLOSED = 40
+    ONQUEUE = 50
+
+    STATUSES = (
+        (OPEN, 'Open'),
+        (EXPIRED, 'Expired'),
+        (SENT, 'Sent'),
+        (ONQUEUE, 'On Queue'),
+        (CLOSED, "Closed")
+    )
+
     name = models.CharField(max_length=128)
     description = models.TextField(null=True, blank=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
@@ -19,7 +33,8 @@ class Box(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     expires_at = models.DateTimeField()
-    closed = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUSES, default=OPEN)
+    last_sent_at = models.DateTimeField(null=True)
 
     class Meta:
         verbose_name = "Box"
@@ -27,6 +42,16 @@ class Box(models.Model):
 
     def __str__(self):
         return self.name
+
+    @staticmethod
+    def get_status(name):
+        return {
+            "Open": Box.OPEN,
+            "Expired": Box.EXPIRED,
+            "Sent": Box.SENT,
+            "Closed": Box.CLOSED,
+            "On Queue": Box.ONQUEUE
+        }.get(name, Box.OPEN)
 
 
 class Membership(models.Model):
