@@ -1,5 +1,14 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    This url is no longer active
+    This link is no longer active. The reason could be due to one of the following possibilities:
+
+    <ul>
+        <li>The link expired</li>
+        <li>The recipient closed or deactivated the link.</li>
+        <li>It was already submitted.</li>
+        <li>The recipient did not suply a valid public key, in order to correctly encrypt the content.</li>
+    </ul>
+
+    In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.
 {% endblock content %}

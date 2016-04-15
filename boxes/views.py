@@ -35,6 +35,16 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
     model = Box
     success_url = reverse_lazy("boxes_list")
 
+    def dispatch(self, request, *args, **kwargs):
+        # Check if user can create boxes:
+        if request.user.has_setup_complete():
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            msg = "To start using hawkpost," \
+                  " you must add a valid public key"
+            messages.error(request, msg)
+            return HttpResponseRedirect(reverse_lazy("humans_update"))
+
     def form_valid(self, form):
         self.object = Box(**form.cleaned_data)
         self.object.owner = self.request.user
@@ -97,9 +107,12 @@ class BoxSubmitView(UpdateView):
         if now > self.object.expires_at:
             self.object.status = Box.EXPIRED
             self.object.save()
-        if self.object.status != Box.OPEN:
+
+        owner = self.object.owner
+        if self.object.status != Box.OPEN or not owner.has_setup_complete():
             return self.response_class(
                 request=self.request,
+                context={"box": self.object},
                 template="boxes/closed.html",
                 using=self.template_engine)
         else:
