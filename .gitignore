@@ -5,7 +5,7 @@ pub.gpg
 sec.gpg
 pub.gpg~
 sec.gpg~
-postbox/staticfiles/
+hawkpost/staticfiles/
 /node_modules
 celerybeat-schedule.db
 trustdb.gpg

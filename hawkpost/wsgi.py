@@ -1,5 +1,5 @@
 """
-WSGI config for postbox project.
+WSGI config for hawkpost project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,6 +12,6 @@ from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "postbox.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hawkpost.settings")
 
 application = Sentry(get_wsgi_application())
