@@ -7,6 +7,7 @@
         {{form.as_p}}
         <input type="submit" class="btn-default" value="Save"></input>
     </form>
+    <small> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" request.user.id %}">here</a></small>
 {% endblock content %}
 
 

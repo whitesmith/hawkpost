@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <p>Your account in HawkPost is about to be deleted along with all its contents and settings. Are you sure you want to continue?</p>
+
+    <form method="post" action="{% url "humans_delete" request.user.id %}">
+        {% csrf_token %}
+        <div>
+            <label for="current-password">Insert your current password:</label>
+            <input id="current-password" type="password" name="current_password" placeholder="Current password"></input>
+        </div>
+        <div>
+            <input type="submit" value="Yes, I want to delete everything"></input>
+        </div>
+        <div>
+            <p><a href="{% url "humans_update" %}">No, take me back to the settings</a></p>
+        </div>
+    </form>
+{% endblock content %}
