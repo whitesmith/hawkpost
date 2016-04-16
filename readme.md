@@ -58,7 +58,7 @@ On a **Debian** based operation execute the following steps, after cloning the r
 
 > python manage.py runserver
 
-> celery -A postbox worker --beat -l info
+> celery -A hawkpost worker --beat -l info
 
 ## OSX
 
@@ -100,7 +100,7 @@ Steps:
 
 * Create the database for the first time
 
-> psql CREATE DATABASE postbox_dev;
+> psql CREATE DATABASE hawkpost_dev;
 
 * Prepare the database
 
@@ -110,7 +110,7 @@ Steps:
 
 > python manage.py runserver
 
-> celery -A postbox worker --beat -l info 
+> celery -A hawkpost worker --beat -l info 
 
 
 # Contributing

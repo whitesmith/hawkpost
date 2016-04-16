@@ -9,7 +9,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "postbox_dev",
+        'NAME': "hawkpost_dev",
     }
 }
 
