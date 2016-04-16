@@ -6,6 +6,10 @@
     <form method="post" action="{% url "humans_delete" request.user.id %}">
         {% csrf_token %}
         <div>
+            <label for="current-password">Insert your current password:</label>
+            <input id="current-password" type="password" name="current_password" placeholder="Current password"></input>
+        </div>
+        <div>
             <input type="submit" value="Yes, I want to delete everything"></input>
         </div>
         <div>

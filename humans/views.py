@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate
 from django.views.generic import FormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
@@ -34,9 +34,16 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("pages_index")
 
     def delete(self, request, *args, **kwargs):
-        logout(request)
-        response = super().delete(request, *args, **kwargs)
-        messages.success(request,
-                         "Account deleted successfully."
-                         "We hope you comeback soon.")
-        return response
+        current_pw = request.POST.get("current_password", "")
+        if authenticate(username=request.user.username, password=current_pw):
+            logout(request)
+            response = super().delete(request, *args, **kwargs)
+            messages.success(request,
+                             "Account deleted successfully."
+                             "We hope you comeback soon.")
+            return response
+        else:
+            messages.error(request,
+                           "In order to delete the account you must provide"
+                           " the current password.")
+            return self.get(request, *args, **kwargs)
