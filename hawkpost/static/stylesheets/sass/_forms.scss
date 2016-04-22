@@ -25,14 +25,6 @@ input{
 	}
 }
 
-.box-list{
-  width: 950px;
-  margin: auto;
-  max-width: 100%;
-  margin-top: 30px;
-  padding: 20px 10px;
-}
-
 .box{
 	border: 1px solid $light;
     box-shadow: 0px 2px 6px 0px rgba($black,0.2);
@@ -51,9 +43,22 @@ input{
 	span{
 		color: $main-color-dark;
 		font-weight: 600;
-	}
-	
+	}	
 }
+
+.box__nav{
+	margin-bottom: $spacing--x-large;
+	padding: $spacing--small 0px;
+	border-top: 1px solid $main-color50;
+    border-bottom: 1px solid $main-color50;
+}
+
+.box__nav__item{
+	display: inline;
+	padding: 0px $spacing--small 0px;
+	font-weight: 600;
+}
+
 
 
 .btn-default{

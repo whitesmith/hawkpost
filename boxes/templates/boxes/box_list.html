@@ -1,37 +1,39 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <div>
-        <ul>
-            <li><a href="{% url "boxes_list" %}?display=Open">Open</a></li>
-            <li><a href="{% url "boxes_list" %}?display=On Queue">On Queue</a></li>
-            <li><a href="{% url "boxes_list" %}?display=Sent">Sent</a></li>
-            <li><a href="{% url "boxes_list" %}?display=Expired">Expired</a></li>
-            <li><a href="{% url "boxes_list" %}?display=Closed">Closed</a></li>
-        </ul>
-    </div>
-    <div class="box-list">
+<div class="container-fluid">
+    <div class="row center-xs">
         <h2>Manage Boxes</h2>
-        <div class="row">
-            {% for box in object_list %}
-                <div class="col-xs-12 col-sm-4">
-                    <div class="box">
-                        <h3>{{box.name}}</h3>
-                        <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
-                        <p class="box__desc">{{box.description}}</p>
-                        <p class="box__info"><span>Created:</span><br>{{box.created_at}}</p>
-                        <p class="box__info"><span>Status:</span><br>{{box.get_status_display}}</p>
-                        <p class="box__info"><span>Last Activity:</span><br>{{box.updated_at}}</p>
-                        <p class="box__info"><span>Expiraton Date:</span><br>{{box.expires_at}}</p>
-                        {% if box.status == allow_delete %}
-                            <form action="{% url "boxes_delete" box.id %}" method="post">
-                                {% csrf_token %}
-                                <input class="btn-dark" type="submit" value="Delete"></input>
-                            </form>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="col-xs-12">
+            <ul class="box__nav">
+                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Open">Open</a></li>
+                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=On Queue">On Queue</a></li>
+                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Sent">Sent</a></li>
+                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Expired">Expired</a></li>
+                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Closed">Closed</a></li>
+            </ul>
         </div>
     </div>
+    <div class="row">
+        {% for box in object_list %}
+            <div class="col-xs-12 col-sm-4">
+                <div class="box">
+                    <h3>{{box.name}}</h3>
+                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    <p class="box__desc">{{box.description}}</p>
+                    <p class="box__info"><span>Created:</span><br>{{box.created_at}}</p>
+                    <p class="box__info"><span>Status:</span><br>{{box.get_status_display}}</p>
+                    <p class="box__info"><span>Last Activity:</span><br>{{box.updated_at}}</p>
+                    <p class="box__info"><span>Expiraton Date:</span><br>{{box.expires_at}}</p>
+                    {% if box.status == allow_delete %}
+                        <form action="{% url "boxes_delete" box.id %}" method="post">
+                            {% csrf_token %}
+                            <input class="btn-dark" type="submit" value="Delete"></input>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
