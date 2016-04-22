@@ -3,6 +3,10 @@
 {% block content %}
     <h2>Create New Box</h2>
     <div>
+        For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once.
+        After the expiration date, the form is locked and the link can no longer be used.
+    </div>
+    <div>
         <form action="{% url "boxes_create" %}" method="post" class="form__wrap">
             {% csrf_token %}
             {{form.as_p}}

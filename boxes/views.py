@@ -54,7 +54,7 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
                                   box=self.object,
                                   user=self.request.user)
 
-        messages.info(self.request, "Box created successfully")
+        messages.success(self.request, "Box created successfully")
         return HttpResponseRedirect(self.get_success_url())
 
 

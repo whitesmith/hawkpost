@@ -84,7 +84,7 @@ a{
 }
 
 .main{
- padding-top: $nav-size+20px;
+ padding-top: $nav-size*2;
  text-align: center;
  padding-bottom: 100px;
 }
@@ -146,6 +146,38 @@ a{
  color:$main-color-dark;
 }
 
+.messages{
+  position: fixed;
+  top: $nav-size;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 500px;
+  max-width: 100%;
+  text-align: center;
+
+  li{
+    padding: $spacing--small;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .success{
+    color: $success-color;
+    background-color: $success-back;
+    border-color: $success-border;
+  }
+  .info{
+    color: $warning-color;
+    background-color: $warning-back;
+    border-color: $warning-border;
+  }
+  .error{
+    color: $error-color;
+    background-color: $error-back;
+    border-color: $error-border;
+  }
+}
+
 .text-dark{
   color:$main-color-dark;
 }
@@ -160,4 +192,8 @@ a{
 
 .full-width{
   width: 100%;
+}
+
+.u-blockify{
+  display: block;
 }

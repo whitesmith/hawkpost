@@ -25,7 +25,7 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.info(self.request, "Settings successfully updated")
+        messages.success(self.request, "Settings successfully updated")
         return super().form_valid(form)
 
 

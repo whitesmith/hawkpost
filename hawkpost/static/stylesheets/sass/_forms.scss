@@ -66,7 +66,19 @@ input{
 		color: $main-color-dark;
 		font-weight: 600;
 	}
-	
+}
+
+.box__nav{
+	margin-bottom: $spacing--x-large;
+	padding: $spacing--small 0px;
+	border-top: 1px solid $main-color50;
+    border-bottom: 1px solid $main-color50;
+}
+
+.box__nav__item{
+	display: inline;
+	padding: 0px $spacing--small 0px;
+	font-weight: 600;
 }
 
 
@@ -88,6 +100,14 @@ input{
 	@extend .btn-default;
 	background: $main-color-dark;
 	&:hover{
-    	background: $black;
+    	background: rgba($main-color-dark,0.9);
+    }
+}
+
+.btn-danger{
+	@extend .btn-default;
+	background: $error-color;
+	&:hover{
+    	background: rgba($error-color,0.8);
     }
 }
