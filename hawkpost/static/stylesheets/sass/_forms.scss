@@ -74,6 +74,14 @@ input{
 	@extend .btn-default;
 	background: $main-color-dark;
 	&:hover{
-    	background: $black;
+    	background: rgba($main-color-dark,0.9);
+    }
+}
+
+.btn-danger{
+	@extend .btn-default;
+	background: $error-color;
+	&:hover{
+    	background: rgba($error-color,0.8);
     }
 }
