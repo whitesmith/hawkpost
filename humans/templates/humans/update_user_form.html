@@ -21,24 +21,26 @@
           {{ form.organization }}
         </p>
         <p>
+          {{ form.fingerprint.errors }}
+          {{ form.fingerprint.label_tag }}
+          {{ form.fingerprint }}
+        </p>
+        <p class="label__info">
+          <span>Warning!</span>
+          <br>
           You can provide the public key in a static away or provide a link to
           your key in a publick key server so we can fetch it for you
           (recommended).
+        </p>
+         <p>
+          {{ form.keyserver_url.errors }}
+          {{ form.keyserver_url.label_tag }}
+          {{ form.keyserver_url }}
         </p>
         <p>
           {{ form.public_key.errors }}
           {{ form.public_key.label_tag }}
           {{ form.public_key }}
-        </p>
-        <p>
-          {{ form.fingerprint.errors }}
-          {{ form.fingerprint.label_tag }}
-          {{ form.fingerprint }}
-        </p>
-        <p>
-          {{ form.keyserver_url.errors }}
-          {{ form.keyserver_url.label_tag }}
-          {{ form.keyserver_url }}
         </p>
         <input type="submit" class="btn-default" value="Save"></input>
     </form>
