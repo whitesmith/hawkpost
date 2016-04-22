@@ -154,12 +154,28 @@ a{
   width: 500px;
   max-width: 100%;
   text-align: center;
-  padding: $spacing--small;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: $warning-color;
-  background-color: $warning-back;
-  border-color: $warning-border;
+
+  li{
+    padding: $spacing--small;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .success{
+    color: $success-color;
+    background-color: $success-back;
+    border-color: $success-border;
+  }
+  .info{
+    color: $warning-color;
+    background-color: $warning-back;
+    border-color: $warning-border;
+  }
+  .error{
+    color: $error-color;
+    background-color: $error-back;
+    border-color: $error-border;
+  }
 }
 
 .text-dark{
