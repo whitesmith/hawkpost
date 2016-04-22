@@ -84,7 +84,7 @@ a{
 }
 
 .main{
- padding-top: $nav-size+20px;
+ padding-top: $nav-size*2;
  text-align: center;
  padding-bottom: 100px;
 }
@@ -144,6 +144,22 @@ a{
  padding: 0px;
  font-size: 14px;
  color:$main-color-dark;
+}
+
+.messages{
+  position: fixed;
+  top: $nav-size;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 500px;
+  max-width: 100%;
+  text-align: center;
+  padding: $spacing--small;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: $warning-color;
+  background-color: $warning-back;
+  border-color: $warning-border;
 }
 
 .text-dark{
