@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from django.conf import settings
+from django import forms
 from .models import User
 import requests
 
@@ -15,6 +16,9 @@ class UpdateUserInfoForm(ModelForm):
             "fingerprint",
             "keyserver_url",
         ]
+        widgets = {
+            'keyserver_url': forms.TextInput(attrs={'placeholder': 'https://pgp.mit.edu/pks/lookup?op=get&search=0x0C3B29C1685EA5C4'})
+        }
 
     def clean_public_key(self):
         # Validate the public key
