@@ -12,7 +12,7 @@ class SubmitBoxForm(Form):
     message = CharField(widget=Textarea)
 
     def clean_message(self):
-        # Quick check if the message came really encrypted
+        # Quick check if the message really came encrypted
         message = self.cleaned_data.get("message")
         lines = message.split("\r\n")
 
