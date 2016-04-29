@@ -21,6 +21,11 @@
           {{ form.organization }}
         </p>
         <p>
+          {{ form.timezone.errors }}
+          {{ form.timezone.label_tag }}
+          {{ form.timezone }}
+        </p>
+        <p>
           {{ form.fingerprint.errors }}
           {{ form.fingerprint.label_tag }}
           {{ form.fingerprint }}

@@ -15,6 +15,7 @@ class UpdateUserInfoForm(ModelForm):
             "public_key",
             "fingerprint",
             "keyserver_url",
+            "timezone"
         ]
         widgets = {
             'keyserver_url': forms.TextInput(attrs={'placeholder': 'https://pgp.mit.edu/pks/lookup?op=get&search=0x0C3B29C1685EA5C4'})
