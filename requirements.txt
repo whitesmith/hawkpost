@@ -12,6 +12,7 @@ contextlib2==0.5.1        # via raven
 defusedxml==0.4.1         # via python3-openid
 django-allauth==0.24.1
 django-dotenv==1.4.1
+django-timezone-field==2.0rc1
 django==1.9.4
 gnupg==2.0.2
 gunicorn==19.4.5
@@ -20,7 +21,7 @@ oauthlib==1.0.3           # via requests-oauthlib
 psutil==4.1.0             # via gnupg
 psycopg2==2.6.1
 python3-openid==3.0.9     # via django-allauth
-pytz==2016.3              # via celery
+pytz==2016.3              # via celery, django-timezone-field
 raven==5.12.0
 redis==2.10.5
 requests-oauthlib==0.6.1  # via django-allauth
