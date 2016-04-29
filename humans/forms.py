@@ -55,7 +55,7 @@ class UpdateUserInfoForm(ModelForm):
             begin = res.text.find("-----BEGIN PGP PUBLIC KEY BLOCK-----")
             end = res.text.find("-----END PGP PUBLIC KEY BLOCK-----")
             if (200 <= res.status_code < 300) and begin and end:
-                cleaned_data["public_key"] = res.text[begin:end+34]
+                cleaned_data["public_key"] = res.text[begin:end + 34]
             else:
                 self.add_error("keyserver_url",
                                "This url does not have a pgp key")
