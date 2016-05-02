@@ -54,7 +54,7 @@ class UpdateUserInfoForm(ModelForm):
                                "Could not access the specified url")
             begin = res.text.find("-----BEGIN PGP PUBLIC KEY BLOCK-----")
             end = res.text.find("-----END PGP PUBLIC KEY BLOCK-----")
-            if (200 <= res.status_code < 300) and begin and end:
+            if 200 <= res.status_code < 300 and begin >= 0 and end > begin:
                 cleaned_data["public_key"] = res.text[begin:end + 34]
             else:
                 self.add_error("keyserver_url",
