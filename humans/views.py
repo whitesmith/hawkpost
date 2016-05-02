@@ -28,6 +28,10 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
         messages.success(self.request, "Settings successfully updated")
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, "Please check the invalid fields")
+        return super().form_invalid(form)
+
 
 class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = User

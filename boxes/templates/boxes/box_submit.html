@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block header %}
-
+    {% include "layout/messages.html" %}
 {% endblock header %}
 
 {% block content %}
@@ -24,17 +24,17 @@
             <div class="hidden public-key-js">{{recipient.public_key}}</div>
         {% endfor %}
     </div>
-    <div>
-        <form id="box" action="{% url 'boxes_show' object.uuid %}" method="post" class="form__wrap">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" class="btn-default" value="Encrypt and Send">
-        </form>
+    <div class="form-div-js" data-action="{% url 'boxes_show' object.uuid %}" data-csrf-token="{{ csrf_token }}">
+        <noscript>
+            <p>Your browser has Javascript disabled. In order to be able to secure your content (end-to-end) this page needs JavaScript to be active. Please change this setting and refresh the page.</p>
+
+            <p>This also may be caused by the use of certain browser extensions, in this case add an exception for this page to work.</p>
+        </noscript>
     </div>
 {% endblock content %}
 
 {% block scripts %}
 {{super}}
 <script src="{% static 'javascripts/openpgp.min.js' %}"></script>
-<script src="{% static 'javascripts/encryptor.js' %}"></script>
+<script src="{% static 'javascripts/box_submit.js' %}"></script>
 {% endblock scripts %}
