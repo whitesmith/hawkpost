@@ -46,10 +46,10 @@ var deploy = require('gulp-deploy-git');
 var production = !!argv.production;
 
 var sourcePaths = {
-  stylesheets: "./hawkpost/static/stylesheets/sass/",
+  stylesheets: "./stylesheets/sass/",
 };
 
-var buildPath = "./hawkpost/static/stylesheets/";
+var buildPath = "./hawkpost/static/";
 
 // ----------------------------
 // Error notification methods
