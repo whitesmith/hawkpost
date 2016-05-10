@@ -1,2 +1,4 @@
 django-debug-toolbar
 django-extensions
+hypothesis[django]
+coverage

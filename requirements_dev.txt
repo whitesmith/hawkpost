@@ -9,21 +9,24 @@ anyjson==0.3.3            # via kombu
 billiard==3.3.0.23        # via celery
 celery==3.1.23
 contextlib2==0.5.1        # via raven
+coverage==4.0.3
 defusedxml==0.4.1         # via python3-openid
 django-allauth==0.24.1
 django-debug-toolbar==1.4
 django-dotenv==1.4.1
 django-extensions==1.6.1
 django-timezone-field==2.0rc1
-django==1.9.4
+django==1.9.6
+fake-factory==0.5.3       # via hypothesis
 gnupg==2.0.2
 gunicorn==19.4.5
+hypothesis[django]==3.1.3
 kombu==3.0.35             # via celery
 oauthlib==1.0.3           # via requests-oauthlib
 psutil==4.1.0             # via gnupg
 psycopg2==2.6.1
 python3-openid==3.0.9     # via django-allauth
-pytz==2016.3              # via celery, django-timezone-field
+pytz==2016.3              # via celery, django-timezone-field, hypothesis
 raven==5.12.0
 redis==2.10.5
 requests-oauthlib==0.6.1  # via django-allauth
