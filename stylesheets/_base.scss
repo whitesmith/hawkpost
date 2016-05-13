@@ -92,6 +92,11 @@ a{
  margin: auto;
 }
 
+.no-navbar{
+  margin-top: -$nav-size;
+  margin-bottom: $nav-size;
+}
+
 .main-title{
   font-size: 32px;
   color: $main-color;
@@ -188,6 +193,11 @@ a{
 .text-bold{
   font-weight: 600;
 }
+
+.text-left{
+  text-align: left;
+}
+
 
 .full-height{
   height: 100%;
