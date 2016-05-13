@@ -131,16 +131,22 @@ a{
   background: rgba($light, 0.2);
   padding: 20px;
   margin: 10px;
-  min-height: 150px;
+  min-height: 105px;
   height: auto;
-}
-
-.how__box--big{
-  min-height: 165px;
-  height: auto;
+  @media (min-width: 768px) {
+     min-height: 165px;
+  }
 }
 
 .how__num{
+  color:$main-color;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0px;
+  padding:0px 0px 5px;
+}
+
+.how__tittle{
   color:$main-color;
   font-weight: 600;
   font-size: 18px;
@@ -153,6 +159,11 @@ a{
  padding: 0px;
  font-size: 14px;
  color:$main-color-dark;
+}
+
+.how__icons{
+  margin: 5px 0px 15px;
+  font-size: 1.5rem;
 }
 
 .link-box__box{
