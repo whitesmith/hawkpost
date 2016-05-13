@@ -47,7 +47,7 @@ $(document).ready(function(){
 
     $form = $("<form></form>");
     $form.attr('id', "box").attr("action", action)
-    $form.attr("method", "post").addClass("form__wrap");
+    $form.attr("method", "post").addClass("form__wrap link-box__box");
 
     $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
     $csrfTokenField.val(csrfToken);
@@ -56,8 +56,8 @@ $(document).ready(function(){
     $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
 
     $form.append($csrfTokenField);
-    $form.append($("<p></p>").append($label).append($textArea));
-    $form.append($("<a id='encrypt-action-js' class='btn-default'>Encrypt and Send</a>"));
+    $form.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
+    $form.append($("<a id='encrypt-action-js' class='btn-default u-blockify'>Encrypt and Send</a>"));
     $formDiv.append($form);
 
     $("#encrypt-action-js").on("click", encryptContent);

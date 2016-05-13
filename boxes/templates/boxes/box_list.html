@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row center-xs">
-        <h2>Manage Boxes</h2>
+        <h2 class="text-dark">Manage Boxes</h2>
         <div class="col-xs-12">
             <ul class="box__nav">
                 <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Open">Open</a></li>
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         {% for box in object_list %}
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box">
                     <h3>{{box.name}}</h3>
                     <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>

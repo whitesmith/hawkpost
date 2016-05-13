@@ -43,6 +43,7 @@ a{
   color: $main-color;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
   &:hover{
     text-decoration: none;
     opacity: 0.7;
@@ -51,7 +52,7 @@ a{
 
 /* Temporary Remove at will */
 .hidden {
-    display:none;
+  display:none;
 }
 
 .footer{
@@ -87,6 +88,13 @@ a{
  padding-top: $nav-size*2;
  text-align: center;
  padding-bottom: 100px;
+ max-width:1170px;
+ margin: auto;
+}
+
+.no-navbar{
+  margin-top: -$nav-size;
+  margin-bottom: $nav-size;
 }
 
 .main-title{
@@ -120,18 +128,25 @@ a{
 .how__box{
   border: 1px solid $light;
   box-shadow: 0px 2px 6px 0px rgba($black,0.2);
+  background: rgba($light, 0.2);
   padding: 20px;
   margin: 10px;
-  min-height: 150px;
+  min-height: 105px;
   height: auto;
-}
-
-.how__box--big{
-  min-height: 165px;
-  height: auto;
+  @media (min-width: 768px) {
+     min-height: 165px;
+  }
 }
 
 .how__num{
+  color:$main-color;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0px;
+  padding:0px 0px 5px;
+}
+
+.how__tittle{
   color:$main-color;
   font-weight: 600;
   font-size: 18px;
@@ -145,6 +160,25 @@ a{
  font-size: 14px;
  color:$main-color-dark;
 }
+
+.how__icons{
+  margin: 5px 0px 15px;
+  font-size: 1.5rem;
+}
+
+.link-box__box{
+  @media (min-width: 768px) {
+    float: right;
+  }
+}  
+
+.link-box__info{
+  margin: $spacing--x-large 10px 0px;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
 
 .messages{
   position: fixed;
@@ -178,14 +212,33 @@ a{
   }
 }
 
+.divider{
+  width:100%;
+  border-top: 1px solid $light;
+  margin: 15px 10px 5px;
+}
+
 .text-dark{
   color:$main-color-dark;
+}
+
+.text-main{
+  color:$main-color;
 }
 
 .text-bold{
   font-weight: 600;
 }
 
+.text-left{
+  text-align: left;
+}
+
+.text-note{
+  color:$grey;
+  font-style: italic;
+  font-size: 0.9286rem;
+}
 .full-height{
   height: 100%;
 }
@@ -196,4 +249,29 @@ a{
 
 .u-blockify{
   display: block;
+}
+
+.no-margin-top{
+  margin-top: 0px;
+}
+
+.col-xxs-12{
+  @media (max-width: 640px) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.order-xs-1st{
+  order:1;
+  @media (min-width: 768px) {
+     order:2;
+  }
+}
+
+.order-xs-2nd{
+   order:2;
+  @media (min-width: 768px) {
+    order:1;
+  }
 }

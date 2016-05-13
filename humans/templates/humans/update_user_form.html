@@ -1,52 +1,72 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <h2>Update your user settings</h2>
-    <form action="" method="post" class="form__wrap">
+    <h2 class="text-dark">Update your user settings</h2>
+    <form action="" method="post" class="form__wrap form__wrap--2col">
         {% csrf_token %}
         {{ form.non_field_errors }}
-        <p>
-          {{ form.first_name.errors }}
-          {{ form.first_name.label_tag }}
-          {{ form.first_name }}
-        </p>
-        <p>
-          {{ form.last_name.errors }}
-          {{ form.last_name.label_tag }}
-          {{ form.last_name }}
-        </p>
-        <p>
-          {{ form.organization.errors }}
-          {{ form.organization.label_tag }}
-          {{ form.organization }}
-        </p>
-        <p>
-          {{ form.timezone.errors }}
-          {{ form.timezone.label_tag }}
-          {{ form.timezone }}
-        </p>
-        <p>
-          {{ form.fingerprint.errors }}
-          {{ form.fingerprint.label_tag }}
-          {{ form.fingerprint }}
-        </p>
-        <p class="label__info">
-          <span>Warning!</span>
-          <br>
-          You can provide the public key in a static away or provide a link to
-          your key in a public key server so we can fetch it for you
-          (recommended).
-        </p>
-         <p>
-          {{ form.keyserver_url.errors }}
-          {{ form.keyserver_url.label_tag }}
-          {{ form.keyserver_url }}
-        </p>
-        <p>
-          {{ form.public_key.errors }}
-          {{ form.public_key.label_tag }}
-          {{ form.public_key }}
-        </p>
+        <div class="row">
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.first_name.errors }}
+              {{ form.first_name.label_tag }}
+              {{ form.first_name }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.last_name.errors }}
+              {{ form.last_name.label_tag }}
+              {{ form.last_name }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.organization.errors }}
+              {{ form.organization.label_tag }}
+              {{ form.organization }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.timezone.errors }}
+              {{ form.timezone.label_tag }}
+              {{ form.timezone }}
+            </div>
+          </div>
+          <div class="divider">
+          </div>           
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.fingerprint.errors }}
+              {{ form.fingerprint.label_tag }}
+              {{ form.fingerprint }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+             <div class="form__block">
+              {{ form.keyserver_url.errors }}
+              {{ form.keyserver_url.label_tag }}
+              {{ form.keyserver_url }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.public_key.errors }}
+              {{ form.public_key.label_tag }}
+              {{ form.public_key }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <p class="label__info">
+              <span>Warning!</span>
+              <br>
+              You can provide the public key in a static away or provide a link to
+              your key in a public key server so we can fetch it for you
+              (recommended).
+            </p>
+          </div>
+        </div>
         <input type="submit" class="btn-default" value="Save"></input>
     </form>
     <small> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" request.user.id %}">here</a></small>
