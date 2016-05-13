@@ -46,7 +46,7 @@ var deploy = require('gulp-deploy-git');
 var production = !!argv.production;
 
 var sourcePaths = {
-  stylesheets: "./stylesheets/sass/",
+  stylesheets: "./stylesheets/",
 };
 
 var buildPath = "./hawkpost/static/";
