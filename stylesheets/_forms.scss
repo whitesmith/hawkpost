@@ -1,5 +1,5 @@
 .form__wrap{
-	width: 350px;
+	width: $form-width;
 	max-width: 100%;
     margin: $spacing--large auto;
     border: 1px solid $light;
@@ -7,6 +7,13 @@
     padding: $spacing--small  $spacing--medium;
     text-align: left;
     background: rgba($light, 0.2);
+}
+
+.form__wrap--2col{
+	width: $form-width;
+	@media (min-width: 640px) {
+     width: $form-width*2;
+  	}
 }
 
 textarea{
@@ -38,6 +45,9 @@ input{
 	}
 }
 
+.form__block{
+	margin: 5px 0px;
+}
 .label__info{
 	span{
 		font-weight: 600;
@@ -47,6 +57,9 @@ input{
     background: rgba($main-color, 0.2);
     color:$main-color-dark;
     border-radius: 4px;
+    @media (min-width: 640px) {
+     margin-top: 33px;
+  	}
 }
 
 .box-list{

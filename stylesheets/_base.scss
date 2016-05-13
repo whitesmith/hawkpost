@@ -200,6 +200,12 @@ a{
   }
 }
 
+.divider{
+  width:100%;
+  border-top: 1px solid $light;
+  margin: 15px 10px 5px;
+}
+
 .text-dark{
   color:$main-color-dark;
 }
