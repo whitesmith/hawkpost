@@ -87,6 +87,8 @@ a{
  padding-top: $nav-size*2;
  text-align: center;
  padding-bottom: 100px;
+ max-width:1170px;
+ margin: auto;
 }
 
 .main-title{
@@ -196,4 +198,11 @@ a{
 
 .u-blockify{
   display: block;
+}
+
+.col-xxs-12{
+  @media (max-width: 640px) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }
