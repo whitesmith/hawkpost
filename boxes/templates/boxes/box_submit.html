@@ -13,29 +13,8 @@
         </a>
         <p class="main-title__sub">sending your confidential information safely</p>
     </div>
-    <div class="row">
-       <div class="col-xs-12">
-            <div>
-                <p>The following people will receive the messages:</p>
-                <p> Name: {{object.owner.first_name}} {{object.owner.last_name}} </p>
-                <p> Email: {{object.owner.email}}</p>
-                <p> Key fingerprint: {{object.owner.fingerprint}}</p>
-            </div>
-            <div>
-                Description:
-                {{object.description}}
-            </div>
-            <div class="hidden">
-                The following people will receive the messages:
-                {% for recipient in object.recipients.all %}
-                    <p> Name: {{recipient.first_name}} {{recipient.last_name}}</p>
-                    <p> Email: {{recipient.email}}</p>
-                    <p> Key fingerprint: {{recipient.fingerprint}}</p>
-                    <div class="hidden public-key-js">{{recipient.public_key}}</div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-xs-12">
+    <div class="row center-xs">
+        <div class="col-xs-12 col-sm-6">
             <div class="form-div-js" data-action="{% url 'boxes_show' object.uuid %}" data-csrf-token="{{ csrf_token }}">
                 <noscript>
                     <p>Your browser has Javascript disabled. In order to be able to secure your content (end-to-end) this page needs JavaScript to be active. Please change this setting and refresh the page.</p>
@@ -44,7 +23,30 @@
                 </noscript>
             </div>
         </div>
-
+       <div class="col-xs-12 col-sm-6">
+            <div class="link-box__info">
+                <div class="text-bold text-dark">
+                    <h3 class="text-main">{{object.description}}</h3>
+                </div>
+                <br>
+                <div>
+                    <i class="text-note">The following people will receive the messages:</i>
+                    <p><span class="text-bold text-dark">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
+                    <p><span class="text-bold text-dark">Email: </span>{{object.owner.email}}</p>
+                    <p><span class="text-bold text-dark">Key fingerprint: </span>{{object.owner.fingerprint}}</p>
+                </div>
+                
+                <div class="hidden">
+                    The following people will receive the messages:
+                    {% for recipient in object.recipients.all %}
+                        <p> Name: {{recipient.first_name}} {{recipient.last_name}}</p>
+                        <p> Email: {{recipient.email}}</p>
+                        <p> Key fingerprint: {{recipient.fingerprint}}</p>
+                        <div class="hidden public-key-js">{{recipient.public_key}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>    
 {% endblock content %}
 

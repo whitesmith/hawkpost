@@ -154,6 +154,20 @@ a{
  color:$main-color-dark;
 }
 
+.link-box__box{
+  @media (min-width: 768px) {
+    float: right;
+  }
+}  
+
+.link-box__info{
+  margin: $spacing--x-large 10px 0px;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+
 .messages{
   position: fixed;
   top: $nav-size;
@@ -190,6 +204,10 @@ a{
   color:$main-color-dark;
 }
 
+.text-main{
+  color:$main-color;
+}
+
 .text-bold{
   font-weight: 600;
 }
@@ -198,7 +216,11 @@ a{
   text-align: left;
 }
 
-
+.text-note{
+  color:$grey;
+  font-style: italic;
+  font-size: 0.9286rem;
+}
 .full-height{
   height: 100%;
 }
@@ -209,6 +231,10 @@ a{
 
 .u-blockify{
   display: block;
+}
+
+.no-margin-top{
+  margin-top: 0px;
 }
 
 .col-xxs-12{
