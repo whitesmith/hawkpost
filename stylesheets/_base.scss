@@ -243,3 +243,17 @@ a{
     max-width: 100%;
   }
 }
+
+.order-xs-1st{
+  order:1;
+  @media (min-width: 768px) {
+     order:2;
+  }
+}
+
+.order-xs-2nd{
+   order:2;
+  @media (min-width: 768px) {
+    order:1;
+  }
+}

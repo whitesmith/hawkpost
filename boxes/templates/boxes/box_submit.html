@@ -14,7 +14,7 @@
         <p class="main-title__sub">sending your confidential information safely</p>
     </div>
     <div class="row center-xs">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 order-xs-2nd">
             <div class="form-div-js" data-action="{% url 'boxes_show' object.uuid %}" data-csrf-token="{{ csrf_token }}">
                 <noscript>
                     <p>Your browser has Javascript disabled. In order to be able to secure your content (end-to-end) this page needs JavaScript to be active. Please change this setting and refresh the page.</p>
@@ -23,7 +23,7 @@
                 </noscript>
             </div>
         </div>
-       <div class="col-xs-12 col-sm-6">
+       <div class="col-xs-12 col-sm-6 order-xs-1st">
             <div class="link-box__info">
                 <div class="text-bold text-dark">
                     <h3 class="text-main">{{object.description}}</h3>
