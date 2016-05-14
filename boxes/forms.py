@@ -1,6 +1,6 @@
 from django.forms import ModelForm, Form, CharField, Textarea
 from .models import Box
-import datetime
+from django.utils import timezone
 
 
 class CreateBoxForm(ModelForm):
@@ -17,7 +17,7 @@ class CreateBoxForm(ModelForm):
 
         if expires_at:
             # Check if the expiration date is a past date
-            if datetime.now() > expires_at:
+            if timezone.now() > expires_at:
                 self.add_error('expires_at', "This expiration date is not valid")
         return expires_at
 
