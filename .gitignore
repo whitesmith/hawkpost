@@ -9,3 +9,4 @@ hawkpost/staticfiles/
 /node_modules
 celerybeat-schedule.db
 trustdb.gpg
+.coverage
