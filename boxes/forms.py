@@ -10,15 +10,12 @@ class CreateBoxForm(ModelForm):
 
     def clean_expires_at(self):
         # Validate the expiration date
-        if self.expires_at:
-            expires_at = self.expires_at
-        else:
-            expires_at = self.cleaned_data.get("expires_at", "")
-
+        expires_at = self.cleaned_data.get("expires_at", "")
+        current_tz = timezone.get_current_timezone()
         if expires_at:
             # Check if the expiration date is a past date
-            if timezone.now() > expires_at:
-                self.add_error('expires_at', "This expiration date is not valid")
+            if timezone.localtime(timezone.now(), current_tz) > expires_at:
+                self.add_error('expires_at', "The date must be on the future.")
         return expires_at
 
 
