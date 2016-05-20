@@ -234,10 +234,19 @@ a{
   text-align: left;
 }
 
+.text-right{
+  text-align: right;
+}
+
 .text-note{
   color:$grey;
   font-style: italic;
   font-size: 0.9286rem;
+}
+
+.text-by{
+  color: $main-color-dark;
+  margin: 20px 0px 0px;
 }
 .full-height{
   height: 100%;

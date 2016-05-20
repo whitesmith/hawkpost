@@ -6,11 +6,12 @@
         <h2 class="text-dark">Manage Boxes</h2>
         <div class="col-xs-12">
             <ul class="box__nav">
-                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Open">Open</a></li>
-                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=On Queue">On Queue</a></li>
-                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Sent">Sent</a></li>
-                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Expired">Expired</a></li>
-                <li class="box__nav__item"><a href="{% url "boxes_list" %}?display=Closed">Closed</a></li>
+                <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if request.get_full_path = '/box/?display=Open' %}active{% endif %}">Open</a></li>
+
+                <li ><a href="{% url "boxes_list" %}?display=On Queue" class="box__nav__item {% if request.get_full_path = '/box/?display=On%20Queue' %}active{% endif %}">On Queue</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=Sent"class="box__nav__item {% if request.get_full_path = '/box/?display=Sent' %}active{% endif %}">Sent</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if request.get_full_path = '/box/?display=Expired' %}active{% endif %}">Expired</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if request.get_full_path = '/box/?display=Closed' %}active{% endif %}">Closed</a></li>
             </ul>
         </div>
     </div>
@@ -18,13 +19,18 @@
         {% for box in object_list %}
             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box">
-                    <h3>{{box.name}}</h3>
-                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    <h3 class="box__title">{{box.name}}</h3>
                     <p class="box__desc">{{box.description}}</p>
-                    <p class="box__info"><span>Created:</span><br>{{box.created_at}}</p>
-                    <p class="box__info"><span>Status:</span><br>{{box.get_status_display}}</p>
-                    <p class="box__info"><span>Last Activity:</span><br>{{box.updated_at}}</p>
-                    <p class="box__info"><span>Expiraton Date:</span><br>{{box.expires_at}}</p>
+                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    
+                    <p class="box__info">
+                        <span class="text-dark text-bold">Created on:</span>
+                        <span>{{box.created_at}}</span>
+                    </p>
+                    <p class="box__info">
+                        <span class="text-dark text-bold">Expires on:</span>
+                        <span>{{box.expires_at}}</span>    
+                    </p>
                     {% if box.status == allow_delete %}
                         <form action="{% url "boxes_delete" box.id %}" method="post">
                             {% csrf_token %}
