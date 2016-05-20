@@ -9,7 +9,6 @@
         </div>
         <ul class="col-xs-6 end-xs">
             <li class="navbar__link"><a href="{% url "pages_index" %}">Home</a></li>
-            <li class="navbar__link"><a href="{% url "pages_about" %}">About</a></li>
             {# <li class="navbar__link"><a href="">Support</a></li> #}
             {% if request.user.is_authenticated %}
                 <li class="navbar__link"><a href="{% url "boxes_create" %}">New Box</a></li>
@@ -20,6 +19,8 @@
                 <li class="navbar__link"><a href="{% url "account_login" %}">Sign In</a></li>
                 <li class="navbar__link"><a href="{% url "account_signup" %}">Sign Up</a></li>
             {% endif %}
+            <li class="navbar__link"><a href="{% url "pages_about" %}">About</a></li>
+
         </ul>
     </div>
 </nav>
