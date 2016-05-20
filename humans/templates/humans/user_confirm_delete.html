@@ -10,7 +10,7 @@
     </div>
     <div class="row center-xs">
         <div class="col-xs-12 col-sm-5 col-sm-6 col-md-5">
-            <form class="form__wrap" method="post" action="{% url "humans_delete" request.user.id %}">
+            <form class="form__wrap" method="post" action="{% url "humans_delete" %}">
                 {% csrf_token %}
                 <div>
                     <label for="current-password">Insert your current password:</label>
