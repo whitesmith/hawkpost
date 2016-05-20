@@ -76,20 +76,25 @@ input{
     margin:5px;
     padding: 10px;
     background: rgba($light, 0.2);
+    text-align: left;
+}
+
+.box__title{
+	color: $main-color-dark;
+	margin: $spacing--small 0px;
+	padding: 0px $spacing--x-small;
 }
 
 .box__desc{
 	font-size: 15px;
 	color: $main-color;
+	padding: 0px $spacing--x-small;
 }
 
 .box__info{
 	font-size: 13px;
 	color: $grey;
-	span{
-		color: $main-color-dark;
-		font-weight: 600;
-	}
+	padding: 0px $spacing--x-small;
 }
 
 .box__nav{

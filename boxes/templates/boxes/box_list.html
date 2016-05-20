@@ -18,13 +18,18 @@
         {% for box in object_list %}
             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box">
-                    <h3>{{box.name}}</h3>
-                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    <h3 class="box__title">{{box.name}}</h3>
                     <p class="box__desc">{{box.description}}</p>
-                    <p class="box__info"><span>Created:</span><br>{{box.created_at}}</p>
-                    <p class="box__info"><span>Status:</span><br>{{box.get_status_display}}</p>
-                    <p class="box__info"><span>Last Activity:</span><br>{{box.updated_at}}</p>
-                    <p class="box__info"><span>Expiraton Date:</span><br>{{box.expires_at}}</p>
+                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
+                    
+                    <p class="box__info">
+                        <span class="text-dark text-bold">Created on:</span>
+                        <span>{{box.created_at}}</span>
+                    </p>
+                    <p class="box__info">
+                        <span class="text-dark text-bold">Expires on:</span>
+                        <span>{{box.expires_at}}</span>    
+                    </p>
                     {% if box.status == allow_delete %}
                         <form action="{% url "boxes_delete" box.id %}" method="post">
                             {% csrf_token %}
