@@ -101,13 +101,19 @@ input{
 	margin-bottom: $spacing--x-large;
 	padding: $spacing--small 0px;
 	border-top: 1px solid $main-color50;
-    border-bottom: 1px solid $main-color50;
+    border-bottom: 1px solid $main-color50; 
+    li{
+    	display: inline;
+    }  
 }
 
 .box__nav__item{
 	display: inline;
 	padding: 0px $spacing--small 0px;
 	font-weight: 600;
+	&.active{
+		color:$main-color-dark;
+	}
 }
 
 
