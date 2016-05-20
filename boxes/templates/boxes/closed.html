@@ -1,14 +1,29 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    This link is no longer active. The reason could be due to one of the following possibilities:
+<div class="container-fluid">
+	<div class="row center-xs">
+       <div class="col-xs-12 col-sm-8">
+		    <h3 class="text-dark">This link is no longer active.<br>
+		    The reason could be due to one of the following possibilities:</h3>
 
-    <ul>
-        <li>The link expired</li>
-        <li>The recipient closed or deactivated the link.</li>
-        <li>It was already submitted.</li>
-        <li>The recipient did not suply a valid public key, in order to correctly encrypt the content.</li>
-    </ul>
+		    <ul class="">
+		    	<i class="fa fa-exclamation-triangle fa-lg text-dark" aria-hidden="true"></i>
+		        <li>The link expired</li>
+		        <br>
+		        <i class="fa fa-exclamation-triangle fa-lg text-dark" aria-hidden="true"></i>
+		        <li>The recipient closed or deactivated the link.</li>
+		         <br>
+		        <i class="fa fa-exclamation-triangle fa-lg text-dark" aria-hidden="true"></i>
+		        <li>It was already submitted.</li>
+		         <br>
+		        <i class="fa fa-exclamation-triangle fa-lg text-dark" aria-hidden="true"></i>
+		        <li>The recipient did not suply a valid public key, in order to correctly encrypt the content.</li>
+		         <br>
+		    </ul>
 
-    In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.
+		    <p class="text-note">In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.</p>
+    	</div> 
+   </div> 
+</div>
 {% endblock content %}
