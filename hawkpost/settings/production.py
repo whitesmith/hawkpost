@@ -49,8 +49,7 @@ USE_X_FORWARDED_HOST = True
 
 
 # Allauth Config
-ACCOUNT_EMAIL_VERIFICATION = True
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 
 # Sentry Configuration
