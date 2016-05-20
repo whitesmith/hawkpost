@@ -37,11 +37,14 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
     model = User
     success_url = reverse_lazy("pages_index")
 
+    def get_object(self, queryset=None):
+        return self.request.user
+
     def delete(self, request, *args, **kwargs):
         current_pw = request.POST.get("current_password", "")
         if authenticate(username=request.user.username, password=current_pw):
-            logout(request)
             response = super().delete(request, *args, **kwargs)
+            logout(request)
             messages.success(request,
                              "Account deleted successfully."
                              "We hope you comeback soon.")

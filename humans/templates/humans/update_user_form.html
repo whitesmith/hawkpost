@@ -35,7 +35,7 @@
             </div>
           </div>
           <div class="divider">
-          </div>           
+          </div>
           <div class="col-xxs-12 col-xs-6">
             <div class="form__block">
               {{ form.fingerprint.errors }}
@@ -69,5 +69,5 @@
         </div>
         <input type="submit" class="btn-default" value="Save"></input>
     </form>
-    <small> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" request.user.id %}">here</a></small>
+    <small> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" %}">here</a></small>
 {% endblock content %}
