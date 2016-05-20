@@ -13,7 +13,7 @@ def key_state(key):
         result = results[0]
     for key in keys:
         if key["fingerprint"] == result["fingerprint"]:
-            exp_timestamp = int(key["expires"]) if key["expires"] else ""
+            exp_timestamp = int(key["expires"]) if key["expires"] else 0
             expires = datetime.fromtimestamp(exp_timestamp, timezone.utc)
             if key["trust"] == "r":
                 state = "revoked"
