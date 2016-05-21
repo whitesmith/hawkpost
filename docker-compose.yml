@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:8000"
+    env_file: .env
+    volumes:
+      - ".:/code"
+
+  celery:
+    build: .
+    command: celery -A hawkpost worker --beat -l info
+    env_file: .env
+    volumes:
+      - ".:/code"
+      - "./gpg_home:/home/user/.gnupg"
+
+  mail_debug:
+    build: .
+    command: python manage.py mail_debug 0.0.0.0:1025
+    ports:
+      - "1025:1025"
+    env_file: .env
+    volumes:
+      - ".:/code"
+
+  db:
+    image: postgres:9
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=hawkpost
+      - POSTGRES_PASSWORD=hawkpost
+      - POSTGRES_DB=hawkpost_dev
+
+  redis:
+    image: redis:3-alpine
+    ports:
+      - "6379:6379"
