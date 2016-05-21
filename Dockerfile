@@ -1,0 +1,18 @@
+FROM python:3
+
+ENV HOME /home/user
+RUN useradd --create-home --home-dir $HOME user \
+  && chown -R user:user $HOME
+
+COPY requirements_dev.txt /tmp/
+RUN pip install -r /tmp/requirements_dev.txt
+
+USER user
+
+COPY . /code
+WORKDIR /code
+
+VOLUME ["/code"]
+VOLUME ["$HOME/.gnupg"]
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
