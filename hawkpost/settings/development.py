@@ -13,6 +13,15 @@ DATABASES = {
     }
 }
 
+# If the DB_HOST was specified it is overriding the default connection
+if 'DB_HOST' in os.environ:
+    DATABASES['default']['HOST'] = os.environ.get("DB_HOST")
+    DATABASES['default']['PORT'] = os.environ.get("DB_PORT", 5432)
+    DATABASES['default']['USER'] = os.environ.get("DB_USER")
+    DATABASES['default']['NAME'] = os.environ.get("DB_NAME", "hawkpost_dev")
+
+    if 'DB_PASSWORD' in os.environ:
+        DATABASES['default']['PASSWORD'] = os.environ.get("DB_PASSWORD")
 
 # Development Applications
 INSTALLED_APPS += (
@@ -20,5 +29,5 @@ INSTALLED_APPS += (
     'django_extensions'
 )
 
-EMAIL_HOST = "127.0.0.1"
-EMAIL_PORT = 1025
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "127.0.0.1")
+EMAIL_PORT = os.environ.get("EMAIL_PORT", 1025)
