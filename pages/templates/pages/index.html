@@ -5,7 +5,7 @@
     <h1 class="main-title">HAWKPOST</h1>
     <p class="main-title__sub">when a pigeon is not enough!</p>
     <div>
-    	<p class="main-desc">If receiving confidential information in non-safe places makes you crazy, Hawkpost is for you!<br> 
+    	<p class="main-desc">If receiving confidential information in non-safe places makes you crazy, Hawkpost is for you!<br>
 		No email, no tricky programs, just a link to share information safely.</p>
     </div>
     <div class="row how">
@@ -30,7 +30,7 @@
                 </div>
     			<p class="how__text">Send the link to share information - Wait for your friend write/upload the information.</p>
     		</div>
-            
+
     	</div>
     	<div class="col-xs-12 col-sm-4">
             <p class="how__num">3</p>
@@ -49,20 +49,38 @@
         </div>
         <div class="col-xs-12 col-sm-6">
             <div class="how__box how__box--big">
+                <p class="how__tittle">How does it work behind the curtain?</p>
+                <p class="how__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you some secret information. When that person visits the link and submits the sensitive data, it is encrypted in their browser with your PGP public key and then forwarded to your email address. No data is stored by us.</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="how__box how__box--big">
                 <p class="how__tittle">Why should I use this?</p>
-                <p class="how__text">This is the easiest way to receive sensible information. No one needs to install anything, you share your link, the person who receive it just need to submit the information and our hawk will send it for you.</p>
+                <p class="how__text">This is the easiest way to securly receive sensible information from people who don't know how to use PGP. No one needs to install anything, you share your link, the person who receive it just need to submit the information and our hawk will send it for you.</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6">
             <div class="how__box how__box--big">
                 <p class="how__tittle">Why is this safe?</p>
-                <p class="how__text">Hawkpost uses end-to-end encryption, which means that the submitted information will be only visible for who create the link and we will not save it.</p>
+                <p class="how__text">Hawkpost uses end-to-end encryption, through the OpenPGP.js library, which means that the submitted information will be only visible to who create the link (the owner of the key) and we will not save it.</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="how__box how__box--big">
+                <p class="how__tittle">Is my link permanently available?</p>
+                <p class="how__text">No, at the momment you can create as many unique links as you want, one for each ocasion. All of them should have an expiration date, however other configuration possibilities will be added soon, so you can adapt the functionality to your own use cases.</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6">
             <div class=" how__box how__box--big">
                 <p class="how__tittle">What type of information can be submitted?</p>
-                <p class="how__text">Any text information can be submitted and only be visible for the person who create the link.  </p>
+                <p class="how__text">Any text information can be submitted and only be visible for the person who created the link.</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class=" how__box how__box--big">
+                <p class="how__tittle">Can I check the code?</p>
+                <p class="how__text">Sure, the system is open-source. You can either check the code before using this service or deploy it on your own server. The source can be found <a href="https://github.com/whitesmith/hawkpost">here</a></p>
             </div>
         </div>
     </div>
