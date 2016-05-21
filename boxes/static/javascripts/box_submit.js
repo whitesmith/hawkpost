@@ -4,7 +4,7 @@ $(document).ready(function(){
   */
   var encryptContent = function(){
     var options = {
-      data: $("#id_message").val(),
+      data: 'Content-Type: text/plain\n\n' + $("#id_message").val(),
       // Works for one key, need to change when multiple recipients is available
       publicKeys: openpgp.key.readArmored($(".public-key-js").html()).keys
     };
