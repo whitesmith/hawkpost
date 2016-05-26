@@ -10,7 +10,7 @@ $(document).ready(function() {
     try{
       var result = document.execCommand('copy');
       if(result){
-        $this.text("Link copied with success");
+        $this.text("URL copied with success");
       } else {
         $this.text("Unable to copy to clipboard");
       }

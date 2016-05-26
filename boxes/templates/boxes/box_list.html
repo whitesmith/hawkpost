@@ -23,7 +23,7 @@
                     <h3 class="box__title">{{box.name}}</h3>
                     <p class="box__desc">{{box.description}}</p>
                     <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
-                    <button class="btn-dark copy-to-clipboard-js" data-src='box-{{box.id}}-url'>Copy above link</button>
+                    <button class="btn-dark copy-to-clipboard-js" data-src='box-{{box.id}}-url'>Copy the above URL</button>
 
                     <p class="box__info">
                         <span class="text-dark text-bold">Created on:</span>
