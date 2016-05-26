@@ -1,4 +1,5 @@
 {% extends "layout/base.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="container-fluid">
@@ -21,15 +22,16 @@
                 <div class="box">
                     <h3 class="box__title">{{box.name}}</h3>
                     <p class="box__desc">{{box.description}}</p>
-                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}"></input>
-                    
+                    <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
+                    <button class="btn-dark copy-to-clipboard-js" data-src='box-{{box.id}}-url'>Copy above link</button>
+
                     <p class="box__info">
                         <span class="text-dark text-bold">Created on:</span>
                         <span>{{box.created_at}}</span>
                     </p>
                     <p class="box__info">
                         <span class="text-dark text-bold">Expires on:</span>
-                        <span>{{box.expires_at}}</span>    
+                        <span>{{box.expires_at}}</span>
                     </p>
                     {% if box.status == allow_delete %}
                         <form action="{% url "boxes_delete" box.id %}" method="post">
@@ -43,3 +45,7 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'javascripts/box_list.js' %}"></script>
+{% endblock scripts %}
