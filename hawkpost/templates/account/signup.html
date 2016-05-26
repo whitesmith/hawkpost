@@ -9,6 +9,18 @@
 
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
+<p>You can also sign up with one of your existing third party accounts such as:</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+  <br>
+  <div class="login-or">{% trans 'Ortherwise' %} use the following form to create your new account:</div>
+
+</div>
+
 <form class="signup form__wrap" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
