@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from humans.models import User
 from datetime import timedelta
-from .models import Box
+from .models import Box, Message
 from .forms import CreateBoxForm, SubmitBoxForm
 from .tasks import process_email
 import random
@@ -40,9 +40,7 @@ def create_boxes(user):
     user.own_boxes.create(
         name="closed", expires_at=not_expired, status=Box.CLOSED)
     user.own_boxes.create(
-        name="onqueue", expires_at=not_expired, status=Box.ONQUEUE)
-    user.own_boxes.create(
-        name="sent", expires_at=not_expired, status=Box.SENT)
+        name="sent", expires_at=not_expired, status=Box.DONE)
     user.own_boxes.create(
         name="expired", expires_at=expired, status=Box.EXPIRED)
 
@@ -65,7 +63,8 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "some text",
-            "expires_at": "31/31/2000 24:00"
+            "expires_at": "31/31/2000 24:00",
+            "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
@@ -77,7 +76,8 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "some text",
-            "expires_at": "12/12/2020 23:00"
+            "expires_at": "12/12/2020 23:00",
+            "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), True)
@@ -89,7 +89,8 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "some text",
-            "expires_at": "12/12/2012 23:00"
+            "expires_at": "12/12/2012 23:00",
+            "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
@@ -101,7 +102,8 @@ class BoxFormTests(TestCase):
         data = {
             "name": "",
             "description": "some text",
-            "expires_at": "12/12/2020 23:00"
+            "expires_at": "12/12/2020 23:00",
+            "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
@@ -113,7 +115,31 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "",
-            "expires_at": "12/12/2020 23:00"
+            "expires_at": "12/12/2020 23:00",
+            "max_messages": 1
+        }
+        form = CreateBoxForm(data)
+        self.assertEqual(form.is_valid(), True)
+
+    def test_invalid_max_messages(self):
+        """
+            Description is optional
+        """
+        data = {
+            "name": "some name",
+            "description": "",
+            "expires_at": "12/12/2020 23:00",
+            "max_messages": 0
+        }
+        form = CreateBoxForm(data)
+        self.assertEqual(form.is_valid(), False)
+
+    def test_never_expires(self):
+        data = {
+            "name": "some name",
+            "description": "",
+            "never_expires": True,
+            "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), True)
@@ -177,20 +203,9 @@ class BoxListViewTests(TestCase):
         user = create_and_login_user(self.client)
         create_boxes(user)
         response = self.client.get(reverse("boxes_list"),
-                                   {'display': 'Sent'})
+                                   {'display': 'Done'})
         for box in response.context["object_list"]:
-            self.assertEqual(box.status, Box.SENT)
-
-    def test_on_queue_boxes_list(self):
-        """
-            With on queue query param queue boxes are shown
-        """
-        user = create_and_login_user(self.client)
-        create_boxes(user)
-        response = self.client.get(reverse("boxes_list"),
-                                   {'display': 'On Queue'})
-        for box in response.context["object_list"]:
-            self.assertEqual(box.status, Box.ONQUEUE)
+            self.assertEqual(box.status, Box.DONE)
 
 
 class MailTaskTests(TestCase):
@@ -203,6 +218,9 @@ class MailTaskTests(TestCase):
         user = create_and_login_user(self.client)
         create_boxes(user)
         initial_box = user.own_boxes.all()[0]
-        process_email(initial_box.id, {"message": ENCRYPTED_MESSAGE})
+        message = initial_box.messages.create()
+        process_email(message.id, {"message": ENCRYPTED_MESSAGE})
         after_box = user.own_boxes.get(id=initial_box.id)
-        self.assertEqual(after_box.status, Box.SENT)
+        after_msg = after_box.messages.get(id=message.id)
+        #self.assertEqual(message.status, Message.SENT)
+        self.assertEqual(after_msg.sent_at, after_box.last_sent_at)

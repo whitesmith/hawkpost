@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.utils import timezone
-from .models import Box, Message
+from .models import Message
 
 from celery import shared_task
 
