@@ -7,12 +7,11 @@
         <h2 class="text-dark">Manage Boxes</h2>
         <div class="col-xs-12">
             <ul class="box__nav">
-                <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if request.get_full_path = '/box/?display=Open' %}active{% endif %}">Open</a></li>
-
-                <li ><a href="{% url "boxes_list" %}?display=On Queue" class="box__nav__item {% if request.get_full_path = '/box/?display=On%20Queue' %}active{% endif %}">On Queue</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Sent"class="box__nav__item {% if request.get_full_path = '/box/?display=Sent' %}active{% endif %}">Sent</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if request.get_full_path = '/box/?display=Expired' %}active{% endif %}">Expired</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if request.get_full_path = '/box/?display=Closed' %}active{% endif %}">Closed</a></li>
+                <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=On Queue" class="box__nav__item {% if display_status == 'On Queue' %}active{% endif %}">On Queue</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=Sent"class="box__nav__item {% if display_status == 'Sent' %}active{% endif %}">Sent</a></li>
+                <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
+                {# <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li> #}
             </ul>
         </div>
     </div>
@@ -21,7 +20,6 @@
             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box">
                     <h3 class="box__title">{{box.name}}</h3>
-                    <p class="box__desc">{{box.description}}</p>
                     <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
                     <button class="btn-dark copy-to-clipboard-js" data-src='box-{{box.id}}-url'>Copy the above URL</button>
 
@@ -42,6 +40,23 @@
                 </div>
             </div>
         {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}"> &lt; Previous</a>
+            {% endif %}
+
+            {% if paginator.num_pages > 1 %}
+                <span class="current">
+                   Page {{ page_obj.number }} of {{ paginator.num_pages }}
+                </span>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}">Next &gt; </a>
+            {% endif %}
+        </span>
     </div>
 </div>
 {% endblock content %}
