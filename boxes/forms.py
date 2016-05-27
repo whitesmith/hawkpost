@@ -6,16 +6,26 @@ from django.utils import timezone
 class CreateBoxForm(ModelForm):
     class Meta:
         model = Box
-        fields = ["name", "description", "expires_at"]
+        fields = [
+            "name",
+            "description",
+            "expires_at",
+            "max_messages",
+            "never_expires"]
 
     def clean_expires_at(self):
         # Validate the expiration date
         expires_at = self.cleaned_data.get("expires_at", "")
+        never_expires = self.cleaned_data.get("never_expires", "")
         current_tz = timezone.get_current_timezone()
         if expires_at:
             # Check if the expiration date is a past date
             if timezone.localtime(timezone.now(), current_tz) > expires_at:
                 self.add_error('expires_at', "The date must be on the future.")
+        if not expires_at and not never_expires:
+            self.add_error('expires_at',
+                           "This field is required, unless box is set to "
+                           "never expire.")
         return expires_at
 
 
