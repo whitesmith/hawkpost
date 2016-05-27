@@ -10,3 +10,14 @@ hawkpost/staticfiles/
 celerybeat-schedule.db
 trustdb.gpg
 .coverage
+
+# gpg homedir for signing
+gpg_home
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
