@@ -13,6 +13,8 @@ from .tasks import process_email
 
 class BoxListView(LoginRequiredMixin, ListView):
     template_name = "boxes/box_list.html"
+    page_kwarg = 'page'
+    paginate_by = 15
 
     def get_queryset(self):
         display_param = self.request.GET.get("display", "Open")
@@ -25,6 +27,7 @@ class BoxListView(LoginRequiredMixin, ListView):
         context["form"] = CreateBoxForm()
         context["domain"] = settings.SITE_DOMAIN
         context["allow_delete"] = Box.OPEN
+        context["display_status"] = self.request.GET.get("display", "Open")
         return context
 
 
