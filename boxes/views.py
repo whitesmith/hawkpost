@@ -7,7 +7,7 @@ from django.utils import timezone
 from humans.views import LoginRequiredMixin
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
-from .models import Box, Membership
+from .models import Box, Membership, Message
 from .tasks import process_email
 
 
@@ -147,10 +147,10 @@ class BoxSubmitView(UpdateView):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
             message = self.object.messages.create()
-            process_email.delay(message.id, form.cleaned_data)
-            if self.object.messages.count() == self.object.max_messages:
+            if self.object.messages.count() >= self.object.max_messages:
                 self.object.status = Box.DONE
                 self.object.save()
+            process_email.delay(message.id, form.cleaned_data)
             return self.response_class(
                 request=self.request,
                 template="boxes/success.html",

@@ -36,6 +36,12 @@
                         <span>{{box.expires_at}}</span>
                     </p>
                     {% endif %}
+                    {% if box.messages.count %}
+                    <p class="box__info">
+                        <span class="text-dark text-bold">Last sent:</span>
+                        <span>{{box.last_sent_at}}</span>
+                    </p>
+                    {% endif %}
                     {% if box.status == allow_actions %}
                         <form action="{% url "boxes_close" box.id %}" method="post">
                             {% csrf_token %}

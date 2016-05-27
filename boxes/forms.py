@@ -9,9 +9,9 @@ class CreateBoxForm(ModelForm):
         fields = [
             "name",
             "description",
+            "never_expires",
             "expires_at",
-            "max_messages",
-            "never_expires"]
+            "max_messages"]
 
     def clean_expires_at(self):
         # Validate the expiration date
