@@ -173,7 +173,7 @@ a{
 }  
 
 .link-box__info{
-  margin: $spacing--x-large 10px 0px;
+  margin: $spacing--large 10px 0px;
   @media (min-width: 768px) {
     text-align: left;
   }
@@ -258,6 +258,10 @@ a{
 
 .u-blockify{
   display: block;
+}
+
+.no-margin{
+  margin: 0px;
 }
 
 .no-margin-top{
