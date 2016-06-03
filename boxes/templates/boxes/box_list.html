@@ -30,7 +30,7 @@
                         <span class="text-dark text-bold">Created on:</span>
                         <span>{{box.created_at}}</span>
                     </p>
-                    {% if not box.never_expires %}
+                    {% if box.expires_at %}
                     <p class="box__info">
                         <span class="text-dark text-bold">Expires on:</span>
                         <span>{{box.expires_at}}</span>

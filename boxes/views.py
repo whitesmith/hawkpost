@@ -129,7 +129,7 @@ class BoxSubmitView(UpdateView):
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
         now = timezone.now()
-        if not self.object.never_expires and now > self.object.expires_at:
+        if self.object.expires_at and now > self.object.expires_at:
             self.object.status = Box.EXPIRED
             self.object.save()
 

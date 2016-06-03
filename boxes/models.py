@@ -32,7 +32,6 @@ class Box(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     expires_at = models.DateTimeField(null=True, blank=True)
-    never_expires = models.BooleanField(default=False)
 
     status = models.IntegerField(choices=STATUSES, default=OPEN)
     max_messages = models.PositiveIntegerField(default=1, validators=[
