@@ -66,6 +66,27 @@
               (recommended).
             </p>
           </div>
+          <div class="divider">
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <div class="form__block">
+              {{ form.server_signed.errors }}
+              {{ form.server_signed.label_tag }}
+              {{ form.server_signed }}
+            </div>
+          </div>
+          <div class="col-xxs-12 col-xs-6">
+            <p class="label__info">
+              <span>Experimental feature!</span>
+              <br>
+              The "Server signed" feature allows you to improve your security
+              by allowing us to sign the (<strong>already encrypted</strong>)
+              message with our key, so you can make sure the message really
+              came from us. For now, the only e-mail clients confirmed to
+              display this correctly are <strong>Evolution</strong> and
+              <strong>mutt</strong>.
+            </p>
+          </div>
         </div>
         <input type="submit" class="btn-default" value="Save"></input>
     </form>

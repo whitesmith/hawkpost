@@ -15,7 +15,12 @@ def process_email(message_id, form_data):
     msg = form_data["message"]
     subject = "New submission to your box: {}".format(box)
 
-    email = GPGSignedEncryptedMessage(subject, msg,
+    if box.owner.server_signed:
+        email = GPGSignedEncryptedMessage(subject, msg,
+                                      settings.DEFAULT_FROM_EMAIL,
+                                      [box.owner.email])
+    else:
+        email = EmailMultiAlternatives(subject, msg,
                                       settings.DEFAULT_FROM_EMAIL,
                                       [box.owner.email])
 
