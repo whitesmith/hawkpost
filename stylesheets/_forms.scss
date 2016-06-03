@@ -128,7 +128,7 @@ input{
     text-align: center;
     cursor: pointer;
     &:hover{
-    	background: $main-color-dark;
+    	background: rgba($main-color,0.7);
     }
 }
 
@@ -136,7 +136,7 @@ input{
 	@extend .btn-default;
 	background: $main-color-dark;
 	&:hover{
-    	background: rgba($main-color-dark,0.9);
+    	background: rgba($main-color-dark,0.7);
     }
 }
 
