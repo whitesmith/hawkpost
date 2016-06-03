@@ -138,6 +138,24 @@ a{
   }
 }
 
+.how__box--big{
+  padding: 20px;
+}
+  
+
+.faq__box{
+  border: 1px solid $light;
+  box-shadow: 0px 2px 6px 0px rgba($black,0.2);
+  background: rgba($light, 0.2);
+  margin:10px;
+  flex-basis: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  @media (min-width: 768px) {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
 .how__num{
   color:$main-color;
   font-weight: 600;
