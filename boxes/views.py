@@ -7,7 +7,7 @@ from django.utils import timezone
 from humans.views import LoginRequiredMixin
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
-from .models import Box, Membership
+from .models import Box, Membership, Message
 from .tasks import process_email
 
 
@@ -19,15 +19,16 @@ class BoxListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         display_param = self.request.GET.get("display", "Open")
         query_filter = Box.get_status(display_param)
-        return self.request.user.own_boxes.filter(
-            status=query_filter).order_by("-created_at")
+        own_boxes = self.request.user.own_boxes
+        return own_boxes.filter(status=query_filter).order_by(
+            "-created_at").prefetch_related("messages")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = CreateBoxForm()
         context["domain"] = settings.SITE_DOMAIN
-        context["allow_delete"] = Box.OPEN
         context["display_status"] = self.request.GET.get("display", "Open")
+        context["allow_actions"] = Box.OPEN
         return context
 
 
@@ -82,6 +83,27 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
         return HttpResponseRedirect(success_url)
 
 
+class BoxCloseView(LoginRequiredMixin, UpdateView):
+    http_method_names = [u'post']
+    success_url = reverse_lazy("boxes_list")
+    model = Box
+
+    def get_queryset(self):
+        return self.request.user.own_boxes.all()
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.status != Box.OPEN:
+            messages.error(request, "Only open boxes can be closed")
+        else:
+            self.object.status = Box.CLOSED
+            self.object.save()
+            msg = "Box {} was closed".format(self.object.name)
+            messages.success(request, msg)
+        success_url = self.get_success_url()
+        return HttpResponseRedirect(success_url)
+
+
 class BoxSubmitView(UpdateView):
     template_name = "boxes/box_submit.html"
     form_class = SubmitBoxForm
@@ -107,7 +129,7 @@ class BoxSubmitView(UpdateView):
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
         now = timezone.now()
-        if now > self.object.expires_at:
+        if self.object.expires_at and now > self.object.expires_at:
             self.object.status = Box.EXPIRED
             self.object.save()
 
@@ -124,9 +146,11 @@ class BoxSubmitView(UpdateView):
     def post(self, request, *args, **kwargs):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
-            process_email.delay(self.object.id, form.cleaned_data)
-            self.object.status = Box.ONQUEUE
-            self.object.save()
+            message = self.object.messages.create()
+            if self.object.messages.count() >= self.object.max_messages:
+                self.object.status = Box.DONE
+                self.object.save()
+            process_email.delay(message.id, form.cleaned_data)
             return self.response_class(
                 request=self.request,
                 template="boxes/success.html",

@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MinValueValidator
 import uuid
 
 
@@ -7,15 +8,13 @@ class Box(models.Model):
 
     OPEN = 10
     EXPIRED = 20
-    SENT = 30
+    DONE = 30
     CLOSED = 40
-    ONQUEUE = 50
 
     STATUSES = (
         (OPEN, 'Open'),
         (EXPIRED, 'Expired'),
-        (SENT, 'Sent'),
-        (ONQUEUE, 'On Queue'),
+        (DONE, 'Done'),
         (CLOSED, "Closed")
     )
 
@@ -32,8 +31,12 @@ class Box(models.Model):
                                         through_fields=('box', 'user'))
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    expires_at = models.DateTimeField()
+    expires_at = models.DateTimeField(null=True, blank=True)
+
     status = models.IntegerField(choices=STATUSES, default=OPEN)
+    max_messages = models.PositiveIntegerField(default=1, validators=[
+                                               MinValueValidator(1)])
+
     last_sent_at = models.DateTimeField(null=True)
 
     class Meta:
@@ -48,9 +51,8 @@ class Box(models.Model):
         return {
             "Open": Box.OPEN,
             "Expired": Box.EXPIRED,
-            "Sent": Box.SENT,
-            "Closed": Box.CLOSED,
-            "On Queue": Box.ONQUEUE
+            "Done": Box.DONE,
+            "Closed": Box.CLOSED
         }.get(name, Box.OPEN)
 
 
@@ -78,3 +80,22 @@ class Membership(models.Model):
 
     def __str__(self):
         return "{}.{}".format(self.id, self.get_access_display())
+
+
+class Message(models.Model):
+
+    ONQUEUE = 10
+    SENT = 20
+    FAILED = 30
+
+    STATUSES = (
+        (ONQUEUE, 'OnQueue'),
+        (SENT, "Sent"),
+        (FAILED, "Failed")
+    )
+
+    box = models.ForeignKey("Box", related_name='messages')
+    status = models.IntegerField(choices=STATUSES, default=ONQUEUE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    sent_at = models.DateTimeField(null=True, blank=True)
