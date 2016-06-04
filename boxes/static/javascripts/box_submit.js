@@ -3,8 +3,11 @@ $(document).ready(function(){
     Encrypt the current form content
   */
   var encryptContent = function(){
+    var serverSigned = $('.server-signed-js').text() === 'True';
+    var contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
+
     var options = {
-      data: 'Content-Type: text/plain\n\n' + $("#id_message").val(),
+      data: contentType + $("#id_message").val(),
       // Works for one key, need to change when multiple recipients is available
       publicKeys: openpgp.key.readArmored($(".public-key-js").html()).keys
     };
