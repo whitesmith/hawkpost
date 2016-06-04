@@ -168,21 +168,13 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# GPG settings
+# GPG keyring for importing users' public keys
 GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
-# Change to False to disable this feature
-SIGN_ENABLED = True
 
-# This feature is only called from a worker process
-#
-# You should run the worker processes in diferent machines or at least with
-# a diferent user, with diferent permissions
-#
-# These env vars should not be setup on the webfacing process
-if SIGN_ENABLED:
-    GPG_SIGN_DIR = os.environ.get("SIGN_DIR")
-    GPG_SIGN_KEY = os.environ.get("SIGN_KEY")
-    GPG_SIGN_KEY_PASSPHRASE = os.environ.get("SIGN_KEY_PASSPHRASE")
+# GPG keyring for server-signing messages
+GPG_SIGN_DIR = os.environ.get("SIGN_DIR")
+GPG_SIGN_KEY = os.environ.get("SIGN_KEY")
+GPG_SIGN_KEY_PASSPHRASE = os.environ.get("SIGN_KEY_PASSPHRASE")
 
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
