@@ -11,6 +11,7 @@ class User(AbstractUser):
     public_key = models.TextField(blank=True, null=True)
     fingerprint = models.CharField(null=True, blank=True, max_length=50)
     keyserver_url = models.URLField(null=True, blank=True)
+    server_signed = models.BooleanField(default=False)
 
     timezone = TimeZoneField(default='UTC')
 
