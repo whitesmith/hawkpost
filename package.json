@@ -1,19 +1,19 @@
 {
-  "name": "loqutor",
-  "version": "0.0.1",
-  "description": "Loqutor, the perfect companion for radialists with no time to lose.",
-  "main": "index.js",
+  "name": "Hawkpost",
+  "version": "9000.0.1",
+  "description": "Generate links that users can use to submit messages encrypted with your public key.",
+  "main": "",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whitesmith/loqutor.git"
+    "url": "git+https://github.com/whitesmith/hawkpost.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Whitesmith Co",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whitesmith/loqutor/issues"
+    "url": "https://github.com/whitesmith/hawkpost/issues"
   },
-  "homepage": "https://github.com/whitesmith/loqutor#readme",
+  "homepage": "https://hawkpost.co",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.11.2",
