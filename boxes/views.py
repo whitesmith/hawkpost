@@ -41,13 +41,14 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         # Check if user can create boxes:
-        if request.user.has_setup_complete():
-            return super().dispatch(request, *args, **kwargs)
-        else:
+        user = request.user
+        if user.is_authenticated() and not user.has_setup_complete():
             msg = "To start using hawkpost," \
                   " you must add a valid public key"
             messages.error(request, msg)
             return HttpResponseRedirect(reverse_lazy("humans_update"))
+
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         self.object = Box(**form.cleaned_data)

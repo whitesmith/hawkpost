@@ -13,7 +13,7 @@ defusedxml==0.4.1         # via python3-openid
 django-allauth==0.24.1
 django-dotenv==1.4.1
 django-timezone-field==2.0rc1
-django==1.9.6
+django==1.9.7
 gnupg==2.0.2
 gunicorn==19.4.5
 kombu==3.0.35             # via celery
