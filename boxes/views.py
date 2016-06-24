@@ -28,6 +28,7 @@ class BoxListView(LoginRequiredMixin, ListView):
         context["form"] = CreateBoxForm()
         context["domain"] = settings.SITE_DOMAIN
         context["display_status"] = self.request.GET.get("display", "Open")
+        context["new_box"] = self.request.GET.get("new_box", "")
         context["allow_actions"] = Box.OPEN
         return context
 
@@ -60,7 +61,8 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
                                   user=self.request.user)
 
         messages.success(self.request, "Box created successfully")
-        return HttpResponseRedirect(self.get_success_url())
+        url = self.get_success_url() + "?new_box={}".format(self.object.uuid)
+        return HttpResponseRedirect(url)
 
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
