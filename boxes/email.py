@@ -13,6 +13,7 @@ from django.utils.encoding import force_text
 
 from gnupg import GPG
 
+
 # Create a message from an encrypted body and sign it.
 # It assumes the following format:
 #
@@ -23,22 +24,25 @@ from gnupg import GPG
 #  +--application/pgp-signature
 #
 # References:
-# RFC 1847: Security Multiparts for MIME: Multipart/Signed and Multipart/Encrypted
+# RFC 1847:
+#   Security Multiparts for MIME: Multipart/Signed and Multipart/Encrypted
 # https://tools.ietf.org/html/rfc1847
 #
 # RFC 3156: MIME Security with OpenPGP
 # https://tools.ietf.org/html/rfc3156
 class GPGSignedEncryptedMessage(EmailMessage):
-    DIGEST_ALGO='SHA512'
+    DIGEST_ALGO = 'SHA512'
 
     def _set_headers(self, msg):
         msg['Subject'] = self.subject
         msg['From'] = self.extra_headers.get('From', self.from_email)
-        msg['To'] = self.extra_headers.get('To', ', '.join(map(force_text, self.to)))
+        msg['To'] = self.extra_headers.get(
+            'To', ', '.join(map(force_text, self.to)))
         if self.cc:
             msg['Cc'] = ', '.join(map(force_text, self.cc))
         if self.reply_to:
-            msg['Reply-To'] = self.extra_headers.get('Reply-To', ', '.join(map(force_text, self.reply_to)))
+            msg['Reply-To'] = self.extra_headers.get(
+                'Reply-To', ', '.join(map(force_text, self.reply_to)))
 
         # Email header names are case-insensitive (RFC 2045), so we have to
         # accommodate that when doing comparisons.
@@ -55,8 +59,8 @@ class GPGSignedEncryptedMessage(EmailMessage):
 
     def _create_multipart_encrypted(self):
         multipart_encrypted = MIMEMultipart(
-                _subtype="encrypted",
-                protocol="application/pgp-encrypted")
+            _subtype="encrypted",
+            protocol="application/pgp-encrypted")
         del multipart_encrypted['MIME-Version']
 
         # Control info
@@ -64,7 +68,7 @@ class GPGSignedEncryptedMessage(EmailMessage):
             'Version: 1\r\n',
             _subtype="pgp-encrypted",
             _encoder=encode_noop
-          )
+        )
         del control_info_part['MIME-Version']
 
         # Stream (the encrypted data)
@@ -74,7 +78,7 @@ class GPGSignedEncryptedMessage(EmailMessage):
             _encoder=encode_7or8bit)
         del stream_part['MIME-Version']
 
-        ## Attach both to the multipart
+        # Attach both to the multipart
         multipart_encrypted.attach(control_info_part)
         multipart_encrypted.attach(stream_part)
 
@@ -89,10 +93,10 @@ class GPGSignedEncryptedMessage(EmailMessage):
             gpg.import_keys(key)
 
         signature = gpg.sign(data,
-           passphrase=settings.GPG_SIGN_KEY_PASSPHRASE,
-           clearsign=False,
-           detach=True,
-           digest_algo=digest_algo)
+                             passphrase=settings.GPG_SIGN_KEY_PASSPHRASE,
+                             clearsign=False,
+                             detach=True,
+                             digest_algo=digest_algo)
 
         return str(signature)
 
@@ -107,9 +111,9 @@ class GPGSignedEncryptedMessage(EmailMessage):
     def message(self):
         # Construct multipart/signed
         multipart_signed = SafeMIMEMultipart(
-                _subtype="signed",
-                micalg="pgp-{0}".format(self.DIGEST_ALGO.lower()),
-                protocol="application/pgp-signature")
+            _subtype="signed",
+            micalg="pgp-{0}".format(self.DIGEST_ALGO.lower()),
+            protocol="application/pgp-signature")
 
         self._set_headers(multipart_signed)
 
@@ -123,7 +127,7 @@ class GPGSignedEncryptedMessage(EmailMessage):
         # Construct the signature part from signature
         signature_part = self._create_signature_part(signature)
 
-        ## Attach both the multipart/encrypted and the signature
+        # Attach both the multipart/encrypted and the signature
         multipart_signed.attach(multipart_encrypted)
         multipart_signed.attach(signature_part)
 
