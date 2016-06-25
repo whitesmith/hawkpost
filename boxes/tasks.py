@@ -8,6 +8,7 @@ from .email import GPGSignedEncryptedMessage
 
 from celery import shared_task
 
+
 @shared_task
 def process_email(message_id, form_data):
     message = Message.objects.get(id=message_id)
@@ -17,12 +18,12 @@ def process_email(message_id, form_data):
 
     if box.owner.server_signed:
         email = GPGSignedEncryptedMessage(subject, msg,
-                                      settings.DEFAULT_FROM_EMAIL,
-                                      [box.owner.email])
+                                          settings.DEFAULT_FROM_EMAIL,
+                                          [box.owner.email])
     else:
         email = EmailMultiAlternatives(subject, msg,
-                                      settings.DEFAULT_FROM_EMAIL,
-                                      [box.owner.email])
+                                       settings.DEFAULT_FROM_EMAIL,
+                                       [box.owner.email])
 
     # Output e-mail message for debug purposes
     # with open('email.mbox', 'w') as f:
