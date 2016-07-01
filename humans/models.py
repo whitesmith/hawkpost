@@ -19,3 +19,11 @@ class User(AbstractUser):
         if self.public_key and self.fingerprint:
             return True
         return False
+
+    @property
+    def has_public_key(self):
+        return True if self.public_key else False
+
+    @property
+    def has_keyserver_url(self):
+        return True if self.keyserver_url else False
