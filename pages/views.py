@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.conf import settings
 
 
 class HomeView(TemplateView):
@@ -7,5 +8,16 @@ class HomeView(TemplateView):
 
 
 class AboutView(TemplateView):
-    """View for the Index page of the website"""
+    """View for the About page of the website"""
     template_name = "pages/about.html"
+
+
+class HelpView(TemplateView):
+    """View for the About page of the website"""
+    template_name = "pages/help.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["support_email"] = settings.SUPPORT_EMAIL
+        context["sign_key_url"] = settings.GPG_SIGN_KEY_URL
+        return context
