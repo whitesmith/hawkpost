@@ -45,7 +45,7 @@
 
             <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you are ready to go. We strongly recommend to also fill your personal data so it can show up in the submission page.</p>
 
-            <p>To find your key's fingerprint, you can run the follow command if you are using <i>GPG</i>:</p>
+            <p>To find your key's fingerprint, you can run the follow command if you are using <i>Gnu Privacy Guard (GPG)</i>:</p>
 
             <pre>gpg --fingerprint &lt;key id or email&gt;</pre>
 
@@ -61,17 +61,17 @@
 
             <p>Since Hawkpost works only through email, the easiest way to setup a key pair is using your email client or through a compatible plugin/extension if it doesn't support PGP natively. There are lots of articles in the Internet about this topic, so it is easy to find some that match your specific setup.</p>
 
-            <p>As an example, in the next paragraphs we point to some tutorials addressing popular mail clients.</p>
+            <p>As an example, in the next paragraphs we point to some tutorials addressing popular email clients.</p>
 
             <p>For webmail users, one tool that is very useful is <a href="https://www.mailvelope.com/">Mailvelope</a>. This browser extension will allow you to open the encrypted messages and also generate your keys. An introductory tutorial can be found <a href="https://www.youtube.com/watch?v=Ro3MSBS9w-A">here</a>.</p>
 
-            <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/">Enigmail</a>, that like Mailvelope it will allow you to decrypt Hawkpost messages and manage your keys as well. An introduction can be <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">found here</a>.</p>
+            <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/">Enigmail</a>, that like Mailvelope it will allow you to decrypt Hawkpost messages and manage your keys as well. An introduction can be found <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">here</a>.</p>
 
             <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x">this guide to Apple Mail</a>.</p>
         </div>
         <div class="col-xs-12 col-sm-9 col-md-8">
             <h2 id="verify-sender">Experimental: How to verify Hawkpost signature</h2>
-            <p>Recently we introduced a feature that is still on an experimental phase, that allows the user to be sure that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> mail clients, but we hope to bring it to other clients soon.</p>
+            <p>Recently we introduced a feature that is still on an experimental phase, that allows the user to be sure that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients, but we hope to bring it to other clients soon.</p>
 
             <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the below image), this way all messages will be signed with our sign key that you can import to your keyring in order to verify. <a href="{{sign_key_url}}">The key can be found here</a></p>
 
