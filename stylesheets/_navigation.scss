@@ -1,3 +1,6 @@
+
+ /*----------#NAVBAR--------------------------*/
+
 .navbar {
     position: fixed;
     width: 100%;
@@ -8,6 +11,7 @@
     color: #FFFFFF;
     padding: 0px $spacing--medium;
     z-index: 3;
+    font-family: Textfont;
 }
 
 .navbar__header {
@@ -30,4 +34,37 @@
 
 .navbar a {
     color: #FFFFFF;
+
 }
+    /*----------#FOOTER--------------------------*/
+  
+
+    
+    .footer {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-top: solid 0.5px rgba(255, 255, 255, 0.2);
+        color: $main-color;
+        padding: 0px $spacing--medium;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: $footer-size;
+        p {
+            margin: 0px;
+            font-size: $small-text-size;
+        }
+        a {
+            font-size: $small-text-size;
+            color: $main-color;
+            margin-top: 1vh;
+            svg {
+                height: 11px;
+                width: 75px;
+            }
+        }
+    }
+    
+    .footer__links {
+        text-align: right;
+    }
