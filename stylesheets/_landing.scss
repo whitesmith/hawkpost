@@ -18,7 +18,15 @@
     
     .sec_0 {
         padding: 20vh 0 50vh;
+        
+       
     }
+
+.first{
+        font-size: 40px;
+    padding-bottom: -2vh;
+        
+        }
     /*---------#SCROLL-BUTTON-------*/
     
     .span {
@@ -74,7 +82,7 @@
 
 
 
-    /*-----------------------#SECTION_1------------*/
+    /*-----------------------#SECTION_1-------------*/
     
     .sec_1 {
         padding: 20vh 0 3vh;
@@ -84,7 +92,7 @@
     
     .logo-big {
         //padding-top: 15px;
-        width: 40vw;
+        width: 30vw;
         height: auto;
         //margin-left: -0.5rem;
     }
@@ -92,6 +100,7 @@
     .main-desc {
         padding-top: 0px;
         text-align: left;
+        display: inline-flex;
     }
     /*-----------------------#SECTION_2--------------*/
     
@@ -129,10 +138,11 @@
 
 
     /*-------#HOW_TO-------*/
-  
  
-    
-    .how__box {
+
+
+
+.how__box {
         align-items: center;
         padding: 20px;
         margin: 10px;
