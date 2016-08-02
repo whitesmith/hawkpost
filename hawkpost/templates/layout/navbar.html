@@ -2,22 +2,22 @@
 <nav class="navbar">
     <div class="row middle-xs full-height">
         <div class="col-xs-6">
-            <a href="{% url "pages_index" %}" class="row start-xs middle-xs full-height">     
+            <a href="{% url "pages_index" %}" class="row start-xs middle-xs full-height">
                 <h1 class="navbar__header">HAWKPOST</h1>
                 <img src="{% static 'images/logow.png' %}" class="logo">
             </a>
         </div>
         <ul class="col-xs-6 end-xs">
             <li class="navbar__link"><a href="{% url "pages_index" %}">Home</a></li>
-            {# <li class="navbar__link"><a href="">Support</a></li> #}
-            {% if request.user.is_authenticated %}
-                <li class="navbar__link"><a href="{% url "boxes_create" %}">New Box</a></li>
-                <li class="navbar__link"><a href="{% url "boxes_list" %}">Boxes</a></li>
-                <li class="navbar__link"><a href="{% url "humans_update" %}">Settings</a></li>
-                <li class="navbar__link"><a href="{% url "account_logout" %}">Logout</a></li>
+            {#
+            <li class="navbar__link"><a href="">Support</a></li> #} {% if request.user.is_authenticated %}
+            <li class="navbar__link"><a href="{% url "boxes_create" %}">New Box</a></li>
+            <li class="navbar__link"><a href="{% url "boxes_list" %}">Boxes</a></li>
+            <li class="navbar__link"><a href="{% url "humans_update" %}">Settings</a></li>
+            <li class="navbar__link"><a href="{% url "account_logout" %}">Logout</a></li>
             {% else %}
-                <li class="navbar__link"><a href="{% url "account_login" %}">Sign In</a></li>
-                <li class="navbar__link"><a href="{% url "account_signup" %}">Sign Up</a></li>
+            <li class="navbar__link"><a href="{% url "account_login" %}">Sign In</a></li>
+            <li class="navbar__link"><a href="{% url "account_signup" %}">Sign Up</a></li>
             {% endif %}
             <li class="navbar__link"><a href="{% url "pages_about" %}">About</a></li>
 
