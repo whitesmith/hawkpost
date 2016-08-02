@@ -50,4 +50,5 @@ $small-text-size:11px;
     @return $map;
 }
 
-$typescale:( heading1: ( xs: 1.5rem, md: 2rem, lg: 2rem), text1: ( xs: 1rem, md: 1.8rem, lg: 1rem), );
+$typescale:( heading1: ( xs: 1.5rem, md: 2rem, lg: 2rem), 
+	text1: ( xs: 1rem, md: 1.8rem, lg: 1rem), smalltext1: ( xs: 0.8rem, md: 1.5rem, lg: 0.9rem), );

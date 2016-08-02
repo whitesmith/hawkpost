@@ -1,67 +1,5 @@
-.form__wrap{
-	width: $form-width;
-	max-width: 100%;
-    margin: $spacing--large auto;
-    border: 1px solid $light;
-    box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-    padding: $spacing--small  $spacing--medium;
-    text-align: left;
-    background: rgba($light, 0.2);
-}
 
-.form__wrap--2col{
-	width: $form-width;
-	@media (min-width: 640px) {
-     width: $form-width*2;
-  	}
-}
-
-textarea{
-	width: 100%;
-	border-color: $light;
-	&:focus{
-		outline: none;
-		border: 1px solid rgba($main-color-dark, 0.5);
-		box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
-	}
-}
-
-label{
-	display: block;
-	padding: 10px 0px 5px;
-	font-size:  0.875rem;
-	color: $main-color-dark;
-}
-
-input{
-	width: 100%;
-	border: 1px solid  $light;
-	
-	padding: 10px;
-	&:focus{
-		outline: none;
-		border: 1px solid rgba($main-color-dark, 0.5);
-		box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
-	}
-}
-
-.form__block{
-	margin: 5px 0px;
-}
-.label__info{
-	span{
-		font-weight: 600;
-	}
-	font-size: 12px;
-	padding: $spacing--medium;
-    background: rgba($main-color, 0.2);
-    color:$main-color-dark;
-    border-radius: 4px;
-    @media (min-width: 640px) {
-     margin-top: 33px;
-  	}
-}
-
+/*
 .box-list{
   width: 950px;
   margin: auto;
@@ -69,6 +7,11 @@ input{
   margin-top: 30px;
   padding: 20px 10px;
 }
+*/
+
+/*------------------------------------*\
+ #BOXES
+\*------------------------------------*/
 
 .box{
 	border: 1px solid $light;
@@ -97,11 +40,15 @@ input{
 	padding: 0px $spacing--x-small;
 }
 
+/*------------------------------------*\
+ #BOXES_NAV_BAR_STATUS
+\*------------------------------------*/
+
 .box__nav{
 	margin-bottom: $spacing--x-large;
 	padding: $spacing--small 0px;
-	border-top: 1px solid $main-color50;
-    border-bottom: 1px solid $main-color50; 
+	//border-top: 1px solid $main-color50;
+    //border-bottom: 1px solid $main-color50; 
     li{
     	display: inline;
     }  
@@ -109,18 +56,23 @@ input{
 
 .box__nav__item{
 	display: inline;
-	padding: 0px $spacing--small 0px;
+	border: solid white;
+	border-width: 1px;
+	padding: 10px $spacing--small 10px;
 	font-weight: 600;
 	&.active{
 		color:$main-color-dark;
 	}
 }
 
+/*------------------------------------*\
+ #BOXES_BUTTONS
+\*------------------------------------*/
 
 .btn-default{
 	border: none;
     padding: $spacing--small;
-    background: $main-color;
+    background: black;
     color: white;
     width: 100%;
     transition: all 0.2s ease-in-out;

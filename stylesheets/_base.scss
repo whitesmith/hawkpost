@@ -61,6 +61,20 @@
             font-size: map-deep-get($typescale, 'text1', 'lg');
         }
     }
+
+    .smalltext {
+        font-family: TextFont;
+        color: $main-color50;
+        @media only screen and (min-width: 200px) and (max-width: 480px) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'xs');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'sm');
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1600px) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+        }
+    }
     /*------------------------------------*\
   #BODY
 \*------------------------------------*/

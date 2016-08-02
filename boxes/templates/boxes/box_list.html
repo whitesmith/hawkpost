@@ -4,9 +4,9 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row center-xs">
-        <h2 class="text-dark">Manage Boxes</h2>
+        <h2 class="text-dark title ">Manage Boxes</h2>
         <div class="col-xs-12">
-            <ul class="box__nav">
+            <ul class="box__nav smalltext">
                 <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
                 <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
                 <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
@@ -22,7 +22,7 @@
                     <p class="box__desc">{{box.description}}</p>
 
                     <input type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
-                    <button class="btn-default copy-to-clipboard-js" data-src='box-{{box.id}}-url'>Copy the above URL</button>
+                    <button class="btn-default copy-to-clipboard-js" data-src='box-{{box.id}}-url'>COPY URL</button>
 
                     <p>Messages:{{box.messages.count}}/{{box.max_messages}}</p>
 
