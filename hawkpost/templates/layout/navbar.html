@@ -1,13 +1,13 @@
 {% load staticfiles %}
 <nav class="navbar">
     <div class="row middle-xs full-height">
-        <div class="col-xs-6">
+        <div class="col-xs-2 start-xs col-sm-2 col-lg-2">
             <a href="{% url "pages_index" %}" class="row start-xs middle-xs full-height">
-                <h1 class="navbar__header">HAWKPOST</h1>
-                <img src="{% static 'images/logow.png' %}" class="logo">
+               <!-- <h1 class="navbar__header">HAWKPOST</h1>-->
+                 <img src="{% static 'images/logow.png' %}" class="logo">
             </a>
         </div>
-        <ul class="col-xs-6 end-xs">
+        <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
             <li class="navbar__link"><a href="{% url "pages_index" %}">Home</a></li>
              
             <li class="navbar__link"><a href="">Support</a></li>   {% if request.user.is_authenticated %}

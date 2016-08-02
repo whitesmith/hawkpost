@@ -12,6 +12,19 @@
     padding: 0px $spacing--medium;
     z-index: 3;
     font-family: Textfont;
+    
+    @media only screen and (min-width: 458px) and (max-width: 767px) {
+   width: 120%;
+    
+    }
+    
+    @media only screen and (max-width: 457px) and (min-width: 395px){
+   font-size: 80%;
+         width: 120%;
+    
+    }
+    
+    
 }
 
 .navbar__header {
@@ -27,9 +40,19 @@
 
 .logo {
     display: inline;
-    width: 20vw;
+    width: 150px;
     margin-left: $spacing--small;
     z-index: 10;
+    
+     @media only screen and (min-width: 200px) and (max-width: 767px) {
+           width: 100px;
+        }
+     @media only screen and (max-width: 457px) and (min-width: 395px) {
+   
+         width: 80px;
+    
+    } 
+    
 }
 
 .navbar a {
