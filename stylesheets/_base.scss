@@ -44,11 +44,29 @@
         @media (min-width: 800px) and (max-width: 1280px) {
             font-size: map-deep-get($typescale, 'heading1', 'sm');
         }
-        @media screen and (min-width: 1200px) and (max-width: 1600px) {
+        @media screen and (min-width: 1280px)   {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
     }
     
+
+ .subtitle {
+        font-family: BoldFont;
+        color:$black;
+        @media only screen and (min-width: 200px) and (max-width: 480px) {
+            font-size: map-deep-get($typescale, 'sub1', 'xs');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'sub1', 'sm');
+        }
+        @media screen and (min-width: 1280px)   {
+            font-size: map-deep-get($typescale, 'sub1', 'lg');
+        }
+    }
+    
+
+
+
     .text {
         font-family: TextFont;
         color: $main-color50;
@@ -58,7 +76,7 @@
         @media (min-width: 800px) and (max-width: 1280px) {
             font-size: map-deep-get($typescale, 'text1', 'sm');
         }
-        @media screen and (min-width: 1200px) and (max-width: 1600px) {
+        @media screen and (min-width: 1280px)  {
             font-size: map-deep-get($typescale, 'text1', 'lg');
         }
     }
@@ -72,7 +90,7 @@
         @media (min-width: 800px) and (max-width: 1280px) {
             font-size: map-deep-get($typescale, 'smalltext1', 'sm');
         }
-        @media screen and (min-width: 1200px) and (max-width: 1600px) {
+        @media screen and (min-width: 1280px) {
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');
         }
     }

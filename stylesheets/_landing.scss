@@ -109,24 +109,35 @@
         @media only screen and (min-width: 200px) and (max-width: 800px) {
             padding: 10vh 0 8vh;}
       
-        @media screen and (min-width: 800px) and (max-width: 2200px) {
+        @media screen and (min-width: 800px) {
              padding: 25vh 0 25vh;
         }
    
     }
     
     .logo-big {
-        //padding-top: 15px;
-        width: 320px;
+        
+        width: 350px;
         height: auto;
-        //margin-left: -0.5rem;
+        margin-right: 50px;
+        
+         
     }
+
+
+.batatas{padding-right: 10px;}
+
     
     .main-desc {
         padding-top: 0px;
+        margin-left: 12px;
         text-align: left;
-        display: inline-flex;
+        
+         
     }
+
+.subtitle{
+margin-left: .5rem;}
     
     /*-------------#BUTTONS-------------*/
     
