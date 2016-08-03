@@ -7,6 +7,7 @@
 <div class="container-fluid">
     <div class="center-xs father">
         <h2 class="text-dark title middle-xs">Manage Boxes</h2>
+
         <div>
             <ul class="box__nav smalltext">
                 <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
@@ -16,23 +17,28 @@
             </ul>
         </div>
     </div>
+
     <div class="row">
         {% for box in object_list %}
             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box {% if box.uuid|lower == new_box %}new-box{% endif %}">
+                    <div class="col-xs-8">
                     <h3 class="box__title text">{{box.name}}</h3>
                     <p class="box__desc smalltext">{{box.description}}</p>
+                    </div>
 
+                    <div class="col-xs-7 col-xs-offset-8">
                     <form action="{% url "boxes_close" box.id %}" method="post">
-                            {% csrf_token %}
-                            <input class="btn-dark text" type="submit" value="Close"></input>
-                        </form>
-                        <form action="{% url "boxes_delete" box.id %}" method="post">
-                            {% csrf_token %}
-                            <input class="btn-dark text" type="submit" value="Delete"></input>
-                        </form>
-
+                        {% csrf_token %}
+                        <input class="btn-dark text" type="submit" value="CLOSE"></input>
+                    </form>
+                    <form action="{% url "boxes_delete" box.id %}" method="post">
+                        {% csrf_token %}
+                        <input class="btn-dark text" type="submit" value="DELETE"></input>
+                    </form>
+                    </div>
                     
+
                     {% if box.status == allow_actions %}
 
                     <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
@@ -66,6 +72,7 @@
             </div>
         {% endfor %}
     </div>
+
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
