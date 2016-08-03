@@ -7,9 +7,9 @@
 <div class="container-fluid">
     <div class="center-xs father">
         <h2 class="text-dark title middle-xs">Manage Boxes</h2>
-
         <div>
             <ul class="box__nav smalltext">
+                <li class=""><a href="#">New</a></li>
                 <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
                 <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
                 <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
