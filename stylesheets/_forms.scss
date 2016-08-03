@@ -104,6 +104,18 @@
  #BOXES_BUTTONS_&_INPUTS
 \*------------------------------------*/
 
+
+.box-content{
+z-index: 0;}
+
+.box-action{
+    z-index: 4;
+margin-top: -6vh;
+margin-left: 19.5vw;
+     
+width: 105px;
+}
+
 .btn-default{
 	border: none;
     padding: $spacing--small;
@@ -120,8 +132,8 @@
 }
 
 .btn-dark{
-	padding: 5px;
-	margin: 5px;
+	//padding: 5px;
+	//margin: 5px;
 	border-left: 1px solid white;
 	border-bottom: 1px solid white;
 	@extend .btn-default;
