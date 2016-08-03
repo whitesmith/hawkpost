@@ -50,6 +50,14 @@
 	padding: 0px $spacing--x-small;
 }
 
+/*.row {
+	.father2{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
+*/
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
 \*------------------------------------*/
@@ -112,6 +120,10 @@
 }
 
 .btn-dark{
+	padding: 5px;
+	margin: 5px;
+	border-left: 1px solid white;
+	border-bottom: 1px solid white;
 	@extend .btn-default;
 	background: none;
 	&:hover{
