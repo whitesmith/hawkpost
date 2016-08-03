@@ -12,13 +12,22 @@
         margin-bottom: $nav-size;
     }
 
-
+.sec_0, sec_1{   margin: 10px 10px 20px;}
 
     /*-----------------------#SECTION_0------------------*/
     
     .sec_0 {
         padding: 20vh 0 50vh;
+     
         
+         @media only screen and (min-width: 200px) and (max-width: 800px) {
+            padding: 20vh 0 50vh;}
+      
+        @media screen and (min-width: 800px) and (max-width: 1600px) {
+             padding: 20vh 0 50vh;
+        }
+   
+    
        
     }
 
@@ -32,7 +41,6 @@
     .span {
         display: inline;
         position: absolute;
-        top: 60vh;
         left: 50%;
         width: 24px;
         height: 24px;
@@ -43,6 +51,16 @@
         -webkit-animation: sdb05 1.5s infinite;
         animation: sdb05 1.5s infinite;
         box-sizing: border-box;
+        
+         @media only screen and (min-width: 200px) and (max-width: 800px) {
+             top: 80vh;
+         }
+      
+        @media screen and (min-width: 800px) and (max-width: 1600px) {
+               top: 60vh;
+        }
+        
+        
     }
     
     .scroll {
@@ -85,14 +103,21 @@
     /*-----------------------#SECTION_1-------------*/
     
     .sec_1 {
-        padding: 20vh 0 3vh;
-        margin: auto;
+       // padding: 20vh 0 3vh;
         margin-left: 0.5rem;
+        
+        @media only screen and (min-width: 200px) and (max-width: 800px) {
+            padding: 10vh 0 8vh;}
+      
+        @media screen and (min-width: 800px) and (max-width: 2200px) {
+             padding: 25vh 0 25vh;
+        }
+   
     }
     
     .logo-big {
         //padding-top: 15px;
-        width: 30vw;
+        width: 320px;
         height: auto;
         //margin-left: -0.5rem;
     }
@@ -102,38 +127,27 @@
         text-align: left;
         display: inline-flex;
     }
-    /*-----------------------#SECTION_2--------------*/
     
-    .sec_2 {
-        margin: auto;
-        margin-left: 0.5rem;
-        p {
-            font-family: BoldFont;
-            color: $black;
-            padding-bottom: 15vh;
-        }
-    }
     /*-------------#BUTTONS-------------*/
     
     .button {
-        width: 48vw;
+        width: 250px;
         background-color: #4ca7af;
         border: none;
         color: white;
-        padding: 15px;
+        padding:15px 0px 15px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        margin: 10px;
+        margin: 7px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         &:hover {
             background-color: #28666c;
         }
+        
+     
     }
-
-
-
-    /*-----------------------#SECTION_3--------------------*/
+    /*-----------------------#SECTION_2--------------------*/
  
 
 
@@ -162,8 +176,19 @@
     
     .how,
     .faq {
-        padding: 9vh 0px;
+       
         width: 850px;
         max-width: 100%;
         margin: auto;
+        
+        
+          @media only screen and (min-width: 200px) and (max-width: 800px) {
+              padding: 3vh 0px;
+             }
+      
+        @media screen and (min-width: 800px) and (max-width: 1600px) {
+               padding: 12vh 0px;
+        }
     }
+
+
