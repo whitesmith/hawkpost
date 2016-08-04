@@ -24,7 +24,7 @@
             padding: 20vh 0 50vh;}
       
         @media screen and (min-width: 800px) and (max-width: 1600px) {
-             padding: 20vh 0 50vh;
+             padding: 20vh 0 30vh;
         }
    
     
@@ -107,10 +107,10 @@
         margin-left: 0.5rem;
         
         @media only screen and (min-width: 200px) and (max-width: 800px) {
-            padding: 10vh 0 8vh;}
+            padding: 5vh 0 8vh;}
       
         @media screen and (min-width: 800px) {
-             padding: 25vh 0 25vh;
+             padding: 10vh 0 10vh;
         }
    
     }
@@ -137,7 +137,11 @@
     }
 
 .subtitle{
-margin-left: .5rem;}
+     @media only screen and (min-width: 200px) and (max-width: 500px) {
+         margin-left: 2rem;}
+ 
+
+}
     
     /*-------------#BUTTONS-------------*/
     
@@ -184,14 +188,29 @@ margin-left: .5rem;}
         color: $light;
         text-align: left;
     }
-    
-    .how,
+ 
+ .how img {
+width: 110px;
+height: auto;}
+  
+
+.how,
     .faq {
        
         width: 850px;
         max-width: 100%;
         margin: auto;
         
+        .subtitle{
+        
+         @media screen and (min-width: 1280px)   {
+           
+             margin-left: -50px;
+        }
+        
+        
+        
+        }
         
           @media only screen and (min-width: 200px) and (max-width: 800px) {
               padding: 3vh 0px;

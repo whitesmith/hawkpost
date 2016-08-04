@@ -20,7 +20,7 @@
 
     <div class="row">
         {% for box in object_list %}
-            <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
+            <div class="col-xxs-12 col-xs-6 col-xs-offset-3 col-sm-6 col-md-4">
                 <div class="box {% if box.uuid|lower == new_box %}new-box{% endif %}">
                    
 <!--

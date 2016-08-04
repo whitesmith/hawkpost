@@ -36,8 +36,9 @@
     
     //responsive font sizes 
     .title {
-        font-family: BoldFont;
-        padding: 3vh;
+      font-family: BoldFont;
+        color:$black;
+        padding: 2vh 0 2vh;
         @media only screen and (min-width: 200px) and (max-width: 480px) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
@@ -58,9 +59,11 @@
         }
         @media (min-width: 800px) and (max-width: 1280px) {
             font-size: map-deep-get($typescale, 'sub1', 'sm');
+             
         }
         @media screen and (min-width: 1280px)   {
             font-size: map-deep-get($typescale, 'sub1', 'lg');
+              
         }
     }
     
