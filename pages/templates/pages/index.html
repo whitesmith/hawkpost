@@ -35,7 +35,7 @@
         <div class="center-xs start-sm col-sm-offset-1">
             <button class="button   col-xs-10 col-sm-6 col-lg-6  "> YUP, IT´S FOR ME</button>
 
-            <button class="button   col-xs-10 col-sm-6 col-lg-6 ">PGP WHAT?</button>
+            <button class="button  col-xs-10 col-sm-6 col-lg-6 ">PGP WHAT?</button>
         </div>
     
 </section>
@@ -45,16 +45,16 @@
     <div class="how text">
 
 
-        <div class="col-xs-12">
-            <h3 class=" title col-xs-offset-1">HOW DOES IT WORK?</h3>
+        <div class="row col-xs-12 center-xs start-sm start-lg  ">
+            <h3 class=" title ">How Does It Work?</h3>
         </div>
 
-        <div class="col-xs-12 col-sm-7 ">
+        <div class="col-xs-12 col-sm-9">
             <!-- <p class="how__num">1</p>-->
-            <div class="how__box row center-xs ">
+            <div class="how__box row center-xs center-sm">
                 <div class="col-xs-12  col-sm-12 col-lg-6">
                     <!--<i class="fa fa-key fa-lg text-dark"></i>-->
-                    <img src="{% static 'images/icon1.png' %}" class="icons">
+                    <img src="{% static 'images/icon1.svg' %}" class="icons">
                 </div>
                 <div class="col-xs-9 col-sm-8  col-lg-6">
                     <p class="how__text">Register your PGP key.</p>
@@ -63,15 +63,15 @@
         </div>
 
 
-        <div class="col-xs-12 col-sm-7 col-sm-offset-3 ">
+        <div class="col-xs-12 col-sm-9 col-sm-offset-3 ">
             <div class="how__box row center-xs center-sm">
 
                 <div class="col-xs-12  col-sm-12 col-lg-6">
 
-                    <img src="{% static 'images/icon2.png' %}" >
+                    <img   src= "{% static 'images/icon2.svg' %} "  class="icons">
                 </div>
 
-                <div class="col-xs-9  col-sm-8 col-lg-6">
+                <div class="col-xs-9 col-sm-8 col-lg-6">
 
                     <p class="how__text">Send the link to share information - Wait for your friend write/upload the information.</p>
 
@@ -84,13 +84,13 @@
 
 
         <div class="row">
-            <div class="col-xs-12 col-sm-7 col-sm-offset-6">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-6">
                 <div class="how__box row center-xs">
 
 
                     <div class="col-xs-12  col-sm-12 col-lg-6">
 
-                        <img src="{% static 'images/icon3.png' %}" class="icons">
+                        <img src="{% static 'images/icon3.svg' %}" class="icons">
                     </div>
 
 
@@ -113,14 +113,19 @@
 
 
 <div class="faq text">
-    <div class="col-xs-12">
-        <h3 class="title col-xs-offset-1">FAQ</h3>
+    <div class=" row col-xs-12 center-xs start-sm start-lg  ">
+        <h3 class=" title  ">Faq</h3>
     </div>
 
     <div class=" row  left-xs">
         <div class="col-xs-12  col-sm-6">
 
-
+<div class="faq__box">
+                <div class="faq__box--big">
+                    <p class="faq__tittle">Why should I use this?</p>
+                    <p class="faq__text">This is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.</p>
+                </div>
+            </div>
             <div class="faq__box">
                 <div class="faq__box--big">
 
@@ -128,12 +133,7 @@
                     <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you some secret information. When that person visits the link and submits the sensitive data, it is encrypted in their browser with your PGP public key and then forwarded to your email address. No data is stored by us.</p>
                 </div>
             </div>
-            <div class="faq__box">
-                <div class="faq__box--big">
-                    <p class="faq__tittle">Why should I use this instead of blha?</p>
-                    <p class="faq__text">This is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.</p>
-                </div>
-            </div>
+            
             <div class="faq__box">
                 <div class="faq__box--big">
                     <p class="faq__tittle">Why is this safe?</p>
@@ -168,8 +168,8 @@
 
 <!--
   Blockers
-  1.  
-  2.  
+  1.alinhamento titulos c/imagem superior
+  2.first child do icons aplica a todos ???
   3.scroll button smooth scroll
   4.scroll button fazer fade e desaparecer ao sair da secção 
   5. 
