@@ -4,108 +4,102 @@
 
 {% block content %}
 <section class="fundo_branco">
-<div class="container-fluid">
-    <div class="center-xs father">
-        <h2 class="text-dark title middle-xs">Manage Boxes</h2>
-
-        <div>
-            <ul class="box__nav smalltext">
-                <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
-                <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li>
-            </ul>
+    <div class="container-fluid">
+        <div class="center-xs father">
+            <h2 class="text-dark title middle-xs">Manage Boxes</h2>
+            <div>
+                <ul class="box__nav smalltext">
+                    <li class=""><a href="#">New</a></li>
+                    <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
+                    <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
+                    <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
+                    <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        {% for box in object_list %}
-            <div class="col-xxs-12 col-xs-6 col-xs-offset-3 col-sm-6 col-md-4">
+        <div class="row">
+            {% for box in object_list %}
+            <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4">
                 <div class="box {% if box.uuid|lower == new_box %}new-box{% endif %}">
-                   
-<!--
-                    <div class="col-xs-7 col-xs-offset-8 box-action">
-                    <form action="{% url "boxes_close" box.id %}" method="post">
-                        {% csrf_token %}
-                        <input class="btn-dark text" type="submit" value="CLOSE"></input>
-                    </form>
-                    <form action="{% url "boxes_delete" box.id %}" method="post">
-                        {% csrf_token %}
-                        <input class="btn-dark text" type="submit" value="DELETE"></input>
-                    </form>
-                    </div>-->
-                    
-                     <div class="box-content">
-                     
-                    <h3 class="box__title text">{{box.name}}</h3>
-                    <div class="col-xs-7 col-xs-offset-8 box-action">
-                    <form action="{% url "boxes_close" box.id %}" method="post">
-                        {% csrf_token %}
-                        <input class="btn-dark text" type="submit" value="CLOSE"></input>
-                    </form>
-                    <form action="{% url "boxes_delete" box.id %}" method="post">
-                        {% csrf_token %}
-                        <input class="btn-dark text" type="submit" value="DELETE"></input>
-                    </form>
+
+                    <div class="box-content">
+                        <div class="box-container">
+                            <div class="basic-info">
+                                <div class="box-title-desc">
+                                    <h3 class="box__title text">{{box.name}}</h3>
+                                    <p class="box__desc smalltext">{{box.description}}</p>
+                                </div>
+                                <div class="box-action">
+                                    <form action="{% url "boxes_close" box.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input class="btn-dark text" type="submit" value="CLOSE"></input>
+                                    </form>
+                                    <form action="{% url "boxes_delete" box.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input class="btn-dark text" type="submit" value="DELETE"></input>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {% if box.status == allow_actions %}
+
+                        <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
+                        <button class="btn-default copy-to-clipboard-js text" data-src='box-{{box.id}}-url'>COPY URL</button>
+
+
+                        {% endif %}
+                        <div class="extra-info">
+                            <p class="text">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
+
+                            <p class="box__info smalltext">
+                                <span class="text-dark text-bold smalltext">Created on:</span>
+                                <span>{{box.created_at}}</span>
+                            </p>
+                            {% if box.expires_at %}
+                            <p class="box__info smalltext">
+                                <span class="text-dark text-bold">Expires on:</span>
+                                <span>{{box.expires_at}}</span>
+                            </p>
+
+                            {% endif %}
+                            {% if box.messages.count %}
+                            <p class="box__info">
+                                <span class="text-dark text-bold">Last sent:</span>
+                                <span>{{box.last_sent_at}}</span>
+                            </p>
+
+                            {% endif %}
+                        </div>
                     </div>
-                    <p class="box__desc smalltext">{{box.description}}</p>
-                    </div>
-
-                    {% if box.status == allow_actions %}
-
-                    <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
-                    <button class="btn-default copy-to-clipboard-js text" data-src='box-{{box.id}}-url'>COPY URL</button>
-
-
-                    {% endif %}
-
-                    <p class="text">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
-
-                    <p class="box__info smalltext">
-                        <span class="text-dark text-bold smalltext">Created on:</span>
-                        <span>{{box.created_at}}</span>
-                    </p>
-                    {% if box.expires_at %}
-                    <p class="box__info smalltext">
-                        <span class="text-dark text-bold">Expires on:</span>
-                        <span>{{box.expires_at}}</span>
-                    </p>
-
-                    {% endif %}
-                    {% if box.messages.count %}
-                    <p class="box__info">
-                        <span class="text-dark text-bold">Last sent:</span>
-                        <span>{{box.last_sent_at}}</span>
-                    </p>
-
-                    {% endif %}
-
                 </div>
             </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
                 <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}"> &lt; Previous</a>
-            {% endif %}
+                {% endif %}
 
-            {% if paginator.num_pages > 1 %}
+                {% if paginator.num_pages > 1 %}
                 <span class="current">
                    Page {{ page_obj.number }} of {{ paginator.num_pages }}
-                </span>
-            {% endif %}
+               </span>
+               {% endif %}
 
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}">Next &gt; </a>
-            {% endif %}
-        </span>
-    </div>
-</div>
-{% endblock content %}
+               {% if page_obj.has_next %}
+               <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}">Next &gt; </a>
+               {% endif %}
+           </span>
+       </div>
+   </div>
+   {% endblock content %}
 
-{% block scripts %}
-    <script src="{% static 'javascripts/box_list.js' %}"></script>
-{% endblock scripts %}
+   {% block scripts %}
+   <script src="{% static 'javascripts/box_list.js' %}"></script>
+   {% endblock scripts %}
 </section>

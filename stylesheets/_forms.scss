@@ -26,7 +26,6 @@
 	border: 1px solid $light;
     //box-shadow: 0px 2px 6px 0px rgba($black,0.2);
     margin:5px;
-    padding: 10px;
     background: rgba($light, 0.2);
     text-align: left;
     height: 100%;
@@ -34,30 +33,43 @@
 
 .box__title{
 	color: $main-color-dark;
-	margin: $spacing--small 0px;
-	padding: 0px $spacing--x-small;
 }
 
 .box__desc{
 	font-size: 15px;
 	color: $main-color;
-	padding: 0px $spacing--x-small;
 }
 
 .box__info{
 	font-size: 13px;
 	color: $grey;
-	padding: 0px $spacing--x-small;
 }
 
-/*.row {
-	.father2{
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
+.box-container, .box-action{
+	display:flex;
+	flex-direction:column;
 }
-*/
+
+.box-action{
+	align-self:center;
+	border-left: 1px solid $light;
+}
+
+.basic-info{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-bottom: 15px;
+	border-bottom: 1px solid $light;
+}
+
+.box-title-desc, .extra-info{
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+}
+
+
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
 \*------------------------------------*/
@@ -104,20 +116,9 @@
  #BOXES_BUTTONS_&_INPUTS
 \*------------------------------------*/
 
-
-.box-content{
-z-index: 0;}
-
-.box-action{
-z-index: 4;
-margin-top: -6vh;
-margin-left: 19.5vw;
-width: 105px;
-}
-
 .btn-default{
 	border: none;
-    padding: $spacing--small;
+    padding: $spacing--medium;
     background: black;
     color: white;
     width: 100%;
@@ -131,9 +132,6 @@ width: 105px;
 }
 
 .btn-dark{
-	//padding: 5px;
-	//margin: 5px;
-	border-left: 1px solid white;
 	border-bottom: 1px solid white;
 	@extend .btn-default;
 	background: none;
@@ -152,4 +150,7 @@ width: 105px;
 
 .barra{
 	width: 100%;
+	background: none;
+	border: none;
+	padding: 15px;
 }
