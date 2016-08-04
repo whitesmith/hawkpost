@@ -51,15 +51,24 @@
 }
 
 .box-action{
-	align-self:center;
+	align-self:stretch;
+	justify-content: flex-start;
 	border-left: 1px solid $light;
+	form{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-grow: 1;
+		&:first-child {
+			border-bottom: 1px solid $light;
+		}
+	}
 }
 
 .basic-info{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding-bottom: 15px;
 	border-bottom: 1px solid $light;
 }
 
@@ -69,7 +78,13 @@
 	padding-left: 10px;
 }
 
+.box-title-desc{
+	padding-bottom: 15px;
+}
 
+.space{
+	margin-bottom: $spacing--medium;
+}
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
 \*------------------------------------*/
@@ -94,7 +109,7 @@
 
 .box__nav__item{
 	display: inline;
-	border: solid white;
+	border: solid $light;
 	border-width: 1px;
 	margin: 5px;
 	padding: 12px;
@@ -121,7 +136,7 @@
     padding: $spacing--medium;
     background: black;
     color: white;
-    width: 100%;
+    //width: 100%;
     transition: all 0.2s ease-in-out;
     font-size: 0.9375rem;
     text-align: center;
@@ -132,7 +147,6 @@
 }
 
 .btn-dark{
-	border-bottom: 1px solid white;
 	@extend .btn-default;
 	background: none;
 	&:hover{
@@ -153,4 +167,10 @@
 	background: none;
 	border: none;
 	padding: 15px;
+}
+
+.button_url{
+	display:flex;
+	flex-direction:column;
+	flex-grow:2;
 }
