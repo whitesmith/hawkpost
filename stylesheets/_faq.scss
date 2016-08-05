@@ -6,7 +6,9 @@
         padding: 20px;
         margin: 5px 0 5px;
         width: 100%;
-        height: auto;
+        height: 100px;
+        -webkit-transition: height 2s;
+        transition: height 2s;
     }
     
     .faq__tittle {
@@ -16,10 +18,30 @@
         padding: 0px 0px 5px;
     }
     
-    .faq__box:hover {
+    .faq__box {
+        &:hover {
+            background-color: rgba(78, 217, 185, 0.2);
+        }
+    }
+    
+    .faq__box--big {
+        &:hover {
+            height: 250px;
+            .faq__text {
+                display: block;
+                
+            }
+        }
+    }
+    
+    .faq__box:focus {
         .faq__text {
             display: block;
         }
+    }
+    
+    *:focus {
+        outline: none;
     }
     
     .faq__text {
@@ -28,6 +50,12 @@
         font-size: 14px;
         color: $main-color-dark;
         display: none;
+        opacity: 0;
+        -webkit-transition: opacity 1s;
+        transition: opacity 1s;
+       &:hover {
+            opacity: 1;
+        }
     }
     
     .faq__box {
