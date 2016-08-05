@@ -12,7 +12,7 @@
         margin-bottom: $nav-size;
     }
 
-.sec_0, sec_1{   margin: 10px 10px 20px;}
+.sec_0, sec_1, how{   margin: 10px 10px 20px;}
 
     /*-----------------------#SECTION_0------------------*/
     
@@ -146,22 +146,30 @@
     /*-------------#BUTTONS-------------*/
     
     .button {
-        width: 250px;
+        width: 550px;
         background-color: #4ca7af;
         border: none;
         color: white;
-        padding:15px 0px 15px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 7px;
+         padding:20px 0px 20px;
+        margin: 10px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        &:hover {
+        font-size: 0.9rem;
+        
+        &:target {
             background-color: #28666c;
         }
         
      
     }
+
+ .row .button{
+
+margin-top: 70px;
+     
+} 
+
+
+
     /*-----------------------#SECTION_2--------------------*/
  
 
@@ -185,6 +193,7 @@
     .how__text {
         margin: 0px;
         padding: 0px;
+        padding-left: -10px;
         color: $light;
         text-align: left;
     }
