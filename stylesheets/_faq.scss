@@ -2,6 +2,9 @@
   #FAQ
 \*------------------------------------*/
     
+
+
+
     .faq__box--big {
         padding: 20px;
         margin: 5px 0 5px;
@@ -24,22 +27,21 @@
         }
     }
     
-    .faq__box--big {
-        &:hover {
-            height: 250px;
-            .faq__text {
-                display: block;
-                
-            }
-        }
-    }
+     
     
     .faq__box:focus {
+        
+        height: 170px;
         .faq__text {
             display: block;
         }
+        
     }
     
+ 
+
+
+
     *:focus {
         outline: none;
     }
@@ -50,12 +52,12 @@
         font-size: 14px;
         color: $main-color-dark;
         display: none;
-        opacity: 0;
+        /*opacity: 0;
         -webkit-transition: opacity 1s;
         transition: opacity 1s;
        &:hover {
             opacity: 1;
-        }
+        }*/
     }
     
     .faq__box {
