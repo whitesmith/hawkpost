@@ -1,93 +1,92 @@
+/*----------#NAVBAR--------------------------*/
 
- /*----------#NAVBAR--------------------------*/
-
-.navbar {
-    position: fixed;
-    width: 100%;
-    height: $nav-size;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
-    color: #FFFFFF;
-    padding: 0px $spacing--medium;
-    z-index: 3;
-    font-family: Textfont;
-    
-    @media only screen and (min-width: 458px) and (max-width: 767px) {
-   width: 120%;
-    
-    }
-    
-    @media only screen and (max-width: 457px) and (min-width: 395px){
-   font-size: 80%;
-         width: 120%;
-    
-    }
-    
-    
-}
-
-.navbar__header {
-    display: none;
-}
-
-.navbar__link {
+.nav-big {
     display: inline;
-    padding: $spacing--x-small;
-    font-weight: 500;
-    font-size: $small-text-size;
-}
-
-.logo {
-    display: inline;
-    width: 150px;
-    margin-left: $spacing--small;
-     
-    
-     @media only screen and (min-width: 200px) and (max-width: 767px) {
-           width: 100px;
-        }
-     @media only screen and (max-width: 457px) and (min-width: 395px) {
-   
-         width: 80px;
-    
-    } 
-    
-}
-
-.navbar a {
-    color: #FFFFFF;
-
-}
-    /*----------#FOOTER--------------------------*/
-  
-
-    
-    .footer {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-top: solid 0.5px rgba(255, 255, 255, 0.2);
-        color: $main-color;
-        padding: 0px $spacing--medium;
+    @media only screen and (min-width: 200px) and (max-width: 800px) {
+        display: none;
+    }
+    .navbar {
         position: fixed;
-        bottom: 0px;
-        left: 0px;
         width: 100%;
-        height: $footer-size;
-        p {
-            margin: 0px;
-            font-size: $small-text-size;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
+        color: #FFFFFF;
+        padding: 0px $spacing--medium 20px;
+        z-index: 3;
+        font-family: Textfont;
+    }
+    .navbar__header {
+        display: none;
+    }
+    .navbar__link {
+        display: inline;
+        padding: $spacing--x-small;
+        font-weight: 500;
+    }
+    .logo {
+        display: inline;
+        width: 150px;
+        margin-left: $spacing--small;
+        @media only screen and (min-width: 200px) and (max-width: 767px) {
+            width: 100px;
         }
-        a {
-            font-size: $small-text-size;
-            color: $main-color;
-            margin-top: 1vh;
-            svg {
-                height: 11px;
-                width: 75px;
-            }
+        @media only screen and (max-width: 457px) and (min-width: 395px) {
+            width: 80px;
         }
     }
-    
-    .footer__links {
-        text-align: right;
+    .navbar a {
+        color: #FFFFFF;
     }
+}
+
+ul .title {
+    padding: 0;
+}
+
+.nav-small {
+    background: $black;
+    position: fixed;
+    width: 105%;
+    height: 100%;
+    border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    display: none;
+    li {
+        list-style: none;
+        margin: 80px 0 80px;
+    }
+    @media only screen and (min-width: 200px) and (max-width:800px) {
+        display: inline;
+    }
+}
+
+
+/*----------#FOOTER--------------------------*/
+
+.footer {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-top: solid 0.5px rgba(255, 255, 255, 0.2);
+    color: $main-color;
+    padding: 0px $spacing--medium;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: $footer-size;
+    p {
+        margin: 0px;
+    }
+    a {
+        color: $main-color;
+        margin-top: 1vh;
+        svg {
+            height: 11px;
+            width: 75px;
+        }
+    }
+}
+
+.footer__links {
+    text-align: right;
+}
