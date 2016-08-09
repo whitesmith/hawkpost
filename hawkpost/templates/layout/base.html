@@ -8,7 +8,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- hp styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endblock styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock styles %}
+
     <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
 </head>
 
@@ -66,7 +68,16 @@
     </div>
     </div>
 
-    {% endblock footer %} {% block scripts %} {% endblock scripts %}
+    <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
+    <script>
+      var polyfilter_scriptpath = '/static/javascripts/';
+    </script>
+    <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+    {% endblock footer %}
+    {% block scripts %}
+    {% endblock scripts %}
 </body>
 
 </html>
