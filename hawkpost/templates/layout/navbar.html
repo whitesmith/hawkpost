@@ -1,5 +1,6 @@
 {% load staticfiles %}
- <div class="nav-big navbar">
+ <div class="nav-big smalltext">
+   <nav  class="navbar">
     <div class="row middle-xs full-height">
         <div class="col-xs-2 start-xs col-sm-2 col-lg-2">
             <a href="{%url "pages_index"%}" class="row start-xs middle-xs full-height">
@@ -11,7 +12,7 @@
             <li class="navbar__link"><a href="{%url "pages_index" %}">Home</a></li>
              
             <li class="navbar__link"><a href="">Support</a></li>   {% if request.user.is_authenticated %}
-            <li class="navbar__link"><a href="{%url "boxes_create"%}">New Box</a></li>
+             
             <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
             <li class="navbar__link"><a href="{%url "humans_update"%}">Settings</a></li>
             <li class="navbar__link"><a href="{%url "account_logout"%}">Logout</a></li>
@@ -24,27 +25,48 @@
         </ul>
         
        </div>
-       </div>
+      
+       </div>  </nav>
         
-    <div class="row center-xs title nav-small">
-         <ul class="col-xs-12 ">
-           <div class="">
-            <li class=" "><a href="{%url "pages_index"%}">Home</a></li>
-             
-            <li class=" "><a href="">Support</a></li>   {% if request.user.is_authenticated %}
-            <li class=" "><a href="{%url "boxes_create"%}">New Box</a></li>
-            <li class=" "><a href="{%url "boxes_list"%}">Boxes</a></li>
-            <li class=" "><a href="{%url "humans_update" %}">Settings</a></li>
-            <li class=" "><a href="{%url "account_logout"%}">Logout</a></li>
+    <div class="nav-small">
+          
+           <input type="checkbox" id="nav-trigger" class="nav-controller" />
+    <header class="header-bar">
+        <label class="" for="nav-trigger"  tabindex="-1">
+            <div class="button--icon-container">
+                <span class="icon icon--hamburger"></span>
+            </div>
+        </label>
+       </header>  
+        <!--sidebar-->
+    <aside class="nav">
+        <label class="overlay" for="nav-trigger"></label>  
+        <div class="nav__body">
+            <div class="nav__header">
+  
+                      </div>
+
+            <ul class="nav__list col-xs-12">
+                <label class="nav__item" for="nav-trigger">
+                      
+            <li class=" "><a class="nav__link center-xs" href="{%url "pages_index"%}"> <img src="{%static 'images/logob.png'%}" class="logo">  </a></li>      
+            <li class=" "><a   class="nav__link" href="">Support</a></li>   {% if request.user.is_authenticated %}  
+            <li class=" "><a  class="nav__link" href="{%url "boxes_list"%}">Boxes</a></li>
+            <li class=" "><a class="nav__link"  href="{%url "humans_update" %}">Settings</a></li>
+            <li class=" "><a class="nav__link" href="{%url "account_logout"%}">Logout</a></li>
             {% else %}
-            <li class=" "><a href="{%url "account_login"%}">Sign In</a></li>
-            <li class=" "><a href="{%url "account_signup"%}">Sign Up</a></li>
+            <li class=" "><a class="nav__link" href="{%url "account_login"%}">Sign In</a></li>
+            <li class=" "><a  class="nav__link" href="{%url "account_signup"%}">Sign Up</a></li>
             {% endif %}
-            <li class=" "><a href="{%url "pages_about"%}">About</a></li>
+            <li class=" "><a  class="nav__link" href="{%url "pages_about"%}">About</a></li>
+                </label>
+            </ul>
+        </div>
+    </aside>
+    
+    
+          
+     
 </div>
-        </ul>
-        
-        
-        
-    </div>
-</nav>
+ 
+ 
