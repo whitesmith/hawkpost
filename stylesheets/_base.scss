@@ -42,8 +42,11 @@
         @media only screen and (min-width: 200px) and (max-width: 480px) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @media only screen and (min-width: 480px) and (max-width: 800px) {
             font-size: map-deep-get($typescale, 'heading1', 'sm');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'heading1', 'md');
         }
         @media screen and (min-width: 1280px)   {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
@@ -57,8 +60,11 @@
         @media only screen and (min-width: 200px) and (max-width: 480px) {
             font-size: map-deep-get($typescale, 'sub1', 'xs');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @media only screen and (min-width: 480px) and (max-width: 800px) {
             font-size: map-deep-get($typescale, 'sub1', 'sm');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'sub1', 'md');
              
         }
         @media screen and (min-width: 1280px)   {
@@ -66,8 +72,6 @@
               
         }
     }
-    
-
 
 
     .text {
@@ -76,8 +80,11 @@
         @media only screen and (min-width: 200px) and (max-width: 480px) {
             font-size: map-deep-get($typescale, 'text1', 'xs');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @media only screen and (min-width: 480px) and (max-width: 800px) {
             font-size: map-deep-get($typescale, 'text1', 'sm');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'text1', 'md');
         }
         @media screen and (min-width: 1280px)  {
             font-size: map-deep-get($typescale, 'text1', 'lg');
@@ -88,8 +95,11 @@
         @media only screen and (min-width: 200px) and (max-width: 480px) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xs');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @media only screen and (min-width: 480px) and (max-width: 800px) {
             font-size: map-deep-get($typescale, 'smalltext1', 'sm');
+        }
+        @media (min-width: 800px) and (max-width: 1280px) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'md');
         }
         @media screen and (min-width: 1280px) {
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');

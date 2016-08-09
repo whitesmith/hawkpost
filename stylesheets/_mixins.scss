@@ -1,0 +1,44 @@
+// RESPONSIVE BREAKPOINTS
+// A function by Tim Knight posted on medium: 
+// https://medium.com/sass-syntactically-awesome-style-sheets/889927b37740
+@mixin breakpoint($min: 0, $max: 0) {
+ $type: type-of($min);
+
+ @if $type == string {
+   //mobile
+   @if $min == xs {
+     @media (max-width: 640px) { @content; }
+   }
+   //tablet
+   @else if $min == sm {
+     @media (min-width: 641px) { @content; }
+   }
+   //medium
+   @else if $min == md {
+     @media (min-width: 992px) { @content; }
+   }
+   //large
+   @else if $min == lg {
+     @media (min-width: 1200px) { @content; }
+   }
+
+   @else {
+     @warn "Breakpoint mixin supports: xs, sm, md, lg";
+   }
+ }
+ @else if $type == number {
+   $query: "all" !default;
+   @if $min != 0 and $max != 0 {
+     $query: "(min-width: #{$min}) and (max-width: #{$max})";
+   }
+   @else if $min != 0 and $max == 0 {
+     $query: "(min-width: #{$min})";
+   }
+   @else if $min == 0 and $max != 0 {
+     $query: "(max-width: #{$max})";
+   }
+   @media #{$query} {
+     @content;
+   }
+ }
+}
