@@ -1,26 +1,50 @@
 {% load staticfiles %}
-<nav class="navbar">
+ <div class="nav-big navbar">
     <div class="row middle-xs full-height">
         <div class="col-xs-2 start-xs col-sm-2 col-lg-2">
-            <a href="{% url "pages_index" %}" class="row start-xs middle-xs full-height">
-               <!-- <h1 class="navbar__header">HAWKPOST</h1>-->
-                 <img src="{% static 'images/logow.png' %}" class="logo">
+            <a href="{%url "pages_index"%}" class="row start-xs middle-xs full-height">
+                  
+                <img src="{%static 'images/logow.png'%}" class="logo"> 
             </a>
         </div>
-        <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
-            <li class="navbar__link"><a href="{% url "pages_index" %}">Home</a></li>
+      <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
+            <li class="navbar__link"><a href="{%url "pages_index" %}">Home</a></li>
              
             <li class="navbar__link"><a href="">Support</a></li>   {% if request.user.is_authenticated %}
-            <li class="navbar__link"><a href="{% url "boxes_create" %}">New Box</a></li>
-            <li class="navbar__link"><a href="{% url "boxes_list" %}">Boxes</a></li>
-            <li class="navbar__link"><a href="{% url "humans_update" %}">Settings</a></li>
-            <li class="navbar__link"><a href="{% url "account_logout" %}">Logout</a></li>
+            <li class="navbar__link"><a href="{%url "boxes_create"%}">New Box</a></li>
+            <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
+            <li class="navbar__link"><a href="{%url "humans_update"%}">Settings</a></li>
+            <li class="navbar__link"><a href="{%url "account_logout"%}">Logout</a></li>
             {% else %}
-            <li class="navbar__link"><a href="{% url "account_login" %}">Sign In</a></li>
-            <li class="navbar__link"><a href="{% url "account_signup" %}">Sign Up</a></li>
+            <li class="navbar__link"><a href="{%url "account_login"%}">Sign In</a></li>
+            <li class="navbar__link"><a href="{%url "account_signup"%}">Sign Up</a></li>
             {% endif %}
-            <li class="navbar__link"><a href="{% url "pages_about" %}">About</a></li>
+            <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
 
         </ul>
+        
+       </div>
+       </div>
+        
+    <div class="row center-xs title nav-small">
+         <ul class="col-xs-12 ">
+           <div class="">
+            <li class=" "><a href="{%url "pages_index"%}">Home</a></li>
+             
+            <li class=" "><a href="">Support</a></li>   {% if request.user.is_authenticated %}
+            <li class=" "><a href="{%url "boxes_create"%}">New Box</a></li>
+            <li class=" "><a href="{%url "boxes_list"%}">Boxes</a></li>
+            <li class=" "><a href="{%url "humans_update" %}">Settings</a></li>
+            <li class=" "><a href="{%url "account_logout"%}">Logout</a></li>
+            {% else %}
+            <li class=" "><a href="{%url "account_login"%}">Sign In</a></li>
+            <li class=" "><a href="{%url "account_signup"%}">Sign Up</a></li>
+            {% endif %}
+            <li class=" "><a href="{%url "pages_about"%}">About</a></li>
+</div>
+        </ul>
+        
+        
+        
     </div>
 </nav>
