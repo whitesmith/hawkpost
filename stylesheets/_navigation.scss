@@ -1,10 +1,12 @@
 /*----------#NAVBAR--------------------------*/
-
+ 
 .nav-big {
     display: inline;
+    
     @media only screen and (min-width: 200px) and (max-width: 800px) {
         display: none;
     }
+    
     .navbar {
         position: fixed;
         width: 100%;
@@ -26,7 +28,8 @@
     }
     .logo {
         display: inline;
-        width: 150px;
+        max-width: 150px;
+        width: 100%;
         margin-left: $spacing--small;
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             width: 100px;
@@ -45,17 +48,7 @@ ul .title {
 }
 
 .nav-small {
-    background: $black;
-    position: fixed;
-    width: 105%;
-    height: 100%;
-    border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
-    display: none;
-    li {
-        list-style: none;
-        margin: 80px 0 80px;
-    }
+     display: none;
     @media only screen and (min-width: 200px) and (max-width:800px) {
         display: none;
     }
@@ -90,3 +83,4 @@ ul .title {
 .footer__links {
     text-align: right;
 }
+

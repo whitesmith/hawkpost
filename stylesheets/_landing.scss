@@ -1,27 +1,4 @@
-  /*-------#MAIN-------*/
-  
-  .main {
-      padding-top: $nav-size*2;
-      padding-bottom: 100px;
-      width: 960px;
-      max-width: 100%;
-      margin: auto;
-      
-      
-      @media only screen and (min-width: 200px) and (max-width: 480px) {
-      width: 300px;
-      max-width: 100%;
-        }
-        @media (min-width: 800px) and (max-width: 1280px) {
-      width: 960px;
-      max-width: 100%;
-        }
-        @media screen and (min-width: 1280px)  {
-      width: 1250px;
-      max-width: 100%;
-      
-      
-        }}
+
   
   .no-navbar {
       margin-top: -$nav-size;
@@ -92,9 +69,8 @@
   /*-----------------------#SECTIONS-------------*/
   
   .h-section {
-      margin: 10px 10px 20px;
-      // padding: 20vh 0 3vh;
-      margin-left: 0.5rem;
+      margin: 10px 20px 10px;
+    
       @media only screen and (min-width: 200px) and (max-width: 800px) {
           padding: 5vh 0 8vh;
       }
@@ -148,4 +124,6 @@
   .how-img {
       width: 110px;
       height: auto;
+      margin: 20px 0 20px;
+      margin-right: 70px;
   }
