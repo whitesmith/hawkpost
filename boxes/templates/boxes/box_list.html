@@ -5,14 +5,14 @@
 {% block content %}
 <section class="fundo_branco">
   <div class="container-fluid">
-      <div class="head-navbar row">
-        <span></span>
-        <div class="col-xs-8 col-sm-8 col-sm-offset-1 start-xs center-sm">
-          <h2 class="text-dark title">Manage Boxes</h2>
-        </div>
-        <div class="col-xs-4 col-sm-1">
-          <button class="box__nav box__nav__item smalltext md-trigger" data-modal="modal-1">New</button>
-        </div>
+    <div class="head-navbar row">
+      <span></span>
+      <div class="col-xs-8 col-sm-8 col-sm-offset-1 start-xs center-sm">
+        <h2 class="text-dark title">Manage Boxes</h2>
+      </div>
+      <div class="col-xs-4 col-sm-1">
+        <button class="box__nav box__nav__item smalltext md-trigger" data-modal="modal-1">New</button>
+      </div>
       
       <ul class="box__nav smalltext">
         <div class="row">
@@ -114,17 +114,48 @@
 
 <div class="md-modal md-effect-1" id="modal-1">
   <div class="md-content">
-    <h3>Modal Dialog</h3>
-    <div>
-      <p>This is a modal window. You can do the following things with it:</p>
-      <ul>
-        <li><strong>Read:</strong> Modal windows will probably tell you something important so don't forget to read what it says.</li>
-        <li><strong>Look:</strong> modal windows enjoy a certain kind of attention; just look at it and appreciate its presence.</li>
-        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-      </ul>
-      <button class="md-close btn-modal">Close me!</button>
-    </div>
+      <div class="row center-xs center-md center-lg">
+    <div class="col-xs-12 col-sm-11 col-md-11">
+    <h3 class="text-dark title">Create New Box</h2>
+    <p class="smalltext"> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
+    <form action="{% url "boxes_create" %}" method="post" class="">
+                {% csrf_token %}
+                <p>
+                    {{ form.name.errors }}
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </p>
+                <p>
+                    {{ form.description.errors }}
+                    {{ form.descyription.label_tag }}
+                    {{ form.description }}
+                </p>
+                <p>
+                    {{ form.expires_at.errors }}
+                    {{ form.expires_at.label_tag }}
+                    {{ form.expires_at }}
+                </p>
+                <p>
+                    Advanced Settings:
+                </p>
+                <p>
+                    {{ form.never_expires.errors }}
+                    {{ form.never_expires.label_tag }}
+                    {{ form.never_expires }}
+                </p>
+                <p>
+                    {{ form.max_messages.errors }}
+                    {{ form.max_messages.label_tag }}
+                    {{ form.max_messages }}
+                </p>
+                <input type="submit" class="btn-default" value="Create"></input>
+            </form>
+            </div>
+            </div>
+      
+    <button class="md-close btn-modal">Close me!</button>
   </div>
+</div>
 </div>
 <div class="md-overlay"></div>
 {% endblock content %}
