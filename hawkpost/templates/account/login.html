@@ -34,15 +34,29 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login form__wrap" method="POST" action="{% url 'account_login' %}">
+
+ <button class="btn-default md-trigger" data-modal="modal-1" >BATATAS</button>
+<div class="md-modal md-effect-1" id="modal-1">
+  <div class="md-content ">
+    <p class="title">Sign In</p>
+     <button class="md-close btn-modal">X</button>
+     
+<form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button class="primaryAction btn-default" type="submit">{% trans "Sign In" %}</button>
+ 
+     
+       <button class="primaryAction btn-default md-trigger" data-modal="modal-1" type="submit">{% trans "Sign In" %}</button>
+      
   <br></br>
   <a class="button secondaryAction u-blockify text-right text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
 </form>
+  </div>
+</div>
+<div class="md-overlay"></div>
+
 
 {% endblock %}
