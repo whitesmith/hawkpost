@@ -9,7 +9,7 @@ perspective effects (not including the modals and the overlay).
 
 .md-modal {
     position: fixed;
-    top: 47%;
+    top: 45%;
     left: 50%;
     @include breakpoint($min: xs) {
         top: 49%;
@@ -20,7 +20,11 @@ perspective effects (not including the modals and the overlay).
         width: 85%;
     }
     @include breakpoint($min:lg) {
-        top: 49%;
+        top: 44%;
+        width: 65%;
+    }
+    @include breakpoint($min:xl) {
+        top: 53%;
         width: 65%;
     }
     margin: 0 auto;
@@ -118,8 +122,6 @@ perspective effects (not including the modals and the overlay).
 .md-content > div {
     padding: 15px 22px 30px;
     margin: 0;
-    font-weight: 300;
-    font-size: 1.15em;
 }
 
 .md-content > div p {
@@ -127,6 +129,9 @@ perspective effects (not including the modals and the overlay).
     padding: 10px 0;
 }
 
+.md-content li {
+	list-style:none;
+}
 
 /*
 .md-content > div ul {
@@ -151,8 +156,6 @@ perspective effects (not including the modals and the overlay).
 
 
 /* Individual modal styles with animations/transitions */
-
-
 /* Effect 1: Fade in and scale up */
 
 .md-effect-1 .md-content {
