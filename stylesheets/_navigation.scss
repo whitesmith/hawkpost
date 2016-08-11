@@ -1,12 +1,10 @@
-/*----------#NAVBAR--------------------------*/
- 
+    /*----------#NAVBAR--------------------------*/
+
 .nav-big {
     display: inline;
-    
     @media only screen and (min-width: 200px) and (max-width: 800px) {
         display: none;
     }
-    
     .navbar {
         position: fixed;
         width: 100%;
@@ -31,56 +29,47 @@
         max-width: 150px;
         width: 100%;
         margin-left: $spacing--small;
-        @media only screen and (min-width: 200px) and (max-width: 767px) {
-            width: 100px;
+        
+        @breakpoint(xs) {
+            max-width: 100px;
+            width: 100%;
         }
-        @media only screen and (max-width: 457px) and (min-width: 395px) {
-            width: 80px;
+        .navbar a {
+            color: #FFFFFF;
+        }
+    }}
+    ul .title {
+        padding: 0;
+    }
+    .nav-small {
+        display: none;
+        @media only screen and (min-width: 200px) and (max-width: 800px) {
+            display: inline;
         }
     }
-    .navbar a {
-        color: #FFFFFF;
-    }
-}
-
-ul .title {
-    padding: 0;
-}
-
-.nav-small {
-     display: none;
-    @media only screen and (min-width: 200px) and (max-width:800px) {
-        display: inline;
-    }
-}
-
-
-/*----------#FOOTER--------------------------*/
-
-.footer {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-top: solid 0.5px rgba(255, 255, 255, 0.2);
-    color: $main-color;
-    padding: 0px $spacing--medium;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: $footer-size;
-    p {
-        margin: 0px;
-    }
-    a {
+    /*----------#FOOTER--------------------------*/
+    .footer {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-top: solid 0.5px rgba(255, 255, 255, 0.2);
         color: $main-color;
-        margin-top: 1vh;
-        svg {
-            height: 11px;
-            width: 75px;
+        padding: 0px $spacing--medium;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: $footer-size;
+        p {
+            margin: 0px;
+        }
+        a {
+            color: $main-color;
+            margin-top: 1vh;
+            svg {
+                height: 11px;
+                width: 75px;
+            }
         }
     }
-}
-
-.footer__links {
-    text-align: right;
-}
-
+    .footer__links {
+        text-align: right;
+    }
