@@ -68,16 +68,16 @@
         font-family: BoldFont;
         color: $black;
         padding: 2vh 0 2vh;
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
+        @breakpoint(xs){
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
+       @breakpoint(sm){ 
             font-size: map-deep-get($typescale, 'heading1', 'sm');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+       @breakpoint(md){
             font-size: map-deep-get($typescale, 'heading1', 'md');
         }
-        @media screen and (min-width: 1280px) {
+       @breakpoint(lg){
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
     }
@@ -85,16 +85,16 @@
     .subtitle {
         font-family: BoldFont;
         color: $black;
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
+        @breakpoint(xs){
             font-size: map-deep-get($typescale, 'sub1', 'xs');
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
+        @breakpoint(sm){
             font-size: map-deep-get($typescale, 'sub1', 'sm');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+       @breakpoint(md){
             font-size: map-deep-get($typescale, 'sub1', 'md');
         }
-        @media screen and (min-width: 1280px) {
+        @breakpoint(lg){
             font-size: map-deep-get($typescale, 'sub1', 'lg');
         }
     }
@@ -102,31 +102,30 @@
     .text {
         font-family: TextFont;
         color: $main-color50;
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
-            font-size: map-deep-get($typescale, 'text1', 'xs');
+       @breakpoint(xs){     font-size: map-deep-get($typescale, 'text1', 'xs');
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
+        @breakpoint(sm){
             font-size: map-deep-get($typescale, 'text1', 'sm');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @breakpoint(md){
             font-size: map-deep-get($typescale, 'text1', 'md');
         }
-        @media screen and (min-width: 1280px) {
+      @breakpoint(lg){
             font-size: map-deep-get($typescale, 'text1', 'lg');
         }
     }
     
     .smalltext {
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
+        @breakpoint(xs){
             font-size: map-deep-get($typescale, 'smalltext1', 'xs');
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
+       @breakpoint(sm){
             font-size: map-deep-get($typescale, 'smalltext1', 'sm');
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+       @breakpoint(md){
             font-size: map-deep-get($typescale, 'smalltext1', 'md');
         }
-        @media screen and (min-width: 1280px) {
+      @breakpoint(lg){
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');
         }
     }
