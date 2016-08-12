@@ -12,9 +12,10 @@
         border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
         box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
         color: #FFFFFF;
-        padding: 0px $spacing--medium 20px;
+        padding: 20px $spacing--medium 20px;
         z-index: 3;
         font-family: Textfont;
+        height: $nav-size;
     }
     .navbar__header {
         display: none;
@@ -57,7 +58,7 @@
         bottom: 0px;
         left: 0px;
         width: 100%;
-        height: $footer-size;
+        height: $nav-size;
         p {
             margin: 0px;
         }
