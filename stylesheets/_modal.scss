@@ -9,32 +9,26 @@ perspective effects (not including the modals and the overlay).
 
 .md-modal {
     position: fixed;
-    top: 45%;
-    left: 50%;
-    @include breakpoint($min: xs) {
-        top: 49%;
-        width: 95%;
-    }
-    @include breakpoint($min:sm) {
-        top: 49%;
-        width: 85%;
-    }
-    @include breakpoint($min:lg) {
-        top: 44%;
-        width: 65%;
-    }
-    @include breakpoint($min:xl) {
-        top: 53%;
-        width: 65%;
-    }
+    top: 15vh;
+    height: 70vh;
+    left: 15vw;
+    width: 70vw;
+    
     margin: 0 auto;
-    height: 80%;
+    
+@include breakpoint ($min: xs){
+		top: 10vh;
+    height: 80vh;
+    left: 10vw;
+    width: 80vw;
+
+}
+
     z-index: 2000;
     visibility: hidden;
-    
-    
-   @include backface-visibility(hidden);
-    @include translateXandY(-50%);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .md-show {
@@ -51,7 +45,9 @@ perspective effects (not including the modals and the overlay).
     z-index: 1000;
     opacity: 0;
     background: $main-color50;
-   @include simple-transition(0.3s);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .md-show ~ .md-overlay {
@@ -80,8 +76,9 @@ perspective effects (not including the modals and the overlay).
     margin: 0 auto;
     max-width: 800px;
     width: 100%;
-    height: auto;
-    input,
+    height:100%;
+   
+    input[type=text],
     textarea {
         position: relative;
         background: none;
@@ -91,6 +88,7 @@ perspective effects (not including the modals and the overlay).
         color: white;
         //tamanho da linha azul
         width: 90%;
+        
         &:focus {
             outline: 0;
             box-shadow: none;
@@ -101,7 +99,28 @@ perspective effects (not including the modals and the overlay).
         }
     }
     input[type=checkbox] {
-        margin-right: -50px;
+    	&:focus {
+    		outline: 0;
+    		box-shadow:none;
+    		border:none;
+    	}
+    }
+    input[type=number] {
+    	position: relative;
+      background: none;
+      border: none;
+      border-top: 2px solid transparent;
+      border-bottom: 2px solid $light;
+      color: white;
+      //tamanho da linha azul
+      width: 90%;
+    	&:focus {
+    		outline: 0;
+    		box-shadow:none;
+    		border:none;
+    		border-top: 1px solid transparent;
+        border-bottom: 3px solid #33CCCC;
+    	}
     }
 }
 
@@ -122,6 +141,8 @@ perspective effects (not including the modals and the overlay).
 .md-content > div {
     padding: 15px 22px 30px;
     margin: 0;
+    font-weight: 300;
+    font-size: 1.15em;
 }
 
 .md-content > div p {
@@ -129,9 +150,6 @@ perspective effects (not including the modals and the overlay).
     padding: 10px 0;
 }
 
-.md-content li {
-	list-style:none;
-}
 
 /*
 .md-content > div ul {
@@ -148,24 +166,40 @@ perspective effects (not including the modals and the overlay).
     @extend .btn-default;
     max-width: 200px;
     width: 100%;
-    margin-top: 11vh;
-    @include breakpoint($min: xs) {
-        margin-top: 3vh;
-    }
+    margin-top: 7vh;
+    
+    @include breakpoint ($min: sm){
+		margin-top: 2vh;
+  
+}
+    
+    
+    
+    
+    
 }
 
 
 /* Individual modal styles with animations/transitions */
+
+
 /* Effect 1: Fade in and scale up */
 
 .md-effect-1 .md-content {
-   @include scale(0.7);
-    @inclue simple-tansition(0.3s);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
     opacity: 0;
-     
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .md-show.md-effect-1 .md-content {
-    @include scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
     opacity: 1;
 }

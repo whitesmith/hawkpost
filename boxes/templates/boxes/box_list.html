@@ -111,82 +111,81 @@
    </span>
  </div>
 </div>
-
-<div class="md-modal md-effect-1" id="modal-1">
+  <div class="md-modal md-effect-1" id="modal-1">
     <div class="md-content">
-        <div class="row center-xs center-md center-lg">
-            <div class="col-xs-12 col-sm-11 col-md-11">
-                <h3 class="text-dark title">Create New Box</h3>
-                <p class="smalltext"> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
-                <form action="{% url "boxes_create" %}" method="post" class="">
-                    {% csrf_token %}
-                     <div class="row">
-                     
-                      <div class="col-xs-6">
-                    <p>
-                        {{ form.name.errors }}
-                        {{ form.name.label_tag }}
-                        {{ form.name }}
-                    </p>
-                    <p>
-                        {{ form.expires_at.errors }}
-                        {{ form.expires_at.label_tag }}
-                        {{ form.expires_at }}
-                    </p>
-                        
-                       
-                    <p>
-                        {{ form.never_expires.errors }}
-                        <div class="row start-xs">
-                        <div class="col-xs-6">
-                        {{ form.never_expires.label_tag }}
-                        </div>
-                        <div class="col-xs-6 end-xs">
-                        {{ form.never_expires }}
-                        </div>
-                        </div>
-                    </p>
-                   
-                        
-                         </div>
-                         
-                      <div class="col-xs-6">
-                        
-                        
-                    <p>
-                        {{ form.description.errors }}
-                        {{ form.description.label_tag }}
-                        {{ form.description }}
-                    </p>
-                        
-                         <p>
-                        {{ form.max_messages.errors }}
-                        {{ form.max_messages.label_tag }}
-                        {{ form.max_messages }}
-                    </p>
-                         </div>
+      <div class="row center-xs center-md center-lg">
+        <div class="col-xs-12 col-sm-11 col-md-11">
+          <h3 class="text-dark title">Create New Box</h3>
+          <p class="smalltext"> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
+          <form action="{% url "boxes_create" %}" method="post" class="">
+            {% csrf_token %}
+            <div class="row">
+
+              <div class="col-xs-6">
+                <p>
+                  {{ form.name.errors }}
+                  {{ form.name.label_tag }}
+                  {{ form.name }}
+                </p>
+                <p>
+                  {{ form.expires_at.errors }}
+                  {{ form.expires_at.label_tag }}
+                  {{ form.expires_at }}
+                </p>
+
+
+                <p>
+                  {{ form.never_expires.errors }}
+                  <div class="row start-xs">
+                    <div class="col-xs-6">
+                      {{ form.never_expires.label_tag }}
                     </div>
-                    <div class="row"> 
-                     <div class="col-xs-12 col-xs-end">
-                    <button type="submit" class="btn-modal" value=""> Create</button>
-                    <button class="md-close btn-modal">Close me!</button>  </div>
+                    <div class="col-xs-6 end-xs">
+                      {{ form.never_expires }}
                     </div>
-                </form>
+                  </div>
+                </p>
+
+
+              </div>
+
+              <div class="col-xs-6">
+
+
+                <p>
+                  {{ form.description.errors }}
+                  {{ form.description.label_tag }}
+                  {{ form.description }}
+                </p>
+
+                <p>
+                  {{ form.max_messages.errors }}
+                  {{ form.max_messages.label_tag }}
+                  {{ form.max_messages }}
+                </p>
+              </div>
             </div>
+            <div class="row"> 
+             <div class="col-xs-12 col-xs-end">
+              <button type="submit" class="btn-modal" value=""> Create</button>
+              <button class="md-close btn-modal">Close me!</button>  </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
- 
-<div class="md-overlay"></div>
+  </div>
+
+  <div class="md-overlay"></div>
 {% endblock content %}
 
 {% block scripts %}
 
 <script src="{% static 'javascripts/box_list.js' %}"></script>
 
-
-    <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
-    <script src="{% static 'javascripts/box_create.js' %}"></script>
+mas
+<script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
+<script src="{% static 'javascripts/box_create.js' %}"></script>
 
 
 </section>
