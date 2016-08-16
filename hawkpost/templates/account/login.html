@@ -1,28 +1,34 @@
 {% extends "layout/base.html" %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
 
-
-
-<button class="btn-default md-trigger" data-modal="modal-1">BATATAS</button>
-
-<button class="btn-default md-trigger" data-modal="modal-2">SUSHI</button>
+<!--------------------LOGIN-------------------->
+<div class="row center-xs">
+    <div class="col-xs-11 col-sm-5">
+        <button class="h-button smalltext md-trigger" data-modal="modal-1">Login</button>
+    </div>
+    <div class="col-xs-11 col-sm-5">
+        <button class="h-button smalltext md-trigger" data-modal="modal-2">Sign Up</button>
+    </div>
+</div>
 
 <div class="md-modal-xs md-effect-1 " id="modal-1">
     <div class="md-content-xs ">
-       <form class="login start-xs" method="POST" action="{% url 'account_login' %}">
-            <div class="row  center-md start-xs start-sm ">
-                <div class="col-xs-12">
+        <div class="row center-md start-xs start-sm ">
+            <div class="col-xs-12">
+                <form class="login" method="POST" action="{% url 'account_login' %}">
+
+
                     <p class="title "> Login</p> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p>{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts:</p>
+                    <p class=" smalltext">{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts:</p>
                     <!--<p class="hidden">Or, <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>-->
 
-                    <div class="socialaccount_ballot  ">
+                    <div class="socialaccount_ballot   ">
 
-                        <ul class="socialaccount_providers  ">
+                        <ul class=" socialaccount_providers  ">
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
-                        <div class="login-or">
-                            {% trans 'Or' %} create an hawkpost account <a href="{{ signup_url }}">here</a> and sign in bellow:
+                        <div class="login-or smalltext">
+                            {% trans 'Or' %} create an hawkpost account <a href="{{ signup_url }}">here</a> and login bellow:
                         </div>
                     </div>
 
@@ -30,120 +36,124 @@
                     <p>{% blocktrans %}If you have not created an account yet, then please
                         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
                     {% endif %}
-                
-                    {% csrf_token %}
+                    <div class="start-xs">
+                        {% csrf_token %}
 
-                    <p>
-                        {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
-                    </p>
-
-
-                    <p>
-                        {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}
-                    </p>
+                        <p>
+                            {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
+                        </p>
 
 
+                        <p>
+                            {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}
+                        </p>
 
-                    <p>
-                        {{ form.remember.errors }}
-                        <div class="row start-xs">
-                            <div class="col-xs-6">
-                                <div class="row">
-                                    <div class="col-xs-8">
-                                        {{ form.remember.label_tag }}
-                                    </div>
-                                    <div class="col-xs-4 end-xs">
-                                        {{ form.remember }}
-                                    </div>
+
+
+                        <p>
+                    </div> {{ form.remember.errors }}
+                    <div class="row start-xs">
+                        <div class="col-xs-8">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    {{ form.remember.label_tag }}
+                                </div>
+                                <div class="col-xs-2 end-xs">
+                                    {{ form.remember }}
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </p>
 
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
 
-                </div>
             </div>
 
-            <div class="row middle-xs center-xs">
+            <div class="row middle-xs center-xs  smalltext">
                 <div class="col-xs-4">
                     <button class="primaryAction btn-default md-trigger" data-modal="modal-1" type="submit">{% trans "Login" %}</button>
                 </div>
-                <div class="col-xs-4">
-                    <button class="md-close btn-default">Close</button>
+                <div class="col-xs-4 ">
+                    <button class="md-close btn-default ">Close</button>
                 </div>
 
-                <div class="col-xs-3">
-                    <a class="button secondaryAction u-blockify text-right text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <div class="col-xs-4">
+                    <a class="  secondaryAction u-blockify text-left text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </div>
             </div>
 
-        </form>
+
+            </form>
+        </div>
+
     </div>
 </div>
 
 
-<!--------------------SUSHI-------------------->
+<!--------------------SIGN_UP-------------------->
 
 
 <div class="md-modal-xs md-effect-1 " id="modal-2">
     <div class="md-content-xs ">
-       <form class="signup start-xs" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        <form class="signup start-xs" id="signup_form" method="post" action="{% url 'account_signup' %}">
             <div class="row  center-md start-xs start-sm">
                 <div class="col-xs-12">
-                    <p class="title "> Sign up</p> {% get_providers as socialaccount_providers %}
-                    {% if socialaccount_providers %}
-                    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
+                    <p class="title "> Sign up</p> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                    <p class="smalltext">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
 
-                    <p>You can also sign up with one of your existing third party accounts such as:</p>
+                    <p class="smalltext">You can also sign up with one of your existing third party accounts such as:</p>
 
-                    <div class="socialaccount_ballot">
+                    <div class="socialaccount_ballot smalltext">
                         <ul class="socialaccount_providers">
-                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
-                        <div class="login-or">{% trans 'Ortherwise' %} use the following form to create your new account:</div>
+                        <div class="login-or smaltext">{% trans 'Ortherwise' %} use the following form to create your new account:</div>
                     </div>
                     {% endif %}
-                
-                    {% csrf_token %}
+                    <div class="start-xs">
+                        {% csrf_token %}
 
-                    <p>
-                        {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
-                    </p>
-
-
-                    <p>
-                        {{ form.password.label_tag }} {{ form.password }} {{ form.password.errors }}
-                    </p>
+                        <p>
+                            {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
+                        </p>
 
 
+                        <p>
+                            {{ form.password.label_tag }} {{ form.password }} {{ form.password.errors }}
+                        </p>
 
-                    <p>
-                        {{ form.remember.errors }}
-                        <div class="row start-xs">
-                            <div class="col-xs-6">
-                                <div class="row">
-                                    <div class="col-xs-8">
-                                        {{ form.remember.label_tag }}
-                                    </div>
-                                    <div class="col-xs-4 end-xs">
-                                        {{ form.remember }}
+
+
+                        <p>
+                            {{ form.remember.errors }}
+                            <div class="row start-xs">
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            {{ form.remember.label_tag }}
+                                        </div>
+                                        <div class="col-xs-2 end-xs">
+                                            {{ form.remember }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </p>
+                        </p>
 
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                    </div>
                 </div>
             </div>
-
             <div class="row middle-xs center-xs">
                 <div class="col-xs-4">
                     <button class="btn-default" type="submit">{% trans "Sign Up" %}</button>
+                </div>
+                <div class="col-xs-4 ">
+                    <button class="md-close btn-default ">Close</button>
                 </div>
             </div>
         </form>
