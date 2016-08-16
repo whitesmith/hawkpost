@@ -15,89 +15,12 @@
         height: 100%;
         margin: 0px;
         overflow-x: hidden;
+        
     }
     
     html {}
-    
-    .md-modal-xs {
-        position: absolute;
-        top: 7.5vh;
-        left: 35vw;
-        width: 30vw;
-        margin: 0 auto;
-        z-index: 2000;
-        visibility: hidden;
-        margin: 0 10px 0;
-        @include breakpoint($min: sm) {
-            left: 35vw;
-            width: 30vw;
-        }
-        @include breakpoint($min: sm) {
-            width: 60vw;
-            left: 20vw;
-        }
-        @include breakpoint($min: xs) {
-            width: 80vw;
-            left: 7vw;
-        }
-        li {
-            list-style: none;
-        }
-        .title {
-            margin-top: -3vh;
-            margin-bottom: 0;
-        }
-        // @include backface-visibility(hidden);
-        // @include translateXandY(-50%);
-    }
-    
-    .errorlist {
-        @extend .smalltext;
-        margin-left: 35vw;
-        margin-top: -50px;
-        color: #33CCCC;
-        @include breakpoint($min: sm) {
-            margin-left: 20vw;
-        }
-        @include breakpoint($min: xs) {
-            margin-left: 15vw;
-        }
-    }
-    
-    .md-content-xs {
-        color: $light;
-        background: $grey;
-        position: relative;
-        border-radius: 3px;
-        padding: 30px;
-        height: 85vh;
-        //margin: 0 auto;
-        // max-width: 800px;
-        //width: 100%;
-        //height: auto;
-        input,
-        textarea {
-            position: relative;
-            background: none;
-            border: none;
-            border-top: 2px solid transparent;
-            border-bottom: 2px solid $light;
-            color: white;
-            //tamanho da linha azul
-            width: 90%;
-            &:focus {
-                outline: 0;
-                box-shadow: none;
-                border: none;
-                border-top: 1px solid transparent;
-                border-bottom: 3px solid #33CCCC;
-                animation: example 1s 1;
-            }
-        }
-        input[type=checkbox] {
-            margin-right: -50px;
-        }
-    }
+   
+     
     /*------------------------------------*\
   #RESPONSIVE_SCREEN_SIZE
 \*------------------------------------*/
@@ -109,19 +32,25 @@
         width: 960px;
         max-width: 100%;
         margin: auto;
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
+        
+      @include breakpoint ($min: xs) {
             width: 370px;
             max-width: 100%;
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
-            width: 690px;
+          
+          @include breakpoint ($min: sm) {
+            width: 620px;
             max-width: 100%;
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
+        @include breakpoint ($min: md){
+            width: 650px;
+            max-width: 100%;
+        }
+         @include breakpoint ($min: lg){
             width: 920px;
             max-width: 100%;
         }
-        @media screen and (min-width: 1280px) {
+        @include breakpoint ($min: xl){
             width: 1100px;
             max-width: 100%;
         }
@@ -159,6 +88,11 @@
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
+        
+          @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'heading1', 'lg');
+        }
+        
     }
     
     .subtitle {
