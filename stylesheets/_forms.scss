@@ -1,199 +1,93 @@
-/*------------------------------------*\
- #BOXES
- \*------------------------------------*/
-.boxes-container {
-  padding: 0 20px;
-}
-
-
- .box{
-   border: 1px solid $light;
-    //box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-    margin:5px;
-    background: rgba($light, 0.2);
-    text-align: left;
-    height: 100%;
-  }
-
-  .box__title{
-   color: $main-color-dark;
- }
-
- .box__desc{
-   font-size: 15px;
-   color: $main-color;
- }
-
- .box__info{
-   font-size: 13px;
-   color: $grey;
- }
-
- .box-container, .box-action{
-   display:flex;
-   flex-direction:column;
- }
-
- .box-action{
-   align-self:stretch;
-   justify-content: flex-start;
-   border-left: 1px solid $light;
-   form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    &:first-child {
-     border-bottom: 1px solid $light;
-   }
- }
-}
-
-.basic-info{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	border-bottom: 1px solid $light;
-}
-
-.box-title-desc, .extra-info{
-	display: flex;
-	flex-direction: column;
-	padding-left: 10px;
-}
-
-.box-title-desc{
-	padding-bottom: 15px;
-}
-
-.space{
-	margin-bottom: $spacing--medium;
-}
-/*------------------------------------*\
- #BOXES_NAV_BAR_STATUS
- \*------------------------------------*/
-
- .box__nav{
-    width: 100%;
-   align-self: center;
-   margin-bottom: $spacing--x-large;
-   padding: $spacing--small 0px;
-	//border-top: 1px solid $main-color50;
-    //border-bottom: 1px solid $main-color50; 
-    li{
-    	display: inline;
+form {
+    input[type=text] {
+        position: relative;
+        background: none;
+        border: none;
+        border-radius: 0;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid $light;
+        color: white;
+        @extend .text;
+        //tamanho da linha azul
+        width: 100%;
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-top: 1px solid transparent;
+            border-bottom: 3px solid #33CCCC;
+            animation: example 1s 1;
+        }
     }
-  }
-
-  .box__nav__item{
-   display: inline;
-   border: solid $light;
-   border-width: 1px;
-   margin: 5px;
-   padding-top: 12px;
-   padding-bottom:12px;
-   font-weight: 600;
-   display: inline-block;
-   text-align: center;
-
-   width: 80px;
-
-   &.active{
-    color:$main-color-dark;
-  }
-}
-
-.container-fluid{
-	.father{
-		padding-bottom: 3vh;
-	}
-	.title{
-		padding: initial;
-	}
-}
-
-.head-navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  span{
-    display: none;
-  }
-  .col-xs-4{
-    align-self: center;
-  }
-  a{
+    input[type=checkbox] {
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+        }
+    }
+    input[type=number],
+    select,
+    textarea {
+        position: relative;
+        background: none;
+        border: none;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid $light;
+        color: white;
+        //tamanho da linha azul
+        width: 100%;
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-top: 1px solid transparent;
+            border-bottom: 3px solid #33CCCC;
+        }
+    }
+    select {
+        margin-top: 17px;
+    }
+    .label__info {
+        border-radius: 2px;
+        margin: 10px 0 20px;
+       // margin-right: 100px;
+    }
+    .form__block {
+        textarea {
+            height: auto;
+        }
+    }
+    
+    
+.label__text {
+    margin: 0px;
+    padding: 0px;
     color: $light;
-  }
+    display: none;
+    //width: 300px;
+}
 
-  @include breakpoint($min: sm){
-    span{
-      display: flex;
+.label__info{
+    
+    
+    margin: 10px 10px 20px;
+    .subtitle {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
     }
-    h2{
-      align-self: middle;
+}
+
+.label__info:focus {
+    //height: 260px;
+    background-color: rgba(78, 217, 185, 0.2);
+    .label__text {
+        display: block;
     }
-  }
+}
 }
 
-/*------------------------------------*\
- #BOXES_BUTTONS_&_INPUTS
- \*------------------------------------*/
-
- .btn-default{
-  border: none;
-  padding: $spacing--medium;
-  background: black;
-  color: white;
-  width: 100%;
-  transition: all 0.2s ease-in-out;
-  //font-size: 0.9375rem;
-  text-align: center;
-  cursor: pointer;
-  &:hover{
-   background: rgba($main-color,0.7);
- }
+.set {
+    margin: 40px 0;
 }
-
-.btn-dark{
-	@extend .btn-default;
-	background: none;
-  &:hover{
-   background: none;
- }
-
-  }
-
-.btn-danger{
-	@extend .btn-default;
-	background: $error-color;
-	&:hover{
-   background: rgba($error-color,0.8);
- }
-}
-
-.barra{
-	width: 100%;
-	background: none;
-	border: none;
-	padding: 15px;
-}
-
-.url_btn{
-	margin:0;
-	padding:0;
-  button{
-    &:first-child{
-      border-right: 1px solid $light;
-    }
-  }
-}
-
-.hoverable{
-  &:hover{
-   background: rgba($main-color-dark,0.7);
- }
-}
-/*------------------------------------*\
- #NEW_BUTTON_MODAL
- \*------------------------------------*/

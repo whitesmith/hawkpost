@@ -29,11 +29,12 @@
       </ul>
     </div>
   </div>
-
+ 
   <div class="row boxes-container">
     {% for box in object_list %}
-    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 space">
-      <div class="box {% if box.uuid|lower == new_box %}new-box{% endif %}">
+    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 space">
+    
+      <div class="box "{% if box.uuid|lower == new_box %}new-box{% endif %}>
 
         <div class="box-content">
           <div class="box-container">
@@ -164,7 +165,7 @@
         
       </div>
       <div class="col-xs-6 ">
-        <button class="md-close btn-default">Close</button>
+        <button class="md-close btn-default" value="Save">Close</button>
       </div>  
     </div>
   </div>
