@@ -17,9 +17,10 @@
                 <form class="login" method="POST" action="{% url 'account_login' %}">
 
 
-                    <p class="title "> Login</p> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p class=" smalltext">{% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:</p>
-                     <p class="hidden">If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a>{% endblocktrans %}</p> 
+                    <p class="title "> Login</p>   
+                     <p class="hidden smalltext">If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a></p> 
+                     <p class=" smalltext">{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                   {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
                     <div class="socialaccount_ballot   ">
 

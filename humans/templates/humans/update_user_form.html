@@ -41,32 +41,37 @@
                         {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
                     </div>
                 </div>
-                <div class="col-xxs-12 col-xs-6">
-                    <p class="label__info">
-                        <span>Warning!</span>
-                        <br> You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended).
-                    </p>
+                <div class="col-xxs-12 col-xs-6  ">
+                    <div class="label__info" tabindex="1">
+                       <p class="subtitle">Warning</p>
+                         <p class="label__text"> You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended).</p>
+                    </div>
+                    
+                    <div class="row">
+                            <div class=" col-xs-6">
+                                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
+                            </div>
+                            <div class=" col-xs-6">
+                                  {{ form.server_signed }}  
+                        </div></div>
+                    
+                    <div class="label__info" tabindex="1">
+                       <p class="subtitle">Experimental feature!</p>
+                         <p class="label__text"> The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
+                        <strong>mutt</strong>.</p>
+                   
+                </div>
                 </div>
                 <div class="divider">
                 </div>
                 <div class=" col-xs-6">
                     <div class="form__block">
-                        <div class="row">
-                            <div class=" col-xs-6">
-                                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
-                            </div>
-                            <div class=" col-xs-6">
-                                {{ form.server_signed }}</div>
-                        </div>
+                        
                     </div>
                 </div>
-                <div class=" col-xxs-12 col-xs-6 label__box label__info" tabindex="1">
-                  <!--  <p class="label__info ">-->
-                        <p class="subtitle">Experimental feature!</p> <p class="label__text">
-                        <br> The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
-                        <strong>mutt</strong>.
-                    </p>
-                </div>
+                
+                 
+             
             </div>
             <input type="submit" class="btn-modal set" value="Save"></input>
         </form>

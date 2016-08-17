@@ -51,18 +51,15 @@ form {
     .label__info {
         border-radius: 2px;
         margin: 10px 0 20px;
+       // margin-right: 100px;
     }
     .form__block {
         textarea {
             height: auto;
         }
     }
-}
-
-.set {
-    margin-bottom: 40px;
-}
-
+    
+    
 .label__text {
     margin: 0px;
     padding: 0px;
@@ -71,20 +68,26 @@ form {
     //width: 300px;
 }
 
-.label__box {
-    background: rgba(235, 235, 235, 0.2);
-    width: 50px;
+.label__info{
+    
+    
     margin: 10px 10px 20px;
     .subtitle {
         padding: 0;
         margin: 0;
+        font-size: 16px;
     }
 }
 
-.label__box:focus {
+.label__info:focus {
     //height: 260px;
     background-color: rgba(78, 217, 185, 0.2);
     .label__text {
         display: block;
     }
+}
+}
+
+.set {
+    margin: 40px 0;
 }
