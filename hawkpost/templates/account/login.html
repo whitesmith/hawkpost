@@ -3,7 +3,7 @@
 <!--------------------LOGIN-------------------->
 <div class="row center-xs">
     <div class="col-xs-11 col-sm-5">
-        <button class="h-button smalltext md-trigger" data-modal="modal-1">Login</button>
+        <button class="h-button smalltext md-trigger" data-modal="modal-1" >Login</button>
     </div>
     <div class="col-xs-11 col-sm-5">
         <button class="h-button smalltext md-trigger" data-modal="modal-2">Sign Up</button>
@@ -18,8 +18,8 @@
 
 
                     <p class="title "> Login</p> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p class=" smalltext">{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts:</p>
-                    <!--<p class="hidden">Or, <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>-->
+                    <p class=" smalltext">{% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:</p>
+                     <p class="hidden">If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a>{% endblocktrans %}</p> 
 
                     <div class="socialaccount_ballot   ">
 

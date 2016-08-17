@@ -1,0 +1,67 @@
+/*---------------MODAL_XS---------------*/
+ 
+ .md-modal-xs {
+     top: 7.5vh;
+     left: 32.5vw;
+     width: 35vw;
+     margin: 0 auto 0;
+     @include breakpoint ($min: xs) {
+         left: 10vw;
+         width: 80vw;
+     }
+     @include breakpoint ($min: md) {
+         left: 25vw;
+         width: 50vw;
+     }
+     @include breakpoint ($min: sm) {
+         left: 20vw;
+         width: 60vw;
+     }
+     li {
+         list-style: none;
+     }
+     .title {
+         margin-top: -3vh;
+         margin-bottom: 0;
+     }
+     .btn-default {
+         padding: 0px;
+         height: 6vh;
+         width: 8vw;
+         margin: 10px;
+         @include breakpoint ($min: xs) {
+             width: 15vw;
+         }
+         @include breakpoint ($min: sm) {
+             width: 13vw;
+         }
+     }
+     @extend .md-modal;
+ }
+ 
+ .md-content-xs {
+     @extend .md-content;
+     padding: 30px 30px 0px;
+     //height: 85vh;
+     input[type=checkbox] {
+         margin-right: -50px;
+     }
+     input,
+     textarea {
+         position: relative;
+         background: none;
+         border: none;
+         border-top: 2px solid transparent;
+         border-bottom: 2px solid $light;
+         color: white;
+         //tamanho da linha azul
+         width: 100%;
+     &:focus {
+         outline: 0;
+         box-shadow: none;
+         border: none;
+         border-top: 1px solid transparent;
+         border-bottom: 3px solid #33CCCC;
+         animation: example 1s 1;
+     }
+     }}
