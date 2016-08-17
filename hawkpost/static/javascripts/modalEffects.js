@@ -28,7 +28,7 @@ var ModalEffects = (function() {
 			}
 
 			function removeModalHandler() {
-				removeModal( classie.has( el, 'md-setperspective' ) ); 
+				removeModal( classie.has( el, 'md-setperspective' ) );
 			}
 
 			el.addEventListener( 'click', function( ev ) {
