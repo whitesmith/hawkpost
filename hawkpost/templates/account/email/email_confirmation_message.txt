@@ -1,8 +1,20 @@
-{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello from {{ site_name }}!
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello there,
 
-You're receiving this e-mail because user {{ user_display }} at {{ site_domain }} has given yours as an e-mail address to connect their account.
+This is an confirmation email, sent by {{ site_name }} to every new user of the service in order to verify their email address.
 
-To confirm this is correct, go to {{ activate_url }}
-{% endblocktrans %}{% endautoescape %}
-{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!
-{{ site_domain }}{% endblocktrans %}
+You're receiving it, because you (or someone else) provided it during registration.
+
+To confirm this is correct, please visit the following address: {{ activate_url }}
+
+Otherwise you can either ignore this message or send us an email to "support@hawkpost.co" so this account can be removed.
+{% endblocktrans %}
+{% endautoescape %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Best regards,
+{{ site_name }}
+{{ site_domain }}
+{% endblocktrans %}

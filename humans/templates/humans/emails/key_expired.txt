@@ -1,6 +1,6 @@
 Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
 
-On the automatic key checks and updates using the keyserver url that you provided, the system spotted that your current key is already expired. To avoid any issues, the key was removed and all open boxes deactivated until a new one is added.
+During our automatic updates and checks, using the keyserver url that you provided, the system spotted that your current key is already expired. To avoid any issues, the key was removed and all open boxes deactivated until a new one is added.
 
 To enable all functionality again, please go to the settings and add your new public key.
 

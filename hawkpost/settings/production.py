@@ -50,6 +50,8 @@ USE_X_FORWARDED_HOST = True
 
 # Allauth Config
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# We trust that the chosen providers did the verification
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
 
 
 # Sentry Configuration

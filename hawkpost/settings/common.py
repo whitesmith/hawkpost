@@ -159,7 +159,10 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 LOGIN_REDIRECT_URL = reverse_lazy("boxes_list")
 LOGIN_URL = reverse_lazy("account_login")
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = reverse_lazy("account_login")
+
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
 ACCOUNT_LOGOUT_ON_GET = True
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -175,10 +178,10 @@ GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
 GPG_SIGN_DIR = os.environ.get("SIGN_DIR")
 GPG_SIGN_KEY = os.environ.get("SIGN_KEY")
 GPG_SIGN_KEY_PASSPHRASE = os.environ.get("SIGN_KEY_PASSPHRASE")
-
+GPG_SIGN_KEY_URL = os.environ.get("SIGN_KEY_URL", "")
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
-
+SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
 
 # Celerey Settings
 BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
