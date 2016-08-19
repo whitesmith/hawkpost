@@ -1,0 +1,82 @@
+ /*------------------------------------*\
+  #TEXT_COLOR
+\*------------------------------------*/
+ 
+ .text-dark {
+     color: $main-color-dark;
+ }
+ 
+ .text-light {
+     color: $light;
+ }
+ 
+ .text-main {
+     color: $main-color;
+ }
+ 
+ .text-bold {
+     font-weight: 600;
+ }
+ 
+ .text-left {
+     text-align: left;
+ }
+ 
+ .text-right {
+     text-align: right;
+ }
+ 
+ .text-note {
+     color: $grey;
+     font-style: italic;
+     font-size: 0.9286rem;
+ }
+ 
+ .text-by {
+     color: $main-color-dark;
+     margin: 20px 0px 0px;
+ }
+ /*------------------------------------*\
+  #ALIGNMENTS_AND_MARGINS
+\*------------------------------------*/
+ 
+ .full-height {
+     height: 100%;
+ }
+ 
+ .full-width {
+     width: 100%;
+ }
+ 
+ .u-blockify {
+     display: block;
+ }
+ 
+ .no-margin {
+     margin: 0px;
+ }
+ 
+ .no-margin-top {
+     margin-top: 0px;
+ }
+ 
+ .col-xxs-12 {
+     @media (max-width: 640px) {
+         flex-basis: 100%;
+         max-width: 100%;
+     }
+ }
+ 
+ .order-xs-1st {
+     order: 1;
+     @media (min-width: 768px) {
+         order: 2;
+     }
+ }
+ 
+ .order-xs-2nd {
+     order: 2;
+     @media (min-width: 768px) {
+         order: 1;
+     }
+ }

@@ -1,0 +1,129 @@
+
+  
+  .no-navbar {
+      margin-top: -$nav-size;
+      margin-bottom: $nav-size;
+  }
+  
+  .first {
+      font-size: 40px;
+      padding-bottom: -2vh;
+  }
+  /*---------#SCROLL-BUTTON-------*/
+  
+  .span {
+      display: inline;
+      position: absolute;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      border-left: 3px solid white;
+      border-bottom: 3px solid white;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-animation: sdb05 1.5s infinite;
+      animation: sdb05 1.5s infinite;
+      box-sizing: border-box;
+      @media only screen and (min-width: 200px) and (max-width: 800px) {
+          top: 80vh;
+      }
+      @media screen and (min-width: 800px) and (max-width: 1600px) {
+          top: 60vh;
+      }
+  }
+  
+  .scroll {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: block;
+  }
+  
+  @-webkit-keyframes sdb05 {
+      0% {
+          -webkit-transform: rotate(-45deg) translate(0, 0);
+          opacity: 0;
+      }
+      50% {
+          opacity: 1;
+      }
+      100% {
+          -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+          opacity: 0;
+      }
+  }
+  
+  @keyframes sdb05 {
+      0% {
+          transform: rotate(-45deg) translate(0, 0);
+          opacity: 0;
+      }
+      50% {
+          opacity: 1;
+      }
+      100% {
+          transform: rotate(-45deg) translate(-20px, 20px);
+          opacity: 0;
+      }
+  }
+  /*-----------------------#SECTIONS-------------*/
+  
+  .h-section {
+      margin: 10px 20px 10px;
+    
+      @media only screen and (min-width: 200px) and (max-width: 800px) {
+          padding: 5vh 0 8vh;
+      }
+      @media screen and (min-width: 800px) {
+          padding: 10vh 0 10vh;
+      }
+  }
+  
+  .h-section--first {
+      padding: 20vh 0 50vh;
+      @media only screen and (min-width: 200px) and (max-width: 800px) {
+          padding: 20vh 0 50vh;
+      }
+      @media screen and (min-width: 800px) and (max-width: 1600px) {
+          padding: 20vh 0 30vh;
+      }
+  }
+  
+  .logo-big {
+      width: 350px;
+      height: auto;
+      max-width: 100%;
+  }
+  
+  .subtitle {
+      @media only screen and (min-width: 200px) and (max-width: 500px) {
+          margin-left: 2rem;
+      }
+  }
+  /*-------------#BUTTONS-------------*/
+  
+  .h-button {
+      width: 100%;
+      background-color: #4ca7af;
+      border: none;
+      color: white;
+      padding: 20px 0px 20px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      font-size: 0.9rem;
+      &:target {
+          background-color: #28666c;
+      }
+  }
+  
+  .h-button {
+      margin-top: 70px;
+  }
+  /*-----------------------#SECTION_2--------------------*/
+  /*-------#HOW_TO-------*/
+  
+  .how-img {
+      width: 110px;
+      height: auto;
+      margin: 20px 0 20px;
+      margin-right: 70px;
+  }

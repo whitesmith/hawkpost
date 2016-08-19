@@ -1,40 +1,33 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HawkPost - Submit your content securely</title>
-        {% block styles %}
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
 
-        <!-- hp styles -->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<head>
+    <title>HawkPost - Submit your content securely</title>
+    {% block styles %}
 
-        {% endblock styles %}
-        <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
-    </head>
-    <body>
-        {% block header %}
-            {% include "layout/navbar.html" %}
-            {% include "layout/messages.html" %}
-        {% endblock header %}
-        <div class="main">
-            {% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- hp styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock styles %}
 
-            {% endblock content %}
-        </div>
-        {% block footer %}
-        <div class="footer">
-            <div class="row middle-xs full-height">
-                <div class="col-xs-6">
-                    <p class="text-bold">Disclaimer</p>
-                    <p>This is an "alpha" version, the use is at your own risk.</p>
-                </div>
+    <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
+</head>
 
-                <div class="col-xs-6 footer__links">
-                    <a href="https://github.com/whitesmith/hawkpost" target="_blank" class=""><i class="fa fa-github fa-lg"></i> Open Source Project</a>
-                    <br>
+<body>
+    {% block header %} {% include "layout/navbar.html" %} {% include "layout/messages.html" %} {% endblock header %}
+    <div class="main">
+        {% block content %} {% endblock content %}
+    </div>
+    {% block footer %}
+    <div class="footer smalltext">
+        <div class="row  middle-xs full-height">
+            <div class="col-xs-12">
 
-                    <a href="http://whitesmith.co" target="_blank">made with love by
+
+
+                <a href="https://github.com/whitesmith/hawkpost" target="_blank" class=""><i class="fa fa-github fa-lg"></i></a>
+                <a href="http://whitesmith.co" target="_blank">Handcrafted with love by
                         <svg version="1.1" id="logo" class="svg-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110" height="18" viewBox="6 7 110 18" xml:space="preserve">
                          <g>
                            <g>
@@ -70,14 +63,21 @@
                          </g>
                          </svg>
                     </a>
-                </div>
             </div>
-
         </div>
+    </div>
+    </div>
 
-        {% endblock footer %}
-        {% block scripts %}
+    <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
+    <script>
+      var polyfilter_scriptpath = '/static/javascripts/';
+    </script>
+    <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+    {% endblock footer %}
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
 
-        {% endblock scripts %}
-    </body>
 </html>
