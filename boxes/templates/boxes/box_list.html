@@ -13,7 +13,7 @@
       <div class="col-xs-4 col-sm-1">
         <button class="box__nav box__nav__item smalltext md-trigger" data-modal="modal-1">New</button>
       </div>
-      
+
       <ul class="box__nav smalltext">
         <div class="row">
           <div class="center-xs end-sm col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -29,11 +29,12 @@
       </ul>
     </div>
   </div>
-
+ 
   <div class="row boxes-container">
     {% for box in object_list %}
-    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 space">
-      <div class="box {% if box.uuid|lower == new_box %}new-box{% endif %}">
+    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 space">
+    
+      <div class="box "{% if box.uuid|lower == new_box %}new-box{% endif %}>
 
         <div class="box-content">
           <div class="box-container">
@@ -57,14 +58,13 @@
 
 
           {% if box.status == allow_actions %}
-
           <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url"></input>
           <div class="row url_btn">
             <button class="btn-default copy-to-clipboard-js text col-xs-6" data-src='box-{{box.id}}-url'>COPY URL</button>
             <button class="btn-default copy-to-clipboard-js text col-xs-6" data-src='box-{{box.id}}-url'>OPEN</button>
           </div>
-
           {% endif %}
+
           <div class="extra-info">
             <p class="smalltext">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
 
@@ -72,20 +72,21 @@
               <span class="text-dark smalltext">Created on:</span>
               <span>{{box.created_at}}</span>
             </p>
+
             {% if box.expires_at %}
             <p class="box__info smalltext">
               <span class="text-dark text-bold">Expires on:</span>
               <span>{{box.expires_at}}</span>
             </p>
-
             {% endif %}
+
             {% if box.messages.count %}
             <p class="box__info">
               <span class="text-dark text-bold">Last sent:</span>
               <span>{{box.last_sent_at}}</span>
             </p>
-
             {% endif %}
+
           </div>
         </div>
       </div>
@@ -101,20 +102,20 @@
 
       {% if paginator.num_pages > 1 %}
       <span class="current">
-       Page {{ page_obj.number }} of {{ paginator.num_pages }}
-     </span>
-     {% endif %}
+        Page {{ page_obj.number }} of {{ paginator.num_pages }}
+      </span>
+      {% endif %}
 
-     {% if page_obj.has_next %}
-     <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}">Next &gt; </a>
-     {% endif %}
-   </span>
- </div>
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}">Next &gt; </a>
+      {% endif %}
+    </span>
+  </div>
 </div>
 <div class="md-modal md-effect-1" id="modal-1">
   <div class="md-content">
     <div class="row center-xs center-md center-lg">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-xs-12 col-sm-12 col-md-12">
         <h3 class="text-dark title">Create New Box</h3>
         <p class="smalltext"> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
         <form action="{% url "boxes_create" %}" method="post" class="">
@@ -157,34 +158,32 @@
             {{ form.description }}
           </p>
         </div>
+
+        <div class="row middle-xs center-xs">
+          <div class="col-xs-6">
+            <button type="submit" class="btn-default" value=""> Create</button>
+
+          </div>
+          <div class="col-xs-6 ">
+            <button type="button" class="md-close btn-default">Close</button>
+          </div>
+        </div>
       </div>
-      <div class="row middle-xs center-xs"> 
-       <div class="col-xs-6">
-        <button type="submit" class="btn-modal" value=""> Create</button>
-      </div>
-      <div class="col-xs-6">
-        <button class="md-close btn-modal">Close me!</button>
-      </div>  
-    </div>
+    </form>
   </div>
-
-</form>
-
-</div>
-</div>
 </div>
 
-<div class="md-overlay"></div>
+<div class="md-overlay"></div></section>
 {% endblock content %}
 
 {% block scripts %}
 
 <script src="{% static 'javascripts/box_list.js' %}"></script>
 
-mas
+
 <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
 <script src="{% static 'javascripts/box_create.js' %}"></script>
 
 
-</section>
+
 {% endblock scripts %}

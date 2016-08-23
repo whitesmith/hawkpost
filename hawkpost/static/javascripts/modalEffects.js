@@ -28,13 +28,13 @@ var ModalEffects = (function() {
 			}
 
 			function removeModalHandler() {
-				removeModal( classie.has( el, 'md-setperspective' ) ); 
+				removeModal( classie.has( el, 'md-setperspective' ) );
 			}
 
 			el.addEventListener( 'click', function( ev ) {
 				classie.add( modal, 'md-show' );
 				overlay.removeEventListener( 'click', removeModalHandler );
-				overlay.addEventListener( 'click', removeModalHandler );
+				//overlay.addEventListener( 'click', removeModalHandler );
 
 				if( classie.has( el, 'md-setperspective' ) ) {
 					setTimeout( function() {

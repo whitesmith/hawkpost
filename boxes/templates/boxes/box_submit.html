@@ -6,14 +6,14 @@
 {% endblock header %}
 
 {% block content %}
-    <div class="no-navbar">
+    <div class=" row center-xs start-sm no-navbar">
         <a href="{% url "pages_index" %}">
             <img src="{% static 'images/logob.png' %}" class="logo-big">
-            <h1 class="main-title">HAWKPOST</h1>
+            
         </a>
-        <p class="main-title__sub">sending your confidential information safely</p>
+        <p class="subtitle col-xs-12">Sending your confidential information safely</p> 
     </div>
-    <div class="row center-xs">
+    <div class="row  center-xs start-sm ">
         <div class="col-xs-12 col-sm-6 order-xs-2nd">
             <div class="form-div-js" data-action="{% url 'boxes_show' object.uuid %}" data-csrf-token="{{ csrf_token }}">
                 <noscript>
@@ -23,20 +23,22 @@
                 </noscript>
             </div>
         </div>
-       <div class="col-xs-12 col-sm-6 order-xs-1st">
+       <div class="col-xs-12 col-sm-6 start-sm order-xs-1st">
             <div class="link-box__info">
-                <div>
+               
+                <div >
                     <h3 class="text-main no-margin">{{object.name}}</h3>
                     <p class="no-margin-top">{{object.description}}</p>
                 </div>
                 <br>
                 <div>
-                    <i class="text-note">The following people will receive the messages:</i>
-                    <p><span class="text-bold text-dark">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
-                    <p><span class="text-bold text-dark">Organization: </span>{{object.owner.organization}}</p>
-                    <p><span class="text-bold text-dark">Email: </span>{{object.owner.email}}</p>
-                    <p><span class="text-bold text-dark">Key fingerprint: </span>{{object.owner.fingerprint}}</p>
-                </div>
+                   
+                  <p>  <i class="subtitle">The following people will receive the messages:</i></p>
+                    <p><span class="text-bold text-light">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
+                    <p><span class="text-bold text-light">Organization: </span>{{object.owner.organization}}</p>
+                    <p><span class="text-bold text-light">Email: </span>{{object.owner.email}}</p>
+                    <p><span class="text-bold text-light">Key fingerprint: </span>{{object.owner.fingerprint}}</p>
+                </div> 
                 
                 <div class="hidden">
                     The following people will receive the messages:
@@ -50,7 +52,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div> </div>   
 {% endblock content %}
 
 {% block scripts %}

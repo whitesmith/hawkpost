@@ -15,9 +15,13 @@
         height: 100%;
         margin: 0px;
         overflow-x: hidden;
+        
     }
     
     html {}
+   
+.hidden{display: none;}
+     
     /*------------------------------------*\
   #RESPONSIVE_SCREEN_SIZE
 \*------------------------------------*/
@@ -29,23 +33,28 @@
         width: 960px;
         max-width: 100%;
         margin: auto;
-        @media only screen and (min-width: 200px) and (max-width: 480px) {
-            width: 370px;
+        
+      @include breakpoint ($min: xs) {
+            width: 350px;
             max-width: 100%;
         }
-        @media only screen and (min-width: 480px) and (max-width: 800px) {
-            width: 690px;
+          
+          @include breakpoint ($min: sm) {
+            width: 620px;
             max-width: 100%;
         }
-        @media (min-width: 800px) and (max-width: 1280px) {
-            width: 920px;
+        @include breakpoint ($min: md){
+            width: 720px;
             max-width: 100%;
         }
-        @media screen and (min-width: 1280px) {
+         @include breakpoint ($min: lg){
             width: 1100px;
             max-width: 100%;
         }
-        
+        @include breakpoint ($min: xl){
+            width: 1240px;
+            max-width: 100%;
+        }
     }
     /*------------------------------------*\
   #FONTS
@@ -68,33 +77,38 @@
         font-family: BoldFont;
         color: $black;
         padding: 2vh 0 2vh;
-        @breakpoint(xs){
+        @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
-       @breakpoint(sm){ 
+        @include breakpoint($min:sm) {
             font-size: map-deep-get($typescale, 'heading1', 'sm');
         }
-       @breakpoint(md){
+        @include breakpoint($min:md) {
             font-size: map-deep-get($typescale, 'heading1', 'md');
         }
-       @breakpoint(lg){
+        @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
+        
+          @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'heading1', 'lg');
+        }
+        
     }
     
     .subtitle {
         font-family: BoldFont;
         color: $black;
-        @breakpoint(xs){
+        @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'sub1', 'xs');
         }
-        @breakpoint(sm){
+        @include breakpoint($min:sm) {
             font-size: map-deep-get($typescale, 'sub1', 'sm');
         }
-       @breakpoint(md){
+        @include breakpoint($min:md) {
             font-size: map-deep-get($typescale, 'sub1', 'md');
         }
-        @breakpoint(lg){
+        @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'sub1', 'lg');
         }
     }
@@ -102,30 +116,31 @@
     .text {
         font-family: TextFont;
         color: $main-color50;
-       @breakpoint(xs){     font-size: map-deep-get($typescale, 'text1', 'xs');
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'text1', 'xs');
         }
-        @breakpoint(sm){
+        @include breakpoint($min:sm) {
             font-size: map-deep-get($typescale, 'text1', 'sm');
         }
-        @breakpoint(md){
+        @include breakpoint($min:md) {
             font-size: map-deep-get($typescale, 'text1', 'md');
         }
-      @breakpoint(lg){
+        @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'text1', 'lg');
         }
     }
     
     .smalltext {
-        @breakpoint(xs){
+        @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xs');
         }
-       @breakpoint(sm){
+        @include breakpoint($min:sm) {
             font-size: map-deep-get($typescale, 'smalltext1', 'sm');
         }
-       @breakpoint(md){
+        @include breakpoint($min:md) {
             font-size: map-deep-get($typescale, 'smalltext1', 'md');
         }
-      @breakpoint(lg){
+        @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');
         }
     }

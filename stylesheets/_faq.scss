@@ -21,17 +21,14 @@
         padding: 0px 0px 5px;
     }
     
-    .faq__box {
-        &:hover {
-            background-color: rgba(78, 217, 185, 0.2);
-        }
-    }
+     
     
      
     
     .faq__box:focus {
         
         height: 270px;
+        background-color: rgba(78, 217, 185, 0.2);
         .faq__text {
             display: block;
         }
@@ -52,12 +49,7 @@
         font-size: 14px;
         color: $main-color-dark;
         display: none;
-        /*opacity: 0;
-        -webkit-transition: opacity 1s;
-        transition: opacity 1s;
-       &:hover {
-            opacity: 1;
-        }*/
+         
     }
     
     .faq__box {
