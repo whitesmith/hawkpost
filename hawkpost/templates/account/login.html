@@ -22,9 +22,9 @@
                      <p class=" smalltext">{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                    {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
-                    <div class="socialaccount_ballot   ">
+                    <div class="socialaccount_ballot">
 
-                        <ul class=" socialaccount_providers  ">
+                        <ul class=" socialaccount_providers">
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
@@ -43,7 +43,6 @@
                         <p>
                             {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
                         </p>
-
 
                         <p>
                             {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}

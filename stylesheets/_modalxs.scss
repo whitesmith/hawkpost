@@ -43,10 +43,8 @@
      @extend .md-content;
      padding: 30px 30px 0px;
      //height: 85vh;
-     input[type=checkbox] {
-         margin-right: -50px;
-     }
-     input,
+    
+      input,
      textarea {
          position: relative;
          background: none;
@@ -64,4 +62,25 @@
          border-bottom: 3px solid #33CCCC;
          animation: example 1s 1;
      }
-     }}
+     }
+     
+     input[type=number],
+    select,
+    textarea, input[type=checkbox]  {
+        position: relative;
+        background: none;
+        border: none;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid $light;
+        color: white;
+        //tamanho da linha azul
+        width: 100%;
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-top: 1px solid transparent;
+            border-bottom: 3px solid #33CCCC;
+        }
+    }
+}
