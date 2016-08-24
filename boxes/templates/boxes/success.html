@@ -2,27 +2,31 @@
 {% load staticfiles %}
 
 {% block header %}
-    {% include "layout/messages.html" %}
+{% include "layout/messages.html" %}
 {% endblock header %}
 
 {% block content %}
 <div class="container-fluid">
 	<div class="row center-xs">
-       <div class="col-xs-12">
-       	 <h1>Message sent with sucess!</h1>
-       </div>
+   <div class="col-xs-12">
+     <h1 class="title">Message sent with sucess!</h1>
    </div>
-   <div class="row center-xs">
-   		<div class="col-xs-12">
-   			<p class="text-by"> by:</p>
-       		<a href="{% url "pages_index" %}">
-            	<img src="{% static 'images/logob.png' %}" class="logo-big">
-            	<h1 class="main-title">HAWKPOST</h1>
-        	</a>
-        	<p class="main-title__sub">sending your confidential information safely</p>
-    	</div> 
-   </div> 
+ </div>
+ <div class="row center-xs middle-xs logosucess">
+ <div class="col-xs-12">
+    <p class="text-by"> by:</p>
+    <a href="{% url "pages_index" %}">
+     <img src="{% static 'images/logob.png' %}" class="logo-big">
+   </a>
+
+ </div>
+</div> 
+<div class="row center-xs">
+ <div class="col-xs-12">
+   <p class="main-title__sub text-note">Sending your confidential information safely</p>
+ </div>
+</div>
 </div>
 
-    
+
 {% endblock content %}
