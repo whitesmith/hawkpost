@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <div class="head-navbar row">
       <span></span>
-      <div class="col-xs-8 col-sm-8 col-sm-offset-1 start-xs center-sm">
+      <div class="col-xs-8 col-sm-10 col-sm-offset-1 start-xs center-sm">
         <h2 class="text-dark title">Manage Boxes</h2>
       </div>
       <div class="col-xs-4 col-sm-1">
@@ -29,11 +29,11 @@
       </ul>
     </div>
   </div>
- 
+
   <div class="row boxes-container">
     {% for box in object_list %}
     <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 space">
-    
+
       <div class="box "{% if box.uuid|lower == new_box %}new-box{% endif %}>
 
         <div class="box-content">
@@ -126,50 +126,56 @@
             {{ form.name.label_tag }}
             {{ form.name }}
           </p>
-          <p>
-            {{ form.expires_at.errors }}
-            {{ form.expires_at.label_tag }}
-            {{ form.expires_at }}
-          </p>
+          
 
           <div class="row">
-            <div class="col-xs-6">
+          <div class="col-xs-9">
+              <p>
+                {{ form.expires_at.errors }}
+                {{ form.expires_at.label_tag }}
+                {{ form.expires_at }}
+              </p>   
+            </div>
+            <div class="col-xs-3">
               <p>
                 {{ form.never_expires.errors }}
 
                 {{ form.never_expires.label_tag }}
 
                 {{ form.never_expires }}
+              </p>           
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-9">
+              <p>
+                {{ form.description.errors }}
+                {{ form.description.label_tag }}
+                {{ form.description }}
               </p>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-3">
               <p>
                 {{ form.max_messages.errors }}
                 {{ form.max_messages.label_tag }}
                 {{ form.max_messages }}
               </p>
-
-
             </div>
           </div>
-          <p>
-            {{ form.description.errors }}
-            {{ form.description.label_tag }}
-            {{ form.description }}
-          </p>
-        </div>
 
-        <div class="row middle-xs center-xs">
-          <div class="col-xs-6">
-            <button type="submit" class="btn-default" value=""> Create</button>
+          <div class="row middle-xs center-xs">
+            <div class="col-xs-6">
+              <button type="submit" class="btn-default" value=""> Create</button>
 
-          </div>
-          <div class="col-xs-6 ">
-            <button type="button" class="md-close btn-default">Close</button>
+            </div>
+            <div class="col-xs-6 ">
+              <button type="button" class="md-close btn-default">Close</button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 
