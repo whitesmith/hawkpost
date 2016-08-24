@@ -60,6 +60,11 @@
      margin-top: 0px;
  }
  
+ .margin-bottom-lg {
+   
+       @include breakpoint ($min:xl){
+         margin-bottom: 25px;}
+ }
  .col-xxs-12 {
      @media (max-width: 640px) {
          flex-basis: 100%;

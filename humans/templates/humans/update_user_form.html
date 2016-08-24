@@ -4,74 +4,72 @@
         <form action="" method="post" class=" ">
             {% csrf_token %} {{ form.non_field_errors }}
             <div class="row">
-                <div class="col-xxs-12 col-xs-6">
-                    <div class="form__block">
-                        {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
+                <div class="col-xxs-12 col-xs-6 smalltext batatas">
+                    
+                        <div class="form__block">
+                            {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
+                        
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
+
                     <div class="form__block">
                         {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block">
                         {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
+
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
                     <div class="form__block">
                         {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
                     </div>
                 </div>
-                <div class="divider">
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
+                <div class="col-xxs-12 col-xs-6 batatas">
+
                     <div class="form__block">
                         {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block">
                         {{ form.keyserver_url.errors }} {{ form.keyserver_url.label_tag }} {{ form.keyserver_url }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block key">
                         {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6  ">
+
+
                     <div class="label__info" tabindex="1">
-                       <p class="subtitle">Warning</p>
-                         <p class="label__text"> You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended).</p>
+                        <p class="subtitle">Warning</p>
+                        <p class="label__text"> You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended).</p>
                     </div>
-                    
+
                     <div class="row">
-                            <div class=" col-xs-6">
-                                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
-                            </div>
-                            <div class=" col-xs-6">
-                                  {{ form.server_signed }}  
-                        </div></div>
-                    
+                        <div class=" col-xs-6">
+                            {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
+                        </div>
+                        <div class=" col-xs-6">
+                            {{ form.server_signed }}
+                        </div>
+                    </div>
+
                     <div class="label__info" tabindex="1">
-                       <p class="subtitle">Experimental feature!</p>
-                         <p class="label__text"> The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
-                        <strong>mutt</strong>.</p>
-                   
-                </div>
-                </div>
-                <div class="divider">
-                </div>
-                <div class=" col-xs-6">
-                    <div class="form__block">
-                        
+                        <p class="subtitle">Experimental feature!</p>
+                        <p class="label__text"> The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
+                            <strong>mutt</strong>.</p>
+
                     </div>
                 </div>
-                
-                 
-             
+          
+
+
             </div>
             <input type="submit" class="btn-modal set" value="Save"></input>
         </form>
