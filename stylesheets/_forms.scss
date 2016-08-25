@@ -1,93 +1,188 @@
-form {
-    input[type=text] {
-        position: relative;
-        background: none;
-        border: none;
-        border-radius: 0;
-        border-top: 2px solid transparent;
-        border-bottom: 2px solid $light;
-        color: white;
-        @extend .text;
-        //tamanho da linha azul
-        width: 100%;
+ form {
+     input[type=text], input[type=email] {
+         position: relative;
+         background: none;
+         border: none;
+         border-radius: 0;
+         border-top: 2px solid transparent;
+         border-bottom: 2px solid $light;
+         color: white;
+         @extend .text;
+         //tamanho da linha azul
+         width: 100%;
+         &:focus {
+             outline: 0;
+             box-shadow: none;
+             border: none;
+             border-top: 1px solid transparent;
+             border-bottom: 3px solid #33CCCC;
+             animation: example 1s 1;
+         }
+     }
+      input[type=checkbox] {
+          width: 20px;
+          height: 20px;
         &:focus {
             outline: 0;
             box-shadow: none;
             border: none;
-            border-top: 1px solid transparent;
-            border-bottom: 3px solid #33CCCC;
-            animation: example 1s 1;
         }
-    }
-    input[type=checkbox] {
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-            border: none;
-        }
-    }
-    input[type=number],
-    select,
-    textarea {
-        position: relative;
-        background: none;
-        border: none;
-        border-top: 2px solid transparent;
-        border-bottom: 2px solid $light;
-        color: white;
-        //tamanho da linha azul
-        width: 100%;
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-            border: none;
-            border-top: 1px solid transparent;
-            border-bottom: 3px solid #33CCCC;
-        }
-    }
-    select {
-        margin-top: 17px;
-    }
-    .label__info {
-        border-radius: 2px;
-        margin: 10px 0 20px;
-       // margin-right: 100px;
-    }
-    .form__block {
-        textarea {
-            height: auto;
-        }
-    }
+    } 
+     input[type=number],
+     select,
+     textarea,
+     input[type=checkbox] {
+         position: relative;
+         background: none;
+         border: none;
+         border-top: 2px solid transparent;
+         border-bottom: 2px solid $light;
+         color: white;
+         //tamanho da linha azul
+         width: 100%;
+         &:focus {
+             outline: 0;
+             box-shadow: none;
+             border: none;
+             border-top: 1px solid transparent;
+             border-bottom: 3px solid #33CCCC;
+         }
+     }
+     select {
+         margin-top: 17px;
+     }
+     .label__info {
+           width: 50px;
+         border-radius: 2px;
+         margin: 10px 0 20px;
+         // margin-right: 100px;
+     }
+     .label__text {
+         margin: 0px;
+         padding: 0px;
+         color: $light;
+         display: none;
+         //width: 300px;
+     }
+     .label__info {
+         margin: 10px 10px 20px;
+         .subtitle {
+             padding: 0;
+             margin: 0;
+             font-size: 16px;
+         }
+     }
+     .label__info:focus {
+       
+         //height: 260px;
+         background-color: rgba(78, 217, 185, 0.2);
+         .label__text {
+             display: block;
+         }
+     }
+ }
+ 
+ .set {
+     margin: 40px 0;
+ }
+ 
+ .form__block {
+     textarea {
+         height: auto;
+     }
+ }
+
+
+/*
+-----#POP-UP----*/
+
     
-    
-.label__text {
-    margin: 0px;
-    padding: 0px;
-    color: $light;
-    display: none;
-    //width: 300px;
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.label__info{
-    
-    
-    margin: 10px 10px 20px;
-    .subtitle {
-        padding: 0;
-        margin: 0;
-        font-size: 16px;
-    }
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+   
+    margin-left: -250px;
+}
+ 
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
 }
 
-.label__info:focus {
-    //height: 260px;
-    background-color: rgba(78, 217, 185, 0.2);
-    .label__text {
-        display: block;
-    }
-}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
-.set {
-    margin: 40px 0;
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }
+ 
+
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+.control input:checked ~ .control__indicator {
+	background: #2aa1c0;
+}
+
+
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+	top: 4px;
+	left: 8px;
+	width: 3px;
+	height: 8px;
+	transform: rotate(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+}
+
+
+
+

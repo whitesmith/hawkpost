@@ -14,18 +14,37 @@
         width: 100%;
         height: 100%;
         margin: 0px;
+        padding: 0px;
         overflow-x: hidden;
-        
     }
     
     html {}
-   
-.hidden{display: none;}
-     
+    
+    .hidden {
+        display: none;
+    }
+    
+    
+
+ 
+.btn-none{
+top:20px;
+right:20px;
+position: absolute;
+background:none;
+border:none;
+ 
+    
+}
+
     /*------------------------------------*\
   #RESPONSIVE_SCREEN_SIZE
 \*------------------------------------*/
     /*-------#MAIN-------*/
+    
+    ul li {
+        list-style-type: none;
+    }
     
     .main {
         padding-top: $nav-size*2;
@@ -33,25 +52,23 @@
         width: 960px;
         max-width: 100%;
         margin: auto;
-        
-      @include breakpoint ($min: xs) {
+        @include breakpoint ($min: xs) {
             width: 350px;
             max-width: 100%;
         }
-          
-          @include breakpoint ($min: sm) {
+        @include breakpoint ($min: sm) {
             width: 620px;
             max-width: 100%;
         }
-        @include breakpoint ($min: md){
+        @include breakpoint ($min: md) {
             width: 720px;
             max-width: 100%;
         }
-         @include breakpoint ($min: lg){
+        @include breakpoint ($min: lg) {
             width: 1100px;
             max-width: 100%;
         }
-        @include breakpoint ($min: xl){
+        @include breakpoint ($min: xl) {
             width: 1240px;
             max-width: 100%;
         }
@@ -89,11 +106,9 @@
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
-        
-          @include breakpoint($min:xl) {
+        @include breakpoint($min:xl) {
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
-        
     }
     
     .subtitle {
@@ -151,7 +166,8 @@
     body {
         min-height: 100%;
         height: auto;
-        background-color: rgba(0, 0, 0, 0.64);
+        background-color:$light;
+        color: $black;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         @extend .text;

@@ -1,78 +1,105 @@
 {% extends "layout/base.html" %} {% block content %}
-<p class="title">Update your user settings
-    <p>
+
+
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+        var popup = document.getElementById('myPopup');
+        popup.classList.toggle('show');
+    }
+
+    function myFunction1() {
+        var popup = document.getElementById('myPopup1');
+        popup.classList.toggle('show');
+    }
+    
+    
+</script>
+
+
+<p class="title center-xs">Update your user settings</p>
+
+
+<div class="row ">
+    <div class=" col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8  col-lg-offset-2">
         <form action="" method="post" class=" ">
             {% csrf_token %} {{ form.non_field_errors }}
-            <div class="row">
-                <div class="col-xxs-12 col-xs-6">
+
+
+            <div class="row around-xs">
+                <div class="col-xxs-12 col-xs-5 col-md-5    ">
+
                     <div class="form__block">
                         {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
+
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
+
                     <div class="form__block">
                         {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block">
                         {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
+
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
                     <div class="form__block">
                         {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
                     </div>
+
+
+                    <div class="row big">
+                        <div class=" col-xs-7">
+                            {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
+                        </div>
+                        <div class=" col-xs-1 .control__indicator">
+                            {{ form.server_signed }}
+                        </div>
+
+                        <div class="col-xs-4">
+                            <div class="popup " onclick="myFunction()"><i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+                                <span class="popuptext text" id="myPopup">The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
+                            <strong>mutt</strong>.</p></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="divider">
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
+                <div class="col-xxs-12 col-xs-5 col-md-5">
+
                     <div class="form__block">
                         {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block">
                         {{ form.keyserver_url.errors }} {{ form.keyserver_url.label_tag }} {{ form.keyserver_url }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6">
+
+
                     <div class="form__block key">
                         {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
                     </div>
-                </div>
-                <div class="col-xxs-12 col-xs-6  ">
-                    <div class="label__info" tabindex="1">
-                       <p class="subtitle">Warning</p>
-                         <p class="label__text"> You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended).</p>
+
+
+
+
+                    <div class="popup text" onclick="myFunction1()"> <i class="fa fa-exclamation-triangle fa-lg text-dark" aria-hidden="true"></i>
+                        <span class="popuptext" id="myPopup1">                         You can provide the public key in a static away or provide a link to your key in a public key server so we can fetch it for you (recommended). 
+</span>
                     </div>
-                    
-                    <div class="row">
-                            <div class=" col-xs-6">
-                                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
-                            </div>
-                            <div class=" col-xs-6">
-                                  {{ form.server_signed }}  
-                        </div></div>
-                    
-                    <div class="label__info" tabindex="1">
-                       <p class="subtitle">Experimental feature!</p>
-                         <p class="label__text"> The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and
-                        <strong>mutt</strong>.</p>
-                   
+
                 </div>
-                </div>
-                <div class="divider">
-                </div>
-                <div class=" col-xs-6">
-                    <div class="form__block">
-                        
-                    </div>
-                </div>
-                
-                 
-             
-            </div>
-            <input type="submit" class="btn-modal set" value="Save"></input>
+
+
+
+
+                <input type="submit" class="btn-modal set" value="Save"></input>
         </form>
-        <small class="check"> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" %}">here</a></small> {% endblock content %}
+        </div>
+        <small class="check"> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" %}">here</a></small> {% endblock content %} </div>
+</div>

@@ -1,6 +1,6 @@
 {% extends "layout/base.html" %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
 
-<!--------------------LOGIN-------------------->
+
 <div class="row center-xs">
     <div class="col-xs-11 col-sm-5">
         <button class="h-button smalltext md-trigger" data-modal="modal-1" >Login</button>
@@ -10,21 +10,25 @@
     </div>
 </div>
 
+
+<!--------------------LOGIN-------------------->
 <div class="md-modal-xs md-effect-1 " id="modal-1">
     <div class="md-content-xs ">
-        <div class="row center-md start-xs start-sm ">
+        <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+        
+        <div class="row start-xs  ">
             <div class="col-xs-12">
                 <form class="login" method="POST" action="{% url 'account_login' %}">
 
 
-                    <p class="title "> Login</p>   
+                    <h3 class="title "> Login</h3>   
                      <p class="hidden smalltext">If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a></p> 
                      <p class=" smalltext">{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                    {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
-                    <div class="socialaccount_ballot   ">
+                    <div class="socialaccount_ballot">
 
-                        <ul class=" socialaccount_providers  ">
+                        <ul class=" socialaccount_providers">
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
@@ -44,7 +48,6 @@
                             {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
                         </p>
 
-
                         <p>
                             {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}
                         </p>
@@ -53,7 +56,7 @@
 
                         <p>
                     </div> {{ form.remember.errors }}
-                    <div class="row start-xs">
+                    <div class="row">
                         <div class="col-xs-8">
                             <div class="row">
                                 <div class="col-xs-10">
@@ -72,22 +75,20 @@
 
             </div>
 
-            <div class="row middle-xs center-xs  smalltext">
-                <div class="col-xs-4">
+           
+                <div class="col-xs-12">
                     <button class="primaryAction btn-default md-trigger" data-modal="modal-1" type="submit">{% trans "Login" %}</button>
                 </div>
-                <div class="col-xs-4 ">
-                    <button class="md-close btn-default ">Close</button>
-                </div>
+                 
 
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <a class="  secondaryAction u-blockify text-left text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </div>
-            </div>
+           <!-- </div>-->
 
-
+ </div>
             </form>
-        </div>
+       
 
     </div>
 </div>
@@ -98,10 +99,11 @@
 
 <div class="md-modal-xs md-effect-1 " id="modal-2">
     <div class="md-content-xs ">
+        <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
         <form class="signup start-xs" id="signup_form" method="post" action="{% url 'account_signup' %}">
-            <div class="row  center-md start-xs start-sm">
+            <div class="row start-xs ">
                 <div class="col-xs-12">
-                    <p class="title "> Sign up</p> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                    <h3 class="title"> Sign up</h3> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                     <p class="smalltext">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
 
                     <p class="smalltext">You can also sign up with one of your existing third party accounts such as:</p>
@@ -114,7 +116,7 @@
                         <div class="login-or smaltext">{% trans 'Ortherwise' %} use the following form to create your new account:</div>
                     </div>
                     {% endif %}
-                    <div class="start-xs">
+                  
                         {% csrf_token %}
 
                         <p>
@@ -146,17 +148,15 @@
 
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
-                    </div>
+                  
                 </div>
-            </div>
-            <div class="row middle-xs center-xs">
-                <div class="col-xs-4">
+           
+        
+                <div class="col-xs-12">
                     <button class="btn-default" type="submit">{% trans "Sign Up" %}</button>
-                </div>
-                <div class="col-xs-4 ">
-                    <button class="md-close btn-default ">Close</button>
-                </div>
-            </div>
+               
+                 
+            </div> </div>
         </form>
     </div>
 </div>
