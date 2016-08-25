@@ -45,13 +45,35 @@ border:none;
     ul li {
         list-style-type: none;
     }
-    
-    .main {
-        padding-top: $nav-size*2;
-        padding-bottom: 100px;
-        width: 960px;
-        max-width: 100%;
-        margin: auto;
+ 
+    .section-definer {  
+        width: 100%; 
+        
+    }
+       
+.section-definer-light {
+         @extend .section-definer;
+    background-color:blue;
+    }
+
+.section-definer-medium {
+         @extend .section-definer;
+    background-color:white;
+    }
+
+.section-definer-dark {
+         @extend .section-definer;
+    background-color:$black;
+    }
+         .section-resized {
+       
+             
+             
+      padding-top: $nav-size*2;
+       padding-bottom: 100px;
+       width: 960px;
+       max-width: 100%;
+        margin: auto;     
         @include breakpoint ($min: xs) {
             width: 350px;
             max-width: 100%;
@@ -73,6 +95,8 @@ border:none;
             max-width: 100%;
         }
     }
+
+
     /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
