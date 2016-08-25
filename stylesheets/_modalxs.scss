@@ -25,16 +25,10 @@
          margin-bottom: 0;
      }
      .btn-default {
-         padding: 0px;
+         padding: 0 0 0;
          height: 6vh;
-         width: 8vw;
-         margin: 10px;
-         @include breakpoint ($min: xs) {
-             width: 15vw;
-         }
-         @include breakpoint ($min: sm) {
-             width: 13vw;
-         }
+         
+         
      }
      @extend .md-modal;
  }
