@@ -36,29 +36,26 @@ border:none;
  
     
 }
-
-    /*------------------------------------*\
-  #RESPONSIVE_SCREEN_SIZE
-\*------------------------------------*/
-    /*-------#MAIN-------*/
+ 
     
     ul li {
         list-style-type: none;
     }
  
     .section-definer {  
-        width: 100%; 
+        width: 100%;
+        height: 100%;
         
     }
        
 .section-definer-light {
          @extend .section-definer;
-    background-color:blue;
+    background-color:white;
     }
 
 .section-definer-medium {
          @extend .section-definer;
-    background-color:white;
+    background-color:$grey;
     }
 
 .section-definer-dark {
@@ -66,10 +63,7 @@ border:none;
     background-color:$black;
     }
          .section-resized {
-       
-             
-             
-      padding-top: $nav-size*2;
+       padding-top: $nav-size*2;
        padding-bottom: 100px;
        width: 960px;
        max-width: 100%;
@@ -95,6 +89,34 @@ border:none;
             max-width: 100%;
         }
     }
+
+.section-resized-extra {
+  @extend .section-resized;
+    padding-bottom: 138px;
+    
+ @include breakpoint ($min: md) {
+      padding-bottom: 193px;}
+}
+
+
+.section-resized-extra-plus {
+  @extend .section-resized;
+    padding-bottom: 149px;
+    
+ @include breakpoint ($min:xs) {
+      padding-bottom: 212px;}
+    
+    @include breakpoint ($min:sm) {
+      padding-bottom: 219px;}
+    
+     @include breakpoint ($min:md) {
+      padding-bottom: 232px;}
+
+    @include breakpoint ($min:lg) {
+      padding-bottom: 160px;}
+    
+    
+}
 
 
     /*------------------------------------*\
@@ -190,8 +212,8 @@ border:none;
     body {
         min-height: 100%;
         height: auto;
-        background-color:$light;
-        color: $black;
+        //background-color:$light;
+       // color: $black;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         @extend .text;
