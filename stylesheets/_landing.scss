@@ -71,7 +71,7 @@
 /*-----------------------#SECTIONS-------------*/
 
 .h-section {
-    margin: 10px 20px 10px;
+    //margin: 10px 20px 10px;
     @media only screen and (min-width: 200px) and (max-width: 800px) {
         padding: 5vh 0 8vh;
     }
@@ -86,7 +86,7 @@
         padding: 20vh 0 50vh;
     }
     @media screen and (min-width: 800px) and (max-width: 1600px) {
-        padding: 20vh 0 30vh;
+        padding: 30vh 0 40vh;
     }
 }
 

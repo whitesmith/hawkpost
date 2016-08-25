@@ -5,9 +5,18 @@
  .text-dark {
      color: $main-color-dark;
  }
+
+
+ .text-darkest {
+     color: black;
+ }
  
  .text-light {
      color: $light;
+ }
+
+.text-lightest {
+     color:white;
  }
  
  .text-main {

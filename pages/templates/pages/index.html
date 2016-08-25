@@ -1,24 +1,27 @@
 {% extends "layout/base.html" %} {% load staticfiles %} {% block content %}
 
-
-<section class="h-section--first">
+<div class="section-definer-dark">
+<section class="h-section--first section-resized">
 
     <div class="row center-xs">
 
         <div class="col-xs-10">
-            <p class="title first">Encript. Send. Receive</p>
-            <p> Hawkpost. When a pigeon is not enough</p>
+            <p class="title first text-lightest">Encript. Send. Receive</p>
+            <p class="text text-light"> Hawkpost. When a pigeon is not enough</p>
             <!-- --------------SCROLL BUTTON-------------- -->
             <div class="span"><a class="scroll" href="#sec_1"><span>  </span></a></div>
         </div>
     </div>
 
 </section>
+ </div>
+<div class="section-definer-medium ">
 
+ <div class= " h-section section-resized" id="sec_1">
+ 
+ <div class="row center-xs middle-xs start-sm">
 
-<section class="h-section" id="sec_1">
-
-    <div class="row center-xs middle-xs start-sm">
+  
         <div class=" center-xs start-sm col-xs-12  col-sm-6  ">
             <img src="{% static 'images/logob.png' %}" class="logo-big">
         </div>
@@ -38,12 +41,14 @@
             <button class="h-button">PGP WHAT?</button>
         </div>
     </div>
+</div>
+ 
+ 
+<div class="section-definer-medium text-darkest">
+ <div class= " h-section section-resized" id="sec_1">
+ 
 
-</section>
-
-<section class="h-section">
-
-    <div class="row text-light">
+    <div class="row">
 
 
         <div class="col-xs-12 center-xs start-sm start-lg  ">
@@ -90,14 +95,16 @@
     </div>
 
 
-</section>
+       </div>
 
 
+    </div>
 
-<section class="h-section">
 
+<div class="section-definer-dark">
+<section class="h-section--first section-resized">
     <div class="col-xs-12 center-xs start-sm start-lg  ">
-        <h3 class="title">Faq</h3>
+        <h3 class="title text-lightest">Faq</h3>
     </div>
 
     <div class=" row ">
@@ -105,48 +112,49 @@
 
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">Why should I use this?</p>
+                <p class="faq__tittle text-lightest">Why should I use this?</p>
                 <p class="faq__text">This is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.</p>
 
             </div>
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">How does it work behind the curtain?</p>
+                <p class="faq__tittle text-lightest">How does it work behind the curtain?</p>
                 <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you some secret information. When that person visits the link and submits the sensitive data, it is encrypted in their browser with your PGP public key and then forwarded to your email address. No data is stored by us.</p>
 
             </div>
 
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">Why is this safe?</p>
+                <p class="faq__tittle text-lightest">Why is this safe?</p>
                 <p class="faq__text">Hawkpost provides end-to-end encryption using <a href="https://openpgpjs.org/">OpenPGP.js</a> library, which means that the submitted information will be only visible to whom created the link (the owner of the key) and we will not save it.</p>
             </div>
         </div>
         <div class=" col-xs-12 col-sm-6">
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">Is my link permanently available?</p>
+                <p class="faq__tittle text-lightest">Is my link permanently available?</p>
                 <p class="faq__text">No, at the momment you can create as many unique links as you want, one for each ocasion. All of them should have an expiration date, however other configuration options will be added soon, so you can adapt the functionality to your own use cases.</p>
 
             </div>
 
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">What type of information can be submitted?</p>
+                <p class="faq__tittle text-lightest">What type of information can be submitted?</p>
                 <p class="faq__text">Any text information can be submitted and only be visible for the person who created the link.</p>
 
             </div>
 
             <div class="faq__box  faq__box--big" tabindex="1">
 
-                <p class="faq__tittle">Can I check the code?</p>
+                <p class="faq__tittle text-lightest">Can I check the code?</p>
                 <p class="faq__text">Sure, the system is open-source. You can either check the code before using this service or deploy it on your own server. The source can be found <a href="https://github.com/whitesmith/hawkpost">here</a></p>
             </div>
         </div>
     </div>
 
+   </div>
+    </div>
 
-</section>
 {% endblock content %}
 
 
