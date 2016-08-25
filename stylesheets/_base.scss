@@ -24,12 +24,7 @@
         display: none;
     }
     
-    .ccc {
-        input[type=text] {
-            width: 50px;
-            
-        }
-    }
+    
 
  
 .btn-none{
@@ -171,7 +166,8 @@ border:none;
     body {
         min-height: 100%;
         height: auto;
-        background-color: rgba(0, 0, 0, 0.64);
+        background-color:$light;
+        color: $black;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         @extend .text;
