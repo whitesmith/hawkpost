@@ -31,7 +31,7 @@
      input[type=number],
      select,
      textarea,
-     input[type=checkbox] {
+     input[type=checkbox], input[type=password] {
          position: relative;
          background: none;
          border: none;
@@ -109,6 +109,7 @@
 
 /* The actual popup */
 .popup .popuptext {
+    
     visibility: hidden;
     width: 500px;
     background-color: #555;
@@ -128,6 +129,7 @@
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
+    padding: 10px;
 }
 
 /* Add animation (fade in the popup) */

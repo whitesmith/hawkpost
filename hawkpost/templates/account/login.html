@@ -1,6 +1,7 @@
 {% extends "layout/base.html" %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
 
-
+<div class="h-section--first section-definer-dark">
+<section class=" section-resized ">
 <div class="row center-xs">
     <div class="col-xs-11 col-sm-5">
         <button class="h-button smalltext md-trigger" data-modal="modal-1" >Login</button>
@@ -9,8 +10,8 @@
         <button class="h-button smalltext md-trigger" data-modal="modal-2">Sign Up</button>
     </div>
 </div>
-
-
+</section>
+</div>
 <!--------------------LOGIN-------------------->
 <div class="md-modal-xs md-effect-1 " id="modal-1">
     <div class="md-content-xs ">
@@ -18,30 +19,30 @@
         
         <div class="row start-xs  ">
             <div class="col-xs-12">
-                <form class="login" method="POST" action="{% url 'account_login' %}">
+                <form class="login  smalltext text-darkest" method="POST" action="{% url 'account_login' %}">
 
+ 
 
                     <h3 class="title "> Login</h3>   
-                     <p class="hidden smalltext">If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a></p> 
-                     <p class=" smalltext">{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                     <p>If you have not created an account yet, then please<a href="{{ signup_url }}"> sign up  </a></p> 
+                     <p>{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                    {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
-                    <div class="socialaccount_ballot">
-
-                        <ul class=" socialaccount_providers">
+                   
+                        <ul>
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
-                        <div class="login-or smalltext">
-                            {% trans 'Or' %} create an hawkpost account <a href="{{ signup_url }}">here</a> and login bellow:
+                        <div class="login-or">
+                           <p> {% trans 'Or' %} create an hawkpost account <a href="{{ signup_url }}">here</a> and login bellow:</p>
                         </div>
-                    </div>
+                    
 
                     {% include "socialaccount/snippets/login_extra.html" %} {% else %}
                     <p>{% blocktrans %}If you have not created an account yet, then please
                         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
                     {% endif %}
-                    <div class="start-xs">
+                    <div class="start-xs text-darkest">
                         {% csrf_token %}
 
                         <p>
@@ -54,21 +55,21 @@
 
 
 
-                        <p>
+                       
                     </div> {{ form.remember.errors }}
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="row">
                                 <div class="col-xs-10">
-                                    {{ form.remember.label_tag }}
+                                    <p> {{ form.remember.label_tag }}
                                 </div>
                                 <div class="col-xs-2 end-xs">
-                                    {{ form.remember }}
+                                    {{ form.remember }} </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </p>
+                   
 
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
@@ -81,8 +82,8 @@
                 </div>
                  
 
-                <div class="col-xs-12">
-                    <a class="  secondaryAction u-blockify text-left text-dark" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <div class="col-xs-12 text-lightest">
+                    <a class="  secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </div>
            <!-- </div>-->
 
@@ -97,28 +98,31 @@
 <!--------------------SIGN_UP-------------------->
 
 
-<div class="md-modal-xs md-effect-1 " id="modal-2">
+<div class="md-modal-xs md-effect-1" id="modal-2">
     <div class="md-content-xs ">
         <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
-        <form class="signup start-xs" id="signup_form" method="post" action="{% url 'account_signup' %}">
-            <div class="row start-xs ">
-                <div class="col-xs-12">
+        
+         <div class="row start-xs ">
+                <div class="col-xs-12"> 
+                
+        <form class="signup start-xs smalltext text-darkest" id="signup_form" method="post" action="{% url 'account_signup' %}">
+           
                     <h3 class="title"> Sign up</h3> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p class="smalltext">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
+                    <p >{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
 
-                    <p class="smalltext">You can also sign up with one of your existing third party accounts such as:</p>
+                    <p >You can also sign up with one of your existing third party accounts such as:</p>
 
-                    <div class="socialaccount_ballot smalltext">
-                        <ul class="socialaccount_providers">
+                   
+                        <ul>
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
-                        <div class="login-or smaltext">{% trans 'Ortherwise' %} use the following form to create your new account:</div>
-                    </div>
+                        <div class="login-or"><p>{% trans 'Ortherwise' %} use the following form to create your new account:</p></div>
+                    
                     {% endif %}
                   
                         {% csrf_token %}
-
+<div class="start-xs text-darkest">
                         <p>
                             {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
                         </p>
@@ -145,7 +149,7 @@
                                 </div>
                             </div>
                         </p>
-
+ </div>
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
                   

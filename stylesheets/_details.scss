@@ -22,6 +22,10 @@
  .text-main {
      color: $main-color;
  }
+
+ .text-grey {
+     color: $grey;
+ }
  
  .text-bold {
      font-weight: 600;
@@ -45,6 +49,8 @@
      color: $main-color-dark;
      margin: 20px 0px 0px;
  }
+
+.break-word{word-wrap:break-word;}
  /*------------------------------------*\
   #ALIGNMENTS_AND_MARGINS
 \*------------------------------------*/
@@ -59,6 +65,7 @@
  
  .u-blockify {
      display: block;
+     margin-top:10px;
  }
  
  .no-margin {
