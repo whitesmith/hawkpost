@@ -76,7 +76,7 @@
 
   .box__nav__item{
    display: inline;
-   border: solid #49C2D0;
+   border: solid #33CCCC;
    border-width: 1px;
    margin: 5px;
    padding-top: 12px;
@@ -88,14 +88,19 @@
    width: 80px;
 
    &.active{
-    background: #49C2D0;
-    border:#49C2D0;
+    background: #33CCCC;
+    border:#33CCCC;
     color:white;
   }
 }
 
 .outro{
-    color:#49C2D0;
+    color:black;
+    cursor: pointer;
+    &:hover{
+   transition: all 0.2s ease-in-out;
+   opacity: 0.7;
+ }
    }
 
 .container-fluid{
