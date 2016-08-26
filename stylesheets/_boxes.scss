@@ -7,26 +7,16 @@
 
 
  .box{
-   border: 1px solid $light;
-    //box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-    margin:5px;
-    background: rgba($light, 0.2);
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    margin: 5px;
     text-align: left;
     height: 100%;
   }
 
-  .box__title{
-   color: $main-color-dark;
- }
-
- .box__desc{
-   font-size: 15px;
-   color: $main-color;
- }
 
  .box__info{
    font-size: 13px;
-   color: $grey;
+   color: black;
  }
 
  .box-container, .box-action{
@@ -37,14 +27,14 @@
  .box-action{
    align-self:stretch;
    justify-content: flex-start;
-   border-left: 1px solid $light;
+   border-left: 1px solid black;
    form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
     &:first-child {
-     border-bottom: 1px solid $light;
+     border-bottom: 1px solid black;
    }
  }
 }
@@ -53,7 +43,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	border-bottom: 1px solid $light;
+	border-bottom: 1px solid black;
 }
 
 .box-title-desc, .extra-info{
@@ -74,12 +64,11 @@
  \*------------------------------------*/
 
  .box__nav{
-    width: 100%;
-   align-self: center;
-   margin-bottom: $spacing--x-large;
-   padding: $spacing--small 0px;
-	//border-top: 1px solid $main-color50;
-    //border-bottom: 1px solid $main-color50; 
+  width: 100%;
+  align-self: center;
+  margin-bottom: $spacing--x-large;
+  padding: $spacing--small 0px;
+
     li{
     	display: inline;
     }
@@ -87,7 +76,7 @@
 
   .box__nav__item{
    display: inline;
-   border: solid $light;
+   border: solid #49C2D0;
    border-width: 1px;
    margin: 5px;
    padding-top: 12px;
@@ -95,13 +84,19 @@
    font-weight: 600;
    display: inline-block;
    text-align: center;
-
+   background: none;
    width: 80px;
 
    &.active{
-    color:$main-color-dark;
+    background: #49C2D0;
+    border:#49C2D0;
+    color:white;
   }
 }
+
+.outro{
+    color:#49C2D0;
+   }
 
 .container-fluid{
 	.father{
@@ -123,7 +118,7 @@
     align-self: center;
   }
   a{
-    color: $light;
+    color: black;
   }
 
   @include breakpoint($min: sm){
