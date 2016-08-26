@@ -3,15 +3,17 @@
 {% load staticfiles %}
 
 {% block content %}
-<section class="fundo_branco">
+<div class="section-definer-medium ">
+ <div class= " h-section section-resized">
+
   <div class="container-fluid">
     <div class="head-navbar row">
       <span></span>
       <div class="col-xs-8 col-sm-10 col-sm-offset-1 start-xs center-sm">
-        <h2 class="text-dark title">Manage Boxes</h2>
+        <h2 class="text-darkest title">Manage Boxes</h2>
       </div>
       <div class="col-xs-4 col-sm-1">
-        <button class="box__nav box__nav__item smalltext md-trigger" data-modal="modal-1">New</button>
+        <button class="box__nav box__nav__item smalltext md-trigger outro" data-modal="modal-1">New</button>
       </div>
 
       <ul class="box__nav smalltext">
@@ -40,17 +42,17 @@
           <div class="box-container">
             <div class="basic-info">
               <div class="box-title-desc">
-                <h3 class="box__title text">{{box.name}}</h3>
-                <p class="box__desc smalltext">{{box.description}}</p>
+                <h3 class="box__title text text-darkest">{{box.name}}</h3>
+                <p class="box__desc smalltext text-darkest">{{box.description}}</p>
               </div>
               <div class="box-action">
                 <form class="hoverable" action="{% url "boxes_close" box.id %}" method="post">
                   {% csrf_token %}
-                  <input class="btn-dark text" type="submit" value="CLOSE"></input>
+                  <input class="btn-dark text outro" type="submit" value="CLOSE"></input>
                 </form>
                 <form class="hoverable" action="{% url "boxes_delete" box.id %}" method="post">
                   {% csrf_token %}
-                  <input class="btn-dark text" type="submit" value="DELETE"></input>
+                  <input class="btn-dark text outro" type="submit" value="DELETE"></input>
                 </form>
               </div>
             </div>
@@ -93,7 +95,8 @@
     </div>
     {% endfor %}
   </div>
-
+</div>
+</div>
   <div class="pagination">
     <span class="step-links">
       {% if page_obj.has_previous %}
@@ -190,7 +193,7 @@
   </div>
 </div>
 
-<div class="md-overlay"></div></section>
+<div class="md-overlay"></div>
 {% endblock content %}
 
 {% block scripts %}
