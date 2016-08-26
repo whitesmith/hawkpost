@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="section-definer-medium ">
+<div class="section-definer-light ">
  <div class= " h-section section-resized">
 
   <div class="container-fluid">
@@ -68,23 +68,23 @@
           {% endif %}
 
           <div class="extra-info">
-            <p class="smalltext">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
+            <p class="smalltext text-darkest">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
 
             <p class="box__info smalltext">
-              <span class="text-dark smalltext">Created on:</span>
+              <span class="text-darkest smalltext">Created on:</span>
               <span>{{box.created_at}}</span>
             </p>
 
             {% if box.expires_at %}
             <p class="box__info smalltext">
-              <span class="text-dark text-bold">Expires on:</span>
+              <span class="text-darkest">Expires on:</span>
               <span>{{box.expires_at}}</span>
             </p>
             {% endif %}
 
             {% if box.messages.count %}
             <p class="box__info">
-              <span class="text-dark text-bold">Last sent:</span>
+              <span class="text-darkest">Last sent:</span>
               <span>{{box.last_sent_at}}</span>
             </p>
             {% endif %}
@@ -128,6 +128,7 @@
         <p class="smalltext"> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
         <form action="{% url "boxes_create" %}" method="post" class="">
           {% csrf_token %}
+          <label class="input-anime">
 
           <p>
             {{ form.name.errors }}
@@ -175,7 +176,7 @@
           </div>
           </div>
 
-         
+</label>         
 </div>
     
           <div class="row middle-xs center-xs">
