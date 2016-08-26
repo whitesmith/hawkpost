@@ -42,34 +42,35 @@
                     <p>{% blocktrans %}If you have not created an account yet, then please
                         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
                     {% endif %}
-                    <div class="start-xs text-darkest">
+                    <div class="start-xs text-darkest ">
                         {% csrf_token %}
-
-                        <p>
+                        
+                        <label class="input-anim">   
+                            <p>
                             {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
-                        </p>
+                            </p>
 
                         <p>
                             {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}
                         </p>
 
+</label>
 
-
-                       
-                    </div> {{ form.remember.errors }}
+                       <label class="input-anim">   
+                    </div> <p> {{ form.remember.errors }}
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="row">
                                 <div class="col-xs-10">
-                                    <p> {{ form.remember.label_tag }}
+                                    {{ form.remember.label_tag }}
                                 </div>
                                 <div class="col-xs-2 end-xs">
-                                    {{ form.remember }} </p>
+                                    {{ form.remember }} 
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
+                   </p> </label>  
 
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
@@ -123,6 +124,7 @@
                   
                         {% csrf_token %}
 <div class="start-xs text-darkest">
+                        <label class="input-anim">  
                         <p>
                             {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
                         </p>
@@ -132,8 +134,9 @@
                             {{ form.password.label_tag }} {{ form.password }} {{ form.password.errors }}
                         </p>
 
+    </label>
 
-
+                        
                         <p>
                             {{ form.remember.errors }}
                             <div class="row start-xs">
@@ -149,6 +152,7 @@
                                 </div>
                             </div>
                         </p>
+                        
  </div>
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
