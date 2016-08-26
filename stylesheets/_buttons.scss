@@ -21,7 +21,8 @@
   text-align: center;
   cursor: pointer;
   &:hover{
-   background: rgba($main-color,0.7);
+    transition: all 0.2s ease-in-out;
+   opacity: 0.7;
  }
 }
 
@@ -58,12 +59,22 @@
   button{
     &:first-child{
       border-right: 1px solid $light;
+      background: #33CCCC;
     }
   }
 }
 
 .hoverable{
   &:hover{
-   background: rgba($main-color-dark,0.7);
+   transition: all 0.2s ease-in-out;
+   opacity: 0.7;
  }
 } 
+
+.btn-none{
+top:20px;
+right:20px;
+position: absolute;
+background:none;
+border:none;
+}
