@@ -44,7 +44,7 @@ perspective effects (not including the modals and the overlay).
     left: 0;
     z-index: 1000;
     opacity: 0;
-    background: $main-color50;
+    background: rgba(0,0,0,0.3);
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -141,13 +141,13 @@ perspective effects (not including the modals and the overlay).
 .md-content > div {
     padding: 15px 22px 30px;
     margin: 0;
-    font-weight: 300;
-    font-size: 1.15em;
+   
 }
 
 .md-content > div p {
     margin: 0;
     padding: 10px 0;
+    font-size:0.8rem;
 }
 
 
