@@ -17,8 +17,8 @@
 </script>
 
 
-<div class="section-definer-medium">
-<section class="section-resized">
+<div class="section-definer-light">
+<section class="section-resized ">
 <p class="title center-xs">Update your user settings</p>
 
 
@@ -28,8 +28,8 @@
             {% csrf_token %} <label class="input-anim ">{{ form.non_field_errors }}
 
 
-            <div class="row around-xs">
-                <div class="col-xxs-12 col-xs-5 col-md-5    ">
+            <div class="row around-xs text-darkest">
+                <div class="col-xxs-12 col-xs-5 col-md-5 ">
 
                     <div class="form__block">
                         {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
@@ -104,7 +104,7 @@
                 <input type="submit" class="btn-modal set" value="Save"></input>
         </form>
         </div>
-        <small class="check"> Do you wish to delete your account? if yes, just click <a href="{% url "humans_delete" %}">here</a></small> {% endblock content %} </div>
+        <small class="check text-dark"> Do you wish to delete your account? if yes, just click <a class="text-darkest"href="{% url "humans_delete" %}">here</a></small> {% endblock content %} </div>
         
         
         

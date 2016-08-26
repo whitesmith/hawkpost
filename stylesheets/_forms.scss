@@ -1,10 +1,12 @@
     
 .fa{
 cursor: pointer;}
+label{
+font-size:0.8rem;}
 
 
 .input-anim {
-    input, textarea{
+    input[type=text], input[type=number], input[type=email], input[type=password],textarea{
         background: none;
         border: none;
         border-radius: 0;
