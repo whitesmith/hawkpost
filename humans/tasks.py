@@ -1,11 +1,12 @@
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
+from celery import shared_task
 from celery.utils.log import get_task_logger
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.db.models import Q
 from django.template.loader import render_to_string
-from .models import User
+from .models import User, Notification
 from .utils import key_state
 import requests
 
@@ -75,3 +76,25 @@ def update_public_keys():
             user.save()
 
     logger.info("Finished Updating user keys")
+
+
+@shared_task
+def send_email_notification(subject, body, email):
+    email = EmailMultiAlternatives(subject, body,
+                                   settings.DEFAULT_FROM_EMAIL,
+                                   [email])
+    email.send()
+
+
+@shared_task
+def enqueue_email_notifications(notification_id, group_id):
+    notification = Notification.objects.get(id=notification_id)
+    if group_id:
+        users = User.objects.filter(groups__id=group_id)
+    else:
+        users = User.objects.all()
+
+    for user in users:
+        send_email_notification.delay(notification.subject,
+                                      notification.body,
+                                      user.email)
