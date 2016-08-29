@@ -1,4 +1,29 @@
-    
+ 
+
+.box__nav__item__help{
+     
+    display: inline;
+    border: solid #4ca7af;
+    border-width: 1px;
+    margin: 5px;
+    padding: 12px 12px 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    background: none;
+ 
+}
+.box__nav{ 
+li{margin: 0 20px 0;}
+}
+
+.setup{
+    max-width:550px;
+    width:100%;
+    margin:10px 0 10px;
+}
+
+
 .fa{
 cursor: pointer;}
 label{
