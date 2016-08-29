@@ -10,12 +10,16 @@
         </div>
       <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
  
-            <!--  <li class="navbar__link"><a href="{%url "pages_index" %}">Home</a></li>-->
- 
+  
 
             <li class="navbar__link"><a href="help.html">Support</a></li>   
 
             {% if request.user.is_authenticated %}
+ 
+    <li class="navbar__link"><a href="">Support</a></li> 
+           
+              {% if request.user.is_authenticated %}
+ 
  
 
             <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
