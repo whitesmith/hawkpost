@@ -9,17 +9,14 @@ perspective effects (not including the modals and the overlay).
 
 .md-modal {
     position: fixed;
-    top: 15vh;
-    height: 70vh;
-    left: 15vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 70vw;
     
     margin: 0 auto;
     
 @include breakpoint ($min: xs){
-		top: 10vh;
-    height: 80vh;
-    left: 10vw;
     width: 80vw;
 
 }
@@ -76,7 +73,7 @@ perspective effects (not including the modals and the overlay).
     margin: 0 auto;
     max-width: 800px;
     width: 100%;
-    height:100%;
+
  
 }
 
