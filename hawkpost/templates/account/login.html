@@ -37,7 +37,7 @@ $(document).ready(function() {
                    {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
                    
-                        <ul>
+                        <ul class="gitpad">
                             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                         </ul>
                         <br>
@@ -92,7 +92,7 @@ $(document).ready(function() {
                  
 
                 <div class="col-xs-12 text-lightest">
-                    <a class="  secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                    <a class=" smalltext secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </div>
            <!-- </div>-->
 

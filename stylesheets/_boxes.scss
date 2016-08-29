@@ -76,7 +76,7 @@
 
   .box__nav__item{
    display: inline;
-   border: solid #33CCCC;
+   border: solid $blue;
    border-width: 1px;
    margin: 5px;
    padding-top: 12px;
@@ -88,8 +88,8 @@
    width: 80px;
 
    &.active{
-    background: #33CCCC;
-    border:#33CCCC;
+    background: $blue;
+    border: $blue;
     color:white;
   }
 }
