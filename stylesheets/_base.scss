@@ -1,308 +1,234 @@
-/*
+    /*
  * BASE STYLES
  * ================================ */
-
-//box-sizing model = margin and paddgin inside element so they don't increase width of component.
-*, 
-*:before, 
-*:after{
-  box-sizing: border-box;
-}
-
-html,body{
-  width:100%;
-  height: 100%;
-  margin: 0px;
-}
-
-html {
-  font-size: 16px;
-}
-
-body{
-  min-height: 100%;
-  height: auto;
-
-  font: normal normal 400 1rem/1.3 Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1{
- font-size: 1.5rem;
- margin: 0px;
-}
-
-ul, ol{
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-a{
-  color: $main-color;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  &:hover{
-    text-decoration: none;
-    opacity: 0.7;
-  }
-}
-
-/* Temporary Remove at will */
-.hidden {
-  display:none;
-}
-
-.footer{
-  background: $light;
-  color: $main-color-dark;
-  padding: 0px $spacing--medium;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: $footer-size;
-
-  p{
-    margin: 0px;
-    font-size: 13px;
-  }
-
-  a{
-    font-size: 13px;
-    color: $main-color-dark;
-    svg{
-      height: 11px;
-      width: 75px;
+    
+    //box-sizing model = margin and paddgin inside element so they don't increase width of component.
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
     }
-  }
-}
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+    
+    html {}
+    
+    .hidden {
+        display: none;
+    }
+    
+     
+    
+   ul li {
+        list-style-type: none;
+        margin: 5px;
+    }
 
-.footer__links{
-  text-align: right;
-}
+    /*------------------------------------*\
+  #COLOR_SECTIONS
+\*------------------------------------*/
 
-.main{
- padding-top: $nav-size*2;
- text-align: center;
- padding-bottom: 100px;
- max-width:1170px;
- margin: auto;
-}
+//section that has the full width of the page
+    .section-definer {  
+        width: 100%;
+        height: 100%;
+        
+    }
+       
+.section-definer-light {
+         @extend .section-definer;
+    background-color:white;
+    }
 
-.no-navbar{
-  margin-top: -$nav-size;
-  margin-bottom: $nav-size;
-}
+.section-definer-medium {
+         @extend .section-definer;
+    background-color:$grey;
+    }
 
-.main-title{
-  font-size: 32px;
-  color: $main-color;
-}
+.section-definer-dark {
+         @extend .section-definer;
+    background-color:$black;
+    }
 
-.main-title__sub{
-  color: $main-color-dark;
-  font-size: 15px;
-  margin: 0px;
-  font-weight: 600;
-}
+//section that is substituting main funcitons of resizing
+         .section-resized {
+       padding-top: $nav-size*2;
+       padding-bottom: 100px;
+       width: 960px;
+       max-width: 100%;
+        margin: auto;     
+        @include breakpoint ($min: xs) {
+            width: 350px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: sm) {
+            width: 620px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: md) {
+            width: 720px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: lg) {
+            width: 1100px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: xl) {
+            width: 1240px;
+            max-width: 100%;
+        }
+    }
 
-.logo-big{
-  padding: 20px 0px 0px;
-}
-
-.main-desc{
-  padding-top:20px;
-  font-size: 14px;
-}
-
-.how{
- padding: 30px 0px;
-  width: 750px;
-  max-width: 100%;
-  margin: auto;
-}
-
-.how__box{
-  border: 1px solid $light;
-  box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-  background: rgba($light, 0.2);
-  padding: 20px;
-  margin: 10px;
-  min-height: 105px;
-  height: auto;
-  @media (min-width: 768px) {
-     min-height: 165px;
-  }
-}
-
-.how__box--big{
-  padding: 20px;
-}
-  
-
-.faq__box{
-  border: 1px solid $light;
-  box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-  background: rgba($light, 0.2);
-  margin:10px;
-  flex-basis: calc(100% - 20px);
-  max-width: calc(100% - 20px);
-  @media (min-width: 768px) {
-    flex-basis: calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-.how__num{
-  color:$main-color;
-  font-weight: 600;
-  font-size: 24px;
-  margin: 0px;
-  padding:0px 0px 5px;
-}
-
-.how__tittle{
-  color:$main-color;
-  font-weight: 600;
-  font-size: 18px;
-  margin: 0px;
-  padding:0px 0px 5px;
-}
-
-.how__text{
- margin: 0px;
- padding: 0px;
- font-size: 14px;
- color:$main-color-dark;
-}
-
-.how__icons{
-  margin: 5px 0px 15px;
-  font-size: 1.5rem;
-}
-
-.link-box__box{
-  @media (min-width: 768px) {
-    float: right;
-  }
-}  
-
-.link-box__info{
-  margin: $spacing--large 10px 0px;
-  @media (min-width: 768px) {
-    text-align: left;
-  }
+.section-resized-extra {
+  @extend .section-resized;
+    padding-bottom: 138px;
+    
+ @include breakpoint ($min: md) {
+      padding-bottom: 193px;}
 }
 
 
-.messages{
-  position: fixed;
-  top: $nav-size;
-  left: 50%;
-  transform: translate(-50%,0);
-  width: 500px;
-  max-width: 100%;
-  text-align: center;
+.section-resized-extra-plus {
+  @extend .section-resized;
+    padding-bottom: 149px;
+    
+ @include breakpoint ($min:xs) {
+      padding-bottom: 212px;}
+    
+    @include breakpoint ($min:sm) {
+      padding-bottom: 219px;}
+    
+     @include breakpoint ($min:md) {
+      padding-bottom: 232px;}
 
-  li{
-    padding: $spacing--small;
-    border: 1px solid transparent;
-    border-radius: 4px;
-  }
-
-  .success{
-    color: $success-color;
-    background-color: $success-back;
-    border-color: $success-border;
-  }
-  .info{
-    color: $warning-color;
-    background-color: $warning-back;
-    border-color: $warning-border;
-  }
-  .error{
-    color: $error-color;
-    background-color: $error-back;
-    border-color: $error-border;
-  }
+    @include breakpoint ($min:lg) {
+      padding-bottom: 160px;}
+    
+    
 }
 
-.divider{
-  width:100%;
-  border-top: 1px solid $light;
-  margin: 15px 10px 5px;
-}
 
-.text-dark{
-  color:$main-color-dark;
-}
+    /*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+    
+    @font-face {
+        font-family: BoldFont;
+        src: url(../fonts/Exo-SemiBold.ttf);
+        font-weight: bold;
+    }
+    
+    @font-face {
+        font-family: TextFont;
+        src: url(../fonts/Ayuthaya.ttf);
+        font-weight: regular;
+    }
+    
+    //responsive font sizes 
+    .title {
+        font-family: BoldFont;
+        color: $black;
+        padding: 2vh 0 2vh;
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'heading1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'heading1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'heading1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'heading1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'heading1', 'lg');
+        }
+    }
+    
+    .subtitle {
+        font-family: BoldFont;
+        color: $black;
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'sub1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'sub1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'sub1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'sub1', 'lg');
+        }
+    }
+    
+    .text {
+        font-family: TextFont;
+        color: $main-color50;
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'text1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'text1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'text1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'text1', 'lg');
+        }
+    }
+    
+    .smalltext {
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+        }
+    }
+    /*------------------------------------*\
+  #BODY
+\*------------------------------------*/
+    
+    body {
+        min-height: 100%;
+        height: auto;
+        //background-color:$light;
+       // color: $black;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @extend .text;
+    }
+    /*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+    
+    a {
+        color: $main-color;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+            opacity: 0.7;
+        }
+    }
 
-.text-main{
-  color:$main-color;
-}
-
-.text-bold{
-  font-weight: 600;
-}
-
-.text-left{
-  text-align: left;
-}
-
-.text-right{
-  text-align: right;
-}
-
-.text-note{
-  color:$grey;
-  font-style: italic;
-  font-size: 0.9286rem;
-}
-
-.text-by{
-  color: $main-color-dark;
-  margin: 20px 0px 0px;
-}
-.full-height{
-  height: 100%;
-}
-
-.full-width{
-  width: 100%;
-}
-
-.u-blockify{
-  display: block;
-}
-
-.no-margin{
-  margin: 0px;
-}
-
-.no-margin-top{
-  margin-top: 0px;
-}
-
-.col-xxs-12{
-  @media (max-width: 640px) {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
-.order-xs-1st{
-  order:1;
-  @media (min-width: 768px) {
-     order:2;
-  }
-}
-
-.order-xs-2nd{
-   order:2;
-  @media (min-width: 768px) {
-    order:1;
-  }
-}
+    .gitpad{
+        padding:0;
+    }

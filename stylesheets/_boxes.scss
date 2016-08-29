@@ -1,0 +1,138 @@
+/*------------------------------------*\
+ #BOXES
+ \*------------------------------------*/
+.boxes-container {
+  padding: 0 20px;
+}
+
+
+ .box{
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    margin: 5px;
+    text-align: left;
+    height: 100%;
+  }
+
+
+ .box__info{
+   font-size: 13px;
+   color: black;
+ }
+
+ .box-container, .box-action{
+   display:flex;
+   flex-direction:column;
+ }
+
+ .box-action{
+   align-self:stretch;
+   justify-content: flex-start;
+   border-left: 1px solid black;
+   form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    &:first-child {
+     border-bottom: 1px solid black;
+   }
+ }
+}
+
+.basic-info{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+}
+
+.box-title-desc, .extra-info{
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+}
+
+.box-title-desc{
+	padding-bottom: 15px;
+}
+
+.space{
+	margin-bottom: $spacing--medium;
+}
+/*------------------------------------*\
+ #BOXES_NAV_BAR_STATUS
+ \*------------------------------------*/
+
+ .box__nav{
+  width: 100%;
+  align-self: center;
+  margin-bottom: $spacing--x-large;
+  padding: $spacing--small 0px;
+
+    li{
+    	display: inline;
+    }
+  }
+
+  .box__nav__item{
+   display: inline;
+   border: solid $blue;
+   border-width: 1px;
+   margin: 5px;
+   padding-top: 12px;
+   padding-bottom:12px;
+   font-weight: 600;
+   display: inline-block;
+   text-align: center;
+   background: none;
+   width: 80px;
+
+   &.active{
+    background: $blue;
+    border: $blue;
+    color:white;
+  }
+}
+
+.outro{
+    color:black;
+    cursor: pointer;
+    &:hover{
+   transition: all 0.2s ease-in-out;
+   opacity: 0.7;
+ }
+   }
+
+.container-fluid{
+	.father{
+		padding-bottom: 3vh;
+	}
+	.title{
+		padding: initial;
+	}
+}
+
+.head-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  span{
+    display: none;
+  }
+  .col-xs-4{
+    align-self: center;
+  }
+  a{
+    color: black;
+  }
+
+  @include breakpoint($min: sm){
+    span{
+      display: flex;
+    }
+    h2{
+      align-self: middle;
+    }
+  }
+}
+ 

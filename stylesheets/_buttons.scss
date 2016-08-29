@@ -1,0 +1,81 @@
+
+/*------------------------------------*\
+ #BUTTONS
+ \*------------------------------------*/
+
+.btn-modal {
+     @extend .btn-default;
+     max-width: 200px;
+     width: 100%;
+ }
+
+
+ .btn-default{
+  border: none;
+  padding: $spacing--medium;
+  background: black;
+  color: white;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  //font-size: 0.9375rem;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    transition: all 0.2s ease-in-out;
+   opacity: 0.7;
+ }
+}
+
+ 
+
+
+.btn-dark{
+	@extend .btn-default;
+	background: none;
+  &:hover{
+   background: none;
+ }
+
+  }
+
+.btn-danger{
+	@extend .btn-default;
+	background: $error-color;
+	&:hover{
+   background: rgba($error-color,0.8);
+ }
+}
+
+.barra{
+	width: 100%;
+	background: none;
+	border: none;
+	padding: 15px;
+}
+
+.url_btn{
+	margin:0;
+	padding:0;
+  button{
+    &:first-child{
+      border-right: 1px solid $light;
+      background: $blue;
+    }
+  }
+}
+
+.hoverable{
+  &:hover{
+   transition: all 0.2s ease-in-out;
+   opacity: 0.7;
+ }
+} 
+
+.btn-none{
+top:20px;
+right:20px;
+position: absolute;
+background:none;
+border:none;
+z-index:1;
+}

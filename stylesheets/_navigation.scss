@@ -1,27 +1,77 @@
-.navbar{
-	position: fixed;
-    width: 100%;
-    height: $nav-size;
-	background: $main-color;
-	box-shadow: 0px 2px 6px 0px rgba($black,0.2);
-	color: #FFFFFF;
-	padding: 0px $spacing--medium;
-}
+    /*----------#NAVBAR--------------------------*/
 
-.navbar__header{
-}
-
-.navbar__link{
-	display: inline;
-	padding: $spacing--x-small;
-	font-weight: 500;
-}
-
-.logo{
-	height: 25px;
-	margin-left: $spacing--small;
-}
-
-.navbar a{
-  color: #FFFFFF;
-}
+.nav-big {
+    display: inline;
+    @media only screen and (min-width: 200px) and (max-width: 800px) {
+        display: none;
+    }
+    .navbar {
+        position: fixed;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
+         
+        padding: 20px $spacing--medium 20px;
+        z-index: 3;
+        font-family: Textfont;
+        height: $nav-size;
+    }
+    .navbar__header {
+        display: none;
+    }
+    .navbar__link {
+        display: inline;
+        padding: $spacing--x-small;
+        font-weight: 500;
+    }
+    .logo {
+        display: inline;
+        max-width: 150px;
+        width: 100%;
+        margin-left: $spacing--small;
+        
+        @include breakpoint($min: xs) {
+            max-width: 100px;
+            width: 100%;
+        }
+        .navbar a {
+            color: #FFFFFF;
+        }
+    }}
+    ul .title {
+        padding: 0;
+    }
+    .nav-small {
+        display: none;
+        @media only screen and (min-width: 200px) and (max-width: 800px) {
+            display: inline;
+        }
+    }
+    /*----------#FOOTER--------------------------*/
+    .footer {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-top: solid 0.5px rgba(255, 255, 255, 0.2);
+       box-shadow: 0px -3px 6px 0px rgba($black, 0.2); 
+        padding: 0px $spacing--medium;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: $nav-size;
+        p {
+            margin: 0px;
+        }
+        a {
+            
+            margin-top: 1vh;
+            svg {
+                fill:white;
+                height: 11px;
+                width: 75px;
+            }
+        }
+    }
+    .footer__links {
+        text-align: right;
+    }

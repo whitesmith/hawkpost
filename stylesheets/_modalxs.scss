@@ -1,0 +1,45 @@
+/*---------------MODAL_XS---------------*/
+ 
+ .md-modal-xs {
+
+     width: 27vw;
+     margin: 0 auto 0;
+     @include breakpoint ($min: xs) {
+
+         width: 90vw;
+     }
+     @include breakpoint ($min: md) {
+
+         width: 50vw;
+     }
+     @include breakpoint ($min: sm) {
+
+         width: 45vw;
+     }
+     li {
+         list-style: none;
+     }
+     .title {
+         
+         margin-bottom: 0;
+     }
+     .btn-default {
+         padding: 0 0 0;
+         height: 6vh;
+         
+         
+     }
+     @extend .md-modal;
+     
+ }
+ 
+ .md-content-xs {
+     @extend .md-content;
+     //padding: 30px 30px 0px;
+     background-color: #4ca7af;
+ 
+    
+    
+       
+    
+}

@@ -1,0 +1,42 @@
+
+    /*-------------#MESSAGES-----------------------*/
+  
+ 
+    .messages {
+        position: fixed;
+        top: $nav-size;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 500px;
+        max-width: 100%;
+        text-align: center;
+        li {
+            padding: $spacing--small;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        /*---------------SUCCESS----------------*/
+        .success {
+            color: $success-color;
+            background-color: $success-back;
+            border-color: $success-border;
+        }
+        /*---------------INFO----------------*/
+        .info {
+            color: $warning-color;
+            background-color: $warning-back;
+            border-color: $warning-border;
+        }
+        /*---------------ERROR----------------*/
+        .error {
+            color: $error-color;
+            background-color: $error-back;
+            border-color: $error-border;
+        }
+    }
+    
+    .divider {
+        width: 100%;
+        border-top: 1px solid $light;
+        margin: 15px 10px 5px;
+    }
