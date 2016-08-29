@@ -7,6 +7,20 @@
 
 {% block content %}
    
+
+
+<script>
+    // When the user clicks on div, open the popup
+
+    function myFunctionx() {
+        var popup = document.getElementById('thisPopup');
+        popup.classList.toggle('show');
+    }
+    
+    
+</script>
+
+
 <div class=" section-definer-light">
 <section class=" section-resized">
     <div class=" row center-xs start-sm  no-navbar">
@@ -21,7 +35,7 @@
        <div class="col-xs-8 col-sm-6  order-xs-1st col-lg-5 ">
               
                 
-                   
+             
             <div class="text-left text-grey">       <p class="subtitle margin-bottom-lg ">  <i >The following people will receive the messages:</i></p>
                     <p><span class="text-bold  text-darkest">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
                     <p><span class="text-bold text-darkest">Organization: </span>{{object.owner.organization}}</p>
@@ -41,19 +55,30 @@
                 </div>
             </div>
          
-         <div class="col-xs-8 col-sm-6 order-xs-2nd col-lg-5">
+         <div class="col-xs-8 col-sm-6 order-xs-2nd col-lg-5 form__block">
                 <noscript> 
                     <p>Your browser has Javascript disabled. In order to be able to secure your content (end-to-end) this page needs JavaScript to be active. Please change this setting and refresh the page.</p>
 
                     <p>This also may be caused by the use of certain browser extensions, in this case add an exception for this page to work.</p>
                  </noscript>  
             <div class=" text-darkest form-div-js" data-action="{% url 'boxes_show' object.uuid %}" data-csrf-token="{{ csrf_token }}">
-               <div class="text-left"> 
+
+   <div class="row"> 
+
+               <div class="text-left  col-xs-8 col-sm-11 col-md-11  col-lg-7"> 
+
                <h3 class=" subtitle no-margin">{{object.name}}</h3>
-                    <p class="no-margin-top">{{object.description}}</p>
-               
-            </div>
-      <!--  </div>-->
+                <p class="no-margin-top">{{object.description}}</p></div>
+
+                       <div class="popup col-xs-1 " onclick="myFunctionx()">
+
+                       <i class="fa fa-question-circle text-darkest fa-lg" aria-hidden="true"></i> 
+ <span class="popuptext text" id="thisPopup">Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you. </span>
+         </div> 
+                 
+                   
+      </div> 
+
     </div> </div> 
     </div></section>  
 {% endblock content %}

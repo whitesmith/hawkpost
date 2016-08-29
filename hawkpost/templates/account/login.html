@@ -1,4 +1,13 @@
 {% extends "layout/base.html" %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
+<script>
+$(document).ready(function() {
+
+  if(window.location.href.indexOf('#modal-1') != -1) {
+    $(".md-show").css(visibility, visible');
+  }
+
+});
+</script>
 
 <div class="h-section--first section-definer-dark">
 <section class=" section-resized ">
@@ -20,7 +29,6 @@
         <div class="row start-xs  ">
             <div class="col-xs-12">
                 <form class="login  smalltext text-darkest" method="POST" action="{% url 'account_login' %}">
-
  
 
                     <h3 class="title "> Login</h3>   

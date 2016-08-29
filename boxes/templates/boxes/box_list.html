@@ -3,17 +3,28 @@
 {% load staticfiles %}
 
 {% block content %}
+
+
+
+
+  
 <div class="section-definer-light ">
  <div class= " h-section section-resized">
+
 
   <div class="container-fluid">
     <div class="head-navbar row">
       <span></span>
       <div class="col-xs-8 col-sm-10 col-sm-offset-1 start-xs center-sm">
         <h2 class="text-darkest title">Manage Boxes</h2>
+
+       
       </div>
       <div class="col-xs-4 col-sm-1">
         <button class="box__nav box__nav__item smalltext md-trigger outro" data-modal="modal-1">New</button>
+
+       
+</div> 
       </div>
 
       <ul class="box__nav smalltext">
@@ -30,7 +41,7 @@
         </div>
       </ul>
     </div>
-  </div>
+ 
 
   <div class="row boxes-container">
     {% for box in object_list %}
@@ -97,6 +108,7 @@
   </div>
 </div>
 </div>
+ </div>
   <div class="pagination">
     <span class="step-links">
       {% if page_obj.has_previous %}
@@ -104,7 +116,7 @@
       {% endif %}
 
       {% if paginator.num_pages > 1 %}
-      <span class="current">
+      <span class="current hidden">
         Page {{ page_obj.number }} of {{ paginator.num_pages }}
       </span>
       {% endif %}
