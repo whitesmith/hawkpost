@@ -10,12 +10,14 @@
         </div>
       <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
  
-            <!--  <li class="navbar__link"><a href="{%url "pages_index" %}">Home</a></li>-->
- 
+  
 
             <li class="navbar__link"><a href="help.html">Support</a></li>   
-
-            {% if request.user.is_authenticated %}
+ 
+  
+           
+              {% if request.user.is_authenticated %}
+ 
  
 
             <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
@@ -50,24 +52,44 @@
     <aside class="nav">
         <label class="overlay" for="nav-trigger"></label>
         <div class="nav__body">
-            <div class="nav__header">
+            <div class="nav__header text-darkest">
 
                       </div>
 
-            <ul class="nav__list col-xs-12 text-darkest">
+            <ul class="nav__list col-xs-12 ">
                 <label class="nav__item " for="nav-trigger">
  
-            <li class=" "><a class="nav__link center-xs" href="{%url "pages_index"%}"> <img src="{%static 'images/logob.png'%}" class="logo">  </a></li>
-            <li class=" "><a   class="nav__link" href="help.html">Support</a></li>   {% if request.user.is_authenticated %}
-            <li class=" "><a  class="nav__link" href="{%url "boxes_list"%}">Boxes</a></li>
-            <li class=" "><a class="nav__link"  href="{%url "humans_update" %}">Settings</a></li>
+            <li class=" ">
+
+            <a class="nav__link center-xs" href="{%url "pages_index"%}"> <img src="{%static 'images/logob.png'%}" class="logo">  </a>
+
+            </li>
+
+            <li class=" ">
+
+            <a   class="nav__link" href="help.html">Support</a>
+
+            </li>   {% if request.user.is_authenticated %}
+
+            <li class=" ">
+
+            <a  class="nav__link" href="{%url "boxes_list"%}">Boxes</a>
+
+            </li>
+
+            <li class=" ">
+
+            <a class="nav__link"  href="{%url "humans_update" %}">Settings</a>
+
+            </li>
+
             <li class=" "><a class="nav__link" href="{%url "account_logout"%}">Logout</a></li>
  
             {% else %}
-            <li class="navbar__link"><a href="{%url "account_login"%}/#modal-1">Login </a></li>
-            <li class="navbar__link"><a href="{%url "account_signup"%}">Sign Up</a></li>
+            <li ><a class="nav__link"href="{%url "account_login"%}/#modal-1">Login </a></li>
+            <li ><a  class="nav__link" href="{%url "account_signup"%}">Sign Up</a></li>
            
-            <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
+            <li ><a  class="nav__link"href="{%url "pages_about"%}">About</a></li>
 
             {% endif %}
             
