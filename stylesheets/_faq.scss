@@ -1,9 +1,6 @@
     /*------------------------------------*\
   #FAQ
 \*------------------------------------*/
-    
-
-
 
     .faq__box--big {
        
@@ -16,28 +13,27 @@
     }
     
     .faq__tittle {
-       
+       font-weight: bold;
         margin: 0px;
         padding: 0px 0px 5px;
     }
-    
-     
-    
+        
      
     
     .faq__box:focus {
         
          height: auto;
-        background-color: rgba(78, 217, 185, 0.2);
+        background-color: $blue;
         .faq__text {
+            color: white;
             display: block;
+        }
+        a{
+            color: $black;
         }
         
     }
     
- 
-
-
 
     *:focus {
         outline: none;

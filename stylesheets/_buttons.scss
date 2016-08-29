@@ -59,7 +59,7 @@
   button{
     &:first-child{
       border-right: 1px solid $light;
-      background: #33CCCC;
+      background: $blue;
     }
   }
 }
@@ -77,4 +77,5 @@ right:20px;
 position: absolute;
 background:none;
 border:none;
+z-index:1;
 }
