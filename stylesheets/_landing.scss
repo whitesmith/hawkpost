@@ -83,11 +83,15 @@
 .h-section--first {
     padding: 20vh 0 50vh;
     @media only screen and (min-width: 200px) and (max-width: 800px) {
-        padding: 20vh 0 50vh;
+        padding: 30vh 0 50vh;
     }
     @media screen and (min-width: 800px) and (max-width: 1600px) {
-        padding: 30vh 0 40vh;
+        padding: 35vh 0 45vh;
     }
+    @media screen and (min-width: 1600px) and (max-width: 1950px) {
+        padding: 40vh 0 40vh;
+    }
+
 }
 
 .logo-big {
@@ -104,7 +108,7 @@
 
 .h-button {
     width: 100%;
-    background-color: #4ca7af;
+    background-color: $blue;
     border: none;
     color: white;
     padding: 20px 0px 20px;
