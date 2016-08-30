@@ -1,4 +1,33 @@
-    
+
+
+.box__nav__item__help{
+     
+    display: inline;
+    border: solid #4ca7af;
+    border-width: 1px;
+    margin: 5px;
+    padding: 12px 12px 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    background: none;
+ 
+}
+
+.box__nav{ 
+
+li{
+margin: 0 20px 0;
+}
+}
+
+.setup{
+    max-width:550px;
+    width:100%;
+    margin:10px 0 10px;
+}
+
+
 .fa{
 cursor: pointer;}
 label{
@@ -63,7 +92,14 @@ font-size:0.8rem;}
     }
     .form__block {
         textarea {
+            width: 100%;
             height: auto;
+            border-color: $light;
+             &:focus {
+        outline: none;
+        border: 1px solid rgba($main-color-dark, 0.5);
+        box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
+    }
         }
     }
     /*
