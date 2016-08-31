@@ -20,3 +20,5 @@ gpg_home
 Session.vim
 .netrwhist
 *~
+
+.DS_Store

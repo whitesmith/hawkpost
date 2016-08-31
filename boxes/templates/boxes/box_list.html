@@ -39,7 +39,7 @@
   <!--inicio boxes-->
   <div class="row boxes-container">
     {% for box in object_list %}
-    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 space">
+    <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-6 col-lg-4 space">
 
       <div class="box "{% if box.uuid|lower == new_box %}new-box{% endif %}>
 
@@ -202,9 +202,10 @@
 
 
   </div>
+  <div class="md-overlay"></div>
 </div>
 
-<div class="md-overlay"></div>
+
 {% endblock content %}
 
 {% block scripts %}
