@@ -19,7 +19,7 @@
 
 
                     <h3 class="title "> Login</h3>
-                    <p>If you have not created an account yet, then please<a class="reload_modal" href="#modal-2"><span> sign up  </span></a></p>
+                    <p>If you have not created an account yet, then please<a class=" md-trigger" href="#modal-2" data-modal="modal-2"><span> sign up  </span></a></p>
                     <p>{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                        {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
 
@@ -29,7 +29,7 @@
                     </ul>
                     <br>
                     <div class="login-or">
-                       <p> {% trans 'Or' %} create an hawkpost account <a class="reload_modal" href="#modal-2">here</a> and login bellow:</p>
+                       <p> {% trans 'Or' %} create an hawkpost account <a class=" md-trigger" href="#modal-2" data-modal="modal-2">here</a> and login bellow:</p>
                    </div>
 
 
@@ -92,8 +92,6 @@
 
 
 <!--------------------SIGN_UP-------------------->
-
-
 <div class="md-modal-xs md-effect-1" id="modal-2">
     <div class="md-content-xs ">
         <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
@@ -104,7 +102,7 @@
                 <form class="signup start-xs smalltext text-darkest" id="signup_form" method="post" action="{% url 'account_signup' %}">
 
                     <h3 class="title"> Sign up</h3> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p >{% blocktrans %}Already have an account? Then please <a class="reload_modal" href="#modal-1">Sign in</a>.{% endblocktrans %}</p>
+                    <p >{% blocktrans %}Already have an account? Then please <a class=" md-trigger" href="#modal-1" data-modal="modal-1">Sign in</a>.{% endblocktrans %}</p>
 
                     <p >You can also sign up with one of your existing third party accounts such as:</p>
 
