@@ -3,9 +3,6 @@
 
     {% if not request.user.is_authenticated %}
 
-
-     {% include "account/modals.html" %}
-
       {% endif %}
 
 <!DOCTYPE html>
@@ -89,12 +86,19 @@
     </div>
 
     <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
+    {% include "account/modals.html" %}
     <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
     <script>
       var polyfilter_scriptpath = '/static/javascripts/';
     </script>
     <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
     <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+    <script type="text/javascript">
+        $(".reload_modal").click(function(){
+            removeModalHandler();
+            location.reload();
+        });
+    </script>
     {% endblock footer %}
     {% block scripts %}
     {% endblock scripts %}
