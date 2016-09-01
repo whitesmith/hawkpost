@@ -46,7 +46,7 @@ On a **Debian** based operation execute the following steps, after cloning the r
 
 * Install the dependencies
 
-> pip install -r requirements_dev.txt
+> pip install -r requirements/requirements_dev.txt
 
 * Create the local postgreSQL database with your user and no password
 
@@ -96,7 +96,7 @@ Steps:
 
 * Clone the project, go to the folder and install the dependencies
 
-> pip install -r requirements_dev.txt
+> pip install -r requirements/requirements_dev.txt
 
 * Create the database for the first time
 
@@ -219,11 +219,11 @@ Below are a few things we follow and would appreciate if you do to.
 
 * Compile the new requirements (You will need to install `pip-tools`)
 
-> pip-compile requirements.in
+> pip-compile requirements/base.in -o requirements/requirements.txt
 
 and 
 
-> pip-compile requirements.in requirements_dev.in -o requirements_dev.txt
+> pip-compile requirements/base.in requirements/development.in -o requirements/requirements_dev.txt
 
 * Commit these changes alongside your code changes
 

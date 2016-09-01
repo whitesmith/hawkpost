@@ -20,9 +20,12 @@ services:
     extends:
       file: common.yml
       service: app
-    command: python manage.py mail_debug 0.0.0.0:1025
+    command: python manage.py mail_debug --settings hawkpost.settings.development --use-settings
     ports:
       - "1025:1025"
+    environment:
+      EMAIL_HOST: 0.0.0.0
+      EMAIL_PORT: 1025
 
   db:
     image: postgres:9
