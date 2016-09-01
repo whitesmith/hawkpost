@@ -1,4 +1,7 @@
 {% load staticfiles %}
+
+ 
+
  <div class="nav-big smalltext">
    <nav  class="navbar">
     <div class="row middle-xs full-height">
@@ -9,15 +12,9 @@
             </a>
         </div>
       <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
- 
-  
-
-           
- 
   
            
               {% if request.user.is_authenticated %}
- 
  
 
             <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
@@ -25,8 +22,20 @@
             <li class="navbar__link"><a href="{%url "account_logout"%}">Logout</a></li>
 
             {% else %}
-            <li class="navbar__link"><a href="{%url "account_login"%}/#modal-1">Login </a></li>
-            <li class="navbar__link"><a href="{%url "account_signup"%}">Sign Up</a></li>
+
+               
+
+
+       <li class="navbar__link">
+       <a class=" md-trigger" href="#modal-1" data-modal="modal-1" >Login </a>
+
+       </li>
+
+            <li class="navbar__link">
+            <a  class="md-trigger" href="#modal-2" data-modal="modal-2" >Sign up</a>
+
+
+            </li>
            
             <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
 
@@ -83,8 +92,8 @@
             <li class=" "><a class="nav__link" href="{%url "account_logout"%}">Logout</a></li>
  
             {% else %}
-            <li ><a class="nav__link"href="{%url "account_login"%}/#modal-1">Login </a></li>
-            <li ><a  class="nav__link" href="{%url "account_signup"%}">Sign Up</a></li>
+            <li ><a class="nav__link" href="#modal-1" data-modal="modal-1">Login </a></li>
+            <li ><a  class="nav__link" href="#modal-2" data-modal="modal-2">Sign up</a></li>
            
             <li ><a  class="nav__link"href="{%url "pages_about"%}">About</a></li>
  <li class=" ">

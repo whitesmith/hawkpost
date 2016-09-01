@@ -1,4 +1,13 @@
 {% load staticfiles %}
+  
+
+    {% if not request.user.is_authenticated %}
+
+
+     {% include "account/modals.html" %}
+
+      {% endif %}
+
 <!DOCTYPE html>
 <html>
 
