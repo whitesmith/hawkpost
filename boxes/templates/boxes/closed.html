@@ -1,13 +1,13 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-<div class="section-definer-dark">
+<div class="section-definer-light">
 	<div class= "section-resized-extra-plus">
 		<div class="container-fluid">
 			<div class="row center-xs">
 				<div class="col-xs-10 col-sm-8 col-lg-7">
-					<h3 class="subtitle top">This link is no longer active.</h3>
-					<h4 class="text-dark sub">The reason could be due to one of the following possibilities:</h4>
+					<h3 class="subtitle top text-darkest">This link is no longer active.</h3>
+					<h4 class="text-blue sub">The reason could be due to one of the following possibilities:</h4>
 
 					<ul class="close-box">
 						<li>The link expired</li>
@@ -20,7 +20,7 @@
 						<br>
 					</ul>
 
-					<p class="text-note">In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.</p>
+					<p class="text-note">In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}" class="text-darkest">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.</p>
 				</div> 
 			</div> 
 		</div>

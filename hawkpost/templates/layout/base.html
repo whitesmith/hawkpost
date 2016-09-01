@@ -12,15 +12,15 @@
 <html>
 
 <head>
-    <title>HawkPost - Submit your content securely</title>
-    {% block styles %}
+  <title>HawkPost - Submit your content securely</title>
+  {% block styles %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- hp styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% endblock styles %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- hp styles -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  {% endblock styles %}
 
-    <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
 </head>
 
 <body>
@@ -74,30 +74,26 @@
                     </a> </div>
 <div class="col-xs-2  text ">
                       {% if request.user.is_authenticated %}
-                    
 
                <a  class=" text-lightest"  href="{%url "pages_about"%}">About</a>  
              <a  class="  text-lightest"  href="{%url "pages_help"%}">Support</a> 
              
               {% endif %}
- </div>
-
-
-           
+ </div> 
         </div>
     </div>
     </div>
 
-    <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
-    <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
-    <script>
-      var polyfilter_scriptpath = '/static/javascripts/';
-    </script>
-    <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
-    <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
-    {% endblock footer %}
-    {% block scripts %}
-    {% endblock scripts %}
+<script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
+<script>
+  var polyfilter_scriptpath = '/static/javascripts/';
+</script>
+<script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+{% endblock footer %}
+{% block scripts %}
+{% endblock scripts %}
 </body>
 
 </html>
