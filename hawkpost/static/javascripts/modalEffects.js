@@ -32,6 +32,13 @@ var ModalEffects = (function() {
 			}
 
 			el.addEventListener( 'click', function( ev ) {
+				if(el.getAttribute('data-modal') == 'modal-1') {
+					aux = document.querySelector( '#modal-2' );
+					classie.remove(aux, 'md-show');
+				} else {
+					aux = document.querySelector( '#modal-1' );
+					classie.remove(aux, 'md-show');
+				}
 				classie.add( modal, 'md-show' );
 				overlay.removeEventListener( 'click', removeModalHandler );
 				//overlay.addEventListener( 'click', removeModalHandler );

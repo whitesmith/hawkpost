@@ -4,7 +4,6 @@
 {% if not request.user.is_authenticated %}
 
 
-{% include "account/modals.html" %}
 
 {% endif %}
 
@@ -87,6 +86,7 @@
   </div>
 </div>
 
+{% include "account/modals.html" %}
 <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
 <script>
