@@ -1,4 +1,4 @@
-{% extends "layout/base.html" %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
+ {% load i18n %} {% load account socialaccount %} {% block head_title %} {% endblock %} {% block content %}  
 <script>
 $(document).ready(function() {
 
@@ -9,18 +9,7 @@ $(document).ready(function() {
 });
 </script>
 
-<div class="h-section--first section-definer-dark">
-<section class=" section-resized ">
-<div class="row center-xs">
-    <div class="col-xs-11 col-sm-5">
-        <button class="h-button smalltext md-trigger" data-modal="modal-1" >Login</button>
-    </div>
-    <div class="col-xs-11 col-sm-5">
-        <button class="h-button smalltext md-trigger" data-modal="modal-2">Sign Up</button>
-    </div>
-</div>
-</section>
-</div>
+ 
 <!--------------------LOGIN-------------------->
 <div class="md-modal-xs md-effect-1 " id="modal-1">
     <div class="md-content-xs ">
@@ -48,7 +37,7 @@ $(document).ready(function() {
 
                     {% include "socialaccount/snippets/login_extra.html" %} {% else %}
                     <p>{% blocktrans %}If you have not created an account yet, then please
-                        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                        <a class="md-trigger" data-modal="modal-2">sign up</a> first.{% endblocktrans %}</p>
                     {% endif %}
                     <div class="start-xs text-darkest ">
                         {% csrf_token %}
@@ -180,3 +169,4 @@ $(document).ready(function() {
 <div class="md-overlay"></div>
 
 {% endblock %}
+ 
