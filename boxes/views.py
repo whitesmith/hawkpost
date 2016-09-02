@@ -7,7 +7,7 @@ from django.utils import timezone
 from humans.views import LoginRequiredMixin
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
-from .models import Box, Membership, Message
+from .models import Box, Membership
 from .tasks import process_email
 
 

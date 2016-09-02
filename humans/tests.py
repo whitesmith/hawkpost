@@ -1,6 +1,12 @@
+from django.contrib.auth.models import Group
+from django.utils import timezone
 from django.test import TestCase
+from django.core import mail
+from django.conf import settings
 from boxes.tests import create_and_login_user
+from .models import Notification, User
 from .forms import UpdateUserInfoForm
+from .tasks import enqueue_email_notifications
 from .utils import key_state
 
 VALID_KEY = """-----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -174,6 +180,14 @@ z8NGQYwPZJ00fryVAo7hW40RgprtREnmr1jY8tXabw==
 REVOKED_KEY_FINGERPRINT = "C341AE04573A4D7CCBDE594C83AFB921E7A24CCA"
 
 
+def create_notification(sent=False, group=None):
+    sent_at = timezone.now() if sent else None
+    return Notification.objects.create(subject="Test subject",
+                                       body="Test Body",
+                                       sent_at=sent_at,
+                                       send_to=group)
+
+
 class UpdateUserFormTests(TestCase):
 
     def test_empty_fingerprint(self):
@@ -256,3 +270,39 @@ class UserModelTests(TestCase):
         user.fingerprint = VALID_KEY_FINGERPRINT
         user.save()
         self.assertEqual(user.has_setup_complete(), True)
+
+
+class NotificationsTests(TestCase):
+
+    def test_delete_sent_notifications(self):
+        notification = create_notification(sent=True)
+        notification_id = notification.id
+        self.assertEqual(notification.delete(), False)
+        queryset = Notification.objects.filter(id=notification_id)
+        self.assertEqual(len(queryset), 1)
+
+    def test_delete_unsent_notification(self):
+        notification = create_notification(sent=False)
+        notification_id = notification.id
+        self.assertNotEqual(notification.delete(), False)
+        queryset = Notification.objects.filter(id=notification_id)
+        self.assertEqual(len(queryset), 0)
+
+    def test_send_when_group_is_defined(self):
+        settings.CELERY_ALWAYS_EAGER = True
+        for i in range(4):
+            create_and_login_user(self.client)
+        last_user = create_and_login_user(self.client)
+        group = Group.objects.create(name="Test Group")
+        group.user_set.add(last_user)
+        notification = create_notification(sent=False, group=group)
+        enqueue_email_notifications(notification.id, notification.send_to.id)
+        self.assertEqual(len(mail.outbox), 1)
+
+    def test_send_when_group_is_not_defined(self):
+        settings.CELERY_ALWAYS_EAGER = True
+        for i in range(4):
+            create_and_login_user(self.client)
+        notification = create_notification(sent=False)
+        enqueue_email_notifications(notification.id, None)
+        self.assertEqual(len(mail.outbox), User.objects.count())
