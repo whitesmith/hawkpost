@@ -35,7 +35,7 @@ class BoxListView(LoginRequiredMixin, ListView):
 
 class BoxCreateView(LoginRequiredMixin, CreateView):
     template_name = "boxes/box_create.html"
-    http_method_names = [u'get', u'post']
+    http_method_names = [u'post']
     form_class = CreateBoxForm
     model = Box
     success_url = reverse_lazy("boxes_list")

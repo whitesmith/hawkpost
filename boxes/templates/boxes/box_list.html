@@ -1,9 +1,6 @@
-
 {% extends "layout/base.html" %}
 {% load staticfiles %}
-
 {% block content %}
-
 
 <div class="section-definer-light ">
  <div class= " h-section section-resized">
@@ -17,14 +14,14 @@
       </div>
       <div class="col-xs-4 col-sm-1">
         <button class="box__nav box__nav__item smalltext md-trigger outro" data-modal="modal-1">New</button>
-      </div> 
+      </div>
     </div>
 
     <ul class="box__nav smalltext">
       <div class="row">
         <div class="center-xs end-sm col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
-          <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li> 
+          <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
         </div>
 
         <div class="center-xs start-sm col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -127,19 +124,14 @@
 
 <div class="md-modal-xs md-effect-1" id="modal-1">
   <div class="md-content-xs">
-   <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button> 
+   <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
    <div class="row center-xs center-md center-lg">
     <div class="col-xs-12 col-sm-12 col-md-12">
-
       <h3 class="subtitle center-xs">Create New Box</h3>
-
-
-
       <p class="smalltext text-lightest "> For others to be able to send you encrypted content through the web page, you will need to generate "boxes". Each box has an associated link that you can copy and share with any given person, it can only be used once. After the expiration date, the form is locked and the link can no longer be used.</p>
       <form action="{% url "boxes_create" %}" method="post" class="">
         {% csrf_token %}
         <label class="input-anim">
-
           <p>
             {{ form.name.errors }}
             {{ form.name.label_tag }}
@@ -164,64 +156,43 @@
 
             </div>
           </div>
-
           <div class="row bottom-xs">
             <div class="col-xs-9 col-xxs-12 col-sm-8">
               <p>
                 {{ form.expires_at.errors }}
                 {{ form.expires_at.label_tag }}
                 {{ form.expires_at }}
-              </p>   
+              </p>
             </div>
             <div class="col-xs-3 col-xxs-12 col-sm-4  ">
              <div class="row">
               <div class="col-xs-10 col-xxs-8 sm-10">
                 <p> {{ form.never_expires.errors }}
                 </div>
-                {{ form.never_expires.label_tag }}</p>   
+                {{ form.never_expires.label_tag }}</p>
                 <div class="col-xs-2 col-xxs-4 sm-2">
                   {{ form.never_expires }}</div>
 
                 </div> </div>
               </div>
             </div>
-
-          </label>         
+          </label>
         </div>
-
         <div class="row middle-xs center-xs">
           <div class="col-xs-12">
             <button type="submit" class="btn-default" value=""> Create</button>
-
           </div>
-
         </div>
       </form>
-
     </div>
-
-
   </div>
   <div class="md-overlay"></div>
 </div>
-
-
 {% endblock content %}
 
 {% block scripts %}
-
-<script src="{% static 'javascripts/box_list.js' %}"></script>
-
-
-<script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
-<script src="{% static 'javascripts/box_create.js' %}"></script>
-
-
-
+  {{ block.super }}
+  <script src="{% static 'javascripts/box_list.js' %}"></script>
+  <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
+  <script src="{% static 'javascripts/box_create.js' %}"></script>
 {% endblock scripts %}
-
-
-
-
-
-
