@@ -1,90 +1,102 @@
 {% load staticfiles %}
+
+
+{% if not request.user.is_authenticated %}
+
+
+
+{% endif %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>HawkPost - Submit your content securely</title>
-    {% block styles %}
+  <title>HawkPost - Submit your content securely</title>
+  {% block styles %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- hp styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% endblock styles %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- hp styles -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  {% endblock styles %}
 
-    <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
 </head>
 
 <body>
-    {% block header %} {% include "layout/navbar.html" %} {% include "layout/messages.html" %} {% endblock header %}
-    <div class="main">
-        {% block content %} {% endblock content %}
-    </div>
-    {% block footer %}
-    <div class="footer smalltext">
-        <div class="row  middle-xs full-height">
-            <div class="col-xs-12">
+  {% block header %} {% include "layout/navbar.html" %} {% include "layout/messages.html" %} {% endblock header %}
+  <div class="main">
+    {% block content %} {% endblock content %}
+  </div>
+  {% block footer %}
+  <div class="footer smalltext">
+    <div class="row  middle-xs full-height">
+      <div class="col-xs-8 col-lg-10">
 
 
 
-                <a href="https://github.com/whitesmith/hawkpost" target="_blank" class=""><i class="fa fa-github fa-lg"></i></a>
-                <a href="http://whitesmith.co" target="_blank">Handcrafted with love by
-                        <svg version="1.1" id="logo" class="svg-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110" height="18" viewBox="6 7 110 18" xml:space="preserve">
-                         <g>
-                           <g>
-                             <path d="M21.05,23.663L16.992,8.675l-3.988,14.988h-2.125L6.748,7.142h1.557l3.683,15.035h0.046l4.037-15.035h1.862l4.132,15.035
-                               h0.048l3.634-15.035h1.487l-4.083,16.521H21.05z"></path>
-                             <path d="M37.205,16.818c0-1.675-1.085-2.573-2.573-2.573c-1.25,0-2.478,0.685-3.469,1.84v7.578h-1.44V7.142h1.415v7.599
-                               c0.946-1.134,2.22-1.77,3.729-1.77c2.431,0,3.778,1.487,3.778,3.776v6.916h-1.44v-6.847H37.205z"></path>
-                             <path d="M43.678,23.663h-1.44v-9.205h-1.652v-1.205h3.093L43.678,23.663L43.678,23.663z M42.852,8.227
-                               c0.684,0,1.252,0.567,1.252,1.25c0,0.686-0.568,1.252-1.252,1.252s-1.25-0.567-1.25-1.252C41.602,8.793,42.167,8.227,42.852,8.227
-                               z"></path>
-                             <path d="M49.132,8.863v4.389h2.573v1.205h-2.573v7.057c0,0.967,0.684,1.014,1.487,1.014c0.66,0,1.085-0.07,1.085-0.07v1.204
-                               c0,0-0.756,0.096-1.606,0.096c-1.085,0-2.406-0.284-2.406-2.22v-7.08h-1.795v-1.205h1.795V8.863L49.132,8.863L49.132,8.863z"></path>
-                             <path d="M54.539,18.895c0.187,2.149,1.63,3.776,3.799,3.776c1.417,0,2.598-0.662,3.234-1.795h1.677
-                               c-0.873,1.889-2.761,3.069-4.91,3.069c-2.997,0-5.286-2.288-5.286-5.476s2.288-5.5,5.263-5.5c2.737,0,5.24,1.913,5.24,5.924
-                               L54.539,18.895L54.539,18.895z M54.587,17.716h7.363c-0.163-1.89-1.578-3.471-3.634-3.471
-                               C56.239,14.245,54.847,15.733,54.587,17.716z"></path>
-                             <path d="M71.632,15.261c-0.756-0.661-1.535-1.086-2.643-1.086c-1.298,0-1.984,0.686-1.984,1.464c0,0.59,0.284,1.181,1.37,1.605
-                               l1.463,0.59c1.891,0.755,2.62,1.675,2.62,3.138c0,1.276-1.085,2.974-3.658,2.974c-1.795,0-3.02-0.662-3.846-1.464l0.779-1.062
-                               c0.779,0.779,1.934,1.321,3.115,1.321c1.44,0,2.196-0.826,2.196-1.77c0-1.016-0.662-1.439-2.171-2.054l-0.992-0.402
-                               c-1.628-0.661-2.288-1.581-2.288-2.783c0-1.44,1.275-2.763,3.469-2.763c1.535,0,2.715,0.684,3.376,1.298L71.632,15.261z"></path>
-                             <path d="M83.745,17.148v6.515h-1.438v-6.916c0-1.603-0.992-2.502-2.48-2.502c-1.228,0-2.336,0.685-3.327,1.84v7.578h-1.44v-10.41
-                               h1.415v1.488c0.898-1.086,2.029-1.77,3.539-1.77c1.749,0,2.904,0.779,3.401,2.006c1.131-1.37,2.361-2.006,3.87-2.006
-                               c2.453,0,3.704,1.487,3.704,3.776v6.916h-1.44v-6.916c0-1.603-0.99-2.502-2.453-2.502c-1.25,0-2.383,0.709-3.399,1.89
-                               C83.722,16.464,83.745,16.818,83.745,17.148z"></path>
-                             <path d="M96.026,23.663h-1.44v-9.205h-1.652v-1.205h3.092L96.026,23.663L96.026,23.663z M95.201,8.227
-                               c0.682,0,1.25,0.567,1.25,1.25c0,0.686-0.568,1.252-1.25,1.252c-0.686,0-1.252-0.567-1.252-1.252
-                               C93.949,8.793,94.516,8.227,95.201,8.227z"></path>
-                             <path d="M101.481,8.863v4.389h2.573v1.205h-2.573v7.057c0,0.967,0.686,1.014,1.489,1.014c0.658,0,1.084-0.07,1.084-0.07v1.204
-                               c0,0-0.756,0.096-1.604,0.096c-1.085,0-2.408-0.284-2.408-2.22v-7.08h-1.795v-1.205h1.795V8.863L101.481,8.863L101.481,8.863z"></path>
-                             <path d="M113.71,16.818c0-1.675-1.087-2.573-2.573-2.573c-1.25,0-2.478,0.685-3.469,1.84v7.578h-1.44V7.142h1.415v7.599
-                               c0.946-1.134,2.218-1.77,3.733-1.77c2.427,0,3.774,1.487,3.774,3.776v6.916h-1.44v-6.847H113.71z"></path>
-                           </g>
-                         </g>
-                         </svg>
-                    </a>
+        <a href="https://github.com/whitesmith/hawkpost" target="_blank" class=""><i class="fa fa-github fa-lg"></i></a>
+        <a href="http://whitesmith.co" target="_blank">With love by
+          <svg version="1.1" id="logo" class="svg-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110" height="18" viewBox="6 7 110 18" xml:space="preserve">
+           <g>
+             <g>
+               <path d="M21.05,23.663L16.992,8.675l-3.988,14.988h-2.125L6.748,7.142h1.557l3.683,15.035h0.046l4.037-15.035h1.862l4.132,15.035
+               h0.048l3.634-15.035h1.487l-4.083,16.521H21.05z"></path>
+               <path d="M37.205,16.818c0-1.675-1.085-2.573-2.573-2.573c-1.25,0-2.478,0.685-3.469,1.84v7.578h-1.44V7.142h1.415v7.599
+               c0.946-1.134,2.22-1.77,3.729-1.77c2.431,0,3.778,1.487,3.778,3.776v6.916h-1.44v-6.847H37.205z"></path>
+               <path d="M43.678,23.663h-1.44v-9.205h-1.652v-1.205h3.093L43.678,23.663L43.678,23.663z M42.852,8.227
+               c0.684,0,1.252,0.567,1.252,1.25c0,0.686-0.568,1.252-1.252,1.252s-1.25-0.567-1.25-1.252C41.602,8.793,42.167,8.227,42.852,8.227
+               z"></path>
+               <path d="M49.132,8.863v4.389h2.573v1.205h-2.573v7.057c0,0.967,0.684,1.014,1.487,1.014c0.66,0,1.085-0.07,1.085-0.07v1.204
+               c0,0-0.756,0.096-1.606,0.096c-1.085,0-2.406-0.284-2.406-2.22v-7.08h-1.795v-1.205h1.795V8.863L49.132,8.863L49.132,8.863z"></path>
+               <path d="M54.539,18.895c0.187,2.149,1.63,3.776,3.799,3.776c1.417,0,2.598-0.662,3.234-1.795h1.677
+               c-0.873,1.889-2.761,3.069-4.91,3.069c-2.997,0-5.286-2.288-5.286-5.476s2.288-5.5,5.263-5.5c2.737,0,5.24,1.913,5.24,5.924
+               L54.539,18.895L54.539,18.895z M54.587,17.716h7.363c-0.163-1.89-1.578-3.471-3.634-3.471
+               C56.239,14.245,54.847,15.733,54.587,17.716z"></path>
+               <path d="M71.632,15.261c-0.756-0.661-1.535-1.086-2.643-1.086c-1.298,0-1.984,0.686-1.984,1.464c0,0.59,0.284,1.181,1.37,1.605
+               l1.463,0.59c1.891,0.755,2.62,1.675,2.62,3.138c0,1.276-1.085,2.974-3.658,2.974c-1.795,0-3.02-0.662-3.846-1.464l0.779-1.062
+               c0.779,0.779,1.934,1.321,3.115,1.321c1.44,0,2.196-0.826,2.196-1.77c0-1.016-0.662-1.439-2.171-2.054l-0.992-0.402
+               c-1.628-0.661-2.288-1.581-2.288-2.783c0-1.44,1.275-2.763,3.469-2.763c1.535,0,2.715,0.684,3.376,1.298L71.632,15.261z"></path>
+               <path d="M83.745,17.148v6.515h-1.438v-6.916c0-1.603-0.992-2.502-2.48-2.502c-1.228,0-2.336,0.685-3.327,1.84v7.578h-1.44v-10.41
+               h1.415v1.488c0.898-1.086,2.029-1.77,3.539-1.77c1.749,0,2.904,0.779,3.401,2.006c1.131-1.37,2.361-2.006,3.87-2.006
+               c2.453,0,3.704,1.487,3.704,3.776v6.916h-1.44v-6.916c0-1.603-0.99-2.502-2.453-2.502c-1.25,0-2.383,0.709-3.399,1.89
+               C83.722,16.464,83.745,16.818,83.745,17.148z"></path>
+               <path d="M96.026,23.663h-1.44v-9.205h-1.652v-1.205h3.092L96.026,23.663L96.026,23.663z M95.201,8.227
+               c0.682,0,1.25,0.567,1.25,1.25c0,0.686-0.568,1.252-1.25,1.252c-0.686,0-1.252-0.567-1.252-1.252
+               C93.949,8.793,94.516,8.227,95.201,8.227z"></path>
+               <path d="M101.481,8.863v4.389h2.573v1.205h-2.573v7.057c0,0.967,0.686,1.014,1.489,1.014c0.658,0,1.084-0.07,1.084-0.07v1.204
+               c0,0-0.756,0.096-1.604,0.096c-1.085,0-2.408-0.284-2.408-2.22v-7.08h-1.795v-1.205h1.795V8.863L101.481,8.863L101.481,8.863z"></path>
+               <path d="M113.71,16.818c0-1.675-1.087-2.573-2.573-2.573c-1.25,0-2.478,0.685-3.469,1.84v7.578h-1.44V7.142h1.415v7.599
+               c0.946-1.134,2.218-1.77,3.733-1.77c2.427,0,3.774,1.487,3.774,3.776v6.916h-1.44v-6.847H113.71z"></path>
+             </g>
+           </g>
+         </svg>
+       </a> 
+     </div>
 
-                      {% if request.user.is_authenticated %}
-              <a  class=" col-xs-offset-8" href="{%url "pages_about"%}">About</a> 
-              {% endif %}
+     <div class="col-xs-2 col-lg-1 center-xs smalltext ">
+      {% if request.user.is_authenticated %}
 
+      <a  class=" text-lightest"  href="{%url "pages_about"%}">About</a>  
+      </div>
+      <div class="col-xs-2 col-lg-1 center-xs smalltext ">
+      <a  class="  text-lightest"  href="{%url "pages_help"%}">Support</a> 
 
+      {% endif %}
+    </div> 
+  </div>
+</div>
 
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
-    <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
-    <script>
-      var polyfilter_scriptpath = '/static/javascripts/';
-    </script>
-    <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
-    <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
-    {% endblock footer %}
-    {% block scripts %}
-    {% endblock scripts %}
+{% include "account/modals.html" %}
+<script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
+<script>
+  var polyfilter_scriptpath = '/static/javascripts/';
+</script>
+<script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+{% endblock footer %}
+{% block scripts %}
+{% endblock scripts %}
 </body>
 
 </html>

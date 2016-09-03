@@ -3,64 +3,65 @@
 
 {% block content %}
 <div class="container-fluid section-definer-dark">
-<div class="section-resized">
-    <div class="row start-xs">
-        <div class=" center-xs col-xs-12 ">
-            <p class="title text-lightest">Help Center<p>
-        </div>
-        <div class="col-xs-12">
+    <div class="section-resized">
+    <div class="container-fluid">
+        <div class="row center-xs text-left text-lightest">
+            <div class=" center-xs col-xs-12 ">
+                <p class="title text-lightest">Help Center<p>
+                </div>
+                <div class="col-xs-12">
 
 
 
- <ul class="box__nav smalltext">
-        <div class="row">
-        <li class=""><a href="#setup-hawkpost" class="box__nav__item__help">How to setup Hawkpost</a></li>
-                <li class=""><a href="#gen-pgp-key" class="box__nav__item__help">How to generate a PGP key</a></li>
-                <li class=""><a href="#verify-sender" class="box__nav__item__help">  How to verify Hawkpost signature</a></li>
-        </div>
-      </ul>
- 
-        </div>
-        <div class="col-xs-10">
-            <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
-            <p>Some are related to Hawkpost directly but others can be related to PGP and associated tasks and tools.</p>
-            <p>Of course we can't cover all the surface or explicitly address all questions in this document, so if your doubt isn't here feel free to email us or drop by our support channels and we will try to help you as soon as possible.</p>
+                   <ul class="box__nav smalltext">
+                    <div class="row center-xs middle-xs">
+                        <li class=""><a href="#setup-hawkpost" class="box__nav__item__help">How to setup Hawkpost</a></li>
+                        <li class=""><a href="#gen-pgp-key" class="box__nav__item__help">How to generate a PGP key</a></li>
+                        <li class=""><a href="#verify-sender" class="box__nav__item__help">  How to verify Hawkpost signature</a></li>
+                    </div>
+                </ul>
 
-            <p>
-                <b>Email:</b> {{support_email}}
-            </p>
-            <p>
-                <b>IRC Channel:</b> #hawkpost om freenode
-            </p>
-            <p>
-                <b>Forum:</b>
-            </p>
-        </div>
-        <div class="col-xs-12 ">
-            <h2 id="setup-hawkpost" class=" center-xs title text-lightest">How to setup Hawkpost</h2>
-
-                <div class="row"> 
-
-                 <div class="col-xs-12 col-sm-7">
-            <p>In order to start using Hawkpost as a user that receives confidential information, you have to fill certain requirements, such as:</p>
-
-            <ul>
-                <li>Provide a PGP public key</li>
-                <li>Provide your key's fingerprint</li>
-                <li>Have the required software to decrypt the messages</li>
-            </ul>
-
-            <p>If you don't know how to fulfill the first and third point, <a href="#gen-pgp-key">please check the next section</a>. Otherwise the configuration is quite simple.</p> 
-             </div>
-
-   <div class="col-xs-12 col-sm-5">
-            <img class="setup"src="{% static 'images/static_key.png' %}">
-</div>
             </div>
+            <div class="col-xs-11">
+                <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
+                <p>Some are related to Hawkpost directly but others can be related to PGP and associated tasks and tools.</p>
+                <p>Of course we can't cover all the surface or explicitly address all questions in this document, so if your doubt isn't here feel free to email us or drop by our support channels and we will try to help you as soon as possible.</p>
 
-  <div class="row"> 
+                <p>
+                    <b>Email:</b> {{support_email}}
+                </p>
+                <p>
+                    <b>IRC Channel:</b> #hawkpost om freenode
+                </p>
+                <p>
+                    <b>Forum:</b>
+                </p>
+            </div>
+            <div class="col-xs-12 ">
+                <h2 id="setup-hawkpost" class=" center-xs title text-dark">How to setup Hawkpost</h2>
 
-                 <div class="col-xs-12 col-sm-7 ">
+                <div class="row center-xs text-left"> 
+
+                   <div class="col-xs-12 col-sm-7">
+                    <p>In order to start using Hawkpost as a user that receives confidential information, you have to fill certain requirements, such as:</p>
+
+                    <ul>
+                        <li>Provide a PGP public key</li>
+                        <li>Provide your key's fingerprint</li>
+                        <li>Have the required software to decrypt the messages</li>
+                    </ul>
+
+                    <p>If you don't know how to fulfill the first and third point, <a href="#gen-pgp-key" class="testelinks">please check the next section</a>. Otherwise the configuration is quite simple.</p> 
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <img class="setup" src="{% static 'images/static_key.png' %}">
+                </div>
+            </div>
+        </div>
+
+        <div class="row center-xs text-left"> 
+           <div class="col-xs-12 col-sm-7 ">
             <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you are ready to go. We strongly recommend to also fill your personal data so it can show up in the submission page.</p>
 
             <p>To find your key's fingerprint, you can run the follow command if you are using <i>Gnu Privacy Guard (GPG)</i>:</p>
@@ -68,46 +69,50 @@
             <pre>gpg --fingerprint &lt;key id or email&gt;</pre>
 
             <p>If you are using a graphical tool, you can generally find this info on the <i>key properties section</i>.</p>
-   </div>
-     <div class="col-xs-12 col-sm-5 ">
-           <img class="setup" src="{% static 'images/keyserver_key.png' %}">
-   </div>
-            <p>For extra security and features you can specify the keyserver URL of your key instead of providing it directly. This way the system will fetch the key and regularly check that URL for key updates and the system will stop allowing submissions to your boxes once the key is revoked or expired (the fingerprint is always required).</p>
-                </div>
-     
-
-        <div class="col-xs-12 ">
-
-            <h2 id="gen-pgp-key" class="center-xs title text-lightest">How to generate a PGP key</h2>
-
-            <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a>, so to create boxes you will need to setup a PGP key pair and provide us the public part/key. If you already have one this section is not for you.</p>
-
-            <p>Since Hawkpost works only through email, the easiest way to setup a key pair is using your email client or through a compatible plugin/extension if it doesn't support PGP natively. There are lots of articles in the Internet about this topic, so it is easy to find some that match your specific setup.</p>
-
-            <p>As an example, in the next paragraphs we point to some tutorials addressing popular email clients.</p>
-
-            <p>For webmail users, one tool that is very useful is <a href="https://www.mailvelope.com/">Mailvelope</a>. This browser extension will allow you to open the encrypted messages and also generate your keys. An introductory tutorial can be found <a href="https://www.youtube.com/watch?v=Ro3MSBS9w-A">here</a>.</p>
-
-            <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/">Enigmail</a>, that like Mailvelope it will allow you to decrypt Hawkpost messages and manage your keys as well. An introduction can be found <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">here</a>.</p>
-
-            <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x">this guide to Apple Mail</a>.</p>
         </div>
-        <div class="col-xs-12  ">
- 
-            <h2 id="verify-sender" class="title text-lightest center-xs">Experimental: How to verify Hawkpost signature</h2>
+        <div class="col-xs-12 col-sm-4 ">
+         <img class="setup" src="{% static 'images/keyserver_key.png' %}">
+     </div>
+     <div class="col-xs-11">
+     <p>For extra security and features you can specify the keyserver URL of your key instead of providing it directly. This way the system will fetch the key and regularly check that URL for key updates and the system will stop allowing submissions to your boxes once the key is revoked or expired (the fingerprint is always required).</p>
+     </div>
+ </div>
 
-<div class="row"> 
 
-                 <div class="col-xs-12 col-sm-7 ">
+ <div class="col-xs-11 ">
+    <h2 id="gen-pgp-key" class="center-xs title text-dark">How to generate a PGP key</h2>
+
+    <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" class="testelinks">PGP</a>, so to create boxes you will need to setup a PGP key pair and provide us the public part/key. If you already have one this section is not for you.</p>
+
+    <p>Since Hawkpost works only through email, the easiest way to setup a key pair is using your email client or through a compatible plugin/extension if it doesn't support PGP natively. There are lots of articles in the Internet about this topic, so it is easy to find some that match your specific setup.</p>
+
+    <p>As an example, in the next paragraphs we point to some tutorials addressing popular email clients.</p>
+
+    <p>For webmail users, one tool that is very useful is <a href="https://www.mailvelope.com/" class="testelinks">Mailvelope</a>. This browser extension will allow you to open the encrypted messages and also generate your keys. An introductory tutorial can be found <a href="https://www.youtube.com/watch?v=Ro3MSBS9w-A">here</a>.</p>
+
+    <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/" class="testelinks">Enigmail</a>, that like Mailvelope it will allow you to decrypt Hawkpost messages and manage your keys as well. An introduction can be found <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">here</a>.</p>
+
+    <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/" class="testelinks">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x" class="testelinks">this guide to Apple Mail</a>.</p>
+</div>
+
+<div class="col-xs-12  ">
+    <h2 id="verify-sender" class="title text-dark center-xs">Experimental: How to verify Hawkpost signature</h2>
+
+    <div class="row center-xs text-left"> 
+
+        <div class="col-xs-12 col-sm-7 ">
             <p>Recently we introduced a feature that is still on an experimental phase, that allows the user to be sure that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients, but we hope to bring it to other clients soon.</p>
 
-            <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the below image), this way all messages will be signed with our sign key that you can import to your keyring in order to verify. <a href="{{sign_key_url}}">The key can be found here</a></p>
-            </div>
- <div class=" col-xs-12 col-sm-5 ">
+            <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the below image), this way all messages will be signed with our sign key that you can import to your keyring in order to verify. <a href="{{sign_key_url}}" class="testelinks">The key can be found here</a></p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 ">
             <img  class="setup" src="{% static 'images/server_signed.png' %}">
-            </div>
         </div>
     </div>
+</div>
+
+</div>
+</div>
 </div>
 </div>
 {% endblock content %}

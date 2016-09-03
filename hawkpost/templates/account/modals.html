@@ -1,0 +1,167 @@
+{% load i18n %} {% load account socialaccount %} {% block head_title %} {% endblock %} {% block content %}
+<script>
+    $(document).ready(function() {
+        if(window.location.href.indexOf('#modal-1') != -1) {
+            $(".md-show").css('visibility', 'visible');
+        }
+    });
+</script>
+
+
+<!--------------------LOGIN-------------------->
+<div class="md-modal-xs md-effect-1 " id="modal-1">
+    <div class="md-content-xs ">
+        <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+
+        <div class="row start-xs  ">
+            <div class="col-xs-12">
+                <form class="login  smalltext text-darkest" method="POST" action="{% url 'account_login' %}">
+
+
+                    <h3 class="title "> Login</h3>
+                    <p>If you have not created an account yet, then please<a class=" md-trigger" href="#modal-2" data-modal="modal-2"><span> sign up  </span></a></p>
+                    <p>{% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                       {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
+
+
+                       <ul class="gitpad">
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+                    <br>
+                    <div class="login-or">
+                       <p> {% trans 'Or' %} create an hawkpost account <a class=" md-trigger" href="#modal-2" data-modal="modal-2">here</a> and login bellow:</p>
+                   </div>
+
+
+                   {% include "socialaccount/snippets/login_extra.html" %} {% else %}
+                   <p>{% blocktrans %}If you have not created an account yet, then please
+                    <a class="md-trigger" data-modal="modal-2">sign up</a> first.{% endblocktrans %}</p>
+                    {% endif %}
+                    <div class="start-xs text-darkest ">
+                        {% csrf_token %}
+
+                        <label class="input-anim">
+                            <p>
+                                {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
+                            </p>
+
+                            <p>
+                                {{ form.password.label_tag }} {{ form.password }}{{ form.password.errors }}
+                            </p>
+
+                        </label>
+
+                        <label class="input-anim" for="id_remember">
+                        </div> <p> {{ form.remember.errors }}
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        {{ form.remember.label_tag }}
+                                    </div>
+                                    <div class="col-xs-2 end-xs">
+                                        {{ form.remember }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p> </label>
+
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+
+                </div>
+
+
+                <div class="col-xs-12">
+                    <button class="primaryAction btn-default md-trigger" data-modal="modal-1" type="submit">{% trans "Login" %}</button>
+                </div>
+
+
+                <div class="col-xs-12 text-lightest">
+                    <a class=" smalltext secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                </div>
+                <!-- </div>-->
+
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+
+<!--------------------SIGN_UP-------------------->
+<div class="md-modal-xs md-effect-1" id="modal-2">
+    <div class="md-content-xs ">
+        <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+
+        <div class="row start-xs ">
+            <div class="col-xs-12">
+
+                <form class="signup start-xs smalltext text-darkest" id="signup_form" method="post" action="{% url 'account_signup' %}">
+
+                    <h3 class="title"> Sign up</h3> {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                    <p >{% blocktrans %}Already have an account? Then please <a class=" md-trigger" href="#modal-1" data-modal="modal-1">Sign in</a>.{% endblocktrans %}</p>
+
+                    <p >You can also sign up with one of your existing third party accounts such as:</p>
+
+
+                    <ul>
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+                    <br>
+                    <div class="login-or"><p>{% trans 'Ortherwise' %} use the following form to create your new account:</p></div>
+
+                    {% endif %}
+
+                    {% csrf_token %}
+                    <div class="start-xs text-darkest">
+                        <label class="input-anim">
+                            <p>
+                                {{ form.login.label_tag }} {{ form.login }}{{ form.login.errors }}
+                            </p>
+
+
+                            <p>
+                                {{ form.password.label_tag }} {{ form.password }} {{ form.password.errors }}
+                            </p>
+
+                        </label>
+
+
+                        <p>
+                            {{ form.remember.errors }}
+                            <div class="row start-xs">
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            {{ form.remember.label_tag }}
+                                        </div>
+                                        <div class="col-xs-2 end-xs">
+                                            {{ form.remember }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+
+                    </div>
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+
+                </div>
+
+
+                <div class="col-xs-12">
+                    <button class="btn-default" type="submit">{% trans "Sign Up" %}</button>
+
+
+                </div> </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+
+    {% endblock content %}
