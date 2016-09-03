@@ -7,11 +7,6 @@ class MessageInline(admin.TabularInline):
     extra = 0
 
 
-class BoxInline(admin.TabularInline):
-    model = Box
-    extra = 0
-
-
 @admin.register(Box)
 class BoxAdmin(admin.ModelAdmin):
     list_display = ('name', 'owner', 'created_at', 'expires_at')
