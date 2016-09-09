@@ -1,5 +1,5 @@
 {% if messages %}
-<ul class="messages">
+<ul class="messages messages-elem-js">
     {% for message in messages %}
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
     {% endfor %}
