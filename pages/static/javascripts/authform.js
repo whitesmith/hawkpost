@@ -17,7 +17,6 @@ $(document).ready(function(){
         errors = errors.concat(data.responseJSON.form_errors.email);
       if(data.responseJSON.form_errors.password)
         errors = errors.concat(data.responseJSON.form_errors.password);
-      console.log(errors);
       for(var i=0;i<errors.length;i++){
         errorContainer.append("<p>" + errors[i] + "</p>");
       }
