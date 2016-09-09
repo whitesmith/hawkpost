@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
@@ -32,11 +32,11 @@ var ModalEffects = (function() {
 			}
 
 			el.addEventListener( 'click', function( ev ) {
-				if(el.getAttribute('data-modal') == 'modal-1') {
-					aux = document.querySelector( '#modal-2' );
+				if(el.getAttribute('data-modal') == 'modal-login') {
+					aux = document.querySelector( '#modal-signup' );
 					classie.remove(aux, 'md-show');
 				} else {
-					aux = document.querySelector( '#modal-1' );
+					aux = document.querySelector( '#modal-login' );
 					classie.remove(aux, 'md-show');
 				}
 				classie.add( modal, 'md-show' );
