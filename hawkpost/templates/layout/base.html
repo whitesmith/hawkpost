@@ -83,6 +83,13 @@
       {% if not request.user.is_authenticaded %}
         <script type="text/javascript" src="{% static 'javascripts/authform.js' %}"></script>
       {% endif %}
+      <script type="text/javascript">
+        $(document).ready(function(){
+          setTimeout(function(){
+            $(".messages-elem-js").remove();
+          }, 3000);
+        });
+      </script>
     {% endblock scripts %}
   </body>
 </html>
