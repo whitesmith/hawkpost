@@ -80,6 +80,9 @@
       </script>
       <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
       <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
+      {% if not request.user.is_authenticaded %}
+        <script type="text/javascript" src="{% static 'javascripts/authform.js' %}"></script>
+      {% endif %}
     {% endblock scripts %}
   </body>
 </html>
