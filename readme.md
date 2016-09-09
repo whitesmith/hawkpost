@@ -264,6 +264,14 @@ $ pip-compile requirements/base.in requirements/development.in -o requirements/r
 
 * Commit these changes alongside your code changes
 
+## Style
+
+In order to facilitate the tasks of everyone who is contributing to this project, we have opted to present a few guidelines here about the style of code. This guidelines are not rigid and common sense should be taken into account when discussing this matter.
+
+For python code, unless it is prejudicial to the given situation or makes it harder to understand the code, you should follow the [PEP8](https://www.python.org/dev/peps/pep-0008/) convention.
+
+For the HTML templates, you should make use of indentation (2 spaces) to make a clear distinction between parent and children elements (siblings should be on the same indentation level).
+
 # Credits
 
 ![Whitesmith](http://i.imgur.com/Si2l3kd.png)
