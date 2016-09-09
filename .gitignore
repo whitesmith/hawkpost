@@ -5,6 +5,7 @@ __pycache__
 *.gpg~
 random_seed
 hawkpost/staticfiles/
+/hawkpost/static/css/style.css
 /node_modules
 celerybeat-schedule.db
 trustdb.gpg

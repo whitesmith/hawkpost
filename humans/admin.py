@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.utils import timezone
 from .models import User, Notification
 from .tasks import enqueue_email_notifications
-from boxes.admin import BoxInline
 
 
 @admin.register(User)
@@ -16,8 +15,6 @@ class UserAdmin(DefaultUserAdmin):
                     "is_staff",
                     "has_public_key",
                     "has_keyserver_url")
-
-    inlines = [BoxInline]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -7,29 +7,27 @@
 
 {% block content %}
 <div class="section-definer-light">
-<div class="h-section section-resized">
-<div class="container-fluid">
-	<div class="row center-xs">
-   <div class="col-xs-12">
-     <h1 class="title">Message sent with sucess!</h1>
-   </div>
- </div>
- <div class="row center-xs middle-xs logosucess">
- <div class="col-xs-12">
-    <p class="text-by"> by:</p>
-    <a href="{% url "pages_index" %}">
-     <img src="{% static 'images/logob.png' %}" class="logo-big">
-   </a>
-
- </div>
-</div> 
-<div class="row center-xs">
- <div class="col-xs-12">
-   <p class="main-title__sub text-note">Sending your confidential information safely</p>
- </div>
+  <div class="h-section section-resized">
+    <div class="container-fluid">
+      <div class="row center-xs">
+        <div class="col-xs-12">
+          <h1 class="title">Message sent with sucess!</h1>
+        </div>
+      </div>
+      <div class="row center-xs middle-xs logosucess">
+        <div class="col-xs-12">
+          <p class="text-by"> by:</p>
+          <a href="{% url "pages_index" %}">
+            <img src="{% static 'images/logob.png' %}" class="logo-big">
+          </a>
+        </div>
+      </div>
+      <div class="row center-xs">
+        <div class="col-xs-12">
+          <p class="main-title__sub text-note">Sending your confidential information safely</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-
 {% endblock content %}

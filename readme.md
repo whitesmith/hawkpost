@@ -29,6 +29,7 @@ Base requirements:
 * Python 3
 * Redis
 * PostgreSQL
+* gulp
 
 ## Linux
 
@@ -36,29 +37,44 @@ On a **Debian** based operation execute the following steps, after cloning the r
 
 * Install VirtualEnv and VirtualEnvWrapper
 
-> sudo apt-get install python-virtualenvwrapper
+```
+$ sudo apt-get install python-virtualenvwrapper
+```
 
 (follow their installation steps)
 
 * Create a virtual environment, using python3
 
-> mkvirtualenv hawkpost --python=python3
+```
+$ mkvirtualenv hawkpost --python=python3
+```
 
 * Install the dependencies
 
-> pip install -r requirements/requirements_dev.txt
+```
+$ pip install -r requirements/requirements_dev.txt
+```
 
 * Create the local postgreSQL database with your user and no password
 
 * Migrate the database
 
-> python manage.py migrate
+```
+$ python manage.py migrate
+```
 
-* Check that everything is working
+* Generate stylesheet
 
-> python manage.py runserver
+```
+$ gulp build
+```
 
-> celery -A hawkpost worker --beat -l info
+* Now you should be able to launch de server and its workers 
+
+```
+$ python manage.py runserver
+$ celery -A hawkpost worker --beat -l info
+```
 
 ## OSX
 
@@ -68,50 +84,67 @@ Steps:
 
 * Update [Homebrew](http://brew.sh/)
 
-> brew update
+```
+$ brew update
+```
 
 * Update [Pip](https://pip.pypa.io/en/stable/installing/)
 
-> sudo pip install --upgrade pip
+```
+$ sudo pip install --upgrade pip
+```
 
 * Install the latest 2.7.x version and 3.x of Python via Homebrew
 
-> brew install python
-
-> brew install python3
+```
+$ brew install python
+$ brew install python3
+```
 
 * Install Virtualenv
 
-> pip install virtualenv
+```
+$ pip install virtualenv
+```
 
 * Setup Virtualenv
-
-> mkdir ~/.virtualenvs
-
-> cd ~/.virtualenvs
-
-> virtualenv hawkpost --python=python3
-
-> source hawkpost/bin/activate
+```
+$ mkdir ~/.virtualenvs
+$ cd ~/.virtualenvs
+$ virtualenv hawkpost --python=python3
+$ source hawkpost/bin/activate
+```
 
 * Clone the project, go to the folder and install the dependencies
 
-> pip install -r requirements/requirements_dev.txt
+```
+$ pip install -r requirements/requirements_dev.txt
+```
 
 * Create the database for the first time
 
-> psql CREATE DATABASE hawkpost_dev;
+```
+$ psql CREATE DATABASE hawkpost_dev;
+```
 
 * Prepare the database
 
-> python manage.py migrate
+```
+$ python manage.py migrate
+```
 
-* Check that everything is working
+* Generate stylesheet
 
-> python manage.py runserver
+```
+$ gulp build
+```
 
-> celery -A hawkpost worker --beat -l info 
+* Now you should be able to launch de server and its workers
 
+```
+$ python manage.py runserver
+$ celery -A hawkpost worker --beat -l info 
+```
 
 ## Docker
 
@@ -129,14 +162,14 @@ After having the latest Docker and Docker Compose installed, **make the
 folder** that will hold the **GPG public keys keyring**:
 
 ```
-mkdir -p gpg_home
+$ mkdir -p gpg_home
 ```
 
 Some environment variables need to be set so the application works properly.
 **Copy** the provided **[.env.sample](.env.sample)** and name it **`.env`**:
 
 ```
-cp .env.sample .env
+$ cp .env.sample .env
 ```
 
 Since this setup assumes containers talk to each other some of the variables
@@ -219,14 +252,17 @@ Below are a few things we follow and would appreciate if you do to.
 
 * Compile the new requirements (You will need to install `pip-tools`)
 
-> pip-compile requirements/base.in -o requirements/requirements.txt
+```
+$ pip-compile requirements/base.in -o requirements/requirements.txt
+```
 
 and 
 
-> pip-compile requirements/base.in requirements/development.in -o requirements/requirements_dev.txt
+```
+$ pip-compile requirements/base.in requirements/development.in -o requirements/requirements_dev.txt
+```
 
 * Commit these changes alongside your code changes
-
 
 # Credits
 
