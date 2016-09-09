@@ -57,7 +57,7 @@
             <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
             <div class="row url_btn">
               <button class="btn-default copy-to-clipboard-js text col-xs-6" data-src='box-{{box.id}}-url'>COPY URL</button>
-              <button class="btn-default copy-to-clipboard-js text col-xs-6" data-src='box-{{box.id}}-url'>OPEN</button>
+              <a class="btn-default text col-xs-6" href="{% url 'boxes_show' box.uuid %}" target="_blank">OPEN</a>
             </div>
             {% endif %}
             <div class="extra-info">
