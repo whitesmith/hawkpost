@@ -1,9 +1,13 @@
     /*------------------------------------*\
-  #FAQ
-\*------------------------------------*/
+    #FAQ
+    \*------------------------------------*/
+
+    .faq__container {
+        padding-bottom: 150px;
+    }
 
     .faq__box--big {
-       
+
         padding: 20px;
         margin: 5px 0 5px;
         width: 100%;
@@ -11,18 +15,18 @@
         -webkit-transition: height 0.35s;
         transition: height 0.35s;
     }
-    
-    .faq__tittle {
-       font-weight: bold;
+
+    .faq__title {
+        font-weight: bold;
         margin: 0px;
         padding: 0px 0px 5px;
     }
-        
-     
-    
+
+
+
     .faq__box:focus {
-        
-         height: auto;
+
+        height: auto;
         background-color: $blue;
         .faq__text {
             color: white;
@@ -31,23 +35,23 @@
         a{
             color: $black;
         }
-        
+
     }
-    
+
 
     *:focus {
         outline: none;
     }
-    
+
     .faq__text {
         margin: 0px;
         padding: 0px;
         font-size: 14px;
         color: $main-color-dark;
         display: none;
-         
+
     }
-    
+
     .faq__box {
         height: 80px;
         //border: 1px solid $light;
@@ -61,13 +65,13 @@
             max-width: calc(125% - 20px);
         }
     }
-    
+
     .link-box__box {
-        
-            float: left;
-        
+
+        float: left;
+
     }
-    
+
     .link-box__info {
         margin: $spacing--large 10px 0px;
         @media (min-width: 768px) {
