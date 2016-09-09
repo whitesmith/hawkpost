@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#login-form-js").on("submit", function(){
-    $this = $(this)
+    var $this = $(this)
     $.ajax({
       url: $this.attr("action"),
       method: $this.attr("method"),
@@ -8,9 +8,9 @@ $(document).ready(function(){
     }).done(function(data){
       document.location = data.location
     }).fail(function(data){
-      errorContainer = $("#login-form-errors-js");
+      var errorContainer = $("#login-form-errors-js");
       errorContainer.html("");
-      errors = []
+      var errors = []
       if(data.responseJSON.form_errors.__all__)
         errors = errors.concat(data.responseJSON.form_errors.__all__);
       if(data.responseJSON.form_errors.email)
@@ -26,7 +26,7 @@ $(document).ready(function(){
   });
 
   $("#signup-form-js").on("submit", function(){
-    $this = $(this)
+    var $this = $(this)
     $.ajax({
       url: $this.attr("action"),
       method: $this.attr("method"),
@@ -34,9 +34,9 @@ $(document).ready(function(){
     }).done(function(data){
       document.location = data.location
     }).fail(function(data){
-      errorContainer = $("#signup-form-errors-js");
+      var errorContainer = $("#signup-form-errors-js");
       errorContainer.html("");
-      errors = []
+      var errors = []
       if(data.responseJSON.form_errors.__all__)
         errors = errors.concat(data.responseJSON.form_errors.__all__);
       if(data.responseJSON.form_errors.email)
