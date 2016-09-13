@@ -11,26 +11,26 @@ celery==3.1.23
 contextlib2==0.5.1        # via raven
 coverage==4.2
 defusedxml==0.4.1         # via python3-openid
-django-allauth==0.24.1
+django-allauth==0.27.0
 django-debug-toolbar==1.5
 django-dotenv==1.4.1
 django-extensions==1.7.2
 django-timezone-field==2.0rc1
-django==1.10
+django==1.10.1
 fake-factory==0.5.3       # via hypothesis
 gnupg==2.0.2
-gunicorn==19.4.5
+gunicorn==19.6.0
 hypothesis[django]==3.4.2
 kombu==3.0.35             # via celery
 oauthlib==1.0.3           # via requests-oauthlib
 psutil==4.1.0             # via gnupg
-psycopg2==2.6.1
+psycopg2==2.6.2
 python3-openid==3.0.9     # via django-allauth
 pytz==2016.3              # via celery, django-timezone-field, hypothesis
-raven==5.12.0
+raven==5.26.0
 redis==2.10.5
 requests-oauthlib==0.6.1  # via django-allauth
 requests==2.9.1           # via django-allauth, requests-oauthlib
 six==1.10.0               # via django-extensions
 sqlparse==0.2.1           # via django-debug-toolbar
-whitenoise==3.0
+whitenoise==3.2.1
