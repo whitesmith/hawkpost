@@ -1,16 +1,6 @@
 from django.views.generic import TemplateView
 from django.conf import settings
-
-from allauth.account.forms import LoginForm, SignupForm
-
-
-class AuthMixin():
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if not self.request.user.is_authenticated():
-            context["login_form"] = LoginForm()
-            context["signup_form"] = SignupForm()
-        return context
+from humans.views import AuthMixin
 
 
 class HomeView(AuthMixin, TemplateView):

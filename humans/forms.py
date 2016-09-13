@@ -1,7 +1,10 @@
 from django.forms import ModelForm
 from django import forms
+from allauth.account.forms import LoginForm as BaseLoginForm
+from allauth.account.forms import SignupForm as BaseSignupForm
 from .models import User
 from .utils import key_state
+
 import requests
 
 
@@ -73,3 +76,18 @@ class UpdateUserInfoForm(ModelForm):
                 self.add_error("keyserver_url",
                                "This url does not have a pgp key")
         return url
+
+
+class LoginForm(BaseLoginForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['login'].widget.attrs["placeholder"] = ""
+        self.fields['password'].widget.attrs["placeholder"] = ""
+
+
+class SignupForm(BaseSignupForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs["placeholder"] = ""
+        self.fields['password1'].widget.attrs["placeholder"] = ""
+        self.fields['password2'].widget.attrs["placeholder"] = ""

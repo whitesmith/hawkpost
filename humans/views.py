@@ -3,13 +3,22 @@ from django.contrib.auth import logout, authenticate
 from django.views.generic import FormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
-from .forms import UpdateUserInfoForm
+from .forms import UpdateUserInfoForm, LoginForm, SignupForm
 from .models import User
 
 
 class LoginRequiredMixin(LoginRequired):
     login_url = reverse_lazy("account_login")
     redirect_field_name = 'next'
+
+
+class AuthMixin():
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if not self.request.user.is_authenticated():
+            context["login_form"] = LoginForm()
+            context["signup_form"] = SignupForm()
+        return context
 
 
 class UpdateSettingsView(LoginRequiredMixin, FormView):
