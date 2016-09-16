@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 from django.core.urlresolvers import reverse_lazy
 import os
-import gnupg
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -170,9 +169,6 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user:email']
     }
 }
-
-# GPG keyring for importing users' public keys
-GPG_OBJ = gnupg.GPG(homedir=".", keyring="pub.gpg", secring="sec.gpg")
 
 # GPG keyring for server-signing messages
 GPG_SIGN_DIR = os.environ.get("SIGN_DIR")
