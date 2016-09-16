@@ -23,7 +23,7 @@
         <br>Send your Hawkpost link, and receive the confidential information encrypted in your inbox. It's that easy.</p>
       </div>
       <div class=" col-xs-start col-xs-12  start-sm start-lg">
-        <p class="start-xs subtitle">PGP encripted information delivered right to your inbox.</p>
+        <p class="start-xs subtitle">PGP encrypted information delivered right to your inbox.</p>
       </div>
     </div>
     <div class="row center-xs between-sm">
@@ -81,11 +81,15 @@
           </div>
           <div class="faq__box  faq__box--big" tabindex="1">
             <p class="faq__title text-lightest">How does it work behind the curtain?</p>
-            <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you secret information. When that person visits your Hawkpost link and submits the sensitive data, this is encrypted <b>in their browser</b> with your PGP public key, and sent by our hawks to your email. This means that we're not able to see the original message, and no message is stored.</p>
+            <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you secret information. When that person visits your Hawkpost link and submits the sensitive data, this is encrypted <b>in their browser</b> with the PGP public key you used on signup. The encrypted message is sent by our hawks to your email. This means that we're not able to see the original message, and no message is stored.</p>
           </div>
           <div class="faq__box  faq__box--big" tabindex="1">
             <p class="faq__title text-lightest">Why is this safe?</p>
             <p class="faq__text">Hawkpost provides end-to-end encryption using <a href="https://openpgpjs.org/">OpenPGP.js</a> library, which means that the submitted information will be only visible to whom created the link (the owner of the key) and we will not save it. No message is stored.</p>
+          </div>
+          <div class="faq__box  faq__box--big" tabindex="1">
+            <p class="faq__title text-lightest">What's PGP?</p>
+            <p class="faq__text">PGP is an encryption technology often used for signing, encrypting, and decrypting texts and files. This is what Hawkpost uses to encrypt messages. You can read more about how to generate your PGP key on the <a href="https://hawkpost.co/help">help page</a></p>
           </div>
         </div>
         <div class=" col-xs-12 col-sm-6">
