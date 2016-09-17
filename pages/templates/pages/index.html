@@ -6,7 +6,6 @@
       <div class="col-xs-10">
         <p class="title first text-lightest">Get encrypted data from people that don’t know how to encrypt</p>
         <p class="text text-light"> Hawkpost - When a pigeon is not enough</p>
-        <!-- --------------SCROLL BUTTON-------------- -->
         <div class="span"><a class="scroll" href="#sec_1"><span>  </span></a></div>
       </div>
     </div>
@@ -28,10 +27,10 @@
     </div>
     <div class="row center-xs between-sm">
       <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
-        <button onclick="document.location='{% url 'pages_help' %}#setup-hawkpost'" class="h-button">Yup, this is for me</button>
+        <a href="{% url 'pages_help' %}#setup-hawkpost" class="h-button">Yup, this is for me</a>
       </div>
       <div class="col-xxs-12  col-xs-10 col-sm-5 col-lg-5">
-        <button onclick="document.location='{% url 'pages_help' %}#gen-pgp-key'" class="h-button">PGP WHAT?</button>
+        <a href="{% url 'pages_help' %}#gen-pgp-key" class="h-button">PGP WHAT?</a>
       </div>
     </div>
   </div>
