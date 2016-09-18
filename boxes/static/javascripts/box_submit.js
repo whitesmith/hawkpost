@@ -48,15 +48,15 @@ $(document).ready(function(){
     var csrfToken = $formDiv.attr("data-csrf-token");
     var action = $formDiv.attr("data-action");
 
-    $form = $("<form></form>");
+    var $form = $("<form></form>");
     $form.attr('id', "box").attr("action", action)
     $form.attr("method", "post").addClass("form__wrap link-box__box");
 
-    $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
+    var $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
     $csrfTokenField.val(csrfToken);
 
-    $label = $("<label for='id_message'>Message:</label>");
-    $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
+    var $label = $("<label for='id_message'>Message:</label>");
+    var $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
     $textArea.attr("placeholder", "All the contents, inserted into this box, will be encripted with " +
                                   "the recipient's public key before leaving this computer.")
 
@@ -67,6 +67,14 @@ $(document).ready(function(){
 
     $("#encrypt-action-js").on("click", encryptContent);
   }
+
+  /*
+    Show introduction tooltip on click
+  */
+  $(".hawkpost-intro-js").on("click", function(){
+    var popup = document.getElementById('hawkpost-intro-popup-js');
+    popup.classList.toggle('show');
+  })
 
   createBox();
 });

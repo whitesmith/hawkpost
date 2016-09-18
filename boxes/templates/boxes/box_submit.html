@@ -6,14 +6,6 @@
 {% endblock header %}
 
 {% block content %}
-<script>
-  // When the user clicks on div, open the popup
-  function myFunctionx() {
-    var popup = document.getElementById('thisPopup');
-    popup.classList.toggle('show');
-  }
-</script>
-
 <div class=" section-definer-light">
   <section class=" section-resized">
     <div class=" row center-xs no-navbar">
@@ -53,9 +45,9 @@
               <h3 class=" subtitle no-margin">{{object.name}}</h3>
               <p class="no-margin-top">{{object.description}}</p>
             </div>
-            <div class="popup col-xs-1 " onclick="myFunctionx()">
+            <div class="popup col-xs-1 hawkpost-intro-js">
               <i class="fa fa-question-circle text-darkest fa-lg" aria-hidden="true"></i>
-              <span class="popuptext smalltext" id="thisPopup">
+              <span class="popuptext smalltext" id="hawkpost-intro-popup-js">
                 Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.
               </span>
             </div>

@@ -75,21 +75,12 @@
     {% block scripts %}
       <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
       <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
-      <script>
-        var polyfilter_scriptpath = '/static/javascripts/';
-      </script>
+      <script type="text/javascript" src="{% static 'javascripts/global.js' %}"></script>
       <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
       <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
       {% if not request.user.is_authenticaded %}
         <script type="text/javascript" src="{% static 'javascripts/authform.js' %}"></script>
       {% endif %}
-      <script type="text/javascript">
-        $(document).ready(function(){
-          setTimeout(function(){
-            $(".messages-elem-js").remove();
-          }, 3000);
-        });
-      </script>
     {% endblock scripts %}
   </body>
 </html>
