@@ -59,4 +59,8 @@ $(document).ready(function(){
     })
     return false;
   });
+
+  if(window.location.href.indexOf('#modal-login') != -1) {
+    $(".md-show").css('visibility', 'visible');
+  }
 });
