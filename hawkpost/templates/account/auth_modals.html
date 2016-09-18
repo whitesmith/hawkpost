@@ -1,14 +1,6 @@
 {% load i18n %}
 {% load account socialaccount %}
-<script>
-  $(document).ready(function() {
-    if(window.location.href.indexOf('#modal-login') != -1) {
-      $(".md-show").css('visibility', 'visible');
-    }
-  });
-</script>
 
-<!--------------------LOGIN-------------------->
 <div class="md-modal-xs md-effect-1 " id="modal-login">
   <div class="md-content-xs ">
     <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
@@ -74,7 +66,6 @@
   </div>
 </div>
 
-<!--------------------SIGN_UP-------------------->
 <div class="md-modal-xs md-effect-1" id="modal-signup">
   <div class="md-content-xs ">
     <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
