@@ -19,13 +19,13 @@
           <p>If you have not created an account yet, then please<a class=" md-trigger" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p>{% get_providers as socialaccount_providers %}
           {% if socialaccount_providers %}
-          {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
+          {% blocktrans with site.name as site_name %}Login in via:  {% endblocktrans %}</p>
           <ul class="gitpad">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
           <br>
           <div class="login-or">
-            <p> {% trans 'Or' %} create an hawkpost account <a class=" md-trigger" href="#modal-signup" data-modal="modal-signup">here</a> and login bellow:</p>
+            <p> {% trans 'Or' %} using your email address:</p>
           </div>
           {% include "socialaccount/snippets/login_extra.html" %}
           {% else %}
