@@ -107,27 +107,35 @@
 /*-------------#BUTTONS-------------*/
 
 .h-button {
+    cursor: pointer;
+    max-width: 200px;
     width: 100%;
     background-color: $blue;
     border: none;
     color: white;
     padding: 20px 0px 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 0.9rem;
+    font-size: 0.9rem;    
+    display: block;
     &:target {
         background-color: #28666c;
     }
-
-    margin-top: 70px;
-     
-    @include breakpoint($min:sm) {
-        margin-top: 20px;
-    }
-      @include breakpoint($min:md) {
-        margin-top: 20px;
+    margin-top: 40px;
+    @include breakpoint($min:md) {
+        margin-top: 10vh;
     }
 }
 
+.h-button-white{
+    @extend .h-button;
+    background-color: $white;
+    color: $black;
+    margin-top: 10px;
+    //other option:
+    //background-color: none;
+    //border: solid $white;
+    //box-shadow: none;
+}
 
 /*-----------------------#SECTION_2--------------------*/
 
@@ -147,4 +155,9 @@
  @include breakpoint($min:xs) {
         margin-right: 0px;
     }
+}
+
+.how-container{
+    margin-top: 40px;
+    margin-bottom: 40px;
 }

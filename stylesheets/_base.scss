@@ -47,9 +47,9 @@
     background-color:white;
     }
 
-.section-definer-medium {
+.section-definer-blue {
          @extend .section-definer;
-    background-color:$grey;
+    background-color:$blue;
     }
 
 .section-definer-dark {
@@ -112,6 +112,8 @@
         font-family: BoldFont;
         color: $black;
         padding: 2vh 0 2vh;
+        margin-top: 35px;
+        margin-bottom: 35px;
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
