@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row center-xs text-left text-lightest">
             <div class=" center-xs col-xs-12 ">
-                <p class="title text-lightest">Help Center<p>
+                <p class="title text-lightest">Support<p>
                 </div>
                 <div class="col-xs-12">
 
@@ -24,8 +24,8 @@
             </div>
             <div class="col-xs-11">
                 <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
-                <p>Some are related to Hawkpost directly but others can be related to PGP and associated tasks and tools.</p>
-                <p>Of course we can't cover all the surface or explicitly address all questions in this document, so if your doubt isn't here feel free to email us or drop by our support channels and we will try to help you as soon as possible.</p>
+                <p>Some are related to Hawkpost directly, but others are related to PGP and associated tasks and tools.</p>
+                <p>Of course we can't cover all the surface or explicitly address all questions in this document. So if your question isn't here feel free to email us or drop a line through our support channels, and we'll try to help you as soon as possible.</p>
 
                 <p>
                     <b>Email:</b> {{support_email}}
@@ -62,13 +62,13 @@
 
         <div class="row center-xs text-left">
            <div class="col-xs-12 col-sm-7 ">
-            <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you are ready to go. We strongly recommend to also fill your personal data so it can show up in the submission page.</p>
+            <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you're ready to go. We strongly recommend to also fill your personal data (as name) so it can show up on the submission page.</p>
 
-            <p>To find your key's fingerprint, you can run the follow command if you are using <i>Gnu Privacy Guard (GPG)</i>:</p>
+            <p>To find your key's fingerprint, you can run the following command if you're using <i>Gnu Privacy Guard (GPG)</i>:</p>
 
             <pre>gpg --fingerprint &lt;key id or email&gt;</pre>
 
-            <p>If you are using a graphical tool, you can generally find this info on the <i>key properties section</i>.</p>
+            <p>If you're using a graphical tool, you can generally find this info on the <i>key properties section</i> of your tool.</p>
         </div>
         <div class="col-xs-12 col-sm-4 ">
          <img class="setup" src="{% static 'images/keyserver_key.png' %}">
@@ -82,17 +82,17 @@
  <div class="col-xs-11 ">
     <h2 id="gen-pgp-key" class="center-xs title text-dark">How to generate a PGP key</h2>
 
-    <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" class="testelinks">PGP</a>, so to create boxes you will need to setup a PGP key pair and provide us the public part/key. If you already have one this section is not for you.</p>
+    <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" class="testelinks">PGP</a>. So to create boxes you'll need to setup a PGP key pair and provide us the public part/key. If you already have one, this section is not for you.</p>
 
-    <p>Since Hawkpost works only through email, the easiest way to setup a key pair is using your email client or through a compatible plugin/extension if it doesn't support PGP natively. There are lots of articles in the Internet about this topic, so it is easy to find some that match your specific setup.</p>
+    <p>Since Hawkpost works only through email, the easiest way to setup a key pair is using your email client, or through a compatible plugin/extension in case the email client doesn't support PGP natively. There are various articles in the Internet about this topic, so it's easy to find some that match your specific setup.</p>
 
     <p>As an example, in the next paragraphs we point to some tutorials addressing popular email clients.</p>
 
-    <p>For webmail users, one tool that is very useful is <a href="https://www.mailvelope.com/" class="testelinks">Mailvelope</a>. This browser extension will allow you to open the encrypted messages and also generate your keys. An introductory tutorial can be found <a href="https://www.youtube.com/watch?v=Ro3MSBS9w-A">here</a>.</p>
+    <p>For webmail users, one tool that is very useful is <a href="https://www.mailvelope.com/" class="testelinks">Mailvelope</a>. This browser extension allows you to easily open the encrypted messages, and also to generate your keys. An introductory tutorial can be found <a href="https://www.youtube.com/watch?v=Ro3MSBS9w-A">here</a>.</p>
 
-    <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/" class="testelinks">Enigmail</a>, that like Mailvelope it will allow you to decrypt Hawkpost messages and manage your keys as well. An introduction can be found <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">here</a>.</p>
+    <p>For Thunderbird users, the common practice is to install a plugin called <a href="https://www.enigmail.net/index.php/en/" class="testelinks">Enigmail</a>, which like Mailvelope, will allow you to decrypt Hawkpost messages, and manage your keys as well. An introduction can be found <a href="https://ssd.eff.org/en/module/how-use-pgp-linux">here</a>.</p>
 
-    <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/" class="testelinks">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x" class="testelinks">this guide to Apple Mail</a>.</p>
+    <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/" class="testelinks">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x" class="testelinks">this guide for the case of Apple Mail</a>.</p>
 </div>
 
 <div class="col-xs-12  ">
@@ -101,9 +101,9 @@
     <div class="row center-xs text-left">
 
         <div class="col-xs-12 col-sm-7 ">
-            <p>Recently we introduced a feature that is still on an experimental phase, that allows the user to be sure that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients, but we hope to bring it to other clients soon.</p>
+            <p>Recently we've introduced a feature (still on an experimental phase) that allows the user to confirm that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients. But we hope to bring it to other clients soon.</p>
 
-            <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the below image), this way all messages will be signed with our sign key that you can import to your keyring in order to verify. <a href="{{sign_key_url}}" class="testelinks">The key can be found here</a></p>
+            <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the image below). This way all messages will be signed with our sign key, that you can import to your keyring in order to verify its veracity. <a href="{{sign_key_url}}" class="testelinks">The key can be found here</a></p>
         </div>
         <div class=" col-xs-12 col-sm-4 ">
             <img  class="setup" src="{% static 'images/server_signed.png' %}">

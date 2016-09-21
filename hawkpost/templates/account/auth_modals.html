@@ -11,13 +11,13 @@
           <p>If you have not created an account yet, then please<a class=" md-trigger" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p>{% get_providers as socialaccount_providers %}
           {% if socialaccount_providers %}
-          {% blocktrans with site.name as site_name %}Please login in with one of your existing third party accounts:  {% endblocktrans %}</p>
+          {% blocktrans with site.name as site_name %}Login in via:  {% endblocktrans %}</p>
           <ul class="gitpad">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
           <br>
           <div class="login-or">
-            <p> {% trans 'Or' %} create an hawkpost account <a class=" md-trigger" href="#modal-signup" data-modal="modal-signup">here</a> and login bellow:</p>
+            <p> {% trans 'Or' %} using your email address:</p>
           </div>
           {% include "socialaccount/snippets/login_extra.html" %}
           {% else %}
@@ -75,13 +75,12 @@
           <h3 class="title"> Sign up</h3>
           {% get_providers as socialaccount_providers %}
           {% if socialaccount_providers %}
-          <p>{% blocktrans %}Already have an account? Then please <a class=" md-trigger" href="#modal-login" data-modal="modal-login">Sign in</a>.{% endblocktrans %}</p>
-          <p>You can also sign up with one of your existing third party accounts such as:</p>
+          <p>Sign up using:</p>
           <ul>
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
           <br>
-          <div class="login-or"><p>{% trans 'Ortherwise' %} use the following form to create your new account:</p></div>
+          <div class="login-or"><p>{% trans 'Or' %} via email address:</p></div>
           {% endif %}
           {% csrf_token %}
           <div class="start-xs text-darkest">
@@ -105,6 +104,7 @@
         <div class="col-xs-12">
           <button class="btn-default" type="submit">{% trans "Sign Up" %}</button>
         </div>
+        <p>{% blocktrans %}Already have an account? Then please <a class=" md-trigger" href="#modal-login" data-modal="modal-login">Sign in</a>.{% endblocktrans %}</p>
       </form>
     </div>
   </div>
