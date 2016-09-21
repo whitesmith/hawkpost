@@ -112,7 +112,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12">
         <h3 class="subtitle center-xs">Create New Box</h3>
         <p class="smalltext text-lightest "> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p> 
-        <p class="smalltext text-lightest ">  Each box has an associated link that you can copy and share with any given person. It can only be used once and until the expiration date. After that the form is locked and the link cannot longer be used.</p>
+        <p class="smalltext text-lightest ">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
         <form action="{% url 'boxes_create' %}" method="post" class="">
           {% csrf_token %}
           <label class="input-anim">
