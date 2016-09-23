@@ -70,6 +70,10 @@
      display: block;
      margin-top:10px;
  }
+
+ .no-padding {
+     padding: 0px;
+ }
  
  .no-margin {
      margin: 0px;
@@ -110,4 +114,6 @@
     display: inline;
  }
 
- 
+ .flex-d{
+    display: flex;
+ }
