@@ -9,3 +9,4 @@ redis==2.10.5
 gunicorn==19.6.0
 raven==5.26.0
 django-timezone-field==2.0rc1
+django-braces==1.9.0

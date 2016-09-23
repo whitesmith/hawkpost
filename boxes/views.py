@@ -10,6 +10,8 @@ from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
 from .tasks import process_email
 
+from braces.views import JSONResponseMixin
+
 
 class BoxListView(LoginRequiredMixin, ListView):
     template_name = "boxes/box_list.html"
@@ -33,7 +35,7 @@ class BoxListView(LoginRequiredMixin, ListView):
         return context
 
 
-class BoxCreateView(LoginRequiredMixin, CreateView):
+class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
     template_name = "boxes/box_create.html"
     http_method_names = [u'post']
     form_class = CreateBoxForm
@@ -44,10 +46,8 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
         # Check if user can create boxes:
         user = request.user
         if user.is_authenticated() and not user.has_setup_complete():
-            msg = "To start using hawkpost," \
-                  " you must add a valid public key"
-            messages.error(request, msg)
-            return HttpResponseRedirect(reverse_lazy("humans_update"))
+            url = reverse_lazy("humans_update") + "?setup=1"
+            return self.render_to_response({"location": url})
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -62,7 +62,21 @@ class BoxCreateView(LoginRequiredMixin, CreateView):
 
         messages.success(self.request, "Box created successfully")
         url = self.get_success_url() + "?new_box={}".format(self.object.uuid)
-        return HttpResponseRedirect(url)
+        return self.render_to_response({"location": url})
+
+    def render_to_response(self, context, **response_kwargs):
+        """
+            Only called in case of an error on form validation
+        """
+        json_context = context
+        status = 200
+        if context.get('form', None):
+            json_context = {
+                "form_errors": context["form"].errors
+            }
+            status = 400
+
+        return self.render_json_response(json_context, status=status)
 
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):

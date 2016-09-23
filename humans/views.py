@@ -27,6 +27,13 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
     form_class = UpdateUserInfoForm
     success_url = reverse_lazy("humans_update")
 
+    def get(self, request, *args, **kwargs):
+        if request.GET.get('setup', None):
+            msg = "To start using hawkpost," \
+                  " you must add a valid public key"
+            messages.error(request, msg)
+        return super().get(request, *args, **kwargs)
+
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs["instance"] = self.request.user

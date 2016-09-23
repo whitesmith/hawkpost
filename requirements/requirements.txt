@@ -11,6 +11,7 @@ celery==3.1.23
 contextlib2==0.5.1        # via raven
 defusedxml==0.4.1         # via python3-openid
 django-allauth==0.27.0
+django-braces==1.9.0
 django-dotenv==1.4.1
 django-timezone-field==2.0rc1
 django==1.10.1
