@@ -112,8 +112,8 @@
         font-family: BoldFont;
         color: $black;
         padding: 2vh 0 2vh;
-        margin-top: 35px;
-        margin-bottom: 35px;
+        margin-top: 15px;
+        margin-bottom: 15px;
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
