@@ -65,9 +65,6 @@ class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
         return self.render_to_response({"location": url})
 
     def render_to_response(self, context, **response_kwargs):
-        """
-            Only called in case of an error on form validation
-        """
         json_context = context
         status = 200
         if context.get('form', None):
