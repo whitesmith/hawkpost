@@ -2,6 +2,7 @@
 
 .nav-big {
     display: inline;
+    margin-left: auto;
     @media only screen and (min-width: 200px) and (max-width: 800px) {
         display: none;
     }

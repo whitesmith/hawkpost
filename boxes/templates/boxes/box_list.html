@@ -3,32 +3,33 @@
 
 {% block content %}
 <div class="section-definer-light ">
-  <div class= " h-section section-resized">
-    <!-- inicio navbar-boxes-->
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <div class="boxes-navbar-container">
       <div class="head-navbar row">
-        <span></span>
-        <div class="col-xs-8 col-sm-10 col-sm-offset-1 start-xs center-sm">
-          <h2 class="text-darkest title">Manage Boxes</h2>
+        <div class="col-xs-8 col-sm-5 start-xs">
+          <h2 class="text-lightest title">Manage Boxes</h2>
         </div>
-        <div class="col-xs-4 col-sm-1">
-          <button class="box__nav box__nav__item smalltext md-trigger outro" data-modal="modal-1">New</button>
+        <div class="col-xs-2 middle-xs end-xs">
+          <button class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" data-modal="modal-1">New Box</button>
         </div>
       </div>
       <ul class="box__nav smalltext">
-        <div class="row">
-          <div class="center-xs end-sm col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <li class=""><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
-            <li ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
-          </div>
-          <div class="center-xs start-sm col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <li ><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
-            <li ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li>
+        <div class="row no-padding">
+          <div class="center-xs col-xs-12 flex-d">
+            <li class="full-width"><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
+            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
+            <li class="full-width"><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
+            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li>
           </div>
         </div>
       </ul>
     </div>
+  </div>
+  <div class= " h-section section-resized">
+    <!-- inicio navbar-boxes-->
+
     <!--fim navbar-boxes-->
+
     <!--inicio boxes-->
     <div class="row boxes-container">
       {% for box in object_list %}
@@ -150,31 +151,31 @@
                 <div class="row">
                   <div class="col-xs-10 col-xxs-8 sm-10">
                     <p>{{ form.never_expires.errors }}
-                    {{ form.never_expires.label_tag }}</p>
-                  </div>
-                  <div class="col-xs-2 col-xxs-4 sm-2">
-                    {{ form.never_expires }}
+                      {{ form.never_expires.label_tag }}</p>
+                    </div>
+                    <div class="col-xs-2 col-xxs-4 sm-2">
+                      {{ form.never_expires }}
+                    </div>
                   </div>
                 </div>
               </div>
+            </label>
+            <div class="row middle-xs center-xs">
+              <div class="col-xs-12">
+                <button type="submit" class="btn-default" value="">Create</button>
+              </div>
             </div>
-          </label>
-          <div class="row middle-xs center-xs">
-            <div class="col-xs-12">
-              <button type="submit" class="btn-default" value="">Create</button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
+      <div class="md-overlay"></div>
     </div>
-    <div class="md-overlay"></div>
   </div>
-</div>
-{% endblock content %}
+  {% endblock content %}
 
-{% block scripts %}
+  {% block scripts %}
   {{ block.super }}
   <script src="{% static 'javascripts/box_list.js' %}"></script>
   <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
   <script src="{% static 'javascripts/box_create.js' %}"></script>
-{% endblock scripts %}
+  {% endblock scripts %}

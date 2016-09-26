@@ -107,27 +107,44 @@
 /*-------------#BUTTONS-------------*/
 
 .h-button {
+    cursor: pointer;
+    max-width: 230px;
     width: 100%;
     background-color: $blue;
     border: none;
     color: white;
     padding: 20px 0px 20px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 0.9rem;
+    border: 2px solid $blue;
+    //box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 0.9rem;    
+    display: inline-block;
     &:target {
         background-color: #28666c;
     }
+    margin-top: 35px;
+    @include breakpoint($min:md) {
+       margin-top: 35px;
+       margin-bottom:20px; 
 
-    margin-top: 70px;
-     
-    @include breakpoint($min:sm) {
-        margin-top: 20px;
-    }
-      @include breakpoint($min:md) {
-        margin-top: 20px;
     }
 }
 
+.h-button-white{
+    @extend .h-button;
+    background-color: white;
+    color: $black;
+    margin-top: 15px;
+    @include breakpoint($min: xs) {
+            margin-top: 35px;
+        }
+}
+
+.h-button-border{
+    @extend .h-button;
+    background: white;
+    color: $black;
+    border: 2px solid $blue;
+}
 
 /*-----------------------#SECTION_2--------------------*/
 
@@ -136,10 +153,8 @@
 
 .how-img {
     width: 110px;
-    height: auto;
+    height: 100px;
     margin: 20px 0 20px;
-   
-        margin-right: 70px;
     
     @include breakpoint($min:sm) {
         margin-right: 0px;
@@ -147,4 +162,13 @@
  @include breakpoint($min:xs) {
         margin-right: 0px;
     }
+}
+
+.how-container{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.cont-space{
+    padding: 0 25px;
 }

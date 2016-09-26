@@ -70,6 +70,10 @@
      display: block;
      margin-top:10px;
  }
+
+ .no-padding {
+     padding: 0px;
+ }
  
  .no-margin {
      margin: 0px;
@@ -84,6 +88,7 @@
        @include breakpoint ($min:xl){
          margin-bottom: 25px;}
  }
+
  .col-xxs-12 {
      @media (max-width: 640px) {
          flex-basis: 100%;
@@ -103,4 +108,12 @@
      @media (min-width: 768px) {
          order: 1;
      }
+ }
+
+ .inline-d{
+    display: inline;
+ }
+
+ .flex-d{
+    display: flex;
  }
