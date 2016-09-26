@@ -1,130 +1,119 @@
 {% extends "layout/base.html" %} {% load staticfiles %} {% block content %}
 
 <div class="section-definer-dark">
-  <section class="h-section--first section-resized">
+  <section class="section-resized">
     <div class="row center-xs">
-      <div class="col-xs-10">
-        <p class="title first text-lightest">Get encrypted data from people that don’t know how to encrypt</p>
-        <p class="text text-light"> Hawkpost - When a pigeon is not enough</p>
-        <div class="span"><a class="scroll" href="#sec_1"><span>  </span></a></div>
+      <div class="col-xs-9 col-lg-6">
+        <p class="title text-lightest">Get encrypted data from people that don’t know how to encrypt</p>
+        <p class="text text-light">No more sharing of passwords in plain text.
+          <br>Send your Hawkpost link, and receive the confidential information encrypted in your inbox. It's that easy.
+        </p>
+        <!--<div class="span"><a class="scroll" href="#sec_1"><span>  </span></a></div> -->
       </div>
     </div>
   </section>
 </div>
-<div class="section-definer-light ">
-  <div class= " h-section section-resized" id="sec_1">
-    <div class="row center-xs middle-xs start-sm">
-      <div class=" center-xs start-sm col-xs-12  col-sm-6  ">
-        <img src="{% static 'images/logob.png' %}" class="logo-big">
-      </div>
-      <div class=" col-xs-start col-xs-12  col-sm-6 start-sm start-lg">
-        <p class="text-left text-darkest">No more sharing of passwords in plain text.
-        <br>Send your Hawkpost link, and receive the confidential information encrypted in your inbox. It's that easy.</p>
-      </div>
-      <div class=" col-xs-start col-xs-12  start-sm start-lg">
-        <p class="start-xs subtitle">PGP encrypted information delivered right to your inbox.</p>
-      </div>
-    </div>
-    <div class="row center-xs between-sm">
-      <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
-        <a href="{% url 'pages_help' %}#setup-hawkpost" class="h-button">Yup, this is for me</a>
-      </div>
-      <div class="col-xxs-12  col-xs-10 col-sm-5 col-lg-5">
-        <a href="{% url 'pages_help' %}#gen-pgp-key" class="h-button">PGP WHAT?</a>
-      </div>
-    </div>
-  </div>
-  <div class="section-definer-light text-darkest">
-    <div class= " h-section section-resized" id="sec_1">
-      <div class="row">
-        <div class="col-xs-12 center-xs start-sm start-lg  ">
-          <h3 class="title">How Does It Work?</h3>
-        </div>
-        <div class="col-xs-12 col-sm-9">
-          <div class="  row center-xs start-sm middle-xs">
-            <img src="{% static 'images/icon1.svg' %}" class="how-img ">
-            <div class="col-xs-10 col-sm-6">
-              <p class="">Sign up and register your PGP key.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-9 col-sm-offset-2 col-lg-offset-3 col-xl-offset-3">
-          <div class=" row center-xs start-sm middle-xs">
-            <img src="{% static 'images/icon2.svg' %} " class="how-img ">
-            <div class="col-xs-10 col-sm-6 col-lg-5">
-              <p>Send your Hawkpost link to the person that wants to share confidential information with you. Wait for the information to be submitted.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-8 col-sm-offset-5 col-lg-offset-7 col-xl-offset-7">
-          <div class="row center-xs start-sm middle-xs">
-            <img src="{% static 'images/icon3.svg' %}" class="how-img">
-            <div class="col-xs-10 col-sm-6 col-lg-5">
-              <p>Our hawk will deliver the message, now encrypted with your PGP key, to your e-mail.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section-definer-dark faq__container">
-    <section class="h-section section-resized">
-      <div class="col-xs-12 center-xs start-sm start-lg">
-        <h3 class="title text-lightest">FAQ</h3>
-      </div>
-      <div class=" row ">
-        <div class="col-xs-12  col-sm-6">
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">Why should I use Hawkpost?</p>
-            <p class="faq__text">Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP (ex: passwords, private keys, confidential messages). Share your Hawkpost link with them, and they're able to send info securely, <b>without installing any software</b>.</p>
-          </div>
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">How does it work behind the curtain?</p>
-            <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you secret information. When that person visits your Hawkpost link and submits the sensitive data, this is encrypted <b>in their browser</b> with the PGP public key you used on signup. The encrypted message is sent by our hawks to your email. This means that we're not able to see the original message, and no message is stored.</p>
-          </div>
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">Why is this safe?</p>
-            <p class="faq__text">Hawkpost provides end-to-end encryption using <a href="https://openpgpjs.org/">OpenPGP.js</a> library, which means that the submitted information will be only visible to whom created the link (the owner of the key) and we will not save it. No message is stored.</p>
-          </div>
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">What's PGP?</p>
-            <p class="faq__text">PGP is an encryption technology often used for signing, encrypting, and decrypting texts and files. This is what Hawkpost uses to encrypt messages. You can read more about how to generate your PGP key on the <a href="https://hawkpost.co/help">help page</a></p>
-          </div>
-        </div>
-        <div class=" col-xs-12 col-sm-6">
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">Is my link permanently available?</p>
-            <p class="faq__text">No, at the momment you can create as many unique links as you want, one for each ocasion. You can set an expiration date for each one. However, other configuration options will be added soon, so you can better adapt the functionality to your use cases.</p>
-          </div>
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">What type of information can be submitted?</p>
-            <p class="faq__text">Any text information can be submitted.</p>
-          </div>
-          <div class="faq__box  faq__box--big" tabindex="1">
-            <p class="faq__title text-lightest">Can I check the source code?</p>
-            <p class="faq__text">Sure. Hawkpost is open-source. You can either check the source code before using this service, or if you prefer, you can deploy it on your own server. Hawkpost's repository can be found <a href="https://github.com/whitesmith/hawkpost">here</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
-  {% if not request.user.is_authenticated %}
-  <div class="section-definer-dark">
-    <section class="h-section section-resized">
-      <div class="row center-xs">
-        <div class="col-xs-12 center-xs">
-          <h3 class="title text-lightest">Ready to start?</h3>
+
+<div class="section-definer-light text-darkest">
+  <div class= " h-section section-resized" id="sec_1">
+    <div class="row middle-xs">
+      <div class="col-xs-12 col-md-12 center-xs">
+        <h3 class="title">How Does It Work?</h3>
+      </div>
+      <div class="how-container row center-xs">
+
+        <div class="col-xs-12 col-sm-4 cont-space">
+          <div class="center-xs middle-xs">
+            <img src="{% static 'images/icon1.svg' %}" class="how-img">
+          </div>
+          <p class="text text-darkest">Sign up and register your PGP key.</p>
         </div>
-        <div class="col-xs-11 col-sm-5">
-          <button class="h-button smalltext md-trigger" data-modal="modal-login" >Login</button>
+
+        <div class="col-xs-12 col-sm-4 cont-space">
+          <div class="center-xs middle-xs">
+            <img src="{% static 'images/icon2.svg' %} " class="how-img">
+          </div>
+          <p class="text text-darkest">Send your Hawkpost link to the person that wants to share confidential information with you. Wait for the information to be submitted.</p>
         </div>
-        <div class="col-xs-11 col-sm-5">
-          <button class="h-button smalltext md-trigger" data-modal="modal-signup">Sign Up</button>
+
+        <div class="col-xs-12 col-sm-4 cont-space">
+          <div class="center-xs middle-xs">
+            <img src="{% static 'images/icon3.svg' %}" class="how-img">
+          </div>
+          <p class="text text-darkest">Our hawk will deliver the message, now encrypted with your PGP key, to your e-mail.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row center-xs">
+      <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
+        <a class="h-button md-trigger" data-modal="modal-signup">Yup, this is for me</a>
+      </div>
+      <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
+        <a href="{% url 'pages_help' %}#gen-pgp-key" class="h-button-border">PGP WHAT?</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-definer-dark faq__container">
+  <section class="h-section section-resized">
+    <div class="col-xs-12 center-xs start-sm start-lg">
+      <h3 class="title text-lightest">FAQ</h3>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-sm-6">
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">Why should I use Hawkpost?</p>
+          <p class="faq__text">Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP (ex: passwords, private keys, confidential messages). Share your Hawkpost link with them, and they're able to send info securely, <b>without installing any software</b>.</p>
+        </div>
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">How does it work behind the curtain?</p>
+          <p class="faq__text">The concept is simple, you generate an unique link on Hawkpost, then you share it with someone that needs to send you secret information. When that person visits your Hawkpost link and submits the sensitive data, this is encrypted <b>in their browser</b> with the PGP public key you used on signup. The encrypted message is sent by our hawks to your email. This means that we're not able to see the original message, and no message is stored.</p>
+        </div>
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">Why is this safe?</p>
+          <p class="faq__text">Hawkpost provides end-to-end encryption using <a href="https://openpgpjs.org/">OpenPGP.js</a> library, which means that the submitted information will be only visible to whom created the link (the owner of the key) and we will not save it. No message is stored.</p>
+        </div>
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">What's PGP?</p>
+          <p class="faq__text">PGP is an encryption technology often used for signing, encrypting, and decrypting texts and files. This is what Hawkpost uses to encrypt messages. You can read more about how to generate your PGP key on the <a href="https://hawkpost.co/help">help page</a></p>
         </div>
       </div>
-    </section>
-  </div>
-  {% endif %}
+      <div class=" col-xs-12 col-sm-6">
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">Is my link permanently available?</p>
+          <p class="faq__text">No, at the momment you can create as many unique links as you want, one for each ocasion. You can set an expiration date for each one. However, other configuration options will be added soon, so you can better adapt the functionality to your use cases.</p>
+        </div>
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">What type of information can be submitted?</p>
+          <p class="faq__text">Any text information can be submitted.</p>
+        </div>
+        <div class="faq__box  faq__box--big" tabindex="1">
+          <p class="faq__title text-lightest">Can I check the source code?</p>
+          <p class="faq__text">Sure. Hawkpost is open-source. You can either check the source code before using this service, or if you prefer, you can deploy it on your own server. Hawkpost's repository can be found <a href="https://github.com/whitesmith/hawkpost">here</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+{% if not request.user.is_authenticated %}
+<div class="section-definer-blue">
+  <section class="h-section section-resized">
+    <div class="row center-xs">
+      <div class="col-xs-12 ">
+        <h3 class="title text-lightest">Ready to start?</h3>
+      </div>
+    </div>
+    <div class="row center-xs">
+      <div class="col-xs-12">
+        <button class="h-button-white smalltext md-trigger" data-modal="modal-signup">Sign Up</button>
+      </div>
+    </div>
+  </section>
+</div>
+{% endif %}
 {% endblock content %}

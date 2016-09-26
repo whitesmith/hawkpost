@@ -66,8 +66,8 @@
  .box__nav{
   width: 100%;
   align-self: center;
-  margin-bottom: $spacing--x-large;
-  padding: $spacing--small 0px;
+  margin-bottom: 0px;
+  padding: 0px;
 
     li{
     	display: inline;
@@ -75,11 +75,10 @@
   }
 
   .box__nav__item{
-    color: black;
+    color: $white;
    display: inline;
-   border: solid $blue;
    border-width: 1px;
-   margin: 5px;
+   margin: 0px;
    padding-top: 12px;
    padding-bottom:12px;
    font-weight: 600;
@@ -89,9 +88,13 @@
    width: 80px;
 
    &.active{
-    background: $blue;
-    border: $blue;
-    color:white;
+    background: none;
+    border-bottom: 5px solid $blue;
+    color: $white;
+    width: 100%;
+    &:hover{
+      opacity: 1;
+    }
   }
 }
 
@@ -103,6 +106,14 @@
    opacity: 0.7;
  }
    }
+
+.new-box-btn{
+  @extend .outro;
+  color: white;
+  border:none;
+  background: $blue;
+  margin: 15px 0px 15px;
+}
 
 .container-fluid{
 	.father{
@@ -117,22 +128,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  span{
-    display: none;
-  }
-  .col-xs-4{
-    align-self: center;
-  }
-  a{
-    color: black;
-  }
+}
 
-  @include breakpoint($min: sm){
-    span{
-      display: flex;
+
+.container-fluid{
+  background: black;
+  padding-top:50px;
+}
+
+.boxes-navbar-container{
+  padding: 10px 25px 0px;
+    @include breakpoint($min: md){
+      padding: 10px 80px 0px;
     }
-    h2{
-      align-self: middle;
-    }
-  }
 }

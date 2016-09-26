@@ -2,17 +2,17 @@
 {% load staticfiles %}
 
 {% block header %}
-    {% include "layout/messages.html" %}
+{% include "layout/messages.html" %}
 {% endblock header %}
 
 {% block content %}
 <div class=" section-definer-light">
   <section class=" section-resized">
     <div class=" row center-xs no-navbar">
-        <a href="{% url "pages_index" %}">
-            <img src="{% static 'images/logob.png' %}" class="logo-big">
-        </a>
-        <p class="subtitle no-margin col-xs-12 col-sm-10">Sending your confidential information safely</p>
+      <a href="{% url "pages_index" %}">
+        <img src="{% static 'images/logob.png' %}" class="logo-big">
+      </a>
+      <p class="subtitle no-margin col-xs-12 col-sm-10">Sending your confidential information safely</p>
     </div>
     <div class="row center-xs center-lg">
       <div class="col-xs-8 col-sm-6  order-xs-1st col-lg-5 ">
@@ -26,13 +26,14 @@
         <div class="hidden">
           The following people will receive the messages:
           {% for recipient in object.recipients.all %}
-            <p> Name: {{recipient.first_name}} {{recipient.last_name}}</p>
-            <p> Email: {{recipient.email}}</p>
-            <p> Key fingerprint: {{recipient.fingerprint}}</p>
-            <div class="hidden public-key-js">{{recipient.public_key}}</div>
-            <div class="hidden server-signed-js">{{recipient.server_signed}}</div>
+          <p> Name: {{recipient.first_name}} {{recipient.last_name}}</p>
+          <p> Email: {{recipient.email}}</p>
+          <p> Key fingerprint: {{recipient.fingerprint}}</p>
+          <div class="hidden public-key-js">{{recipient.public_key}}</div>
+          <div class="hidden server-signed-js">{{recipient.server_signed}}</div>
           {% endfor %}
         </div>
+
       </div>
       <div class="col-xs-8 col-sm-6 order-xs-2nd col-lg-5 form__block">
         <noscript>
@@ -45,9 +46,8 @@
               <h3 class=" subtitle no-margin">{{object.name}}</h3>
               <p class="no-margin-top">{{object.description}}</p>
             </div>
-            <div class="popup col-xs-1 hawkpost-intro-js">
-              <i class="fa fa-question-circle text-darkest fa-lg" aria-hidden="true"></i>
-              <span class="popuptext smalltext" id="hawkpost-intro-popup-js">
+            <div class="col-xs-10">
+              <span class="smalltext text-darkest">
                 Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.
               </span>
             </div>
