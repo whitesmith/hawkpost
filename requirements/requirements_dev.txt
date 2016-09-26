@@ -12,6 +12,7 @@ contextlib2==0.5.1        # via raven
 coverage==4.2
 defusedxml==0.4.1         # via python3-openid
 django-allauth==0.27.0
+django-braces==1.9.0
 django-debug-toolbar==1.5
 django-dotenv==1.4.1
 django-extensions==1.7.2
