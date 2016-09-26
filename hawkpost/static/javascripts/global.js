@@ -1,5 +1,3 @@
-var polyfilter_scriptpath = '/static/javascripts/';
-
 $(document).ready(function(){
   setTimeout(function(){
     $(".messages-elem-js").remove();

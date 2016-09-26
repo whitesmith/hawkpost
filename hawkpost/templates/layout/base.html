@@ -62,8 +62,6 @@
         </a>
       </div>
       {% if request.user.is_authenticated %}
-
-
       <nav  class="nav-big navbar smalltext ">
         <div class="row middle-xs full-height inline-d">
           <ul class="col-xs-4 col-lg-6 end-xs inline-d">
@@ -72,20 +70,14 @@
           </ul>
         </div>
       </nav>
-
-
       {% endif %}
     </div>
   </div>
-
-
   {% endblock footer %}
   {% block scripts %}
   <script type="text/javascript" src="{% static 'javascripts/classie.js' %}"></script>
   <script type="text/javascript" src="{% static 'javascripts/modalEffects.js' %}"></script>
   <script type="text/javascript" src="{% static 'javascripts/global.js' %}"></script>
-  <script type="text/javascript" src="{% static 'javascripts/cssParser.js' %}"></script>
-  <script type="text/javascript" src="{% static 'javascripts/css-filters-polyfill.js' %}"></script>
   {% if not request.user.is_authenticated %}
   <script type="text/javascript" src="{% static 'javascripts/authform.js' %}"></script>
   {% endif %}
