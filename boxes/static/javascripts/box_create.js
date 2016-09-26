@@ -18,10 +18,10 @@ $(document).ready(function() {
       method: $this.attr("method"),
       data: $this.serialize()
     }).done(function(data){
-      document.location = data.location
+      window.location = data.location;
     }).fail(function(data){
       var fields = ["__all__", "name", "description", "max_messages",
-                    "expires_at", "never_expires"]
+                    "expires_at", "never_expires"];
       var form_errors = data.responseJSON.form_errors;
       for(var i=0;i<fields.length; i++){
         var errorContainer = $("#"+ fields[i] +"-errors-js");
