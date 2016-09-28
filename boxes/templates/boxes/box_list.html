@@ -10,7 +10,7 @@
           <h2 class="text-lightest title">Manage Boxes</h2>
         </div>
         <div class="col-xs-4 col-sm-1">
-          <a class="box__nav box__nav__item smalltext md-trigger outro" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New</a>
+          <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New</a>
         </div>
       </div>
       <ul class="box__nav smalltext">
