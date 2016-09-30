@@ -1,29 +1,29 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-<div class="h-section section-definer-dark">
-<section class=" section-resized-extra">
-<div class="container-fluid">
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-6 col-md-5">
-            <h1>Delete Account</h1>
-            <p>Your account in HawkPost is about to be deleted along with all its contents and settings. Are you sure you want to continue?</p>
+<div class="section-definer-dark">
+  <div class="section-definer section-resized-extra">
+    <section class="text-lightest">
+      <div class="row center-xs center-sm">
+        <div class="col-xs-12 col-offset-sm-2 col-sm-8 col-offset-md-3 col-md-6 mb-normal">
+          <h1 class="title text-light">Delete Account</h1>
+          <p>Your account in HawkPost is about to be deleted along with all its contents and settings. Are you sure you want to continue?</p>
         </div>
     </div>
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-5 col-sm-6 col-md-5">
+    <div class="row center-xs ">
+        <div class="col-xs-12 col-offset-sm-2 col-sm-8 col-offset-md-3 col-md-6">
             <form class="form__wrap" method="post" action="{% url "humans_delete" %}">
                 {% csrf_token %}
-                <div>
-                    <label for="current-password">Insert your current password:</label>
-                    <input id="current-password" type="password" name="current_password" placeholder="Current password"></input>
+                <div class="text-left input-anim">
+                    <label for="current-password" class="">Insert your current password:</label>
+                    <input id="current-password" type="password" name="current_password" placeholder="Current password" class="padding-inside mt-normal"></input>
                 </div>
                 <br>
                 <div>
                     <input type="submit" class="btn-danger" value="Yes, I want to delete everything"></input>
                 </div>
                 <div>
-                    <a href="{% url "humans_update" %}" class="btn-dark u-blockify">No, take me back to the settings</a>
+                    <p class="text-smaller mt-large"><a href="{% url "humans_update" %}" class="text-underline u-blockify">No, take me back to the settings</a></p>
                 </div>
             </form>
         </div>
