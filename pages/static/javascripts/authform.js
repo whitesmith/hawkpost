@@ -22,7 +22,7 @@ $(document).ready(function(){
         errors = errors.concat(form_errors.password);
       }
       for(var i=0;i<errors.length;i++){
-        errorContainer.append("<p>" + errors[i] + "</p>");
+        errorContainer.append("<p class='text-warning'>" + errors[i] + "</p>");
       }
     })
     return false;
@@ -54,7 +54,7 @@ $(document).ready(function(){
         errors = errors.concat(form_errors.password2);
       }
       for(var i=0;i<errors.length;i++){
-        errorContainer.append("<p>" + errors[i] + "</p>");
+        errorContainer.append("<p class='text-warning'>" + errors[i] + "</p>");
       }
     })
     return false;
