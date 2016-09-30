@@ -63,14 +63,14 @@
       </div>
       {% if request.user.is_authenticated %}
       <div class="col-xs-4 col-lg-6 end-xs">
-      <nav  class="nav-big navbar smalltext ">
-        <div class="row middle-xs full-height inline-d">
-          <ul class="col-xs-4 col-lg-6 end-xs inline-d">
-            <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
-            <li class="navbar__link"><a href="{%url "pages_help"%}">Support</a></li>
-          </ul>
-        </div>
-      </nav>
+        <nav  class="nav-big navbar smalltext ">
+          <div class="row middle-xs full-height inline-d">
+            <ul class="col-xs-4 col-lg-6 end-xs inline-d">
+              <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
+              <li class="navbar__link"><a href="{%url "pages_help"%}">Support</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
       {% endif %}
     </div>
