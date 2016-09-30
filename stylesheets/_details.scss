@@ -58,6 +58,10 @@
      font-size: 0.9286rem;
  }
  
+ .text-smaller {
+     font-size: 0.7rem;;
+ }
+
  .text-by {
      color: $main-color-dark;
      margin: 20px 0px 0px;
@@ -92,6 +96,7 @@
  .no-margin-top {
      margin-top: 0px;
  }
+
  
  .margin-bottom-lg {
    
@@ -127,3 +132,11 @@
  .flex-d{
     display: flex;
  }
+
+.mt-small { margin-top: 10px;}
+.mt-normal { margin-top: 20px;}
+.mt-large { margin-top: 40px;}
+
+.mb-small { margin-bottom: 10px;}
+.mb-normal { margin-bottom: 20px;}
+.mb-large { margin-bottom: 40px;}
