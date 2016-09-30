@@ -41,6 +41,16 @@
  .text-right {
      text-align: right;
  }
+
+ .text-underline {
+    text-decoration: underline;
+    padding-bottom: 5px;
+
+    &:hover, &:active {
+        text-decoration: underline;
+        padding-bottom: 5px; 
+    }
+ }
  
  .text-note {
      color: $grey;
