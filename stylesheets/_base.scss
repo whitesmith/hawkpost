@@ -36,11 +36,10 @@
 \*------------------------------------*/
 
 //section that has the full width of the page
-    .section-definer {  
-        width: 100%;
-        height: 100%;
-        
-    }
+.section-definer {  
+    width: 100%;
+    height: 100%;
+}
        
 .section-definer-light {
          @extend .section-definer;
