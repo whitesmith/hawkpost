@@ -12,11 +12,10 @@
         background-color: rgba(0, 0, 0, 0.4);
         border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
         box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
-         
-        padding: 20px $spacing--medium 20px;
+
+        padding: 15px $spacing--medium 15px;
         z-index: 3;
         font-family: Textfont;
-        height: $nav-size;
     }
     .navbar__header {
         display: none;
@@ -31,7 +30,7 @@
         max-width: 150px;
         width: 100%;
         margin-left: $spacing--small;
-        
+
         @include breakpoint($min: xs) {
             max-width: 100px;
             width: 100%;
@@ -53,7 +52,7 @@
     .footer {
         background-color: rgba(0, 0, 0, 0.4);
         border-top: solid 0.5px rgba(255, 255, 255, 0.2);
-       box-shadow: 0px -3px 6px 0px rgba($black, 0.2); 
+       box-shadow: 0px -3px 6px 0px rgba($black, 0.2);
         padding: 0px $spacing--medium;
         position: fixed;
         bottom: 0px;
@@ -64,7 +63,7 @@
             margin: 0px;
         }
         a {
-            
+
             margin-top: 1vh;
             svg {
                 fill:white;

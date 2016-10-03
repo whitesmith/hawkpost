@@ -1,9 +1,9 @@
 /* General styles for the modal */
 
 
-/* 
+/*
 Styles for the html/body for special modal where we want 3d effects
-Note that we need a container wrapping all content on the page for the 
+Note that we need a container wrapping all content on the page for the
 perspective effects (not including the modals and the overlay).
 */
 
@@ -13,9 +13,9 @@ perspective effects (not including the modals and the overlay).
     left: 50%;
     transform: translate(-50%,-50%);
     width: 70vw;
-    
+
     margin: 0 auto;
-    
+
 @include breakpoint ($min: xs){
     width: 80vw;
 
@@ -74,7 +74,7 @@ perspective effects (not including the modals and the overlay).
     max-width: 800px;
     width: 100%;
 
- 
+
 }
 
 .md-content h3 {
@@ -94,7 +94,10 @@ perspective effects (not including the modals and the overlay).
 .md-content > div {
     padding: 15px 22px 30px;
     margin: 0;
-   
+}
+
+.md-content > .row-s{
+  margin: auto;
 }
 
 .md-content > div p {
@@ -120,16 +123,16 @@ perspective effects (not including the modals and the overlay).
     max-width: 200px;
     width: 100%;
     margin-top: 7vh;
-    
+
     @include breakpoint ($min: sm){
 		margin-top: 2vh;
-  
+
 }
-    
-    
-    
-    
-    
+
+
+
+
+
 }
 
 

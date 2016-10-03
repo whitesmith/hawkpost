@@ -1,5 +1,10 @@
+.row-s{
+  max-width: 90%;
+  margin: auto;
+}
+
 .box__nav__item__help{
-     
+
     display: inline;
     border: solid #4ca7af;
     border-width: 1px;
@@ -9,10 +14,10 @@
     display: inline-block;
     text-align: center;
     background: none;
- 
+
 }
 
-.box__nav{ 
+.box__nav{
 
 li{
 margin: 0 5px 0;
@@ -37,7 +42,6 @@ font-size:0.8rem;}
         background: none;
         border: none;
         border-radius: 0;
-        padding: 10px 0 5px;
         border-top: 2px solid transparent;
         border-bottom: 2px solid black;
     &:focus {
@@ -53,7 +57,7 @@ font-size:0.8rem;}
     height: 20px;}
 }
     form {
-         
+
         select {
             margin-top: 17px;
         }
@@ -149,4 +153,3 @@ font-size:0.8rem;}
             opacity: 1;
         }
     }
-     
