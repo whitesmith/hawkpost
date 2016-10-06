@@ -22,9 +22,9 @@
         padding: 0px 0px 5px;
     }
 
-    .faq__box:focus {
-        max-height: 300px;
-        background-color: $blue;
+    .open__faq__box {
+        max-height: 300px !important;
+        background-color: $blue !important;
         transition: max-height 1s;
         .faq__text {
             color: white;

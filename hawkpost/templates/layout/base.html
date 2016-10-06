@@ -12,7 +12,7 @@
   {% endblock styles %}
   <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
 </head>
-<body>
+<body ontouchstart="">
   {% block header %} {% include "layout/navbar.html" %} {% include "layout/messages.html" %} {% endblock header %}
   <div class="main">
     {% block content %} {% endblock content %}
