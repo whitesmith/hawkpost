@@ -15,4 +15,12 @@ $(document).ready(function(){
     var popup = document.getElementById('keys-help-content-js');
     popup.classList.toggle('show');
   })
+
+  $(".faq__box").click(function(){
+    $(this).addClass("open__faq__box");
+    $(this).removeClass("faq__box");
+    $(".faq__box--big").not(this).removeClass("open__faq__box");
+    $(".faq__box--big").not(this).addClass("faq__box");
+  });
+
 });
