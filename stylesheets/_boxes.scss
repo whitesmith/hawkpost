@@ -2,12 +2,13 @@
  #BOXES
  \*------------------------------------*/
 .boxes-container {
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
 
  .box{
-    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    //box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    background: white;
     margin: 5px;
     text-align: left;
     height: 100%;
@@ -49,7 +50,7 @@
 .box-title-desc, .extra-info{
 	display: flex;
 	flex-direction: column;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .box-title-desc{
@@ -57,7 +58,7 @@
 }
 
 .space{
-	margin-bottom: $spacing--medium;
+	margin-bottom: $spacing--xx-large;
 }
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
@@ -109,7 +110,8 @@
 
 .new-box-btn{
   @extend .outro;
-  background: #eeeeee;
+  background: $blue;
+  color: white;
 }
 
 .container-fluid{
@@ -130,7 +132,7 @@
 
 .nav-bar-boxes-{
   background: black;
-  padding-top:100px;
+  padding-top:80px;
 }
 
 .boxes-navbar-container{

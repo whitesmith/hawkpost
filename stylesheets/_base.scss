@@ -46,6 +46,11 @@
     background-color:white;
     }
 
+.section-definer-grey {
+         @extend .section-definer;
+    background-color: $lightgrey;
+    }
+
 .section-definer-blue {
          @extend .section-definer;
     background-color:$blue;

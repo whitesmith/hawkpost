@@ -101,6 +101,10 @@
      margin-top: 0px;
  }
 
+  .no-margin-bottom {
+     margin-bottom: 0px;
+ }
+
  
  .margin-bottom-lg {
    
@@ -135,6 +139,11 @@
 
  .flex-d{
     display: flex;
+ }
+
+ .label-blue{
+    color: $blue;
+    font-weight: 600;
  }
 
 .mt-small { margin-top: 10px;}
