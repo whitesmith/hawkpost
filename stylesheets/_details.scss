@@ -93,6 +93,12 @@
      padding: 0px;
  }
  
+ .padding-b-m{
+    padding-bottom: 10px;
+    @include breakpoint($min:md) {
+        padding-bottom: 25px;
+        }
+ }
  .no-margin {
      margin: 0px;
  }
@@ -144,6 +150,16 @@
  .label-blue{
     color: $blue;
     font-weight: 600;
+ }
+
+ //modal-fixes
+ .padding-modals1{
+    padding: 7px 0 3px;
+    color: white;
+ }
+ .padding-modals2{
+    padding: 9px 0 0;
+    color: white;
  }
 
 .mt-small { margin-top: 10px;}

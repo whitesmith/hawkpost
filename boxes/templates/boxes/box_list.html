@@ -142,7 +142,7 @@
                   <br>
                 </div>
               </div>
-              <div class="row bottom-xs">
+              <div class="row bottom-xs padding-b-m">
                 <div class="col-xs-9 col-xxs-12 col-sm-8">
                   <p>
                     <span id="expires_at-errors-js">{{ form.expires_at.errors }}</span>
@@ -181,8 +181,8 @@
     <script src="{% static 'javascripts/box_create.js' %}"></script>
     <script type="text/javascript">
       $(".md-modal-xs label").addClass("smalltext");
-      $(".md-modal-xs input[type=text]").addClass("text");
-      $(".md-modal-xs input[type=number]").addClass("text");
-      $(".md-modal-xs textarea").addClass("text");
+      $(".md-modal-xs input[type=text]").addClass("text padding-modals1");
+      $(".md-modal-xs input[type=number]").addClass("text padding-modals1");
+      $(".md-modal-xs textarea").addClass("text padding-modals2");
     </script>
     {% endblock scripts %}
