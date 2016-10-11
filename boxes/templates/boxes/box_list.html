@@ -63,121 +63,120 @@
             {% endif %}
             <div class="extra-info">
               <p class="no-margin-bottom">
-              <span class="smalltext label-blue">Messages:</span>
-              <span class="smalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span></p>
-              <p class="box__info smalltext">
-                <span class="label-blue smalltext">Created on:</span>
-                <span class="smalltext tex">{{box.created_at}}</span>
-              </p>
-              {% if box.expires_at %}
-              <p class="box__info smalltext no-margin-top">
-                <span class="label-blue smalltext">Expires on:</span>
-                <span class="smalltext">{{box.expires_at}}</span>
-              </p>
-              {% endif %}
-              {% if box.messages.count %}
-              <p class="box__info smalltext no-margin-top">
-                <span class="label-blue smalltext">Last sent:</span>
-                <span class="smalltext">{{box.last_sent_at}}</span>
-              </p>
-              {% endif %}
+                <span class="smalltext label-blue">Messages:</span>
+                <span class="smalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span></p>
+                <p class="box__info smalltext">
+                  <span class="label-blue smalltext">Created on:</span>
+                  <span class="smalltext tex">{{box.created_at}}</span>
+                </p>
+                {% if box.expires_at %}
+                <p class="box__info smalltext no-margin-top">
+                  <span class="label-blue smalltext">Expires on:</span>
+                  <span class="smalltext">{{box.expires_at}}</span>
+                </p>
+                {% endif %}
+                {% if box.messages.count %}
+                <p class="box__info smalltext no-margin-top">
+                  <span class="label-blue smalltext">Last sent:</span>
+                  <span class="smalltext">{{box.last_sent_at}}</span>
+                </p>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-    <div class="row">
-      <div class="col-xs-offset-3 col-xs-6 center-xs">
-        <div class="pagination text">
-          <span class="step-links">
-            {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}" class=" text-darkest"> &lt; Previous</a>
-            {% endif %}
-            {% if paginator.num_pages > 1 %}
-            <span class="current hidden">
-              Page {{ page_obj.number }} of {{ paginator.num_pages }}
+      <div class="row">
+        <div class="col-xs-offset-3 col-xs-6 center-xs">
+          <div class="pagination text">
+            <span class="step-links">
+              {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}" class=" text-darkest"> &lt; Previous</a>
+              {% endif %}
+              {% if paginator.num_pages > 1 %}
+              <span class="current hidden">
+                Page {{ page_obj.number }} of {{ paginator.num_pages }}
+              </span>
+              {% endif %}
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}" class="text-darkest">Next &gt; </a>
+              {% endif %}
             </span>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}" class="text-darkest">Next &gt; </a>
-            {% endif %}
-          </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="md-modal-xs md-effect-1" id="modal-1">
-  <div class="md-content-xs">
-    <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
-    <div class="row center-xs center-md center-lg">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <h3 class="subtitle center-xs">Create New Box</h3>
-        <p class="smalltext text-lightest"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
-        <p class="smalltext text-lightest">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
-        <span id="__all__-errors-js"></span>
-        <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
-          {% csrf_token %}
-          <label class="input-anim smalltext">
-            <p>
-              <span id="name-errors-js">{{ form.name.errors }}</span>
-              {{ form.name.label_tag }}
-              {{ form.name }}
-            </p>
-            <div class="row">
-              <div class="col-xs-9 col-xxs-12 col-sm-9">
-                <p>
-                  <span id="description-errors-js">{{ form.description.errors }}</span>
-                  {{ form.description.label_tag }}
-                  {{ form.description }}
-                </p>
-              </div>
-              <div class="col-xs-3 col-xxs-12 col-sm-3">
-                <p>
-                  <span id="max_messages-errors-js">{{ form.max_messages.errors }}</span>
-                  {{ form.max_messages.label_tag }}
-                  {{ form.max_messages }}
-                </p>
-                <br>
-              </div>
-            </div>
-            <div class="row bottom-xs">
-              <div class="col-xs-9 col-xxs-12 col-sm-8">
-                <p>
-                  <span id="expires_at-errors-js">{{ form.expires_at.errors }}</span>
-                  {{ form.expires_at.label_tag }}
-                  {{ form.expires_at }}
-                </p>
-              </div>
-              <div class="col-xs-3 col-xxs-12 col-sm-4">
-                <div class="row">
-                  <div class="col-xs-10 col-xxs-8 sm-10">
-                    <p><span id="never_expires-errors-js">{{ form.never_expires.errors }}</span>
-                    {{ form.never_expires.label_tag }}</p>
-                  </div>
-                  <div class="col-xs-2 col-xxs-4 sm-2">
-                    {{ form.never_expires }}
-                  </div>
+  <div class="md-modal-xs md-effect-1" id="modal-1">
+    <div class="md-content-xs">
+      <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+      <div class="row center-xs center-md center-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h3 class="subtitle center-xs">Create New Box</h3>
+          <p class="smalltext text-lightest"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
+          <p class="smalltext text-lightest">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
+          <span id="__all__-errors-js"></span>
+          <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
+            {% csrf_token %}
+            <label class="input-anim smalltext">
+              <p>
+                <span id="name-errors-js">{{ form.name.errors }}</span>
+                {{ form.name.label_tag }}
+                {{ form.name }}
+              </p>
+              <div class="row">
+                <div class="col-xs-9 col-xxs-12 col-sm-9">
+                  <p>
+                    <span id="description-errors-js">{{ form.description.errors }}</span>
+                    {{ form.description.label_tag }}
+                    {{ form.description }}
+                  </p>
+                </div>
+                <div class="col-xs-3 col-xxs-12 col-sm-3">
+                  <p>
+                    <span id="max_messages-errors-js">{{ form.max_messages.errors }}</span>
+                    {{ form.max_messages.label_tag }}
+                    {{ form.max_messages }}
+                  </p>
+                  <br>
                 </div>
               </div>
-            </label>
+              <div class="row bottom-xs">
+                <div class="col-xs-9 col-xxs-12 col-sm-8">
+                  <p>
+                    <span id="expires_at-errors-js">{{ form.expires_at.errors }}</span>
+                    {{ form.expires_at.label_tag }}
+                    {{ form.expires_at }}
+                  </p>
+                </div>
+                <div class="col-xs-3 col-xxs-12 col-sm-4">
+                  <div class="row">
+                    <div class="col-xs-10 col-xxs-8 sm-10">
+                      <p><span id="never_expires-errors-js">{{ form.never_expires.errors }}</span>
+                        {{ form.never_expires.label_tag }}</p>
+                      </div>
+                      <div class="col-xs-2 col-xxs-4 sm-2">
+                        {{ form.never_expires }}
+                      </div>
+                    </div>
+                  </div>
+                </label>
               </div>
+            </div>
+            <div class="col-xs-12">
+              <button type="submit" class="btn-default" value="">Create</button>
             </div>
           </form>
         </div>
-        <div class="row middle-xs center-xs">
-              <div class="col-xs-12">
-                <button type="submit" class="btn-default" value="">Create</button>
       </div>
-      <div class="md-overlay"></div>
     </div>
-  </div>
-  {% endblock content %}
+    <div class="md-overlay"></div>
+    {% endblock content %}
 
-  {% block scripts %}
-  {{ block.super }}
-  <script src="{% static 'javascripts/box_list.js' %}"></script>
-  <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
-  <script src="{% static 'javascripts/box_create.js' %}"></script>
-  {% endblock scripts %}
+    {% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'javascripts/box_list.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
+    <script src="{% static 'javascripts/box_create.js' %}"></script>
+    {% endblock scripts %}
