@@ -141,10 +141,12 @@
       padding: 10px 80px 0px;
     }
 }
+
 .new-box{
-  //border: 2px solid $blue;
-  background: white;
-  opacity: 0.7;
+  //border: 1px solid $blue;
+  box-shadow: 0px 0px 15px 4px rgba(76,167,175,0.25);
+  //background: white;
+  //opacity: 0.9;
 
 }
 .xdsoft_calendar{
