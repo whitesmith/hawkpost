@@ -179,4 +179,10 @@
     <script src="{% static 'javascripts/box_list.js' %}"></script>
     <script type="text/javascript" src="{% static 'javascripts/jquery.datetimepicker.min.js' %}"></script>
     <script src="{% static 'javascripts/box_create.js' %}"></script>
+    <script type="text/javascript">
+      $(".md-modal-xs label").addClass("smalltext");
+      $(".md-modal-xs input[type=text]").addClass("text");
+      $(".md-modal-xs input[type=number]").addClass("text");
+      $(".md-modal-xs textarea").addClass("text");
+    </script>
     {% endblock scripts %}
