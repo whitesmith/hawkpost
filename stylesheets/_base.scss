@@ -49,6 +49,7 @@
 .section-definer-grey {
          @extend .section-definer;
     background-color: $lightgrey;
+    min-height: 100vh;
     }
 
 .section-definer-blue {
