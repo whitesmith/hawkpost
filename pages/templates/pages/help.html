@@ -2,84 +2,87 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="container-fluid section-definer-dark">
-    <div class="section-resized">
-    <div class="container-fluid">
-        <div class="row center-xs text-left text-lightest">
-            <div class=" center-xs col-xs-12 ">
-                <p class="title text-lightest">Support<p>
-                </div>
-                <div class="col-xs-12">
-
-
-
-                   <ul class="box__nav smalltext">
-                    <div class="row center-xs middle-xs">
-                        <li class=""><a href="#setup-hawkpost" class="box__nav__item__help">How to setup Hawkpost</a></li>
-                        <li class=""><a href="#gen-pgp-key" class="box__nav__item__help">How to generate a PGP key</a></li>
-                        <li class=""><a href="#verify-sender" class="box__nav__item__help">  How to verify Hawkpost signature</a></li>
+<div class="section-definer-dark">
+    <div class="container-fluid nav-bar-help-">
+        <div class="boxes-navbar-container">
+            <div class="row center-xs text-left text-lightest">
+                <div class=" center-xs col-xs-12 ">
+                    <p class="title text-lightest">Support<p>
                     </div>
+                    
+                     <ul class="box__nav smalltext">
+                     <div class="row no-padding center-xs">
+                     <div class="col-xs-12 col-md-10 col-lg-11 flex-d center-xs middle-xs">
+                            <li class="full-width"><a href="#setup-hawkpost" class="box__nav__item__help {% if display_status == 'Open' %}active{% endif %}">How to setup Hawkpost</a></li>
+                            <li class="full-width"><a href="#gen-pgp-key" class="box__nav__item__help  {% if display_status == 'Open' %}active{% endif %}">How to generate a PGP key</a></li>
+                            <li class="full-width"><a href="#verify-sender" class="box__nav__item__help  {% if display_status == 'Open' %}active{% endif %}">  How to verify Hawkpost signature</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+  
+    <div class="section-resized padding-t-s">
+    <div class="container-fluid">
+    <div class="row center-xs text-left text-lightest">
+        <div class="col-xs-11">
+            <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
+            <p>Some are related to Hawkpost directly, but others are related to PGP and associated tasks and tools.</p>
+            <p>Of course we can't cover all the surface or explicitly address all questions in this document. So if your question isn't here feel free to email us or drop a line through our support channels, and we'll try to help you as soon as possible.</p>
+
+            <p>
+                <b>Email:</b> {{support_email}}
+            </p>
+            <p>
+                <b>IRC Channel:</b> #hawkpost on freenode
+            </p>
+            <p>
+                <b>Forum:</b> soon
+            </p>
+        </div>
+        <div class="col-xs-12 ">
+            <h2 id="setup-hawkpost" class=" center-xs title text-dark">How to setup Hawkpost</h2>
+
+            <div class="row center-xs text-left">
+
+             <div class="col-xs-12 col-sm-7">
+                <p>In order to start using Hawkpost as a user that receives confidential information, you have to fill certain requirements, such as:</p>
+
+                <ul>
+                    <li>Provide a PGP public key</li>
+                    <li>Provide your key's fingerprint</li>
+                    <li>Have the required software to decrypt the messages</li>
                 </ul>
 
+                <p>If you don't know how to fulfill the first and third point, <a href="#gen-pgp-key" class="testelinks">please check the next section</a>. Otherwise the configuration is quite simple.</p>
             </div>
-            <div class="col-xs-11">
-                <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
-                <p>Some are related to Hawkpost directly, but others are related to PGP and associated tasks and tools.</p>
-                <p>Of course we can't cover all the surface or explicitly address all questions in this document. So if your question isn't here feel free to email us or drop a line through our support channels, and we'll try to help you as soon as possible.</p>
 
-                <p>
-                    <b>Email:</b> {{support_email}}
-                </p>
-                <p>
-                    <b>IRC Channel:</b> #hawkpost on freenode
-                </p>
-                <p>
-                    <b>Forum:</b> soon
-                </p>
-            </div>
-            <div class="col-xs-12 ">
-                <h2 id="setup-hawkpost" class=" center-xs title text-dark">How to setup Hawkpost</h2>
-
-                <div class="row center-xs text-left">
-
-                   <div class="col-xs-12 col-sm-7">
-                    <p>In order to start using Hawkpost as a user that receives confidential information, you have to fill certain requirements, such as:</p>
-
-                    <ul>
-                        <li>Provide a PGP public key</li>
-                        <li>Provide your key's fingerprint</li>
-                        <li>Have the required software to decrypt the messages</li>
-                    </ul>
-
-                    <p>If you don't know how to fulfill the first and third point, <a href="#gen-pgp-key" class="testelinks">please check the next section</a>. Otherwise the configuration is quite simple.</p>
-                </div>
-
-                <div class="col-xs-12 col-sm-4">
-                    <img class="setup" src="{% static 'images/static_key.png' %}">
-                </div>
+            <div class="col-xs-12 col-sm-4">
+                <img class="setup" src="{% static 'images/static_key.png' %}">
             </div>
         </div>
+    </div>
 
-        <div class="row center-xs text-left">
-           <div class="col-xs-12 col-sm-7 ">
-            <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you're ready to go. We strongly recommend to also fill your personal data (as name) so it can show up on the submission page.</p>
+    <div class="row center-xs text-left">
+     <div class="col-xs-12 col-sm-7 ">
+        <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you're ready to go. We strongly recommend to also fill your personal data (as name) so it can show up on the submission page.</p>
 
-            <p>To find your key's fingerprint, you can run the following command if you're using <i>Gnu Privacy Guard (GPG)</i>:</p>
+        <p>To find your key's fingerprint, you can run the following command if you're using <i>Gnu Privacy Guard (GPG)</i>:</p>
 
-            <pre>gpg --fingerprint &lt;key id or email&gt;</pre>
+        <pre>gpg --fingerprint &lt;key id or email&gt;</pre>
 
-            <p>If you're using a graphical tool, you can generally find this info on the <i>key properties section</i> of your tool.</p>
-        </div>
-        <div class="col-xs-12 col-sm-4 ">
-         <img class="setup" src="{% static 'images/keyserver_key.png' %}">
-     </div>
-     <div class="col-xs-11">
-     <p>For extra security and features you can specify the keyserver URL of your key instead of providing it directly. This way the system will fetch the key and regularly check that URL for key updates and the system will stop allowing submissions to your boxes once the key is revoked or expired (the fingerprint is always required).</p>
-     </div>
- </div>
+        <p>If you're using a graphical tool, you can generally find this info on the <i>key properties section</i> of your tool.</p>
+    </div>
+    <div class="col-xs-12 col-sm-4 ">
+       <img class="setup" src="{% static 'images/keyserver_key.png' %}">
+   </div>
+   <div class="col-xs-11">
+       <p>For extra security and features you can specify the keyserver URL of your key instead of providing it directly. This way the system will fetch the key and regularly check that URL for key updates and the system will stop allowing submissions to your boxes once the key is revoked or expired (the fingerprint is always required).</p>
+   </div>
+</div>
 
 
- <div class="col-xs-11 ">
+<div class="col-xs-11 ">
     <h2 id="gen-pgp-key" class="center-xs title text-dark">How to generate a PGP key</h2>
 
     <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" class="testelinks">PGP</a>. So to create boxes you'll need to setup a PGP key pair and provide us the public part/key. If you already have one, this section is not for you.</p>
@@ -111,6 +114,8 @@
     </div>
 </div>
 
+</div>
+</div>
 </div>
 </div>
 </div>

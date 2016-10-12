@@ -4,17 +4,16 @@
 }
 
 .box__nav__item__help{
+    @extend .box__nav__item;
+    width: 100px !important;
+     @include breakpoint($min:md) {
+        width: 150px !important;
+        }
+}
 
-    display: inline;
-    border: solid #4ca7af;
-    border-width: 1px;
-    margin: 5px;
-    padding: 12px 12px 12px;
-    font-weight: 600;
-    display: inline-block;
-    text-align: center;
-    background: none;
-
+.nav-bar-help-{
+    @extend .nav-bar-boxes-;
+    border-bottom: 5px solid $blue;
 }
 
 .box__nav{
