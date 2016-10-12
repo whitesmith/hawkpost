@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="section-definer-light">
+<div class="section-definer-grey">
   <div class="container-fluid nav-bar-boxes-">
     <div class="boxes-navbar-container">
       <div class="head-navbar row middle-xs">
@@ -10,7 +10,7 @@
           <h2 class="text-lightest title">Manage Boxes</h2>
         </div>
         <div class="col-xs-4 col-sm-1">
-          <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New</a>
+          <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New Box</a>
         </div>
       </div>
       <ul class="box__nav smalltext">
@@ -62,21 +62,24 @@
             </div>
             {% endif %}
             <div class="extra-info">
-              <p class="smalltext text-darkest">Messages:{{box.messages.count}}/{{box.max_messages}}</p>
+              <p class="no-margin-bottom">
+                <span class="smalltext label-blue">Messages:</span>
+                <span class="smalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
+              </p>
               <p class="box__info smalltext">
-                <span class="text-darkest smalltext">Created on:</span>
-                <span>{{box.created_at}}</span>
+                <span class="label-blue smalltext">Created on:</span>
+                <span class="smalltext tex">{{box.created_at}}</span>
               </p>
               {% if box.expires_at %}
-              <p class="box__info smalltext">
-                <span class="text-darkest">Expires on:</span>
-                <span>{{box.expires_at}}</span>
+              <p class="box__info smalltext no-margin-top">
+                <span class="label-blue smalltext">Expires on:</span>
+                <span class="smalltext">{{box.expires_at}}</span>
               </p>
               {% endif %}
               {% if box.messages.count %}
-              <p class="box__info">
-                <span class="text-darkest">Last sent:</span>
-                <span>{{box.last_sent_at}}</span>
+              <p class="box__info smalltext no-margin-top">
+                <span class="label-blue smalltext">Last sent:</span>
+                <span class="smalltext">{{box.last_sent_at}}</span>
               </p>
               {% endif %}
             </div>
@@ -117,7 +120,7 @@
         <span id="__all__-errors-js"></span>
         <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
           {% csrf_token %}
-          <label class="input-anim">
+          <label class="input-anim smalltext">
             <p>
               <span id="name-errors-js">{{ form.name.errors }}</span>
               {{ form.name.label_tag }}
@@ -140,7 +143,7 @@
                 <br>
               </div>
             </div>
-            <div class="row bottom-xs">
+            <div class="row bottom-xs padding-b-m">
               <div class="col-xs-9 col-xxs-12 col-sm-8">
                 <p>
                   <span id="expires_at-errors-js">{{ form.expires_at.errors }}</span>
@@ -149,28 +152,27 @@
                 </p>
               </div>
               <div class="col-xs-3 col-xxs-12 col-sm-4">
-                <div class="row">
+                <div class="row middle-xs">
                   <div class="col-xs-10 col-xxs-8 sm-10">
                     <p><span id="never_expires-errors-js">{{ form.never_expires.errors }}</span>
-                    {{ form.never_expires.label_tag }}</p>
-                  </div>
-                  <div class="col-xs-2 col-xxs-4 sm-2">
-                    {{ form.never_expires }}
+                      {{ form.never_expires.label_tag }}</p>
+                    </div>
+                    <div class="col-xs-2 col-xxs-4 sm-2">
+                      {{ form.never_expires }}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </label>
-            <div class="row middle-xs center-xs">
-              <div class="col-xs-12">
-                <button type="submit" class="btn-default" value="">Create</button>
-              </div>
+              </label>
             </div>
-          </form>
-        </div>
+          </div>
+          <div class="col-xs-12">
+            <button type="submit" class="btn-default" value="">Create</button>
+          </div>
+        </form>
       </div>
-      <div class="md-overlay"></div>
     </div>
   </div>
+  <div class="md-overlay"></div>
   {% endblock content %}
 
   {% block scripts %}

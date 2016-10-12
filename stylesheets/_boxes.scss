@@ -2,12 +2,13 @@
  #BOXES
  \*------------------------------------*/
 .boxes-container {
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
 
  .box{
-    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    //box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
+    background: white;
     margin: 5px;
     text-align: left;
     height: 100%;
@@ -49,7 +50,7 @@
 .box-title-desc, .extra-info{
 	display: flex;
 	flex-direction: column;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .box-title-desc{
@@ -57,7 +58,7 @@
 }
 
 .space{
-	margin-bottom: $spacing--medium;
+	margin-bottom: $spacing--xx-large;
 }
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
@@ -109,7 +110,8 @@
 
 .new-box-btn{
   @extend .outro;
-  background: #eeeeee;
+  background: $blue;
+  color: white;
 }
 
 .container-fluid{
@@ -130,7 +132,7 @@
 
 .nav-bar-boxes-{
   background: black;
-  padding-top:100px;
+  padding-top:80px;
 }
 
 .boxes-navbar-container{
@@ -138,4 +140,64 @@
     @include breakpoint($min: md){
       padding: 10px 80px 0px;
     }
+}
+
+.new-box{
+  //border: 1px solid $blue;
+  box-shadow: 0px 0px 15px 4px rgba(76,167,175,0.25);
+  //background: white;
+  //opacity: 0.9;
+
+}
+//--------Date_picker-------
+
+.xdsoft_calendar{
+  background: $blue;
+  font-family: TextFont;
+}
+.xdsoft_timepicker{
+  font-family: TextFont;
+}
+
+.xdsoft_mounthpicker{
+  font-family: TextFont;
+}
+.xdsoft_datetimepicker .xdsoft_label{
+  padding:0;
+}
+//tabela com os dias
+.xdsoft_datetimepicker .xdsoft_calendar td, .xdsoft_datetimepicker .xdsoft_calendar th{
+  background: none;
+  border: none;
+}
+.xdsoft_datetimepicker *{
+  background:none;
+}
+//Dia de hoje
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today{
+  border: 1px solid $blue;
+}
+//dia activo
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current{
+  box-shadow: none;
+  background: $blue;
+}
+//Hover do dia
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover{
+  background: $blue !important;
+  opacity: 0.5 !important;
+}
+//cor da linha dos dias da semana
+.xdsoft_datetimepicker .xdsoft_calendar th{
+  color: black;
+}
+//tabela com as horas
+.xdsoft_time_box{
+  border: none;
+}
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div{
+  border: none;
+}
+.xdsoft_scrollbar > .xdsoft_scroller{
+  color: $blue;
 }
