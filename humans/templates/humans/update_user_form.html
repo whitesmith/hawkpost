@@ -1,4 +1,5 @@
 {% extends "layout/base.html" %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="section-definer-light">
@@ -69,7 +70,6 @@
 {% endblock content %}
 
 {% block scripts %}
-{% load staticfiles %}
 {{ block.super }}
 <script src="{% static 'javascripts/update_user_form.js' %}"></script>
 {% endblock scripts %}
