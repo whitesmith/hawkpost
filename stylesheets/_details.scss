@@ -13,7 +13,10 @@
 .text-blue {
      color: $blue;
  }
-
+.text-light-info{
+    color: #333;
+    font-size: 0.60rem;
+}
  .text-darkest {
      color: black;
  }
@@ -91,6 +94,10 @@
 
  .no-padding {
      padding: 0px;
+ }
+
+ .margin-b-s{
+    margin-bottom: 6px!important;
  }
  
  .padding-b-m{
