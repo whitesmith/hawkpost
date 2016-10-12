@@ -10,7 +10,7 @@
           {% csrf_token %}
           <label class="input-anim ">{{ form.non_field_errors }}
             <div class="row around-xs text-darkest">
-              <div class="col-xxs-12 col-xs-5 col-md-5 ">
+              <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
                 <div class="form__block">
                   {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
                 </div>
@@ -39,7 +39,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xxs-12 col-xs-5 col-md-5">
+              <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
                 <div class="form__block">
                   {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
                 </div>
@@ -67,3 +67,9 @@
   </section>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+{% load staticfiles %}
+{{ block.super }}
+<script src="{% static 'javascripts/update_user_form.js' %}"></script>
+{% endblock scripts %}
