@@ -46,17 +46,16 @@
 
       </div>
     </div>
-
+    {% if not request.user.is_authenticated %}
     <div class="row center-xs">
       <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
         <a class="h-button md-trigger" data-modal="modal-signup">Yup, this is for me</a>
       </div>
-      <div class="col-xxs-12 col-xs-10 col-sm-5 col-lg-5">
-        <a href="{% url 'pages_help' %}#gen-pgp-key" class="h-button-border">PGP WHAT?</a>
-      </div>
     </div>
+    {% endif %}
   </div>
 </div>
+
 
 <div class="section-definer-dark faq__container">
   <section class="h-section section-resized">
