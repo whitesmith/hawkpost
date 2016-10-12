@@ -40,7 +40,9 @@
  .text-bold {
      font-weight: 600;
  }
- 
+ .text-important{
+    color: $dark;
+ }
  .text-left {
      text-align: left;
  }
