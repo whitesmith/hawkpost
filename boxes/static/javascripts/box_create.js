@@ -34,3 +34,7 @@ $(document).ready(function() {
     return false;
   });
 });
+$(".md-modal-xs label").addClass("smalltext");
+$(".md-modal-xs input[type=text]").addClass("text padding-modals1");
+$(".md-modal-xs input[type=number]").addClass("text padding-modals1");
+$(".md-modal-xs textarea").addClass("text padding-modals2");
