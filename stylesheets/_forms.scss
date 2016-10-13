@@ -6,8 +6,11 @@
 .box__nav__item__help{
     @extend .box__nav__item;
     width: 100px !important;
-     @include breakpoint($min:md) {
+    @include breakpoint($min:md) {
         width: 150px !important;
+        }
+    @include breakpoint($min:lg) {
+        width: 250px !important;
         }
 }
 
