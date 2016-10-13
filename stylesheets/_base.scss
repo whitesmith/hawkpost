@@ -132,8 +132,9 @@
             font-size: map-deep-get($typescale, 'heading1', 'lg');
         }
         @include breakpoint($min:xl) {
-            font-size: map-deep-get($typescale, 'heading1', 'lg');
+            font-size: map-deep-get($typescale, 'heading1', 'xl');
         }
+
     }
     
     .subtitle {
@@ -150,6 +151,9 @@
         }
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'sub1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'sub1', 'xl');
         }
     }
     
@@ -168,6 +172,9 @@
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'text1', 'lg');
         }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'text1', 'xl');
+        }
     }
     
     .smalltext {
@@ -182,6 +189,9 @@
         }
         @include breakpoint($min:lg) {
             font-size: map-deep-get($typescale, 'smalltext1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'xl');
         }
     }
 
