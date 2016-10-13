@@ -28,15 +28,18 @@
                   <div class=" col-xs-7">
                     {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
                   </div>
-                  <div class=" col-xs-1 .control__indicator">
+                  <div class=" col-xs-1 .control__indicator popup server-signed-info-js">
                     {{ form.server_signed }}
+                    <span class="popuptext smalltext show" id="server-signed-content-js ">
+                        This is an experimental feature.
+                      </span>
                   </div>
                 </div>
                 <div class="col-xs-12 no-padding">
-                      <span class="text-light-info">
-                        The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong class="text-important">already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong class="text-important">Evolution</strong> and <strong class="text-important">mutt</strong>.
-                      </span>
-                  </div>
+                  <span class="text-light-info">
+                    The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong class="text-important">already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong class="text-important">Evolution</strong> and <strong class="text-important">mutt</strong>.
+                  </span>
+                </div>
               </div>
               <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
                 <div class="form__block">
