@@ -10,6 +10,9 @@
         width: 150px !important;
         }
     @include breakpoint($min:lg) {
+        width: 200px !important;
+        }
+    @include breakpoint($min:xl) {
         width: 250px !important;
         }
 }
