@@ -28,11 +28,13 @@
                   <div class=" col-xs-7">
                     {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
                   </div>
-                  <div class=" col-xs-1 .control__indicator popup server-signed-info-js">
+                  <div class=".control__indicator">
                     {{ form.server_signed }}
-                    <span class="popuptext smalltext show" id="server-signed-content-js ">
+                    <div class="popup server-signed-info-js">
+                      <span class="popuptext smalltext" id="server-signed-content-js ">
                         This is an experimental feature.
                       </span>
+                    </div>
                   </div>
                 </div>
                 <div class="col-xs-12 no-padding">

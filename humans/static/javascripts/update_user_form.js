@@ -41,3 +41,7 @@ $(document).ready(function(){
     $("#id_keyserver_url").attr("disabled",true);
   }
 });
+
+$("#id_server_signed").change(function() {
+  $('.server-signed-info-js .popuptext').toggleClass('show');
+});
