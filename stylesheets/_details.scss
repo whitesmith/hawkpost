@@ -111,7 +111,9 @@
      margin-bottom: 0px;
  }
 
- 
+ .padding-t-s{
+    padding-top: 70px;
+ }
  .margin-bottom-lg {
    
        @include breakpoint ($min:xl){
