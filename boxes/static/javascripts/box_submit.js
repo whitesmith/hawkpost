@@ -7,7 +7,7 @@ $(document).ready(function(){
     var contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
 
     var options = {
-      data: contentType + $("#id_message").val(),
+      data: contentType + $("#id_plain").val(),
       // Works for one key, need to change when multiple recipients is available
       publicKeys: openpgp.key.readArmored($(".public-key-js").html()).keys
     };
@@ -45,6 +45,8 @@ $(document).ready(function(){
   */
   var createBox = function(){
     var $formDiv = $(".form-div-js");
+
+    /* Hidden form fields */
     var csrfToken = $formDiv.attr("data-csrf-token");
     var action = $formDiv.attr("data-action");
 
@@ -54,16 +56,21 @@ $(document).ready(function(){
 
     var $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
     $csrfTokenField.val(csrfToken);
+    $form.append($csrfTokenField);
 
-    var $label = $("<label for='id_message'></label>");
-    var $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
+    var $encryptedMessage = $("<input id='id_message' name='message' type='hidden'></input>");
+    $form.append($encryptedMessage);
+
+    $formDiv.append($form);
+
+    /* Input fields */
+    var $label = $("<label for='id_plain'></label>");
+    var $textArea = $("<textarea id='id_plain' cols='40' rows='10'></textarea>");
     $textArea.attr("placeholder", "All the contents, inserted into this box, will be encrypted with " +
                                   "the recipient's public key before leaving this computer.")
 
-    $form.append($csrfTokenField);
-    $form.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
-    $form.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
-    $formDiv.append($form);
+    $formDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
+    $formDiv.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
 
     $("#encrypt-action-js").on("click", encryptContent);
   }
