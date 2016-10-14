@@ -23,6 +23,7 @@ textarea {
     width: 100%;
     height: 5vh;
     border-color: $light;
+    resize: none;
     &:focus {
         outline: none;
         border: 1px solid rgba($main-color-dark, 0.5);
