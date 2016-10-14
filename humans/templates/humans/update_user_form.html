@@ -24,10 +24,8 @@
                 <div class="form__block">
                   {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
                 </div>
-                <div class="row big">
-                  <div class=" col-xs-7">
-                    {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
-                  </div>
+                <div class="checkbox-">
+                  {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}   
                   <div class=".control__indicator">
                     {{ form.server_signed }}
                     <div class="popup server-signed-info-js">
