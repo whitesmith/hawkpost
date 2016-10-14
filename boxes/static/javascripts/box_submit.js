@@ -52,7 +52,7 @@ $(document).ready(function(){
 
     var $form = $("<form></form>");
     $form.attr('id', "box").attr("action", action)
-    $form.attr("method", "post").addClass("form__wrap_msg link-box__box");
+    $form.attr("method", "post");
 
     var $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
     $csrfTokenField.val(csrfToken);
@@ -64,13 +64,18 @@ $(document).ready(function(){
     $formDiv.append($form);
 
     /* Input fields */
+    var $inputDiv = $("<div></div>");
+    $inputDiv.addClass("form__wrap_msg link-box__box");
+
     var $label = $("<label for='id_plain'></label>");
     var $textArea = $("<textarea id='id_plain' cols='40' rows='10'></textarea>");
     $textArea.attr("placeholder", "All the contents, inserted into this box, will be encrypted with " +
                                   "the recipient's public key before leaving this computer.")
 
-    $formDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
-    $formDiv.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
+    $inputDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
+    $inputDiv.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
+
+    $formDiv.append($inputDiv);
 
     $("#encrypt-action-js").on("click", encryptContent);
   }
