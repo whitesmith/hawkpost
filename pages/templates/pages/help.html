@@ -25,7 +25,7 @@
     <div class="section-resized padding-t-s">
         <div class="container-fluid">
             <div class="row center-xs text-left text-lightest">
-                <div class="col-xs-11">
+                <div class="col-xs-11 col-sm-10">
                     <p>In this page we try to explain common procedures and features that can be complex and hard to grasp for newcomers.</p>
                     <p>Some are related to Hawkpost directly, but others are related to PGP and associated tasks and tools.</p>
                     <p>Of course we can't cover all the surface or explicitly address all questions in this document. So if your question isn't here feel free to email us or drop a line through our support channels, and we'll try to help you as soon as possible.</p>
@@ -40,7 +40,7 @@
                         <b>Forum:</b> soon
                     </p>
                 </div>
-                <div class="col-xs-12 ">
+                <div class="col-xs-12 col-sm-11">
                     <h2 id="setup-hawkpost" class=" center-xs title text-dark">How to setup Hawkpost</h2>
                     <div class="row center-xs text-left">
                         <div class="col-xs-12 col-sm-7">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="row center-xs text-left">
-                    <div class="col-xs-12 col-sm-7 ">
+                    <div class="col-xs-12 col-sm-6">
                         <p>As you can see in the above figure, you just have to fill the <i>public key</i> field and the matching fingerprint. After this you're ready to go. We strongly recommend to also fill your personal data (as name) so it can show up on the submission page.</p>
 
                         <p>To find your key's fingerprint, you can run the following command if you're using <i>Gnu Privacy Guard (GPG)</i>:</p>
@@ -74,13 +74,13 @@
                     <div class="col-xs-12 col-sm-4 ">
                         <img class="setup" src="{% static 'images/keyserver_key.png' %}">
                     </div>
-                    <div class="col-xs-11">
+                    <div class="col-xs-11 col-sm-10">
                         <p>For extra security and features you can specify the keyserver URL of your key instead of providing it directly. This way the system will fetch the key and regularly check that URL for key updates and the system will stop allowing submissions to your boxes once the key is revoked or expired (the fingerprint is always required).</p>
                     </div>
                 </div>
 
 
-                <div class="col-xs-11 ">
+                <div class="col-xs-11 col-sm-10">
                     <h2 id="gen-pgp-key" class="center-xs title text-dark">How to generate a PGP key</h2>
 
                     <p>Hawkpost works with an encryption technology known as <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" class="testelinks">PGP</a>. So to create boxes you'll need to setup a PGP key pair and provide us the public part/key. If you already have one, this section is not for you.</p>
@@ -96,12 +96,12 @@
                     <p>Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/" class="testelinks">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x" class="testelinks">this guide for the case of Apple Mail</a>.</p>
                 </div>
 
-                <div class="col-xs-12  ">
+                <div class="col-xs-12  col-sm-11">
                     <h2 id="verify-sender" class="title text-dark center-xs">Experimental: How to verify Hawkpost signature</h2>
 
                     <div class="row center-xs text-left">
 
-                        <div class="col-xs-12 col-sm-7 ">
+                        <div class="col-xs-12 col-sm-7">
                             <p>Recently we've introduced a feature (still on an experimental phase) that allows the user to confirm that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients. But we hope to bring it to other clients soon.</p>
 
                             <p>If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the image below). This way all messages will be signed with our sign key, that you can import to your keyring in order to verify its veracity. <a href="{{sign_key_url}}" class="testelinks">The key can be found here</a></p>
