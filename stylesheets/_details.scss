@@ -13,7 +13,10 @@
 .text-blue {
      color: $blue;
  }
-
+.text-light-info{
+    color: #333;
+    font-size: 0.60rem;
+}
  .text-darkest {
      color: black;
  }
@@ -37,7 +40,9 @@
  .text-bold {
      font-weight: 600;
  }
- 
+ .text-important{
+    color: $dark;
+ }
  .text-left {
      text-align: left;
  }
@@ -91,6 +96,10 @@
 
  .no-padding {
      padding: 0px;
+ }
+
+ .margin-b-s{
+    margin-bottom: 6px!important;
  }
  
  .padding-b-m{
