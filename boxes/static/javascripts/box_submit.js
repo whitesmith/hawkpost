@@ -1,34 +1,37 @@
-$(document).ready(function(){
+$(document).ready(function () {
   /*
-    Encrypt the current form content
-  */
-  var encryptContent = function(){
+   * Encrypt the current form content
+   */
+  function encryptContent() {
     var serverSigned = $('.server-signed-js').text() === 'True';
     var contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
 
     var options = {
       data: contentType + $("#id_plain").val(),
-      // Works for one key, need to change when multiple recipients is available
+      /* Works for one key, need to change when multiple recipients is available */
       publicKeys: openpgp.key.readArmored($(".public-key-js").html()).keys
     };
 
-    openpgp.encrypt(options).then(function(ciphertext) {
+    openpgp.encrypt(options).then(function (ciphertext) {
       var $box = $("#box");
+
       $("#id_message").val(ciphertext.data);
-      if (quickCheckFormContent()){
+
+      if (quickCheckFormContent()) {
         $box.submit();
       } else {
         alert("Well, encryption doesn't seem to be as it should. Try again.");
       }
     });
+
     return false;
   }
 
   /*
-    Might be useless but
-    Check that the content is really encrypted before submitting
-  */
-  var quickCheckFormContent = function(){
+   * Might be useless but
+   * Check that the content is really encrypted before submitting
+   */
+  function quickCheckFormContent() {
     var begin = "-----BEGIN PGP MESSAGE-----";
     var end = "-----END PGP MESSAGE-----";
 
@@ -43,9 +46,9 @@ $(document).ready(function(){
   }
 
   /*
-    Only when javascript is enabled, the form is created.
-  */
-  var createBox = function(){
+   * Only when javascript is enabled, the form is created.
+   */
+  function createBox() {
     var $formDiv = $(".form-div-js");
 
     /* Hidden form fields */
@@ -83,9 +86,9 @@ $(document).ready(function(){
   }
 
   /*
-    Show introduction tooltip on click
-  */
-  $(".hawkpost__block").click(function(){
+   * Show introduction tooltip on click
+   */
+  $(".hawkpost__block").click(function () {
     $(this).toggleClass("open__hawkpost__text");
     $(".hawkpost__block").not(this).removeClass("open__hawkpost__text");
   });
