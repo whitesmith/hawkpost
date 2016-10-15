@@ -35,9 +35,11 @@ $(document).ready(function(){
     var message = $("#id_message").val();
     var lines = message.split("\n");
 
-    if (lines[0] === begin && lines[lines.length - 2] === end)
-      return true;
-    return false;
+    if (lines[0] !== begin || lines[lines.length - 2] !== end) {
+      return false;
+    }
+
+    return true;
   }
 
   /*
