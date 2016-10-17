@@ -1,7 +1,7 @@
 HawkPost
 ========
 
-**Warning:** This project is in `alpha` state. This means it is not 100% ready and you should **use it at your own risk**.
+**Warning:** This project is in `beta` state. This means it is not 100% ready and you should **use it at your own risk**.
 
 Rationale: For many web and mobile development studios, no matter how hard they try to secure their client secrets (passwords, API keys, etc), the weakest link resides on the client most of the times, specially when he's not a tech savvy person. This project tries to help minimize this issue on the communication between both parties.
 
