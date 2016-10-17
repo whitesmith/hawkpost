@@ -11,7 +11,7 @@
           <h3 class="title "> Login</h3>
           <p>If you have not created an account yet, then please<a class=" md-trigger text-darkest" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p class="no-padding">{% get_providers as socialaccount_providers %}
-          {% if socialaccount_providers %}
+            {% if socialaccount_providers %}
           </p>
           <div class="login-or">
             <p> {% trans 'Login' %} using your email address:</p>
@@ -33,26 +33,26 @@
             </label>
             <label class="input-anim" for="id_remember">
               <p class="no-padding"> {{ login_form.remember.errors }}
-                        <div class="flex-in">
-                                {{ login_form.remember.label_tag }}
-                                {{ login_form.remember }}
-                        </div>
+                <div class="flex-in">
+                  {{ login_form.remember.label_tag }}
+                  {{ login_form.remember }}
+                </div>
               </p>
             </label>
           </div>
           {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
         </div>
         <div class="col-xs-12">
           <button class="primaryAction btn-default md-trigger" data-modal="modal-login" type="submit">{% trans "Login" %}</button>
         </div>
         <div class="col-xs-12 middle-xs flex-in mt-small">
-        <p class="no-padding">{% blocktrans with site.name as site_name %}Login in via:  {% endblocktrans %}</p>
-        <ul class="gitpad no-margin">
+          <p class="no-padding">{% blocktrans with site.name as site_name %}Login in via:  {% endblocktrans %}</p>
+          <ul class="gitpad no-margin">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
-          </div>
+        </div>
         <div class="col-xs-12 text-lightest">
           <a class="smalltext secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>
@@ -88,20 +88,20 @@
             </label>
           </div>
           {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
         </div>
         <div class="col-xs-12">
           <button class="btn-default mt-small" type="submit">{% trans "Sign Up" %}</button>
         </div>
         <div class="col-xs-12 middle-xs flex-in">
-        <p class="no-padding">Sign up using:</p>
+          <p class="no-padding">Sign up using:</p>
           <ul class="no-padding">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
-          </div>
-          <div class="col-xs-12">
-        <p class="smalltext">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-darkest" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
+        </div>
+        <div class="col-xs-12">
+          <p class="smalltext">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-darkest" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
         </div>
       </form>
     </div>
