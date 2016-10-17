@@ -18,10 +18,10 @@
       <div class="col-xs-8 col-sm-6  order-xs-1st col-lg-5 ">
         <div class="text-left text-grey">
           <p class="subtitle margin-bottom-lg "> <i >The following people will receive the messages:</i></p>
-          <p><span class="text-bold  text-darkest">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
-          <p><span class="text-bold text-darkest">Organization: </span>{{object.owner.organization}}</p>
-          <p><span class="text-bold text-darkest">Email: </span>{{object.owner.email}}</p>
-          <p><span class="text-bold text-darkest">Key fingerprint: </span><span class="break-word"> {{object.owner.fingerprint}}</span></p>
+          <p class="text text-darkest"><span class="smalltext label-blue">Name: </span>{{object.owner.first_name}} {{object.owner.last_name}} </p>
+          <p class="text text-darkest"><span class="smalltext label-blue">Organization: </span>{{object.owner.organization}}</p>
+          <p class="text text-darkest"><span class="smalltext label-blue">Email: </span>{{object.owner.email}}</p>
+          <p class="text text-darkest"><span class="smalltext label-blue">Key fingerprint: </span><span class="break-word"> {{object.owner.fingerprint}}</span></p>
         </div>
         <div class="hidden">
           The following people will receive the messages:
@@ -44,14 +44,14 @@
           <div class="row">
             <div class="text-left  col-xs-8 col-sm-11 col-md-11  col-lg-7">
               <h3 class=" subtitle no-margin">{{object.name}}</h3>
-              <p class="no-margin-top">{{object.description}}</p>
-            </div>
-            <div class="col-xs-10">
-              <span class="smalltext text-darkest">
-                Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.
-              </span>
+              <p class="xmt-small smalltext">{{object.description}}</p>
             </div>
           </div>
+        </div>
+        <div class="col-xs-10 start-xs">
+          <span class="text-light-info">
+            Hawkpost is the easiest way to securely receive sensible information from people who don't know how to use PGP. They don't even need to install anything: you just share your link and the person who receives it just needs to submit the information. Our hawk will send it back to you.
+          </span>
         </div>
       </div>
     </div>
