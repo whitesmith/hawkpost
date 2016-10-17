@@ -115,8 +115,7 @@
     color: white;
     padding: 20px 0px 20px;
     border: 2px solid $blue;
-    //box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: 0.9rem;    
+    //box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
     display: inline-block;
     &:target {
         background-color: #28666c;
@@ -131,6 +130,7 @@
 
 .h-button-white{
     @extend .h-button;
+    font-family: TextFont;
     background-color: white;
     color: $black;
     margin-top: 15px;
@@ -172,3 +172,4 @@
 .cont-space{
     padding: 0 25px;
 }
+
