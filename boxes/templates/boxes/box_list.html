@@ -37,6 +37,7 @@
                   <h3 class="box__title text text-darkest">{{box.name}}</h3>
                   <p class="box__desc smalltext text-darkest">{{box.description}}</p>
                 </div>
+                {% if box.status == allow_actions %}
                 <div class="box-action">
                   <form class="hoverable" action="{% url 'boxes_close' box.id %}" method="post">
                     {% csrf_token %}
@@ -47,6 +48,7 @@
                     <input class="btn-dark text outro" type="submit" value="DELETE" />
                   </form>
                 </div>
+                {% endif %}
               </div>
             </div>
             {% if box.status == allow_actions %}
