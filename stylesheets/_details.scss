@@ -95,7 +95,7 @@
  }
 
  .no-padding {
-     padding: 0px;
+     padding: 0px !important;
  }
 
  .margin-b-s{
@@ -156,6 +156,10 @@
 
  .flex-d{
     display: flex;
+ }
+
+ .flex-in{
+    display: inline-flex;
  }
 
  .label-blue{
