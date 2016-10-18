@@ -26,7 +26,10 @@
  }
 }
 
- 
+.btn-blue{
+  @extend .btn-default;
+  background: $blue;
+} 
 
 
 .btn-dark{
