@@ -13,6 +13,8 @@
         margin: 5px 0 5px;
         width: 100%;
         cursor: pointer;
+        -webkit-transition: max-height 1s;
+        -moz-transition: max-height 1s;
         transition: max-height 1s;
     }
 
@@ -25,6 +27,8 @@
     .open__faq__box {
         max-height: 600px !important;
         background-color: $blue !important;
+        -webkit-transition: max-height 1s;
+        -moz-transition: max-height 1s;
         transition: max-height 1s;
         margin: 10px 0px 20px;
         .faq__text {
@@ -45,7 +49,6 @@
     .faq__text {
         margin: 0px;
         padding: 0px;
-        font-size: 14px;
         color: $main-color-dark;
         display: none;
 
