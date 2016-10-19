@@ -57,7 +57,7 @@ $(document).ready(function(){
 
     var $label = $("<label for='id_message'>Message:</label>");
     var $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
-    $textArea.attr("placeholder", "All the contents, inserted into this box, will be encripted with " +
+    $textArea.attr("placeholder", "All the contents, inserted into this box, will be encrypted with " +
                                   "the recipient's public key before leaving this computer.")
 
     $form.append($csrfTokenField);
