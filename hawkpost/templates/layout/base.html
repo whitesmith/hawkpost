@@ -12,8 +12,17 @@
   {% endblock styles %}
   <script type="text/javascript" src="{% static 'javascripts/jquery-2.2.2.min.js' %}"></script>
 </head>
+
 <body>
   {% block header %} {% include "layout/navbar.html" %} {% include "layout/messages.html" %} {% endblock header %}
+  <div class="banner-ph banner-ph--alt" role="banner">
+    <button type="button" class="banner-ph__button" aria-label="Close" data-dismiss="banner"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+    <div class="banner-ph__copy">
+
+      <h4 class="banner-ph__title">Check us out on Product Hunt!</h4>
+      <p class="banner-ph__text">We will be on Product Hunt answering all your questions in the comments section.</p>    
+    </div>
+  </div>
   <div class="main">
     {% block content %} {% endblock content %}
   </div>

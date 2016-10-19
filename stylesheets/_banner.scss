@@ -1,0 +1,88 @@
+.banner-ph {
+      position: relative;
+      padding: 10px 40px;
+      height: 140px;
+      background: $blue;
+      color: $white;
+      overflow: hidden;
+      box-shadow: inset 0px -9px 30px -9px rgba(0,0,0,0.52);
+
+
+       &--alt {
+       background-image: url(../images/ph_badge.png);
+       background-repeat: no-repeat;
+       background-position: -70px -50px;
+       background-size: 320px;
+ 
+       @include breakpoint($min: xs){
+         background-position: 10px 10px;
+         background-size: 110px;
+       }
+       @include breakpoint($min: sm){
+         background-position: 10px 10px;
+         background-size: 110px;
+       }
+       @include breakpoint($min: md){
+         background-position: -70px -50px;
+         background-size: 320px;
+       }
+
+     }
+}
+
+
+.banner-ph__copy{
+  color: white;
+  padding-left: 220px;
+  position: relative;
+  top: 50%;
+  transform: translate(0,-50%);
+  @include breakpoint($min: xs){
+    padding-left: 110px;
+  }
+   @include breakpoint($min: sm){
+    padding-left: 110px;
+   }
+   @include breakpoint($min: md){
+    padding-left: 220px;
+   }
+}
+
+.banner-ph__text{
+  margin: 0px;
+ }
+
+ .banner-ph__title{
+  margin: 0px 0px 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+  word-spacing: -5px;
+
+   @include breakpoint($min: xs){
+     font-size: 16px;
+     word-spacing: initial;
+   }
+ 
+   @include breakpoint($min: sm){
+     font-size: 20px;
+     word-spacing: initial;
+   }
+   @include breakpoint($min: md){
+     font-size: 30px;
+     word-spacing: initial;
+   }
+  
+ }
+
+ .banner-ph__button{
+   @extend .btn-none;
+   top:10px;
+   right:15px;
+   font-size: 0.85rem;
+   color:$white;
+   opacity: 0.7;
+   transition: opacity 0.2s ease-in-out;
+   &:hover{
+    opacity: 1;
+   }
+ }
