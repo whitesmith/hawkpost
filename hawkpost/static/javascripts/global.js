@@ -23,4 +23,9 @@ $(".faq__box--big").click(function(){
     $(".faq__box--big").not(this).addClass("faq__box");
 });
 
+ $('[data-dismiss="banner"]').on('click', function(){
+     $(this).closest('[role="banner"]').slideUp('fast', function(){
+       $(this).remove();
+     });
+ });
 });
