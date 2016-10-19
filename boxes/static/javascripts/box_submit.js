@@ -57,13 +57,13 @@ $(document).ready(function(){
 
     var $label = $("<label for='id_message'>Message:</label>");
     var $textArea = $("<textarea id='id_message' name='message' cols='40' rows='10'></textarea>");
-    $textArea.attr("placeholder", "All the contents, inserted into this box, will be encripted with " +
+    $textArea.attr("placeholder", "All the contents of this box will be encrypted with " +
                                   "the recipient's public key before leaving this computer.")
 
     $form.append($csrfTokenField);
     $form.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
     $form.append($("<a id='encrypt-action-js' class='btn-default u-blockify'>Encrypt and Send</a>"));
-    $formDiv.append($form);
+    $formDiv.append('<div class="row"><div class="col-xs-12">'.$form.'</div></div>');
 
     $("#encrypt-action-js").on("click", encryptContent);
   }
