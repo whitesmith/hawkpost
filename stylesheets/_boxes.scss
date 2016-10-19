@@ -149,6 +149,13 @@
   //opacity: 0.9;
 
 }
+
+.text-mob-{
+  display: block;
+  @include breakpoint($min: xxs){
+      display: none;
+    }
+}
 //--------Date_picker-------
 
 .xdsoft_calendar{

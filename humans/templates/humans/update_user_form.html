@@ -5,8 +5,7 @@
 <div class="section-definer-light">
   <section class="section-resized ">
     <p class="title center-xs">Update your user settings</p>
-    <div class="row ">
-      <div class=" col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8  col-lg-offset-2">
+      <div class="center-form">
         <form action="" method="post" >
           {% csrf_token %}
           <label class="input-anim ">{{ form.non_field_errors }}
@@ -62,10 +61,11 @@
           </label>
         </form>
       </div>
+      <div class="text-center">
       <small class="check text-darkest">
         Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
       </small>
-    </div>
+      </div>
   </section>
 </div>
 {% endblock content %}

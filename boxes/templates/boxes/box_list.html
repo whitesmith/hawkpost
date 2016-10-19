@@ -112,7 +112,7 @@
     <div class="row center-xs center-md center-lg">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <h3 class="subtitle center-xs">Create New Box</h3>
-        <p class="smalltext text-lightest"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
+        <p class="smalltext text-lightest text-mob-"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
         <p class="smalltext text-lightest">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
         <span id="__all__-errors-js"></span>
         <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
@@ -137,7 +137,6 @@
                   {{ form.max_messages.label_tag }}
                   {{ form.max_messages }}
                 </p>
-                <br>
               </div>
             </div>
             <div class="row bottom-xs padding-b-m">

@@ -119,6 +119,9 @@
         padding: 2vh 0 2vh;
         margin-top: 15px;
         margin-bottom: 15px;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'heading1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
@@ -140,6 +143,9 @@
     .subtitle {
         font-family: BoldFont;
         color: $black;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'sub1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'sub1', 'xs');
         }
@@ -160,6 +166,9 @@
     .text {
         font-family: TextFont;
         color: $main-color50;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'text1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'text1', 'xs');
         }
@@ -178,6 +187,9 @@
     }
     
     .smalltext {
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xs');
         }
