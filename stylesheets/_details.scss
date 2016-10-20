@@ -46,7 +46,9 @@
  .text-left {
      text-align: left;
  }
- 
+ .text-center {
+     text-align: center;
+ }
  .text-right {
      text-align: right;
  }
@@ -155,6 +157,22 @@
          order: 1;
      }
  }
+.center-form {
+    width: 90%;
+    margin: auto;
+    @include breakpoint ($min:xs){
+         width: 90%;
+    }
+    @include breakpoint ($min:sm){
+         width: 100%;
+    }
+    @include breakpoint ($min:md){
+         width: 90%;
+    }
+    @include breakpoint ($min:lg){
+         width: 75%;
+    }
+}
 
  .inline-d{
     display: inline;
@@ -177,11 +195,18 @@
  .padding-modals1{
     padding: 10px 0 3px;
     color: white;
+    @include breakpoint ($min: xxs){
+    padding: 3px 0 2px;
+}
  }
  .padding-modals2{
     padding: 9px 0 0;
     color: white;
+    @include breakpoint ($min: xxs){
+    padding: 3px 0 2px;
+}
  }
+
 .xmt-small { margin-top: 5px;}
 .mt-small { margin-top: 10px;}
 .mt-normal { margin-top: 20px;}

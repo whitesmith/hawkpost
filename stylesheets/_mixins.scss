@@ -4,9 +4,14 @@
 @mixin breakpoint($min: 0, $max: 0) {
     $type: type-of($min);
     @if $type==string {
+        @if $min==xxs {
+            @media (max-width: 569px) {
+                @content;
+            }
+        }
         //mobile
-        @if $min==xs {
-            @media (max-width: 640px) {
+        @else if $min==xs {
+            @media (min-width: 570px) and (max-width: 640px) {
                 @content;
             }
         }

@@ -20,6 +20,10 @@ perspective effects (not including the modals and the overlay).
     width: 80vw;
 
 }
+@include breakpoint ($min: xxs){
+    width: 70vw;
+
+}
 
     z-index: 2000;
     visibility: hidden;
@@ -103,7 +107,10 @@ perspective effects (not including the modals and the overlay).
 .md-content > div p {
     margin: 0;
     padding: 10px 0;
-    //font-size:0.8rem;
+    @include breakpoint ($min: xxs){
+    padding: 6px 0;
+
+}
 }
 
 
