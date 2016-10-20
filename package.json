@@ -31,7 +31,6 @@
     "gulp-sass-bulk-import": "^1.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
-    "path": "^0.12.7",
     "run-sequence": "^1.1.5",
     "sass-module-importer": "^1.2.0",
     "vinyl-buffer": "^1.0.0",
