@@ -17,10 +17,8 @@ $(document).ready(function(){
   })
 
 $(".faq__box").click(function(){
-    //$(this).toggleClass("faq__box");
     $(this).toggleClass("open__faq__box");
     $(".faq__box").not(this).removeClass("open__faq__box");
-    //$(".faq__box--big").not(this).addClass("faq__box");
 });
 
 });
