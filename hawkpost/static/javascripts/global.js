@@ -16,7 +16,7 @@ $(document).ready(function(){
     popup.classList.toggle('show');
   })
 
-$(".faq__box").click(function(){
+  $(".faq__box").click(function(){
     $(this).toggleClass("open__faq__box");
     $(".faq__box").not(this).removeClass("open__faq__box");
   });
