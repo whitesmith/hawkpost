@@ -36,7 +36,7 @@ Base requirements:
 
 ## Linux
 
-On a **Debian** based operation system execute the following steps, after cloning the repository:
+On a **Debian** based operating system execute the following steps, after cloning the repository:
 
 * Install VirtualEnv and VirtualEnvWrapper
 
