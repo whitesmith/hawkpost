@@ -36,7 +36,7 @@ Base requirements:
 
 ## Linux
 
-On a **Debian** based operation execute the following steps, after cloning the repository:
+On a **Debian** based operation system execute the following steps, after cloning the repository:
 
 * Install VirtualEnv and VirtualEnvWrapper
 
@@ -72,7 +72,7 @@ $ python manage.py migrate
 $ gulp build
 ```
 
-* Now you should be able to launch de server and its workers 
+* Now you should be able to launch the server and its workers 
 
 ```
 $ python manage.py runserver
@@ -142,7 +142,7 @@ $ python manage.py migrate
 $ gulp build
 ```
 
-* Now you should be able to launch de server and its workers
+* Now you should be able to launch the server and its workers
 
 ```
 $ python manage.py runserver
