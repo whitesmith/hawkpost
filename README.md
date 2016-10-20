@@ -1,23 +1,26 @@
 HawkPost
 ========
 
-**Warning:** This project is in `alpha` state. This means it is not 100% ready and you should **use it at your own risk**.
-
-Rationale: For many web and mobile development studios, no matter how hard they try to secure their client secrets (passwords, API keys, etc), the weakest link resides on the client most of the times, specially when he's not a tech savvy person. This project tries to help minimize this issue on the communication between both parties.
-
 HawkPost lets you create unique links that you can share with the person that desires to send you important information but doesn't know how to deal with PGP.
+
+You can deploy your own server using the code from this repository or use the official server (that is running an exact copy of this repo) at [https://hawkpost.co](https://hawkpost.co).
+
+
+## Rationale
+
+For many web and mobile development studios, no matter how hard they try to secure their client secrets (passwords, API keys, etc), the weakest link resides on the client most of the times, specially when he's not a tech savvy person. This project tries to help minimize this issue on the communication between both parties.
 
 The way it works is like this:
 
-* It fetches your public key
+1. It fetches your public key.
+1. When the box is open and the secrets submitted, all the content is encrypted on the client side.
+1. The server then signs (**experimental**) the encrypted content.
+1. Finally the server forwards it to your e-mail address.
 
-* When the box is open and the secrets submitted, all the content is encrypted on the client side. 
 
-* The server then signs (not implemented yet) the encrypted content
+## Disclaimer
 
-* Finally the server forwards it to your email address.
-
-You can deploy your own server using the code from this repository or use the official server (that is running an exact copy of this repo) at [https://hawkpost.co](https://hawkpost.co).
+This project is in `beta` state. This means it is not 100% ready and you should **use it at your own risk**.
 
 
 # Getting started

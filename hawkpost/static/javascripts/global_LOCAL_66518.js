@@ -19,11 +19,6 @@ $(document).ready(function(){
 $(".faq__box").click(function(){
     $(this).toggleClass("open__faq__box");
     $(".faq__box").not(this).removeClass("open__faq__box");
-  });
+});
 
-  $('[data-dismiss="banner"]').on('click', function(){
-    $(this).closest('[role="banner"]').slideUp('fast', function(){
-      $(this).remove();
-    });
-  });
 });

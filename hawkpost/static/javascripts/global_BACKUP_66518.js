@@ -16,10 +16,19 @@ $(document).ready(function(){
     popup.classList.toggle('show');
   })
 
+<<<<<<< HEAD
 $(".faq__box").click(function(){
     $(this).toggleClass("open__faq__box");
     $(".faq__box").not(this).removeClass("open__faq__box");
+});
+=======
+  $(".faq__box--big").click(function(){
+    $(this).toggleClass("faq__box");
+    $(this).toggleClass("open__faq__box");
+    $(".faq__box--big").not(this).removeClass("open__faq__box");
+    $(".faq__box--big").not(this).addClass("faq__box");
   });
+>>>>>>> master
 
   $('[data-dismiss="banner"]').on('click', function(){
     $(this).closest('[role="banner"]').slideUp('fast', function(){

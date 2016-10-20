@@ -1,5 +1,13 @@
 {% extends "layout/base.html" %} {% load staticfiles %} {% block content %}
 
+<div class="banner-ph banner-ph--alt" role="banner">
+  <button type="button" class="banner-ph__button" aria-label="Close" data-dismiss="banner"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+  <div class="banner-ph__copy">
+    <h4 class="banner-ph__title">Check us out on Product Hunt!</h4>
+    <p class="banner-ph__text">We will be on Product Hunt answering all your questions in the comments section.</p>
+  </div>
+</div>
+
 <div class="section-definer-dark">
   <section class="section-resized">
     <div class="row center-xs">
@@ -84,7 +92,7 @@
       <div class=" col-xs-12 col-sm-6">
         <div class="faq__box  faq__box--big" tabindex="1">
           <p class="faq__title text-lightest">Is my link permanently available?</p>
-          <p class="faq__text smalltext">No, at the momment you can create as many unique links as you want, one for each ocasion. You can set an expiration date for each one. However, other configuration options will be added soon, so you can better adapt the functionality to your use cases.</p>
+          <p class="faq__text smalltext">No, at the momment you can create as many unique links as you want, one for each occasion. You can set an expiration date for each one. However, other configuration options will be added soon, so you can better adapt the functionality to your use cases.</p>
         </div>
         <div class="faq__box" tabindex="1">
           <p class="faq__title text-lightest">What type of information can be submitted?</p>
