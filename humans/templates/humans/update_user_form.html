@@ -5,67 +5,67 @@
 <div class="section-definer-light">
   <section class="section-resized ">
     <p class="title center-xs">Update your user settings</p>
-      <div class="center-form">
-        <form action="" method="post" >
-          {% csrf_token %}
-          <label class="input-anim ">{{ form.non_field_errors }}
-            <div class="row around-xs text-darkest">
-              <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
-                <div class="form__block">
-                  {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
-                </div>
-                <div class="form__block">
-                  {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
-                </div>
-                <div class="form__block">
-                  {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
-                </div>
-                <div class="form__block">
-                  {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
-                </div>
-                <div class="checkbox-">
-                  {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}   
-                  <div class=".control__indicator">
-                    {{ form.server_signed }}
-                    <div class="popup server-signed-info-js">
-                      <span class="popuptext smalltext" id="server-signed-content-js ">
-                        This is an experimental feature.
-                      </span>
-                    </div>
+    <div class="center-form">
+      <form action="" method="post" >
+        {% csrf_token %}
+        <label class="input-anim ">{{ form.non_field_errors }}
+          <div class="row around-xs text-darkest">
+            <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
+              <div class="form__block">
+                {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
+              </div>
+              <div class="form__block">
+                {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
+              </div>
+              <div class="form__block">
+                {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
+              </div>
+              <div class="form__block">
+                {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
+              </div>
+              <div class="checkbox-">
+                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}   
+                <div class=".control__indicator">
+                  {{ form.server_signed }}
+                  <div class="popup server-signed-info-js">
+                    <span class="popuptext smalltext" id="server-signed-content-js ">
+                      This is an experimental feature.
+                    </span>
                   </div>
                 </div>
-                <div class="col-xs-12 no-padding">
-                  <span class="text-light-info">
-                    The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong class="text-important">already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong class="text-important">Evolution</strong> and <strong class="text-important">mutt</strong>.
-                  </span>
-                </div>
               </div>
-              <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
-                <div class="form__block">
-                  {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
-                </div>
-                <div class="form__block">
-                  {{ form.keyserver_url.errors }} {{ form.keyserver_url.label_tag }} {{ form.keyserver_url }}
-                </div>
-                <div class="margin-b-s form__block key ">
-                  {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
-                </div>
-                <div class="col-xs-12 no-padding"> 
-                  <span class="text-light-info">
-                    You can provide the public key in a static away <strong class="text-important"> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
-                  </span>
-                </div>
+              <div class="col-xs-12 no-padding">
+                <span class="text-light-info">
+                  The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong class="text-important">already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong class="text-important">Evolution</strong> and <strong class="text-important">mutt</strong>.
+                </span>
               </div>
-              <input type="submit" class="btn-modal set" value="Save" />
             </div>
-          </label>
-        </form>
-      </div>
-      <div class="text-center">
+            <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
+              <div class="form__block">
+                {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
+              </div>
+              <div class="form__block">
+                {{ form.keyserver_url.errors }} {{ form.keyserver_url.label_tag }} {{ form.keyserver_url }}
+              </div>
+              <div class="margin-b-s form__block key ">
+                {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
+              </div>
+              <div class="col-xs-12 no-padding"> 
+                <span class="text-light-info">
+                  You can provide the public key in a static away <strong class="text-important"> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
+                </span>
+              </div>
+            </div>
+            <input type="submit" class="btn-modal set" value="Save" />
+          </div>
+        </label>
+      </form>
+    </div>
+    <div class="text-center">
       <small class="check text-darkest">
         Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
       </small>
-      </div>
+    </div>
   </section>
 </div>
 {% endblock content %}
