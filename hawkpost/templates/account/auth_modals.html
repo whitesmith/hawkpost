@@ -23,7 +23,7 @@
           </p>
           <div class="start-xs text-lightest ">
             {% csrf_token %}
-            <label class="input-anim">
+            <div class="input-anim">
               <span id="login-form-errors-js"></span>
               <p>
                 {{ login_form.login.label_tag }} {{ login_form.login }}{{ login_form.login.errors }}
@@ -31,7 +31,7 @@
               <p>
                 {{ login_form.password.label_tag }} {{ login_form.password }}{{ login_form.password.errors }}
               </p>
-            </label>
+            </div>
             <label class="input-anim" for="id_remember">
               <p class="no-padding"> {{ login_form.remember.errors }}
                 <div class="flex-in">
@@ -74,7 +74,7 @@
           <div class="login-or"><p>{% trans 'Sign up' %} via email address:</p></div>
           {% csrf_token %}
           <div class="start-xs text-lightest">
-            <label class="input-anim">
+            <div class="input-anim">
               <span id="signup-form-errors-js"></span>
               <p>
                 {{ signup_form.email.label_tag }} {{ signup_form.email }}{{ signup_form.email.errors }}
@@ -85,7 +85,7 @@
               <p>
                 {{ signup_form.password2.label_tag }} {{ signup_form.password2 }} {{ signup_form.password2.errors }}
               </p>
-            </label>
+            </div>
           </div>
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
