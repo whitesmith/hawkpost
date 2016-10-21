@@ -4,6 +4,12 @@
 
      width: 27vw;
      margin: 0 auto 0;
+     @include breakpoint ($min: xxs) {
+
+         width: 100vw;
+         max-height: 110vh;
+     }
+
      @include breakpoint ($min: xs) {
 
          width: 90vw;

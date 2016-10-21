@@ -1,14 +1,14 @@
     /*
  * BASE STYLES
  * ================================ */
-    
+
     //box-sizing model = margin and paddgin inside element so they don't increase width of component.
     *,
     *:before,
     *:after {
         box-sizing: border-box;
     }
-    
+
     html,
     body {
         width: 100%;
@@ -17,15 +17,15 @@
         padding: 0px;
         overflow-x: hidden;
     }
-    
+
     html {}
-    
+
     .hidden {
         display: none;
     }
-    
-     
-    
+
+
+
    ul li {
         list-style-type: none;
         margin: 5px;
@@ -36,11 +36,11 @@
 \*------------------------------------*/
 
 //section that has the full width of the page
-.section-definer {  
+.section-definer {
     width: 100%;
     height: 100%;
 }
-       
+
 .section-definer-light {
          @extend .section-definer;
     background-color:white;
@@ -109,6 +109,8 @@
     @font-face {
         font-family: TextFont;
         src: url(../fonts/Ayuthaya.ttf);
+        src: url('../fonts/ayuthaya.woff2') format('woff2'),
+        url('../fonts/ayuthaya.woff') format('woff');
         font-weight: regular;
     }
 
@@ -119,6 +121,9 @@
         padding: 2vh 0 2vh;
         margin-top: 15px;
         margin-bottom: 15px;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'heading1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'heading1', 'xs');
         }
@@ -136,10 +141,13 @@
         }
 
     }
-    
+
     .subtitle {
         font-family: BoldFont;
         color: $black;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'sub1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'sub1', 'xs');
         }
@@ -156,10 +164,13 @@
             font-size: map-deep-get($typescale, 'sub1', 'xl');
         }
     }
-    
+
     .text {
         font-family: TextFont;
         color: $main-color50;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'text1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'text1', 'xs');
         }
@@ -176,8 +187,11 @@
             font-size: map-deep-get($typescale, 'text1', 'xl');
         }
     }
-    
+
     .smalltext {
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'smalltext1', 'xxs');
+        }
         @include breakpoint($min: xs) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xs');
         }
@@ -201,7 +215,7 @@
     /*------------------------------------*\
   #BODY
 \*------------------------------------*/
-    
+
     body {
         min-height: 100%;
         height: auto;
@@ -214,7 +228,7 @@
     /*------------------------------------*\
   #LINKS
 \*------------------------------------*/
-    
+
     a {
         color: $main-color;
         text-decoration: none;
