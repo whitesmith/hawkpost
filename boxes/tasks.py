@@ -2,6 +2,7 @@ from __future__ import absolute_import
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Message
 from .email import GPGSignedEncryptedMessage
@@ -14,7 +15,7 @@ def process_email(message_id, form_data):
     message = Message.objects.get(id=message_id)
     box = message.box
     msg = form_data["message"]
-    subject = "New submission to your box: {}".format(box)
+    subject = _('New submission to your box: {}').format(box)
 
     if box.owner.server_signed:
         email = GPGSignedEncryptedMessage(subject, msg,

@@ -1,6 +1,7 @@
 from django.forms import ModelForm, Form, CharField, Textarea, BooleanField
 from .models import Box
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 
 class CreateBoxForm(ModelForm):
@@ -32,11 +33,11 @@ class CreateBoxForm(ModelForm):
         if expires_at:
             # Check if the expiration date is a past date
             if timezone.localtime(timezone.now(), current_tz) > expires_at:
-                self.add_error('expires_at', "The date must be on the future.")
+                self.add_error('expires_at', _('The date must be on the future.'))
         if not expires_at and not never_expires:
             self.add_error('expires_at',
-                           "This field is required, unless box is set to "
-                           "never expire.")
+                           _('This field is required, unless box is set to '
+                             'never expire.')
         return expires_at
 
     def clean(self):
@@ -58,7 +59,7 @@ class SubmitBoxForm(Form):
 
         try:
             if lines[0] != begin or lines[-1] != end:
-                self.add_error("message", "Invalid PGP message")
+                self.add_error("message", _('Invalid PGP message'))
         except IndexError:
-            self.add_error("message", "Invalid PGP message")
+            self.add_error("message", _('Invalid PGP message'))
         return message

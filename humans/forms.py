@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from allauth.account.forms import LoginForm as BaseLoginForm
 from allauth.account.forms import SignupForm as BaseSignupForm
 from .models import User
@@ -22,8 +23,8 @@ class UpdateUserInfoForm(ModelForm):
             "timezone"
         ]
         widgets = {
-            'keyserver_url': forms.TextInput(attrs={'placeholder': 'https://example.com/key.asc'}),
-            'public_key': forms.Textarea(attrs={'placeholder': '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: SKS 1.1.1\n<PGP KEY>\n-----END PGP PUBLIC KEY BLOCK-----'})
+            'keyserver_url': forms.TextInput(attrs={'placeholder': _("https://example.com/key.asc")}),
+            'public_key': forms.Textarea(attrs={'placeholder': _("-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: SKS 1.1.1\n<PGP KEY>\n-----END PGP PUBLIC KEY BLOCK-----")})
         }
 
     def __init__(self, *args, **kwargs):
@@ -41,13 +42,13 @@ class UpdateUserInfoForm(ModelForm):
             fingerprint, state = key_state(pub_key)
             # Check if has valid format
             if state == "invalid":
-                self.add_error('public_key', "This key is not valid")
+                self.add_error('public_key', _('This key is not valid'))
             # Check if it is not expired
             elif state == "revoked":
-                self.add_error('public_key', "This key is revoked")
+                self.add_error('public_key', _('This key is revoked'))
             # Check if is was not revoked
             elif state == "expired":
-                self.add_error('public_key', "This key is expired")
+                self.add_error('public_key', _('This key is expired'))
         return pub_key
 
     def clean_fingerprint(self):
@@ -58,7 +59,7 @@ class UpdateUserInfoForm(ModelForm):
         if pub_key:
             key_fingerprint, state = key_state(pub_key)
             if fingerprint != key_fingerprint:
-                self.add_error('fingerprint', "Fingerprint does not match")
+                self.add_error('fingerprint', _('Fingerprint does not match'))
         return fingerprint
 
     def clean_keyserver_url(self):
@@ -68,7 +69,7 @@ class UpdateUserInfoForm(ModelForm):
                 res = requests.get(url)
             except:
                 self.add_error("keyserver_url",
-                               "Could not access the specified url")
+                               _("Could not access the specified url"))
                 return url
             begin = res.text.find("-----BEGIN PGP PUBLIC KEY BLOCK-----")
             end = res.text.find("-----END PGP PUBLIC KEY BLOCK-----")
@@ -76,7 +77,7 @@ class UpdateUserInfoForm(ModelForm):
                 self.pub_key = res.text[begin:end + 34]
             else:
                 self.add_error("keyserver_url",
-                               "This url does not have a pgp key")
+                               _('This url does not have a pgp key'))
         return url
 
 

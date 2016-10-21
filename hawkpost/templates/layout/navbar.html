@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load staticfiles %}
 
 <div class="nav-big smalltext">
@@ -10,16 +11,16 @@
       </div>
       <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
         {% if request.user.is_authenticated %}
-        <li class="navbar__link"><a href="{%url "boxes_list"%}">Boxes</a></li>
-        <li class="navbar__link"><a href="{%url "humans_update"%}">Settings</a></li>
-        <li class="navbar__link"><a href="{%url "account_logout"%}">Logout</a></li>
+        <li class="navbar__link"><a href="{%url "boxes_list"%}">{% trans "Boxes" %}</a></li>
+        <li class="navbar__link"><a href="{%url "humans_update"%}">{% trans "Settings" %}</a></li>
+        <li class="navbar__link"><a href="{%url "account_logout"%}">{% trans "Logout" %}</a></li>
         {% else %}
           {% if signup_form and login_form %}
-          <li class="navbar__link"><a class="md-trigger" href="#modal-login" data-modal="modal-login" >Login </a></li>
-          <li class="navbar__link"><a  class="md-trigger" href="#modal-signup" data-modal="modal-signup" >Sign up</a></li>
+          <li class="navbar__link"><a class="md-trigger" href="#modal-login" data-modal="modal-login" >{% trans "Login" %}</a></li>
+          <li class="navbar__link"><a  class="md-trigger" href="#modal-signup" data-modal="modal-signup" >{% trans "Sign up" %}</a></li>
           {% endif %}
-        <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
-        <li class="navbar__link"><a href="{%url "pages_help"%}">Support</a></li>
+        <li class="navbar__link"><a href="{%url "pages_about"%}">{% trans "About" %}</a></li>
+        <li class="navbar__link"><a href="{%url "pages_help"%}">{% trans "Support" %}</a></li>
         {% endif %}
       </ul>
     </div>
@@ -44,16 +45,16 @@
         <label class="nav__item " for="nav-trigger">
           <li><a class="nav__link center-xs" href="{%url "pages_index"%}"><img src="{%static 'images/logob.png'%}" class="logo"></a></li>
           {% if request.user.is_authenticated %}
-          <li><a class="nav__link" href="{%url "boxes_list"%}">Boxes</a></li>
-          <li><a class="nav__link" href="{%url "humans_update" %}">Settings</a></li>
-          <li><a class="nav__link" href="{%url "account_logout"%}">Logout</a></li>
+          <li><a class="nav__link" href="{%url "boxes_list"%}">{% trans "Boxes" %}</a></li>
+          <li><a class="nav__link" href="{%url "humans_update" %}">{% trans "Settings" %}</a></li>
+          <li><a class="nav__link" href="{%url "account_logout"%}">{% trans "Logout" %}</a></li>
           {% else %}
             {% if signup_form and login_form %}
-            <li><a class="nav__link md-trigger" href="#modal-login" data-modal="modal-login">Login </a></li>
-            <li><a class="nav__link md-trigger" href="#modal-signup" data-modal="modal-signup">Sign up</a></li>
+            <li><a class="nav__link md-trigger" href="#modal-login" data-modal="modal-login">{% trans "Login" %}</a></li>
+            <li><a class="nav__link md-trigger" href="#modal-signup" data-modal="modal-signup">{% trans "Sign up" %}</a></li>
             {% endif %}
-          <li><a class="nav__link" href="{%url "pages_about"%}">About</a></li>
-          <li><a class="nav__link" href="{%url "pages_help"%}">Support</a></li>
+          <li><a class="nav__link" href="{%url "pages_about"%}">{% trans "About" %}</a></li>
+          <li><a class="nav__link" href="{%url "pages_help"%}">{% trans "Support" %}</a></li>
           {% endif %}
         </ul>
       </div>

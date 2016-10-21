@@ -1,3 +1,4 @@
+{% load i18n %}
 {% extends "layout/base.html" %}
 {% load staticfiles %}
 
@@ -7,19 +8,19 @@
     <div class="boxes-navbar-container">
       <div class="head-navbar row middle-xs">
         <div class="col-xs-8 col-sm-5 start-xs">
-          <h2 class="text-lightest title">MANAGE BOXES</h2>
+          <h2 class="text-lightest title">{% trans "MANAGE BOXES" %}</h2>
         </div>
         <div class="col-xs-4 col-sm-1">
-          <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New Box</a>
+          <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>{% trans "New Box" %}</a>
         </div>
       </div>
       <ul class="box__nav smalltext">
         <div class="row no-padding">
           <div class="center-xs col-xs-12 flex-d">
-            <li class="full-width"><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">Open</a></li>
-            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">Done</a></li>
-            <li class="full-width"><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">Expired</a></li>
-            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">Closed</a></li>
+            <li class="full-width"><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">{% trans "Open" %}</a></li>
+            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">{% trans "Done" %}</a></li>
+            <li class="full-width"><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">{% trans "Expired" %}</a></li>
+            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">{% trans "Closed" %}</a></li>
           </div>
         </div>
       </ul>
@@ -48,22 +49,22 @@
             
             <div class="extra-info">
               <p class="no-margin-bottom mt-small">
-                <span class="xsmallmedium text-darkest">Messages:</span>
+                <span class="xsmallmedium text-darkest">{% trans "Messages:" %}</span>
                 <span class="xsmalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
               </p>
               <p class="mt-small mb-small">
-                <span class="xsmallmedium">Created on:</span>
+                <span class="xsmallmedium">{% trans "Created on:" %}</span>
                 <span class="xsmalltext tex">{{box.created_at}}</span>
               </p>
               {% if box.expires_at %}
               <p class="no-margin-top mb-small">
-                <span class="xsmallmedium">Expires on:</span>
+                <span class="xsmallmedium">{% trans "Expires on:" %}</span>
                 <span class="xsmalltext">{{box.expires_at}}</span>
               </p>
               {% endif %}
               {% if box.messages.count %}
               <p class="smalltext no-margin-top">
-                <span class="xsmallmedium">Last sent:</span>
+                <span class="xsmallmedium">{% trans "Last sent:" %}</span>
                 <span class="xsmalltext">{{box.last_sent_at}}</span>
               </p>
               {% endif %}
@@ -92,15 +93,15 @@
         <div class="pagination text">
           <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}" class=" text-darkest"> &lt; Previous</a>
+            <a href="?page={{ page_obj.previous_page_number }}&amp;display={{ display_status }}" class=" text-darkest"> &lt; {% trans "Previous" %}</a>
             {% endif %}
             {% if paginator.num_pages > 1 %}
             <span class="current hidden">
-              Page {{ page_obj.number }} of {{ paginator.num_pages }}
+              {% blocktrans %}Page {{ page_obj.number }} of {{ paginator.num_pages }}{% endblocktrans %}
             </span>
             {% endif %}
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}" class="text-darkest">Next &gt; </a>
+            <a href="?page={{ page_obj.next_page_number }}&amp;display={{ display_status }}" class="text-darkest">{% trans "Next" %} &gt; </a>
             {% endif %}
           </span>
         </div>
@@ -113,9 +114,9 @@
     <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
     <div class="row center-xs center-md center-lg">
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <h3 class="subtitle center-xs text-lightest">CREATE NEW BOX</h3>
-        <p class="smalltext text-lightest text-mob-"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
-        <p class="smalltext text-lightest">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
+        <h3 class="subtitle center-xs text-lightest">{% trans "CREATE NEW BOX" %}</h3>
+        <p class="smalltext text-lightest text-mob-">{% trans "For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes"." %}</p>
+        <p class="smalltext text-lightest">{% trans "Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible." %}</p>
         <span id="__all__-errors-js"></span>
         <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
           {% csrf_token %}
@@ -158,7 +159,7 @@
             </div>
           </label>
           <div class="col-xs-12 no-padding">
-            <button type="submit" class="btn-blue" value="">Create</button>
+            <button type="submit" class="btn-blue" value="">{% trans "Create" %}</button>
           </div>
         </form>
       </div>

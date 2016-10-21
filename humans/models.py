@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group
+from django.utils.translation import ugettext_lazy as _
 from timezone_field import TimeZoneField
 
 
@@ -7,13 +8,13 @@ class User(AbstractUser):
     """
         Project's base user model
     """
-    organization = models.CharField(null=True, blank=True, max_length=80)
-    public_key = models.TextField(blank=True, null=True)
-    fingerprint = models.CharField(null=True, blank=True, max_length=50)
-    keyserver_url = models.URLField(null=True, blank=True)
-    server_signed = models.BooleanField(default=False)
+    organization = models.CharField(null=True, blank=True, max_length=80, verbose_name=_('Organization'))
+    public_key = models.TextField(blank=True, null=True, verbose_name=_('Public key'))
+    fingerprint = models.CharField(null=True, blank=True, max_length=50, verbose_name=_('Fingerprint'))
+    keyserver_url = models.URLField(null=True, blank=True, verbose_name=_('Key server URL'))
+    server_signed = models.BooleanField(default=False, verbose_name=_('Server signed'))
 
-    timezone = TimeZoneField(default='UTC')
+    timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
 
     def has_setup_complete(self):
         if self.public_key and self.fingerprint:
@@ -35,18 +36,18 @@ class Notification(models.Model):
         by an Administrator. Just once.
     """
 
-    subject = models.CharField(null=False, blank=False, max_length=150)
-    body = models.TextField(null=False, blank=False)
+    subject = models.CharField(null=False, blank=False, max_length=150, verbose_name=_('Subject'))
+    body = models.TextField(null=False, blank=False, verbose_name=_('Body'))
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created at'))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_('Updated at'))
 
-    sent_at = models.DateTimeField(null=True)
-    send_to = models.ForeignKey(Group, null=True, blank=True)
+    sent_at = models.DateTimeField(null=True, verbose_name=_('Sent at'))
+    send_to = models.ForeignKey(Group, null=True, blank=True, verbose_name=_('Send to'))
 
     class Meta:
-        verbose_name = "Notification"
-        verbose_name_plural = "Notifications"
+        verbose_name = _('Notification')
+        verbose_name_plural = _('Notifications')
 
     def __str__(self):
         return self.subject
