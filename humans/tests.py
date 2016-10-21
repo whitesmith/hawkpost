@@ -59,18 +59,6 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
-    # def test_empty_firt_name(self):
-    #     data = copy(self.default_data)
-    #     data["first_name"] = ""
-    #     form = UpdateUserInfoForm(data)
-    #     self.assertEqual(form.is_valid(), False)
-    #
-    # def test_empty_last_name(self):
-    #     data = copy(self.default_data)
-    #     data["last_name"] = ""
-    #     form = UpdateUserInfoForm(data)
-    #     self.assertEqual(form.is_valid(), False)
-
 
 class UtilsTests(TestCase):
 
