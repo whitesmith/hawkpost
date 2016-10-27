@@ -1,14 +1,14 @@
 {
   "name": "Hawkpost",
-  "version": "9000.0.1",
-  "description": "Generate links that users can use to submit messages encrypted with your public key.",
+  "version": "2016.09.24",
+  "description": "Get encrypted data from people that don’t know how to encrypt.",
   "main": "",
   "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/whitesmith/hawkpost.git"
   },
-  "author": "Whitesmith Co",
+  "author": "Whitesmith",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/whitesmith/hawkpost/issues"
@@ -20,20 +20,14 @@
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^2.0.4",
-    "gulp-concat": "^2.6.0",
-    "gulp-deploy-git": "^0.5.3",
     "gulp-if": "^2.0.0",
-    "gulp-imagemin": "^2.4.0",
     "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.2.0",
     "gulp-sass-bulk-import": "^1.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.1.5",
     "sass-module-importer": "^1.2.0",
-    "vinyl-buffer": "^1.0.0",
     "yargs": "^4.3.2"
   }
 }
