@@ -8,9 +8,9 @@ from .models import Notification, User
 from .forms import UpdateUserInfoForm
 from .tasks import enqueue_email_notifications
 from .utils import key_state
-from .constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
-from .constants import EXPIRED_KEY_FINGERPRINT, REVOKED_KEY_FINGERPRINT
-from .constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
+from .test_constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
+from .test_constants import EXPIRED_KEY_FINGERPRINT, REVOKED_KEY_FINGERPRINT
+from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
 
 from copy import copy
 

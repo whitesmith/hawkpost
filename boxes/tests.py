@@ -6,7 +6,7 @@ from datetime import timedelta
 from .models import Box, Message
 from .forms import CreateBoxForm, SubmitBoxForm
 from .tasks import process_email
-from .constants import ENCRYPTED_MESSAGE
+from .test_constants import ENCRYPTED_MESSAGE
 import random
 import string
 
