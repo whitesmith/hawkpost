@@ -37,7 +37,7 @@ class CreateBoxForm(ModelForm):
         if not expires_at and not never_expires:
             self.add_error('expires_at',
                            _('This field is required, unless box is set to '
-                             'never expire.')
+                             'never expire.'))
         return expires_at
 
     def clean(self):

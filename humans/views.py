@@ -70,10 +70,10 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
             logout(request)
             messages.success(request,
                              _('Account deleted successfully.'
-                               ' We hope you comeback soon.')
+                               ' We hope you comeback soon.'))
             return response
         else:
             messages.error(request,
                            _('In order to delete the account you must provide'
-                             ' the current password.')
+                             ' the current password.'))
             return self.get(request, *args, **kwargs)

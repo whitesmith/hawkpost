@@ -102,7 +102,7 @@ class Message(models.Model):
     FAILED = 30
 
     STATUSES = (
-        (ONQUEUE, _('OnQueue'),
+        (ONQUEUE, _('OnQueue')),
         (SENT, _('Sent')),
         (FAILED, _('Failed'))
     )

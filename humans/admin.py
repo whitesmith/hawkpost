@@ -56,7 +56,7 @@ class NotificationAdmin(admin.ModelAdmin):
             enqueue_email_notifications.delay(notification.id,
                                               send_to)
         queryset.update(sent_at=timezone.now())
-        messages.success(request, _('All notifications enqueued for sending')
+        messages.success(request, _('All notifications enqueued for sending'))
 
     send_notification.short_description = _('Send selected notifications')
     delete_selected.short_description = _('Delete selected notifications')
