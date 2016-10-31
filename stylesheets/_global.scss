@@ -54,7 +54,13 @@ $small-text-size:11px;
     @return $map;
 }
 
-$typescale:( heading1: (xxs:1.6rem, xs: 1.7rem, sm: 1.9rem, md: 2.1rem, lg: 2.3rem, xl: 2.4rem),
-    sub1: (xxs:0.9rem, xs: 1rem, sm: 1.05rem, md: 1.1rem, lg: 1.2rem, xl: 1.5rem),
-	text1: (xxs:0.74rem, xs: 0.75rem, sm: 0.79rem, md: 0.82rem, lg: 0.85rem, xl: 0.9rem),
-    smalltext1: (xxs:0.71rem, xs: 0.72rem, sm: 0.75rem, md: 0.77rem, lg: 0.78rem, xl: 0.79rem), );
+$typescale:( heading1: (xxs:1.3rem, xs: 1.4rem, sm: 1.5rem, md: 1.6rem, lg: 1.7rem, xl: 1.9rem),
+  sub1: (xxs:0.9rem, xs: 1rem, sm: 1.05rem, md: 1.1rem, lg: 1.2rem, xl: 1.5rem),
+	text1: (xxs:0.84rem, xs: 0.86rem, sm: 0.87rem, md: 0.86rem, lg: 0.89rem, xl: 0.9rem), 
+  textmedium1: (xxs:0.84rem, xs: 0.86rem, sm: 0.87rem, md: 0.86rem, lg: 0.89rem, xl: 0.9rem),
+  textbold1: (xxs:0.84rem, xs: 0.86rem, sm: 0.87rem, md: 0.86rem, lg: 0.89rem, xl: 0.9rem),
+  smalltext1: (xxs:0.71rem, xs: 0.72rem, sm: 0.75rem, md: 0.77rem, lg: 0.78rem, xl: 0.79rem), );
+
+
+
+

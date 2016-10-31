@@ -148,6 +148,14 @@
     }
 
     @font-face {
+        font-family: TextFontBold;
+        src: url(../fonts/Roboto-Bold.ttf);
+        src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
+        url('../fonts/Roboto-Bold.woff') format('woff');
+        font-weight: regular;
+    }
+
+    @font-face {
         font-family: TextFont;
         src: url(../fonts/Roboto-Regular.ttf);
         src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
@@ -229,6 +237,52 @@
         }
     }
 
+    .textmedium {
+        font-family: TextFontMedium;
+        color: $main-color50;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'xxs');
+        }
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'textmedium1', 'xl');
+        }
+    }
+
+    .textbold {
+        font-family: TextFontBold;
+        color: $main-color50;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'textbold1', 'xxs');
+        }
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'textbold1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'textbold1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'textbold1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'textbold1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'textbold1', 'xl');
+        }
+    }
+
     .smalltext {
         @include breakpoint($min: xxs) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xxs');
@@ -253,6 +307,7 @@
     .testelinks{
         color:#4ca7af;
     }
+
     /*------------------------------------*\
   #BODY
 \*------------------------------------*/
