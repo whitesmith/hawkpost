@@ -6,6 +6,9 @@ $(document).ready(function(){
   /*
     On user settings page, open the tooltips/popups
   */
+
+  $(".errorlist").addClass("smalltext");
+
   $(".server-signed-info-js").on("click", function () {
     var popup = document.getElementById('server-signed-content-js');
     popup.classList.toggle('show');
