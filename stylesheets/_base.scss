@@ -237,26 +237,26 @@
         }
     }
 
-    .textmedium {
+    .smallmedium {
         font-family: TextFontMedium;
         color: $main-color50;
         @include breakpoint($min: xxs) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'xxs');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'xxs');
         }
         @include breakpoint($min: xs) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'xs');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'xs');
         }
         @include breakpoint($min:sm) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'sm');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'sm');
         }
         @include breakpoint($min:md) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'md');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'md');
         }
         @include breakpoint($min:lg) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'lg');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'lg');
         }
         @include breakpoint($min:xl) {
-            font-size: map-deep-get($typescale, 'textmedium1', 'xl');
+            font-size: map-deep-get($typescale, 'smallmedium1', 'xl');
         }
     }
 
@@ -284,6 +284,7 @@
     }
 
     .smalltext {
+        font-family: TextFont;
         @include breakpoint($min: xxs) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xxs');
         }
@@ -301,6 +302,28 @@
         }
         @include breakpoint($min:xl) {
             font-size: map-deep-get($typescale, 'smalltext1', 'xl');
+        }
+    }
+
+    .xsmalltext {
+        font-family: TextFont;
+        @include breakpoint($min: xxs) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'xxs');
+        }
+        @include breakpoint($min: xs) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'xs');
+        }
+        @include breakpoint($min:sm) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'sm');
+        }
+        @include breakpoint($min:md) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'md');
+        }
+        @include breakpoint($min:lg) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'lg');
+        }
+        @include breakpoint($min:xl) {
+            font-size: map-deep-get($typescale, 'xsmalltext1', 'xl');
         }
     }
 

@@ -7,7 +7,7 @@
     <div class="boxes-navbar-container">
       <div class="head-navbar row middle-xs">
         <div class="col-xs-8 col-sm-5 start-xs">
-          <h2 class="text-lightest title">Manage Boxes</h2>
+          <h2 class="text-lightest title">MANAGE BOXES</h2>
         </div>
         <div class="col-xs-4 col-sm-1">
           <a class="box__nav box__nav__item smalltext md-trigger outro new-box-btn" {% if request.user.has_setup_complete %} data-modal="modal-1" {% else %} href="{% url 'humans_update' %}?setup=1" {% endif %}>New Box</a>
@@ -34,18 +34,18 @@
             <div class="box-container">
               <div class="basic-info">
                 <div class="box-title-desc">
-                  <h3 class="box__title text text-darkest">{{box.name}}</h3>
+                  <p class="box__title textbold text-darkest">{{box.name}}</p>
                   <p class="box__desc smalltext text-darkest">{{box.description}}</p>
                 </div>
                 {% if box.status == allow_actions %}
                 <div class="box-action">
                   <form class="hoverable" action="{% url 'boxes_close' box.id %}" method="post">
                     {% csrf_token %}
-                    <input class="btn-dark text outro" type="submit" value="CLOSE"/>
+                    <input class="btn-dark smalltext outro" type="submit" value="CLOSE"/>
                   </form>
                   <form class="hoverable" action="{% url 'boxes_delete' box.id %}" method="post">
                     {% csrf_token %}
-                    <input class="btn-dark text outro" type="submit" value="DELETE" />
+                    <input class="btn-dark smalltext outro" type="submit" value="DELETE" />
                   </form>
                 </div>
                 {% endif %}
@@ -54,8 +54,8 @@
             {% if box.status == allow_actions %}
             <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
             <div class="row url_btn">
-              <button class="btn-default copy-to-clipboard-js text col-xs-6" data-src='box-{{box.id}}-url'>COPY URL</button>
-              <a class="btn-default text col-xs-6" href="{% url 'boxes_show' box.uuid %}" target="_blank">OPEN</a>
+              <button class="btn-default copy-to-clipboard-js smalltext col-xs-6" data-src='box-{{box.id}}-url'>COPY URL</button>
+              <a class="btn-default smalltext col-xs-6" href="{% url 'boxes_show' box.uuid %}" target="_blank">OPEN</a>
             </div>
             {% endif %}
             <div class="extra-info">

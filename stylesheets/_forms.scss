@@ -60,6 +60,27 @@ cursor: pointer;
    input[type=checkbox] {width:20px;
     height: 20px;}
 }
+
+.input-anim-settings{
+    input[type=text], input[type=number], input[type=email], input[type=password],textarea{
+        background: none;
+        border: none;
+        border-radius: 0;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid black;
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid transparent;
+        border-bottom: 3px solid $blue;
+    }}
+
+
+   input[type=checkbox] {width:20px;
+    height: 20px;}
+}
+
     form {
 
         select {
@@ -185,6 +206,11 @@ cursor: pointer;
 
 .checkbox-{
     display: inline-flex;
+}
+
+#id_timezone{
+    background: none;
+    border: solid 1px black;
 }
 
 .errorlist{
