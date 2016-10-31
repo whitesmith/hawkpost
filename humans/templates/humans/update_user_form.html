@@ -8,7 +8,7 @@
     <div class="center-form">
       <form action="" method="post" >
         {% csrf_token %}
-        <label class="input-anim ">{{ form.non_field_errors }}
+        <div class="input-anim ">{{ form.non_field_errors }}
           <div class="row around-xs text-darkest">
             <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
               <div class="form__block">
@@ -24,7 +24,7 @@
                 {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
               </div>
               <div class="checkbox-">
-                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}   
+                {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
                 <div class=".control__indicator">
                   {{ form.server_signed }}
                   <div class="popup server-signed-info-js">
@@ -50,7 +50,7 @@
               <div class="margin-b-s form__block key ">
                 {{ form.public_key.errors }} {{ form.public_key.label_tag }} {{ form.public_key }}
               </div>
-              <div class="col-xs-12 no-padding"> 
+              <div class="col-xs-12 no-padding">
                 <span class="text-light-info">
                   You can provide the public key in a static away <strong class="text-important"> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
                 </span>
@@ -58,7 +58,7 @@
             </div>
             <input type="submit" class="btn-modal set" value="Save" />
           </div>
-        </label>
+        </div>
       </form>
     </div>
     <div class="text-center">
