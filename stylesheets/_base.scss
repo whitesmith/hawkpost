@@ -101,22 +101,36 @@
 #FONTS
 \*------------------------------------*/
     @font-face {
+        font-family: ExtraBoldFont;
+        src: url(../fonts/Raleway-ExtraBold.ttf);
+        //font-weight: bold;
+    }
+
+    @font-face {
         font-family: BoldFont;
-        src: url(../fonts/Exo-SemiBold.ttf);
-        font-weight: bold;
+        src: url(../fonts/Raleway-Bold.ttf);
+        //font-weight: bold;
+    }
+
+    @font-face {
+        font-family: TextFontMedium;
+        src: url(../fonts/Roboto-Medium.ttf);
+        src: url('../fonts/Roboto-Medium.woff2') format('woff2'),
+        url('../fonts/Roboto-Medium.woff') format('woff');
+        font-weight: regular;
     }
 
     @font-face {
         font-family: TextFont;
-        src: url(../fonts/Ayuthaya.ttf);
-        src: url('../fonts/ayuthaya.woff2') format('woff2'),
-        url('../fonts/ayuthaya.woff') format('woff');
+        src: url(../fonts/Roboto-Regular.ttf);
+        src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff');
         font-weight: regular;
     }
 
     //responsive font sizes
     .title {
-        font-family: BoldFont;
+        font-family: ExtraBoldFont;
         color: $black;
         padding: 2vh 0 2vh;
         margin-top: 15px;
