@@ -3,26 +3,36 @@
 
 {% block content %}
 <div class="section-definer-light">
-  <section class="section-resized ">
+  <section class="section-resized-settings">
     <p class="title center-xs">Update your user settings</p>
-    <div class="center-form">
-      <form action="" method="post" >
-        {% csrf_token %}
-        <div class="input-anim ">{{ form.non_field_errors }}
-          <div class="row around-xs text-darkest">
-            <div class="col-xxs-12 col-xs-5 col-md-5 margin-columns">
-              <div class="form__block">
-                {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
-              </div>
-              <div class="form__block">
-                {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
-              </div>
-              <div class="form__block">
-                {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
-              </div>
-              <div class="form__block">
-                {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
-              </div>
+    <div class="row">
+      <ul class="settings__nav subtitle">
+        <div class="col-xs-12 flex-column no-padding text-left">
+          <li class=""><a href="{% url "boxes_list" %}?display=Open" class=" text-darkest {% if display_status == 'Open' %}active{% endif %}">Profile</a></li>
+          <li class="text-darkest" ><a href="{% url "boxes_list" %}?display=Done" class=" text-darkest {% if display_status == 'Done' %}active{% endif %}">Keys</a></li>
+          <li class="text-darkest"><a href="{% url "boxes_list" %}?display=Expired" class=" text-darkest {% if display_status == 'Expired' %}active{% endif %}">Experimental Features</a></li>
+        </div>
+      </ul>
+      
+      <div class="center-form center-xs">
+        <form action="" method="post" >
+          {% csrf_token %}
+          <div class="input-anim ">{{ form.non_field_errors }}
+            <div class="row around-xs text-darkest">
+              <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
+                <div class="form__block">
+                  {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
+                </div>
+                <div class="form__block">
+                  {{ form.last_name.errors }} {{ form.last_name.label_tag }} {{ form.last_name }}
+                </div>
+                <div class="form__block">
+                  {{ form.organization.errors }} {{ form.organization.label_tag }} {{ form.organization }}
+                </div>
+                <div class="form__block">
+                  {{ form.timezone.errors }} {{ form.timezone.label_tag }} {{ form.timezone }}
+                </div>
+              <!--
               <div class="checkbox-">
                 {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
                 <div class=".control__indicator">
@@ -56,17 +66,23 @@
                 </span>
               </div>
             </div>
-            <input type="submit" class="btn-modal set" value="Save" />
-          </div>
+          -->
+          <input type="submit" class="btn-modal set" value="Save" />
         </div>
-      </form>
+      </div>
     </div>
-    <div class="text-center">
-      <small class="check text-darkest">
-        Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
-      </small>
-    </div>
-  </section>
+  </form>
+  <div class="text-center">
+    <small class="check text-darkest">
+      Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
+    </small>
+  </div>
+</div>
+</div>
+
+
+
+</section>
 </div>
 {% endblock content %}
 

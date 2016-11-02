@@ -167,6 +167,11 @@ label{
     padding: 7px 0 3px;
     color: black;
  }
+.settings__nav{
+    padding: 0;
+    width: 25%;
+    margin-right: 15px;
+}
 
  #id_keyserver_url:disabled {
     background: $lightgrey;

@@ -91,6 +91,33 @@
     }
 }
 
+.section-resized-settings{
+    @extend .section-resized;
+    width: 960px;
+    max-width: 100%;
+    margin: auto;
+    @include breakpoint ($min: xs) {
+        width: 350px;
+        max-width: 100%;
+    }
+    @include breakpoint ($min: sm) {
+        width: 620px;
+        max-width: 100%;
+    }
+    @include breakpoint ($min: md) {
+        width: 850px;
+        max-width: 100%;
+    }
+    @include breakpoint ($min: lg) {
+        width: 1100px;
+        max-width: 100%;
+    }
+    @include breakpoint ($min: xl) {
+        width: 1240px;
+        max-width: 100%;
+    }
+}
+
 .section-resized-extra {
     @extend .section-resized;
     min-height: 100vh;

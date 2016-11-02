@@ -158,7 +158,7 @@
      }
  }
 .center-form {
-    width: 90%;
+    /*width: 90%;
     margin: auto;
     @include breakpoint ($min:xs){
          width: 90%;
@@ -171,7 +171,13 @@
     }
     @include breakpoint ($min:lg){
          width: 75%;
-    }
+    }*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -33%);
+    width: 40%;
+    
 }
 
  .inline-d{
@@ -180,6 +186,16 @@
 
  .flex-d{
     display: flex;
+ }
+
+ .flex-column{
+    display: flex;
+    flex-direction: column;
+ }
+
+  .flex-row{
+    display: flex;
+    flex-direction: row;
  }
 
  .flex-in{
