@@ -192,3 +192,13 @@ label{
     color: #4ca7af ;
     text-align: center;
 }
+
+.sett__nav__item {
+    &.active{
+    color: $blue;
+    }
+    &:hover{
+      opacity: 0.7;
+    }
+
+}
