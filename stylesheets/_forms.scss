@@ -119,10 +119,45 @@ cursor: pointer;
     padding: 7px 0 3px;
     color: black;
  }
+
+ .nav-st{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include breakpoint ($min:md){
+         flex-direction: column;
+    }
+ }
+
 .settings__nav{
     padding: 0;
     width: 25%;
     margin-right: 15px;
+    @include breakpoint ($min:xxs){
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
+         margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:xs){
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
+         margin: 0px 0px 10px 0;
+    }
+     @include breakpoint ($min:sm){
+         width: 100%;
+         padding-left: 20%;
+         padding-right: 20%;
+         margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:md){
+         width: 25%;
+         padding-left: 12px;
+    }
+    @include breakpoint ($min:lg){
+         width: 30%;
+    }
 }
 
  #id_keyserver_url:disabled {
