@@ -14,7 +14,7 @@
      color: $blue;
  }
 .text-light-info{
-    color: #333;
+    color: $blue;
     font-size: 0.60rem;
 }
  .text-darkest {
@@ -40,10 +40,7 @@
  .text-bold {
      font-weight: 600;
  }
- .text-important{
-    color: $dark;
- }
- .text-left {
+  .text-left {
      text-align: left;
  }
  .text-center {
