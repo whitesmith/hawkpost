@@ -37,9 +37,7 @@ margin: 0 5px 0;
 
 
 .fa{
-cursor: pointer;}
-label{
-//font-size:0.8rem;
+cursor: pointer;
 }
 
 
@@ -111,53 +109,7 @@ label{
     }
         }
     }
-    /*
------#POP-UP----*/
-    .popup {
-        position: relative;
-        display: inline-block;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* The actual popup */
-    .popup .popuptext {
-        visibility: hidden;
-        width: 180px;
-        background-color: $blue;
-        color: #fff;
-        text-align: center;
-        //border-radius: 6px;
-        padding: 8px 0;
-        position: absolute;
-        z-index: 1;
-        margin-left: -110px;
-    }
-    /* Toggle this class - hide and show the popup */
-    .popup .show {
-        visibility: visible;
-        -webkit-animation: fadeIn 1s;
-        animation: fadeIn 1s;
-        padding: 6px;
-    }
-    /* Add animation (fade in the popup) */
-    @-webkit-keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+
 //     Settings
 .margin-columns{
     margin-top: 0 20px 0;
@@ -201,4 +153,29 @@ label{
       opacity: 0.7;
     }
 
+    cursor: pointer;
+
+}
+
+#accordion {
+    width: 100%;
+    li {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.varying {
+    margin: 4px 0px;
+    display: none;
+    &.active {
+        display: inline;
+        width: 100%;
+    }
+}
+
+#publickey_option, #keyserver_option{
+    width: auto;
 }
