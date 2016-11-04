@@ -117,12 +117,20 @@ cursor: pointer;
     }
     .set {
         margin: 30px 0;
+        @include breakpoint ($min:lg){
+         margin: 60px 0 20px 0;
+    }
+    @include breakpoint ($min:xl){
+         margin: 60px 0 20px 0;
+    }
+
     }
     .form__block {
         textarea {
             width: 100%;
             height: auto;
             border-color: $light;
+            margin-top: 10px;
              &:focus {
         outline: none;
         border: 1px solid rgba($main-color-dark, 0.5);
@@ -152,11 +160,17 @@ cursor: pointer;
          border-bottom: none;
          height: 115px;
     }
+    @include breakpoint ($min:lg){
+         flex-direction: column;
+         border-left:solid 2px $blue;
+         border-bottom: none;
+         height: 130px;
+    }
     @include breakpoint ($min:xl){
          flex-direction: column;
          border-left:solid 2px $blue;
          border-bottom: none;
-         height: 115px;
+         height: 130px;
     }
  }
 
@@ -187,10 +201,10 @@ cursor: pointer;
          padding-left: 12px;
     }
     @include breakpoint ($min:lg){
-         width: 30%;
+         width: 25%;
     }
     @include breakpoint ($min:xl){
-         width: 30%;
+         width: 25%;
     }
 }
 
@@ -206,11 +220,13 @@ cursor: pointer;
 
 .checkbox-{
     display: inline-flex;
+    margin-bottom: 10px;
 }
 
 #id_timezone{
     background: none;
     border: solid 1px black;
+    font-family: TextFont !important;
 }
 
 .errorlist{
@@ -230,6 +246,12 @@ cursor: pointer;
     margin-bottom: 10px;
     @include breakpoint ($min:md){
         margin-bottom: 0;
+         margin-left: 10px;
+    }
+    @include breakpoint ($min:lg){
+         margin-left: 10px;
+    }
+    @include breakpoint ($min:xl){
          margin-left: 10px;
     }
 }

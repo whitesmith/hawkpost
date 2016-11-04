@@ -3,6 +3,7 @@ $(document).ready(function(){
 
   $(".form__block label").addClass("smallmedium text-darkest");
   $(".form__block input[type=text]").addClass("text padding-settings");
+  $(".label-form-b label").addClass("smallmedium text-darkest");
 
 
   $("#tab1").click(function(){

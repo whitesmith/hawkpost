@@ -40,6 +40,12 @@ input {
 
 .form__block {
     margin: 20px 0px;
+    @include breakpoint ($min:lg){
+         margin: 30px 0px;
+    }
+    @include breakpoint ($min:xl){
+         margin: 30px 0px;
+    }
 }
 
 .label__info {

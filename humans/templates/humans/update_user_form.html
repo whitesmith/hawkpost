@@ -40,11 +40,11 @@
                   <li id="section2">
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="col-xs-12 no-padding mb-normal">
-                        <span class="text-light-info">
+                        <span class="text-blue smalltext">
                           You can provide the public key in a static away <strong> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
                         </span>
                       </div>
-                      <div class="row">
+                      <div class="row label-form-b">
                         <div class="col-xs-6">{{ form.public_key.label_tag }}<input type="radio" name="type" id="publickey_option" class="radio_button" value="publickey" checked="checked"></div>
                         <div class="col-xs-6">{{ form.keyserver_url.label_tag }}<input type="radio" name="type" id="keyserver_option" class="radio_button" value="keyserver">
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                       </div>
                       <div class="col-xs-12 no-padding">
-                        <span class="text-light-info">
+                        <span class="text-blue smalltext">
                           The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and <strong>mutt</strong>
                         </span>
                       </div>
@@ -81,7 +81,7 @@
                 </ul>
               </div>
               <div class="col-xs-12">
-              <input type="submit" class="btn-blue set" value="Save" />
+              <input type="submit" class="btn-blue set smalltext" value="Save" />
               </div>
             </div>
           </div>

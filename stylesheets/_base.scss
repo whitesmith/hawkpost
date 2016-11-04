@@ -96,6 +96,7 @@
     width: 960px;
     max-width: 100%;
     margin: auto;
+    min-height: 100vh;
     @include breakpoint ($min: xs) {
         width: 350px;
         max-width: 100%;
