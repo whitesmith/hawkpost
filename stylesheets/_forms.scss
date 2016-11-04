@@ -131,6 +131,12 @@ cursor: pointer;
          border-bottom: none;
          height: 115px;
     }
+    @include breakpoint ($min:xl){
+         flex-direction: column;
+         border-left:solid 2px $blue;
+         border-bottom: none;
+         height: 115px;
+    }
  }
 
 .settings__nav{

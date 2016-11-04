@@ -36,9 +36,11 @@ $(document).ready(function(){
     if ($('.radio_button:checked').val() == "keyserver") {
       $("#keyserver_url").show();
       $("#public_key").hide();
+      $("#public_key").val('')
     } else {
       $("#keyserver_url").hide();
       $("#public_key").show();
+      $("#keyserver_url").val('')
     }
   });
 });
