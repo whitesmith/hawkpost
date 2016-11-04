@@ -95,7 +95,7 @@ cursor: pointer;
         }
     }
     .set {
-        margin: 40px 0;
+        margin: 30px 0;
     }
     .form__block {
         textarea {
@@ -124,8 +124,12 @@ cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: solid 2px $blue;
     @include breakpoint ($min:md){
          flex-direction: column;
+         border-left:solid 2px $blue;
+         border-bottom: none;
+         height: 115px;
     }
  }
 
@@ -187,13 +191,17 @@ cursor: pointer;
     &:hover{
       opacity: 0.7;
     }
-
     cursor: pointer;
-
+    margin-bottom: 10px;
+    @include breakpoint ($min:md){
+        margin-bottom: 0;
+         margin-left: 10px;
+    }
 }
 
 #accordion {
     width: 100%;
+    height: 330px;
     li {
         display: none;
         &.active {
