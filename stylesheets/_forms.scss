@@ -37,9 +37,7 @@ margin: 0 5px 0;
 
 
 .fa{
-cursor: pointer;}
-label{
-//font-size:0.8rem;
+cursor: pointer;
 }
 
 
@@ -97,7 +95,7 @@ label{
         }
     }
     .set {
-        margin: 40px 0;
+        margin: 30px 0;
     }
     .form__block {
         textarea {
@@ -111,53 +109,7 @@ label{
     }
         }
     }
-    /*
------#POP-UP----*/
-    .popup {
-        position: relative;
-        display: inline-block;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* The actual popup */
-    .popup .popuptext {
-        visibility: hidden;
-        width: 180px;
-        background-color: $blue;
-        color: #fff;
-        text-align: center;
-        //border-radius: 6px;
-        padding: 8px 0;
-        position: absolute;
-        z-index: 1;
-        margin-left: -110px;
-    }
-    /* Toggle this class - hide and show the popup */
-    .popup .show {
-        visibility: visible;
-        -webkit-animation: fadeIn 1s;
-        animation: fadeIn 1s;
-        padding: 6px;
-    }
-    /* Add animation (fade in the popup) */
-    @-webkit-keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+
 //     Settings
 .margin-columns{
     margin-top: 0 20px 0;
@@ -167,6 +119,59 @@ label{
     padding: 7px 0 3px;
     color: black;
  }
+
+ .nav-st{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 2px $blue;
+    @include breakpoint ($min:md){
+         flex-direction: column;
+         border-left:solid 2px $blue;
+         border-bottom: none;
+         height: 115px;
+    }
+    @include breakpoint ($min:xl){
+         flex-direction: column;
+         border-left:solid 2px $blue;
+         border-bottom: none;
+         height: 115px;
+    }
+ }
+
+.settings__nav{
+    padding: 0;
+    width: 25%;
+    margin-right: 15px;
+    @include breakpoint ($min:xxs){
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
+         margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:xs){
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
+         margin: 0px 0px 10px 0;
+    }
+     @include breakpoint ($min:sm){
+         width: 100%;
+         padding-left: 20%;
+         padding-right: 20%;
+         margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:md){
+         width: 25%;
+         padding-left: 12px;
+    }
+    @include breakpoint ($min:lg){
+         width: 30%;
+    }
+    @include breakpoint ($min:xl){
+         width: 30%;
+    }
+}
 
  #id_keyserver_url:disabled {
     background: $lightgrey;
@@ -186,4 +191,43 @@ label{
     padding: 0;
     color: #4ca7af ;
     text-align: center;
+}
+
+.sett__nav__item {
+    &.active{
+    color: $blue;
+    }
+    &:hover{
+      opacity: 0.7;
+    }
+    cursor: pointer;
+    margin-bottom: 10px;
+    @include breakpoint ($min:md){
+        margin-bottom: 0;
+         margin-left: 10px;
+    }
+}
+
+#accordion {
+    width: 100%;
+    height: 330px;
+    li {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.varying {
+    margin: 4px 0px;
+    display: none;
+    &.active {
+        display: inline;
+        width: 100%;
+    }
+}
+
+#publickey_option, #keyserver_option{
+    width: auto;
 }

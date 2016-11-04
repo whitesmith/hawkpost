@@ -13,8 +13,9 @@
 .text-blue {
      color: $blue;
  }
+
 .text-light-info{
-    color: #333;
+    color: $blue;
     font-size: 0.60rem;
 }
  .text-darkest {
@@ -40,10 +41,7 @@
  .text-bold {
      font-weight: 600;
  }
- .text-important{
-    color: $dark;
- }
- .text-left {
+  .text-left {
      text-align: left;
  }
  .text-center {
@@ -158,20 +156,31 @@
      }
  }
 .center-form {
-    width: 90%;
-    margin: auto;
+    width: 50%;
+    @include breakpoint ($min:xxs){
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
+    }
     @include breakpoint ($min:xs){
-         width: 90%;
+         width: 100%;
+         padding-left: 5%;
+         padding-right: 5%;
     }
     @include breakpoint ($min:sm){
-         width: 100%;
+         width: 80%;
+         padding-left: 20%;
     }
     @include breakpoint ($min:md){
-         width: 90%;
+         width: 50%;
     }
     @include breakpoint ($min:lg){
-         width: 75%;
+         width: 40%;
     }
+    @include breakpoint ($min:xl){
+         width: 40%;
+    }
+    
 }
 
  .inline-d{
@@ -180,6 +189,16 @@
 
  .flex-d{
     display: flex;
+ }
+
+ .flex-column{
+    display: flex;
+    flex-direction: column;
+ }
+
+  .flex-row{
+    display: flex;
+    flex-direction: row;
  }
 
  .flex-in{
