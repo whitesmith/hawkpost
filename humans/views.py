@@ -3,6 +3,7 @@ from django.contrib.auth import logout, authenticate
 from django.views.generic import FormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
+from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
 from .models import User
 
@@ -33,6 +34,12 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
                   " you must add a valid public key"
             messages.error(request, msg)
         return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["sign_key_url"] = settings.GPG_SIGN_KEY_URL
+        context["sign_key_fingerprint"] = settings.GPG_SIGN_KEY_FINGERPRINT
+        return context
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
