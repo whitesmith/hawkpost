@@ -63,7 +63,7 @@ $(document).ready(function(){
     $form.append($csrfTokenField);
     $form.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
     $form.append($("<a id='encrypt-action-js' class='btn-default u-blockify'>Encrypt and Send</a>"));
-    $formDiv.append('<div class="row"><div class="col-xs-12">'+$form+'</div></div>');
+    $formDiv.append('<div class="row"><div class="col-xs-12">').append($form).append('</div></div>');
 
     $("#encrypt-action-js").on("click", encryptContent);
   }
