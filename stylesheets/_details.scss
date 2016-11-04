@@ -13,7 +13,7 @@
 .text-blue {
      color: $blue;
  }
- 
+
 .text-light-info{
     color: $blue;
     font-size: 0.60rem;
@@ -175,6 +175,9 @@
          width: 50%;
     }
     @include breakpoint ($min:lg){
+         width: 40%;
+    }
+    @include breakpoint ($min:xl){
          width: 40%;
     }
     

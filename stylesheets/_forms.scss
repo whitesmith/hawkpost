@@ -162,6 +162,9 @@ cursor: pointer;
     @include breakpoint ($min:lg){
          width: 30%;
     }
+    @include breakpoint ($min:xl){
+         width: 30%;
+    }
 }
 
  #id_keyserver_url:disabled {
