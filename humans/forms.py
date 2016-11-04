@@ -68,6 +68,7 @@ class UpdateUserInfoForm(ModelForm):
             except:
                 self.add_error("keyserver_url",
                                "Could not access the specified url")
+                return url
             begin = res.text.find("-----BEGIN PGP PUBLIC KEY BLOCK-----")
             end = res.text.find("-----END PGP PUBLIC KEY BLOCK-----")
             if 200 <= res.status_code < 300 and begin >= 0 and end > begin:
