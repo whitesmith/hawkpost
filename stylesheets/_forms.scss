@@ -131,6 +131,7 @@ cursor: pointer;
             height: auto;
             border-color: $light;
             margin-top: 10px;
+            font-family: TextFont !important;
              &:focus {
         outline: none;
         border: 1px solid rgba($main-color-dark, 0.5);
@@ -198,10 +199,10 @@ cursor: pointer;
     }
     @include breakpoint ($min:md){
          width: 25%;
-         padding-left: 12px;
+         padding-left: 20px;
     }
     @include breakpoint ($min:lg){
-         width: 25%;
+         width: 30%;
     }
     @include breakpoint ($min:xl){
          width: 25%;

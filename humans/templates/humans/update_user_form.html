@@ -17,7 +17,7 @@
       <div class="center-form center-xs">
         <form action="" method="post">
           {% csrf_token %}
-        <div class="input-anim-settings">{{ form.non_field_errors }}
+          <div class="input-anim-settings">{{ form.non_field_errors }}
             <div class="row around-xs text-darkest">
               <div id="accordion">
                 <ul class="no-padding">
@@ -81,13 +81,13 @@
                 </ul>
               </div>
               <div class="col-xs-12">
-              <input type="submit" class="btn-blue set smalltext" value="Save" />
+                <input type="submit" class="btn-blue set smalltext" value="Save" />
               </div>
             </div>
           </div>
         </form>
         <div class="text-center">
-          <small class="check text-darkest">
+          <small class="check smalltext text-darkest">
             Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
           </small>
         </div>

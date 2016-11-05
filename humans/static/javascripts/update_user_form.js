@@ -3,8 +3,9 @@ $(document).ready(function(){
 
   $(".form__block label").addClass("smallmedium text-darkest");
   $(".form__block input[type=text]").addClass("text padding-settings");
+  $(".form__block textarea").addClass("xsmalltext");
   $(".label-form-b label").addClass("smallmedium text-darkest");
-
+  $(".checkbox- label").addClass("smallmedium text-darkest");
 
   $("#tab1").click(function(){
     //slide up all the link lists
