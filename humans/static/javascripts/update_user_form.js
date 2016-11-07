@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  
-
   $(".form__block label").addClass("smallmedium text-darkest");
   $(".form__block input[type=text]").addClass("text padding-settings");
   $(".form__block textarea").addClass("xsmalltext");
@@ -43,6 +41,20 @@ $(document).ready(function(){
       $("#keyserver_url").hide();
       $("#public_key").show();
       $("#keyserver_url").val('')
+    }
+  });
+
+  $(".errorlist").each(function(){
+    if ($("li",this).length >= 1) {
+      index = $(this).closest(".section").index();
+      if(index == 0) {
+        $("#tab1").click();
+      } else if(index == 1) {
+        $("#tab2").click();
+      } else {
+        $("#tab3").click();
+      }
+      return;
     }
   });
 });

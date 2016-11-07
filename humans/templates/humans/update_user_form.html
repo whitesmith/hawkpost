@@ -21,7 +21,7 @@
             <div class="row around-xs text-darkest">
               <div id="accordion">
                 <ul class="no-padding">
-                  <li class="active" id="section1">
+                  <li class="section active" id="section1">
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="form__block">
                         {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
@@ -37,7 +37,7 @@
                       </div>
                     </div>
                   </li>
-                  <li id="section2">
+                  <li class="section" id="section2">
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="col-xs-12 no-padding mb-normal">
                         <span class="text-blue smalltext">
@@ -52,17 +52,15 @@
                       <div class="form__block varying" id="keyserver_url">
                         {{ form.keyserver_url.errors }} {{ form.keyserver_url }}
                       </div>
-                      
                       <div class="margin-b-s form__block key active varying" id="public_key">
                         {{ form.public_key.errors }} {{ form.public_key }}
                       </div>
                       <div class="form__block">
                         {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
                       </div>
-
                     </div>
                   </li>
-                  <li id="section3">
+                  <li class="section" id="section3">
                     <div class="col-xs-12 start-xs">
                         <span class="text-blue smalltext">
                           The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and <strong>mutt</strong>

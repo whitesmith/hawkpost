@@ -1,83 +1,79 @@
-    /*------------------------------------*\
-    #FAQ
-    \*------------------------------------*/
+/*------------------------------------*\
+#FAQ
+\*------------------------------------*/
 
-    .faq__container {
-        padding-bottom: 30px;
-    }
+.faq__container {
+    padding-bottom: 30px;
+}
 
-    /*.faq__box--big {
-        overflow: hidden;
-        padding: 20px;
-        margin: 5px 0 5px;
-        width: 100%;
-        cursor: pointer;
-        
-    }
+/*.faq__box--big {
+overflow: hidden;
+padding: 20px;
+margin: 5px 0 5px;
+width: 100%;
+cursor: pointer;
+}
 */
-    .faq__title {
-        margin: 0px;
-        padding: 0px 0px 5px;
-    }
+.faq__title {
+    margin: 0px;
+    padding: 0px 0px 5px;
+}
 
-    .open__faq__box {
-        overflow: hidden;
-        max-height: 600px !important;
-        background-color: $blue !important;
-        margin: 10px 0px 20px;
-        .faq__text {
-            color: white;
-            display: block;
-        }
-        a{
-            color: $black;
-        }
-
-    }
-
-
-    *:focus {
-        outline: none;
-    }
-
+.open__faq__box {
+    overflow: hidden;
+    max-height: 600px !important;
+    background-color: $blue !important;
+    margin: 10px 0px 20px;
     .faq__text {
-        margin: 0px;
-        padding: 0px;
-        color: $main-color-dark;
-        display: none;
-        line-height: 18px;
-
+        color: white;
+        display: block;
     }
-
-    .faq__box {
-        max-height: 80px;
-        padding: 20px;
-        width: 100%;
-        box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
-        background: rgba($light, 0.2);
-        margin: 10px 0px 20px;
-        flex-basis: calc(250% - 20px);
-        max-width: calc(250% - 20px);
-        @media (min-width: 768px) {
-            flex-basis: calc(125% - 20px);
-            max-width: calc(125% - 20px);
-        }
+    a{
+        color: $black;
     }
+}
 
-    .link-box__box {
 
-        float: left;
+*:focus {
+    outline: none;
+}
 
+.faq__text {
+    margin: 0px;
+    padding: 0px;
+    color: $main-color-dark;
+    display: none;
+    line-height: 18px;
+
+}
+
+.faq__box {
+    max-height: 80px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0px 2px 6px 0px rgba($black, 0.2);
+    background: rgba($light, 0.2);
+    margin: 10px 0px 20px;
+    flex-basis: calc(250% - 20px);
+    max-width: calc(250% - 20px);
+    @media (min-width: 768px) {
+        flex-basis: calc(125% - 20px);
+        max-width: calc(125% - 20px);
     }
+}
 
-    .link-box__info {
-        margin: $spacing--large 10px 0px;
-        @media (min-width: 768px) {
-            text-align: left;
-        }
+.link-box__box {
+    float: left;
+}
+
+.link-box__info {
+    margin: $spacing--large 10px 0px;
+    @media (min-width: 768px) {
+        text-align: left;
     }
+}
 
 
-    .btn-log-sign{
-        margin-top: 15%;
-    }
+.btn-log-sign {
+    margin-top: 15%;
+}

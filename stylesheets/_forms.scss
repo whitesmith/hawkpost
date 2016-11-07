@@ -1,43 +1,42 @@
-.row-s{
-  max-width: 90%;
-  margin: auto;
+.row-s {
+    max-width: 90%;
+    margin: auto;
 }
 
-.box__nav__item__help{
+.box__nav__item__help {
     @extend .box__nav__item;
     width: 100px !important;
     @include breakpoint($min:md) {
         width: 150px !important;
-        }
+    }
     @include breakpoint($min:lg) {
         width: 200px !important;
-        }
+    }
     @include breakpoint($min:xl) {
         width: 250px !important;
-        }
+    }
 }
 
-.nav-bar-help-{
+.nav-bar-help- {
     @extend .nav-bar-boxes-;
     border-bottom: 5px solid $blue;
 }
 
-.box__nav{
-
-li{
-margin: 0 5px 0;
+.box__nav {
+    li{
+        margin: 0 5px 0;
+    }
 }
-}
 
-.setup{
+.setup {
     max-width:550px;
     width:100%;
     margin:10px 0 10px;
 }
 
 
-.fa{
-cursor: pointer;
+.fa {
+    cursor: pointer;
 }
 
 
@@ -48,221 +47,224 @@ cursor: pointer;
         border-radius: 0;
         border-top: 2px solid transparent;
         border-bottom: 2px solid black;
-    &:focus {
-        outline: 0;
-        box-shadow: none;
-        border: none;
-        border-top: 1px solid transparent;
-        border-bottom: 3px solid white;
-    }}
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-top: 1px solid transparent;
+            border-bottom: 3px solid white;
+        }
+    }
 
 
-   input[type=checkbox] {width:20px;
-    height: 20px;}
+    input[type=checkbox] {
+        width:20px;
+        height: 20px;
+    }
 }
 
-.input-anim-settings{
+.input-anim-settings {
     input[type=text], input[type=number], input[type=email], input[type=password],textarea{
         background: none;
         border: none;
         border-radius: 0;
         border-top: 2px solid transparent;
         border-bottom: 2px solid black;
-    &:focus {
-        outline: 0;
-        box-shadow: none;
-        border: none;
-        border-top: 1px solid transparent;
-        border-bottom: 3px solid $blue;
-    }}
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-top: 1px solid transparent;
+            border-bottom: 3px solid $blue;
+        }
+    }
 
 
-   input[type=checkbox] {width:20px;
-    height: 20px;}
+    input[type=checkbox] {
+        width:20px;
+        height: 20px;
+    }
 }
 
-    form {
-
-        select {
-            margin-top: 17px;
+form {
+    select {
+        margin-top: 17px;
+    }
+    .label__info {
+        width: 50px;
+        border-radius: 2px;
+        margin: 10px 0 20px;
+    }
+    .label__text {
+        margin: 0px;
+        padding: 0px;
+        color: $light;
+        display: none;
+    }
+    .label__info {
+        margin: 10px 10px 20px;
+        .subtitle {
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
         }
-        .label__info {
-            width: 50px;
-            border-radius: 2px;
-            margin: 10px 0 20px;
-            // margin-right: 100px;
-        }
+    }
+    .label__info:focus {
+        background-color: rgba(78, 217, 185, 0.2);
         .label__text {
-            margin: 0px;
-            padding: 0px;
-            color: $light;
-            display: none;
-            //width: 300px;
-        }
-        .label__info {
-            margin: 10px 10px 20px;
-            .subtitle {
-                padding: 0;
-                margin: 0;
-                font-size: 16px;
-            }
-        }
-        .label__info:focus {
-            //height: 260px;
-            background-color: rgba(78, 217, 185, 0.2);
-            .label__text {
-                display: block;
-            }
+            display: block;
         }
     }
-    .set {
-        margin: 30px 0;
-        @include breakpoint ($min:lg){
-         margin: 60px 0 20px 0;
-    }
-    @include breakpoint ($min:xl){
-         margin: 60px 0 20px 0;
-    }
+}
 
+.set {
+    margin: 30px 0;
+    @include breakpoint ($min:lg) {
+        margin: 60px 0 20px 0;
     }
-    .form__block {
-        textarea {
-            width: 100%;
-            height: auto;
-            border-color: $light;
-            margin-top: 10px;
-            font-family: TextFont !important;
-             &:focus {
-        outline: none;
-        border: 1px solid rgba($main-color-dark, 0.5);
-        box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
+    @include breakpoint ($min:xl) {
+        margin: 60px 0 20px 0;
     }
+}
+
+.form__block {
+    textarea {
+        width: 100%;
+        height: auto;
+        border-color: $light;
+        margin-top: 10px;
+        font-family: TextFont !important;
+        &:focus {
+            outline: none;
+            border: 1px solid rgba($main-color-dark, 0.5);
+            box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
         }
     }
+}
 
 //     Settings
-.margin-columns{
+.margin-columns {
     margin-top: 0 20px 0;
 }
 
-.padding-settings{
+.padding-settings {
     padding: 7px 0 3px;
     color: black;
- }
+}
 
- .nav-st{
+.nav-st {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-bottom: solid 2px $blue;
-    @include breakpoint ($min:md){
-         flex-direction: column;
-         border-left:solid 2px $blue;
-         border-bottom: none;
-         height: 115px;
+    @include breakpoint ($min:md) {
+        flex-direction: column;
+        border-left:solid 2px $blue;
+        border-bottom: none;
+        height: 115px;
     }
-    @include breakpoint ($min:lg){
-         flex-direction: column;
-         border-left:solid 2px $blue;
-         border-bottom: none;
-         height: 130px;
+    @include breakpoint ($min:lg) {
+        flex-direction: column;
+        border-left:solid 2px $blue;
+        border-bottom: none;
+        height: 130px;
     }
-    @include breakpoint ($min:xl){
-         flex-direction: column;
-         border-left:solid 2px $blue;
-         border-bottom: none;
-         height: 130px;
-    }
- }
-
-.settings__nav{
-    padding: 0;
-    width: 25%;
-    margin-right: 15px;
-    @include breakpoint ($min:xxs){
-         width: 100%;
-         padding-left: 5%;
-         padding-right: 5%;
-         margin: 0px 0px 10px 0;
-    }
-    @include breakpoint ($min:xs){
-         width: 100%;
-         padding-left: 5%;
-         padding-right: 5%;
-         margin: 0px 0px 10px 0;
-    }
-     @include breakpoint ($min:sm){
-         width: 100%;
-         padding-left: 20%;
-         padding-right: 20%;
-         margin: 0px 0px 10px 0;
-    }
-    @include breakpoint ($min:md){
-         width: 25%;
-         padding-left: 20px;
-    }
-    @include breakpoint ($min:lg){
-         width: 30%;
-    }
-    @include breakpoint ($min:xl){
-         width: 25%;
+    @include breakpoint ($min:xl) {
+        flex-direction: column;
+        border-left:solid 2px $blue;
+        border-bottom: none;
+        height: 130px;
     }
 }
 
- #id_keyserver_url:disabled {
+.settings__nav {
+    padding: 0;
+    width: 25%;
+    margin-right: 15px;
+    @include breakpoint ($min:xxs) {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:xs) {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:sm) {
+        width: 100%;
+        padding-left: 20%;
+        padding-right: 20%;
+        margin: 0px 0px 10px 0;
+    }
+    @include breakpoint ($min:md) {
+        width: 25%;
+        padding-left: 20px;
+    }
+    @include breakpoint ($min:lg) {
+        width: 30%;
+    }
+    @include breakpoint ($min:xl) {
+        width: 25%;
+    }
+}
+
+#id_keyserver_url:disabled {
     background: $lightgrey;
     opacity: 0.7;
- }
+}
 
- #id_public_key:disabled {
+#id_public_key:disabled {
     background: $lightgrey;
     opacity: 0.7;
- }
+}
 
-.checkbox-{
+.checkbox- {
     display: inline-flex;
     margin-bottom: 15px;
     margin-top: 15px;
 }
 
-#id_timezone{
+#id_timezone {
     background: none;
     border: solid 1px black;
     font-family: TextFont !important;
     width: 100%;
 }
 
-.errorlist{
+.errorlist {
     padding: 0;
     color: #4ca7af ;
     text-align: center;
 }
 
 .sett__nav__item {
-    &.active{
-    color: $blue;
+    &.active {
+        color: $blue;
     }
-    &:hover{
-      opacity: 0.7;
+    &:hover {
+        opacity: 0.7;
     }
     cursor: pointer;
     margin-bottom: 10px;
-    @include breakpoint ($min:md){
+    @include breakpoint ($min:md) {
         margin-bottom: 0;
-         margin-left: 10px;
+        margin-left: 10px;
     }
-    @include breakpoint ($min:lg){
-         margin-left: 10px;
+    @include breakpoint ($min:lg) {
+        margin-left: 10px;
     }
-    @include breakpoint ($min:xl){
-         margin-left: 10px;
+    @include breakpoint ($min:xl) {
+        margin-left: 10px;
     }
 }
 
 #accordion {
     width: 100%;
     height: 330px;
-    li {
+    .section {
         display: none;
         &.active {
             display: block;
@@ -279,6 +281,6 @@ cursor: pointer;
     }
 }
 
-#publickey_option, #keyserver_option{
+#publickey_option, #keyserver_option {
     width: auto;
 }

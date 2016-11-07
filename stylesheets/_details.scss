@@ -1,243 +1,267 @@
- /*------------------------------------*\
-  #TEXT_COLOR
+/*------------------------------------*\
+#TEXT_COLOR
 \*------------------------------------*/
- 
- .text-dark {
-     color: $main-color-dark;
- }
+.text-dark {
+    color: $main-color-dark;
+}
 
 .text-warning {
     color: #f10000;
 }
 
 .text-blue {
-     color: $blue;
- }
-
-.text-light-info{
     color: $blue;
 }
- .text-darkest {
-     color: black;
- }
- 
- .text-light {
-     color: $light;
- }
+
+.text-light-info {
+    color: $blue;
+}
+
+.text-darkest {
+    color: black;
+}
+
+.text-light {
+    color: $light;
+}
 
 .text-lightest {
-     color:white;
- }
- 
- .text-main {
-     color: $main-color;
- }
+    color:white;
+}
 
- .text-grey {
-     color: $grey;
- }
- 
- .text-bold {
-     font-weight: 600;
- }
-  .text-left {
-     text-align: left;
- }
- .text-center {
-     text-align: center;
- }
- .text-right {
-     text-align: right;
- }
+.text-main {
+    color: $main-color;
+}
 
- .text-underline {
+.text-grey {
+    color: $grey;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-underline {
     text-decoration: underline;
     padding-bottom: 5px;
-
     &:hover, &:active {
         text-decoration: underline;
-        padding-bottom: 5px; 
+        padding-bottom: 5px;
     }
- }
- 
- .text-note {
-     color: black;
-     font-style: italic;
-     margin-top: 5%
- }
+}
 
-  .text-note-white {
-     color: white;
-     font-style: italic;
-     margin-top: 5%
- }
- 
- .text-smaller {
-     font-size: 0.7rem;;
- }
+.text-note {
+    color: black;
+    font-style: italic;
+    margin-top: 5%
+}
 
- .text-by {
-     color: $main-color-dark;
-     margin: 20px 0px 0px;
- }
+.text-note-white {
+    color: white;
+    font-style: italic;
+    margin-top: 5%
+}
 
-.break-word{word-wrap:break-word;}
- /*------------------------------------*\
-  #ALIGNMENTS_AND_MARGINS
+.text-smaller {
+    font-size: 0.7rem;;
+}
+
+.text-by {
+    color: $main-color-dark;
+    margin: 20px 0px 0px;
+}
+
+.break-word {
+    word-wrap:break-word;
+}
+/*------------------------------------*\
+#ALIGNMENTS_AND_MARGINS
 \*------------------------------------*/
- 
- .full-height {
-     height: 100%;
- }
- 
- .full-width {
-     width: 100%;
- }
- 
- .u-blockify {
-     display: block;
-     margin-top:10px;
- }
 
- .no-padding {
-     padding: 0px !important;
- }
+.full-height {
+    height: 100%;
+}
 
- .margin-b-s{
+.full-width {
+    width: 100%;
+}
+
+.u-blockify {
+    display: block;
+    margin-top:10px;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.margin-b-s {
     margin-bottom: 6px!important;
- }
- 
- .padding-b-m{
+}
+
+.padding-b-m {
     padding-bottom: 10px;
     @include breakpoint($min:md) {
         padding-bottom: 25px;
-        }
- }
- .no-margin {
-     margin: 0px;
- }
- 
- .no-margin-top {
-     margin-top: 0px;
- }
+    }
+}
 
-  .no-margin-bottom {
-     margin-bottom: 0px;
- }
+.no-margin {
+    margin: 0px;
+}
 
- .padding-t-s{
+.no-margin-top {
+    margin-top: 0px;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.padding-t-s{
     padding-top: 70px;
- }
- .margin-bottom-lg {
-   
-       @include breakpoint ($min:xl){
-         margin-bottom: 25px;}
- }
+}
 
- .col-xxs-12 {
-     @media (max-width: 640px) {
-         flex-basis: 100%;
-         max-width: 100%;
-     }
- }
- 
- .order-xs-1st {
-     order: 1;
-     @media (min-width: 768px) {
-         order: 2;
-     }
- }
- 
- .order-xs-2nd {
-     order: 2;
-     @media (min-width: 768px) {
-         order: 1;
-     }
- }
+.margin-bottom-lg {
+    @include breakpoint ($min:xl) {
+        margin-bottom: 25px;
+    }
+}
+
+.col-xxs-12 {
+    @media (max-width: 640px) {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+.order-xs-1st {
+    order: 1;
+    @media (min-width: 768px) {
+        order: 2;
+    }
+}
+
+.order-xs-2nd {
+    order: 2;
+    @media (min-width: 768px) {
+        order: 1;
+    }
+}
+
 .center-form {
     width: 50%;
-    @include breakpoint ($min:xxs){
-         width: 100%;
-         padding-left: 5%;
-         padding-right: 5%;
+    @include breakpoint ($min:xxs) {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
-    @include breakpoint ($min:xs){
-         width: 100%;
-         padding-left: 5%;
-         padding-right: 5%;
+    @include breakpoint ($min:xs) {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
-    @include breakpoint ($min:sm){
-         width: 80%;
-         padding-left: 20%;
+    @include breakpoint ($min:sm) {
+        width: 80%;
+        padding-left: 20%;
     }
-    @include breakpoint ($min:md){
-         width: 50%;
+    @include breakpoint ($min:md) {
+        width: 50%;
     }
-    @include breakpoint ($min:lg){
-         width: 40%;
+    @include breakpoint ($min:lg) {
+        width: 40%;
     }
-    @include breakpoint ($min:xl){
-         width: 50%;
+    @include breakpoint ($min:xl) {
+        width: 50%;
     }
-    
 }
 
- .inline-d{
+.inline-d {
     display: inline;
- }
+}
 
- .flex-d{
+.flex-d {
     display: flex;
- }
+}
 
- .flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
- }
+}
 
-  .flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
- }
+}
 
- .flex-in{
+.flex-in {
     display: inline-flex;
- }
+}
 
- .label-blue{
+.label-blue {
     color: $blue;
     font-weight: 600;
- }
+}
 
- //modal-fixes
- .padding-modals1{
+//modal-fixes
+.padding-modals1 {
     padding: 10px 0 3px;
     color: white;
-    @include breakpoint ($min: xxs){
-    padding: 3px 0 2px;
+    @include breakpoint ($min: xxs) {
+        padding: 3px 0 2px;
+    }
 }
- }
- .padding-modals2{
+
+.padding-modals2 {
     padding: 9px 0 0;
     color: white;
-    @include breakpoint ($min: xxs){
-    padding: 3px 0 2px;
+    @include breakpoint ($min: xxs) {
+        padding: 3px 0 2px;
+    }
 }
- }
 
-.xmt-small { margin-top: 5px;}
-.mt-small { margin-top: 10px;}
-.mt-normal { margin-top: 20px;}
-.mt-large { margin-top: 40px;}
+.xmt-small {
+    margin-top: 5px;
+}
 
-.mb-small { margin-bottom: 10px;}
+.mt-small {
+    margin-top: 10px;
+}
+
+.mt-normal {
+    margin-top: 20px;
+}
+
+.mt-large {
+    margin-top: 40px;
+}
+
+.mb-small {
+    margin-bottom: 10px;
+}
+
 .mb-normal {
     margin-bottom: 20px;
-    @include breakpoint ($min: lg){
-    margin-bottom: 30px;
+    @include breakpoint ($min: lg) {
+        margin-bottom: 30px;
+    }
+    @include breakpoint ($min: xl) {
+        margin-bottom: 30px;
+    }
 }
-@include breakpoint ($min: xl){
-    margin-bottom: 30px;
+
+.mb-large {
+    margin-bottom: 40px;
 }
-}
-.mb-large { margin-bottom: 40px;}
