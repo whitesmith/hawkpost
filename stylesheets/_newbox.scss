@@ -91,3 +91,23 @@ input {
     padding: 3px 6px 3px 6px;
     margin-right: 3px;
 }
+
+.hawkpost__block{
+    max-height: 80px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.hawkpost-text {
+    margin: 0px;
+    padding: 0px;
+    display: none;
+}
+
+.open__hawkpost__text{
+    overflow: hidden;
+    max-height: 600px !important;
+    .hawkpost-text {
+        display: block;
+    }
+}

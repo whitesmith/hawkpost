@@ -62,7 +62,7 @@ $(document).ready(function(){
 
     $form.append($csrfTokenField);
     $form.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
-    $form.append($("<a id='encrypt-action-js' class='btn-blue u-blockify'>Encrypt and Send</a>"));
+    $form.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
     $formDiv.append($form);
 
     $("#encrypt-action-js").on("click", encryptContent);
@@ -71,10 +71,10 @@ $(document).ready(function(){
   /*
     Show introduction tooltip on click
   */
-  $(".hawkpost-intro-js").on("click", function(){
-    var popup = document.getElementById('hawkpost-intro-popup-js');
-    popup.classList.toggle('show');
-  })
+  $(".hawkpost__block").click(function(){
+    $(this).toggleClass("open__hawkpost__text");
+    $(".hawkpost__block").not(this).removeClass("open__hawkpost__text");
+  });
 
   createBox();
 });
