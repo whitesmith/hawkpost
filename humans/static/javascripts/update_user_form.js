@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  
-
-  $(".form__block label").addClass("smalltext");
+  $(".form__block label").addClass("smallmedium text-darkest");
   $(".form__block input[type=text]").addClass("text padding-settings");
-
+  $(".form__block textarea").addClass("xsmalltext");
+  $(".label-form-b label").addClass("smallmedium text-darkest");
+  $(".checkbox- label").addClass("smallmedium text-darkest");
 
   $("#tab1").click(function(){
     //slide up all the link lists
@@ -41,6 +41,20 @@ $(document).ready(function(){
       $("#keyserver_url").hide();
       $("#public_key").show();
       $("#keyserver_url").val('')
+    }
+  });
+
+  $(".errorlist").each(function(){
+    if ($("li",this).length >= 1) {
+      index = $(this).closest(".section").index();
+      if(index == 0) {
+        $("#tab1").click();
+      } else if(index == 1) {
+        $("#tab2").click();
+      } else {
+        $("#tab3").click();
+      }
+      return;
     }
   });
 });

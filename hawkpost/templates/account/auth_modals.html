@@ -8,7 +8,7 @@
     <div class="row-s start-xs">
       <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}">
         <div class="col-xs-12">
-          <h3 class="title "> Login</h3>
+          <h3 class="title">LOGIN</h3>
           <p>If you have not created an account yet, then please<a class=" md-trigger text-darkest" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p class="no-padding">
             <div class="login-or">
@@ -70,7 +70,7 @@
     <div class="row-s start-xs ">
       <form class="signup start-xs smalltext text-lightest" id="signup-form-js" method="post" action="{% url 'account_signup' %}">
         <div class="col-xs-12">
-          <h3 class="title"> Sign up</h3>
+          <h3 class="title">SIGN UP</h3>
           <div class="login-or"><p>{% trans 'Sign up' %} via email address:</p></div>
           {% csrf_token %}
           <div class="start-xs text-lightest">

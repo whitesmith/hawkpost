@@ -4,7 +4,7 @@
 {% block content %}
 <div class="section-definer-light">
   <section class="section-resized-settings">
-    <p class="title center-xs">Update your user settings</p>
+    <p class="title center-xs">UPDATE YOUR SETTINGS</p>
     <div class="row">
       <ul class="settings__nav subtitle">
         <div class="col-xs-12 nav-st no-padding text-left">
@@ -17,11 +17,11 @@
       <div class="center-form center-xs">
         <form action="" method="post">
           {% csrf_token %}
-          <div class="input-anim ">{{ form.non_field_errors }}
+          <div class="input-anim-settings">{{ form.non_field_errors }}
             <div class="row around-xs text-darkest">
               <div id="accordion">
                 <ul class="no-padding">
-                  <li class="active" id="section1">
+                  <li class="section active" id="section1">
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="form__block">
                         {{ form.first_name.errors }} {{ form.first_name.label_tag }} {{ form.first_name }}
@@ -37,14 +37,14 @@
                       </div>
                     </div>
                   </li>
-                  <li id="section2">
+                  <li class="section" id="section2">
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="col-xs-12 no-padding mb-normal">
-                        <span class="text-light-info">
+                        <span class="text-blue smalltext">
                           You can provide the public key in a static away <strong> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
                         </span>
                       </div>
-                      <div class="row">
+                      <div class="row label-form-b">
                         <div class="col-xs-6">{{ form.public_key.label_tag }}<input type="radio" name="type" id="publickey_option" class="radio_button" value="publickey" checked="checked"></div>
                         <div class="col-xs-6">{{ form.keyserver_url.label_tag }}<input type="radio" name="type" id="keyserver_option" class="radio_button" value="keyserver">
                         </div>
@@ -52,59 +52,50 @@
                       <div class="form__block varying" id="keyserver_url">
                         {{ form.keyserver_url.errors }} {{ form.keyserver_url }}
                       </div>
-
                       <div class="margin-b-s form__block key active varying" id="public_key">
                         {{ form.public_key.errors }} {{ form.public_key }}
                       </div>
                       <div class="form__block">
                         {{ form.fingerprint.errors }} {{ form.fingerprint.label_tag }} {{ form.fingerprint }}
                       </div>
-
                     </div>
                   </li>
-                  <li id="section3">
+                  <li class="section" id="section3">
                     <div class="col-xs-12 start-xs">
+                      <span class="text-blue smalltext">
+                        The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and <strong>mutt</strong>
+                      </span>
                       <div class="checkbox-">
                         {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
                         <div class=".control__indicator">
                           {{ form.server_signed }}
                         </div>
                       </div>
-                      <div class="col-xs-12 no-padding">
-                        <span class="text-light-info">
-                          The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and <strong>mutt</strong>
-                        </span>
-                        <p class="smalltext no-margin">
-                          The key used to sign can be found <a href="{{sign_key_url}}">here</a> and fingerprint so you can check it is:
-                        </p>
-                        <p class="no-margin smalltext text-darkest">
-                          {{sign_key_fingerprint}}
-                        </p>
+                      <p class="smalltext no-margin">
+                        The key used to sign can be found <a class="text-blue" href="{{sign_key_url}}">here</a> and fingerprint so you can check it is:</p>
+                        <p class="no-margin smalltext text-darkest">{{sign_key_fingerprint}}</p>
                       </div>
-
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-xs-12">
-              <input type="submit" class="btn-blue set" value="Save" />
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xs-12">
+                  <input type="submit" class="btn-blue set smalltext" value="Save" />
+                </div>
               </div>
             </div>
+          </form>
+          <div class="text-center">
+            <small class="check smalltext text-darkest">
+              Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
+            </small>
           </div>
-        </form>
-        <div class="text-center">
-          <small class="check text-darkest">
-            Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
-          </small>
         </div>
       </div>
-    </div>
+    </section>
+  </div>
+  {% endblock content %}
 
-  </section>
-</div>
-{% endblock content %}
-
-{% block scripts %}
-{{ block.super }}
-<script src="{% static 'javascripts/update_user_form.js' %}"></script>
-{% endblock scripts %}
+  {% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'javascripts/update_user_form.js' %}"></script>
+  {% endblock scripts %}
