@@ -37,27 +37,12 @@
                   <p class="box__title textbold text-darkest">{{box.name}}</p>
                   <p class="box__desc smalltext text-darkest">{{box.description}}</p>
                 </div>
-                {% if box.status == allow_actions %}
-                <div class="box-action">
-                  <form class="hoverable" action="{% url 'boxes_close' box.id %}" method="post">
-                    {% csrf_token %}
-                    <input class="btn-dark smalltext outro" type="submit" value="CLOSE"/>
-                  </form>
-                  <form class="hoverable" action="{% url 'boxes_delete' box.id %}" method="post">
-                    {% csrf_token %}
-                    <input class="btn-dark smalltext outro" type="submit" value="DELETE" />
-                  </form>
-                </div>
-                {% endif %}
               </div>
             </div>
             {% if box.status == allow_actions %}
             <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
-            <div class="row url_btn">
-              <button class="btn-default copy-to-clipboard-js smalltext col-xs-6" data-src='box-{{box.id}}-url'>COPY URL</button>
-              <a class="btn-default smalltext col-xs-6" href="{% url 'boxes_show' box.uuid %}" target="_blank">OPEN</a>
-            </div>
             {% endif %}
+            
             <div class="extra-info">
               <p class="no-margin-bottom">
                 <span class="smalltext label-blue">Messages:</span>
@@ -80,6 +65,18 @@
               </p>
               {% endif %}
             </div>
+            {% if box.status == allow_actions %}
+            <div class="row url_btn">
+              <form class="hoverable col-xs-6" action="{% url 'boxes_close' box.id %}" method="post">
+                {% csrf_token %}
+                <input class="btn-blue smalltext outro" type="submit" value="CLOSE"/>
+              </form>
+              <form class="hoverable col-xs-6" action="{% url 'boxes_delete' box.id %}" method="post">
+                {% csrf_token %}
+                <input class="btn-default smalltext outro" type="submit" value="DELETE" />
+              </form>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>

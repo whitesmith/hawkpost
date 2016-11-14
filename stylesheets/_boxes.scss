@@ -20,12 +20,12 @@
    color: black;
  }
 
- .box-container, .box-action{
+ .box-container{
    display:flex;
    flex-direction:column;
  }
 
- .box-action{
+ /*.box-action{
    align-self:stretch;
    justify-content: flex-start;
    border-left: 1px solid black;
@@ -39,7 +39,7 @@
    }
  }
 }
-
+*/
 .basic-info{
 	display: flex;
 	flex-direction: row;

@@ -58,11 +58,15 @@
 .url_btn{
 	margin:0;
 	padding:0;
-  button{
+  background: black;
+  form{
     &:first-child{
       border-right: 1px solid $light;
       background: $blue;
     }
+  }
+  input{
+    color: white;
   }
 }
 
