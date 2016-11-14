@@ -57,6 +57,16 @@
   border-bottom: solid 1.5px $blue;
 }
 
+.link-barra{
+  display: flex;
+  flex-direction: row;
+}
+
+.copy-link{
+  flex-shrink: 5;
+  padding:0;
+}
+
 .url_btn{
 	margin:0;
 	padding:0;

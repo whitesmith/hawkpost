@@ -40,7 +40,10 @@
               </div>
             </div>
             {% if box.status == allow_actions %}
+            <div class="link-barra">
             <input class="barra xsmalltext" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
+            <button class="btn-blue copy-link"> </button>
+            </div>
             {% endif %}
             
             <div class="extra-info">
