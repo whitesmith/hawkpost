@@ -51,18 +51,18 @@
                 <span class="xsmallmedium text-darkest">Messages:</span>
                 <span class="xsmalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
               </p>
-              <p class="box__info mt-small mb-small">
+              <p class="mt-small mb-small">
                 <span class="xsmallmedium">Created on:</span>
                 <span class="xsmalltext tex">{{box.created_at}}</span>
               </p>
               {% if box.expires_at %}
-              <p class="box__info no-margin-top mb-small">
+              <p class="no-margin-top mb-small">
                 <span class="xsmallmedium">Expires on:</span>
                 <span class="xsmalltext">{{box.expires_at}}</span>
               </p>
               {% endif %}
               {% if box.messages.count %}
-              <p class="box__info smalltext no-margin-top">
+              <p class="smalltext no-margin-top">
                 <span class="xsmallmedium">Last sent:</span>
                 <span class="xsmalltext">{{box.last_sent_at}}</span>
               </p>
