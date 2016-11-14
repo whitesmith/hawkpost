@@ -10,7 +10,7 @@ You're receiving it, because you (or someone else) provided it during registrati
 
 To confirm this is correct, please visit the following address: {{ activate_url }}
 
-Otherwise you can either ignore this message or send us an email to "support@hawkpost.co" so this account can be removed.
+Otherwise you can either ignore this message or contact us through the support channels (at {{ site_domain }}{% endblocktrans %}{% url 'pages_help' %}){% blocktrans %}, so this account can be removed.
 {% endblocktrans %}
 {% endautoescape %}
 
