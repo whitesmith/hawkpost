@@ -11,7 +11,6 @@
     background: white;
     margin: 5px;
     text-align: left;
-    height: 100%;
   }
 
 
@@ -24,21 +23,6 @@
    flex-direction:column;
  }
 
- /*.box-action{
-   align-self:stretch;
-   justify-content: flex-start;
-   border-left: 1px solid black;
-   form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    &:first-child {
-     border-bottom: 1px solid black;
-   }
- }
-}
-*/
 .basic-info{
 	display: flex;
 	flex-direction: row;
