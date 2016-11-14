@@ -40,40 +40,40 @@
               </div>
             </div>
             {% if box.status == allow_actions %}
-            <input class="barra" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
+            <input class="barra xsmalltext" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
             {% endif %}
             
             <div class="extra-info">
-              <p class="no-margin-bottom">
-                <span class="smalltext label-blue">Messages:</span>
-                <span class="smalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
+              <p class="no-margin-bottom mt-small">
+                <span class="xsmallmedium text-darkest">Messages:</span>
+                <span class="xsmalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
               </p>
-              <p class="box__info smalltext">
-                <span class="label-blue smalltext">Created on:</span>
-                <span class="smalltext tex">{{box.created_at}}</span>
+              <p class="box__info mt-small mb-small">
+                <span class="xsmallmedium">Created on:</span>
+                <span class="xsmalltext tex">{{box.created_at}}</span>
               </p>
               {% if box.expires_at %}
-              <p class="box__info smalltext no-margin-top">
-                <span class="label-blue smalltext">Expires on:</span>
-                <span class="smalltext">{{box.expires_at}}</span>
+              <p class="box__info no-margin-top mb-small">
+                <span class="xsmallmedium">Expires on:</span>
+                <span class="xsmalltext">{{box.expires_at}}</span>
               </p>
               {% endif %}
               {% if box.messages.count %}
               <p class="box__info smalltext no-margin-top">
-                <span class="label-blue smalltext">Last sent:</span>
-                <span class="smalltext">{{box.last_sent_at}}</span>
+                <span class="xsmallmedium">Last sent:</span>
+                <span class="xsmalltext">{{box.last_sent_at}}</span>
               </p>
               {% endif %}
             </div>
             {% if box.status == allow_actions %}
             <div class="row url_btn">
-              <form class="hoverable col-xs-6" action="{% url 'boxes_close' box.id %}" method="post">
+              <form class="col-xs-6" action="{% url 'boxes_close' box.id %}" method="post">
                 {% csrf_token %}
-                <input class="btn-blue smalltext outro" type="submit" value="CLOSE"/>
+                <input class="btn-blue xsmalltext outro" type="submit" value="CLOSE"/>
               </form>
-              <form class="hoverable col-xs-6" action="{% url 'boxes_delete' box.id %}" method="post">
+              <form class="col-xs-6" action="{% url 'boxes_delete' box.id %}" method="post">
                 {% csrf_token %}
-                <input class="btn-default smalltext outro" type="submit" value="DELETE" />
+                <input class="btn-default xsmalltext outro" type="submit" value="DELETE" />
               </form>
             </div>
             {% endif %}
