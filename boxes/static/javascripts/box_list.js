@@ -2,6 +2,9 @@ $(document).ready(function() {
   /*
     On click copy the box link to the clipboard
   */
+  $(".box-options").click(function(){
+    $(this).submit();
+  });
   $(".copy-to-clipboard-js").on("click", function(){
     $this = $(this);
     var previousText = $this.text();

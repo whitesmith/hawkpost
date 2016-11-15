@@ -84,6 +84,7 @@
 
 .icon-text{
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   &:hover{
     transition: all 0.2s ease-in-out;
