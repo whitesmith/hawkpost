@@ -41,8 +41,8 @@
             </div>
             {% if box.status == allow_actions %}
             <div class="link-barra">
-            <input class="barra xsmalltext" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
-            <button class="btn-blue copy-link"><img src="{% static 'images/external.png' %}" class="img-boxes-external"></button>
+              <input class="barra xsmalltext" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
+              <a href="{% url 'boxes_show' box.uuid %}" target="_blank" class="btn-blue copy-link"><img src="{% static 'images/external.png' %}" class="img-boxes-external"></a>
             </div>
             {% endif %}
             
@@ -75,10 +75,10 @@
                 <img src="{% static 'images/close.png' %}" class="img-boxes">
                 <input class="btn-blue xsmalltext icons-" type="submit" value="CLOSE"/>
               </form>
-              <form class="col-xs-6 center-xs" action="{% url 'boxes_delete' box.id %}" method="post">
+              <form class="col-xs-6 center-xs icon-text" action="{% url 'boxes_delete' box.id %}" method="post">
                 {% csrf_token %}
                 <img src="{% static 'images/paper-bin.png' %}" class="img-boxes">
-                <input class="btn-default xsmalltext icons-" type="submit" value="DELETE" />
+                <input class="btn-default xsmalltext icons-" type="submit" value="DELETE"/>
               </form>
             </div>
             {% endif %}
@@ -113,7 +113,7 @@
     <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
     <div class="row center-xs center-md center-lg">
       <div class="col-xs-12 col-sm-12 col-md-12">
-        <h3 class="subtitle center-xs">Create New Box</h3>
+        <h3 class="subtitle center-xs">CREATE NEW BOX</h3>
         <p class="smalltext text-lightest text-mob-"> For others to be able to send you encrypted content through Hawkpost, you'll need to generate "boxes".</p>
         <p class="smalltext text-lightest">  Each box has an associated link that you can copy and share with any given person. If you want, you can set the expiration date and number of messages after which the link will be locked and no longer accessible.</p>
         <span id="__all__-errors-js"></span>
