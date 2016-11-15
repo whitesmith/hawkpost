@@ -106,6 +106,14 @@
 .icons-{
   padding: 5px;
   text-align: center;
+  background: black;
+  border: none;
+  cursor: pointer;
+}
+
+.icons-blue{
+  @extend .icons-;
+  background: $blue;
 }
 
 .container-fluid{

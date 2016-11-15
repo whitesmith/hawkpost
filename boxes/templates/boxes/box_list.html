@@ -70,15 +70,15 @@
             </div>
             {% if box.status == allow_actions %}
             <div class="row url_btn">
-              <form class="col-xs-6 center-xs icon-text" action="{% url 'boxes_close' box.id %}" method="post">
+            <form class="col-xs-6 center-xs icon-text" action="{% url 'boxes_close' box.id %}" method="post">
                 {% csrf_token %}
                 <img src="{% static 'images/close.png' %}" class="img-boxes">
-                <input class="btn-blue xsmalltext icons-" type="submit" value="CLOSE"/>
+                <input class="xsmalltext icons-blue" type="submit" value="CLOSE"/>
               </form>
               <form class="col-xs-6 center-xs icon-text" action="{% url 'boxes_delete' box.id %}" method="post">
                 {% csrf_token %}
                 <img src="{% static 'images/paper-bin.png' %}" class="img-boxes">
-                <input class="btn-default xsmalltext icons-" type="submit" value="DELETE"/>
+                <input class="xsmalltext icons-" type="submit" value="DELETE"/>
               </form>
             </div>
             {% endif %}
