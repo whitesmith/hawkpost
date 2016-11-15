@@ -63,7 +63,7 @@
 }
 
 .copy-link{
-  flex-shrink: 5;
+  flex-shrink: 7;
   padding:0;
 }
 
@@ -80,6 +80,11 @@
   input{
     color: white;
   }
+}
+
+.icon-text{
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-none{

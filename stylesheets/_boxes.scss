@@ -43,6 +43,18 @@
 .space{
 	margin-bottom: $spacing--xx-large;
 }
+
+.img-boxes{
+  width: 20px;
+  height: auto;
+  margin-top: 10px;
+  align-self: center !important;
+}
+
+.img-boxes-external{
+  @extend .img-boxes;
+  margin: 5px;
+}
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
  \*------------------------------------*/
@@ -89,6 +101,11 @@
    transition: all 0.2s ease-in-out;
    opacity: 0.7;
  }
+}
+
+.icons-{
+  padding: 5px;
+  text-align: center;
 }
 
 .container-fluid{
