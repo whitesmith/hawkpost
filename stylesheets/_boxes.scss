@@ -46,15 +46,15 @@
 }
 
 .img-boxes{
-  width: 20px;
+  width: 15px;
   height: auto;
-  margin-top: 10px;
+  margin-top: 8px;
   align-self: center !important;
 }
 
 .img-boxes-external{
   @extend .img-boxes;
-  margin: 7px 5px 5px 5px;
+  margin: 9px 6px 7px 7px;
 }
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
@@ -105,7 +105,7 @@
 }
 
 .icons-{
-  padding: 5px;
+  padding: 4px;
   text-align: center;
   background: black;
   border: none;
