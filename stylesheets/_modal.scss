@@ -27,9 +27,6 @@ perspective effects (not including the modals and the overlay).
 
     z-index: 2000;
     visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .md-show {
@@ -114,17 +111,6 @@ perspective effects (not including the modals and the overlay).
 }
 
 
-/*
-.md-content > div ul {
-	margin: 0;
-	padding: 0 0 30px 20px;
-}
-
-.md-content > div ul li {
-	padding: 5px 0;
-}
-*/
-
 .btn-modal {
     @extend .btn-default;
     max-width: 200px;
@@ -133,13 +119,7 @@ perspective effects (not including the modals and the overlay).
 
     @include breakpoint ($min: sm){
 		margin-top: 2vh;
-
 }
-
-
-
-
-
 }
 
 
