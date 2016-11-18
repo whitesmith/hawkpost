@@ -8,8 +8,8 @@
     <div class="row-s start-xs">
       <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}">
         <div class="col-xs-12">
-          <h3 class="title">LOGIN</h3>
-          <p>If you have not created an account yet, then please<a class=" md-trigger text-darkest" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
+          <h3 class="title text-lightest">LOGIN</h3>
+          <p>If you have not created an account yet, then please<a class=" md-trigger text-blue" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p class="no-padding">
             <div class="login-or">
               <p class="no-padding smalltext"> {% trans 'Login' %} using your email address:</p>
@@ -46,7 +46,7 @@
           {% endif %}
         </div>
         <div class="col-xs-12">
-          <button class="primaryAction btn-default md-trigger" data-modal="modal-login" type="submit">{% trans "Login" %}</button>
+          <button class="primaryAction btn-blue md-trigger" data-modal="modal-login" type="submit">{% trans "Login" %}</button>
         </div>
         <div class="col-xs-12 text-lightest">
           <a class="smalltext secondaryAction u-blockify text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
@@ -58,7 +58,7 @@
         <hr class="full-width">
         </div>
         <div class="col-xs-12 middle-xs mt-small">
-        <button class="btn-default flex-row center-xs middle-xs">
+        <button class="btn-blue flex-row center-xs middle-xs">
           <ul class="gitpad no-margin middle-xs center-xs">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
@@ -77,7 +77,7 @@
     <div class="row-s start-xs ">
       <form class="signup start-xs smalltext text-lightest" id="signup-form-js" method="post" action="{% url 'account_signup' %}">
         <div class="col-xs-12">
-          <h3 class="title">SIGN UP</h3>
+          <h3 class="title text-lightest">SIGN UP</h3>
           <div class="login-or"><p class="smalltext">{% trans 'Sign up' %} via email address:</p></div>
           {% csrf_token %}
           <div class="start-xs text-lightest">
@@ -99,7 +99,7 @@
           {% endif %}
         </div>
         <div class="col-xs-12">
-          <button class="btn-default mt-small" type="submit">{% trans "Sign Up" %}</button>
+          <button class="btn-blue mt-small" type="submit">{% trans "Sign Up" %}</button>
         </div>
         {% get_providers as socialaccount_providers %}
         {% if socialaccount_providers %}
@@ -109,7 +109,7 @@
         <hr class="full-width">
         </div>
         <div class="col-xs-12 middle-xs mt-small">
-        <button class="btn-default flex-row center-xs middle-xs">
+        <button class="btn-blue flex-row center-xs middle-xs">
           <ul class="gitpad no-margin middle-xs center-xs">
             {% include "socialaccount/snippets/provider_list.html" with process="login" %}
           </ul>
