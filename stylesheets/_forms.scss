@@ -46,13 +46,13 @@
         border: none;
         border-radius: 0;
         border-top: 2px solid transparent;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid white;
         &:focus {
             outline: 0;
             box-shadow: none;
             border: none;
             border-top: 1px solid transparent;
-            border-bottom: 3px solid white;
+            border-bottom: 3px solid $blue;
         }
     }
 
