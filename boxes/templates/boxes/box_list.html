@@ -42,7 +42,7 @@
             {% if box.status == allow_actions %}
             <div class="link-barra">
               <input class="barra xsmalltext" type="text" value="https://{{domain}}{% url "boxes_show" box.uuid %}" id="box-{{box.id}}-url" />
-              <a href="{% url 'boxes_show' box.uuid %}" target="_blank" class="btn-blue copy-link"><img src="{% static 'images/external.png' %}" class="img-boxes-external"></a>
+              <button data-src='box-{{box.id}}-url' class="btn-blue copy-to-clipboard-js copy-link"><img src="{% static 'images/external.png' %}" class="img-boxes-external"></button>
             </div>
             {% endif %}
             
