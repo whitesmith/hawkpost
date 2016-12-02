@@ -8,17 +8,17 @@
     <div class="row-s start-xs">
       <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}">
         <div class="col-xs-12">
-          <h3 class="title">LOGIN</h3>
-          <p>If you have not created an account yet, then please<a class=" md-trigger text-darkest" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
+          <h3 class="title text-lightest">LOGIN</h3>
+          <p>If you have not created an account yet, then please<a class=" md-trigger text-blue" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
           <p class="no-padding">
             <div class="login-or">
-              <p> {% trans 'Login' %} using your email address:</p>
+              <p class="no-padding smalltext"> {% trans 'Login' %} using your email address:</p>
             </div>
             {% get_providers as socialaccount_providers %}
             {% if socialaccount_providers %}
             {% include "socialaccount/snippets/login_extra.html" %}
             {% else %}
-            <p>{% blocktrans %}If you have not created an account yet, then please <a class="text-darkest md-trigger" data-modal="modal-signup">sign up</a> first.{% endblocktrans %}</p>
+            <p class="no-padding smalltext">{% blocktrans %}If you have not created an account yet, then please <a class="text-darkest md-trigger" data-modal="modal-signup">sign up</a> first.{% endblocktrans %}</p>
             {% endif %}
           </p>
           <div class="start-xs text-lightest ">
@@ -46,19 +46,26 @@
           {% endif %}
         </div>
         <div class="col-xs-12">
-          <button class="primaryAction btn-default md-trigger" data-modal="modal-login" type="submit">{% trans "Login" %}</button>
+          <button class="primaryAction btn-blue md-trigger" data-modal="modal-login" type="submit">{% trans "Login" %}</button>
+        </div>
+        <div class="col-xs-12 text-lightest">
+          <a class="smalltext secondaryAction u-blockify text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>
         {% if socialaccount_providers %}
-        <div class="col-xs-12 middle-xs flex-in mt-small">
-          <p class="no-padding">{% blocktrans with site.name as site_name %}Login in via:  {% endblocktrans %}</p>
-          <ul class="gitpad no-margin">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </ul>
+        <div class="col-xs-12 center-xs middle-xs flex-in full-width mt-small">
+          <hr class="full-width">
+          <p class="no-padding left-right">OR</p>
+          <hr class="full-width">
+        </div>
+        <div class="col-xs-12 middle-xs mt-small">
+          <button class="btn-blue flex-row center-xs middle-xs">
+            <ul class="gitpad no-margin middle-xs center-xs">
+              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
+            <p class="no-padding">{% blocktrans with site.name as site_name %}Sign in with GitHub  {% endblocktrans %}</p>
+          </button>
         </div>
         {% endif %}
-        <div class="col-xs-12 text-lightest">
-          <a class="smalltext secondaryAction u-blockify text-left" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        </div>
       </form>
     </div>
   </div>
@@ -70,8 +77,8 @@
     <div class="row-s start-xs ">
       <form class="signup start-xs smalltext text-lightest" id="signup-form-js" method="post" action="{% url 'account_signup' %}">
         <div class="col-xs-12">
-          <h3 class="title">SIGN UP</h3>
-          <div class="login-or"><p>{% trans 'Sign up' %} via email address:</p></div>
+          <h3 class="title text-lightest">SIGN UP</h3>
+          <div class="login-or"><p class="smalltext">{% trans 'Sign up' %} via email address:</p></div>
           {% csrf_token %}
           <div class="start-xs text-lightest">
             <div class="input-anim">
@@ -92,19 +99,26 @@
           {% endif %}
         </div>
         <div class="col-xs-12">
-          <button class="btn-default mt-small" type="submit">{% trans "Sign Up" %}</button>
+          <button class="btn-blue mt-small" type="submit">{% trans "Sign Up" %}</button>
         </div>
         {% get_providers as socialaccount_providers %}
         {% if socialaccount_providers %}
-        <div class="col-xs-12 middle-xs flex-in">
-          <p class="no-padding">Sign up using:</p>
-          <ul class="no-padding">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </ul>
+        <div class="col-xs-12 center-xs middle-xs flex-in full-width mt-small">
+          <hr class="full-width">
+          <p class="no-padding left-right">OR</p>
+          <hr class="full-width">
+        </div>
+        <div class="col-xs-12 middle-xs mt-small">
+          <button class="btn-blue flex-row center-xs middle-xs">
+            <ul class="gitpad no-margin middle-xs center-xs">
+              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
+            <p class="no-padding">{% blocktrans with site.name as site_name %}Sign in with GitHub  {% endblocktrans %}</p>
+          </button>
         </div>
         {% endif %}
         <div class="col-xs-12">
-          <p class="smalltext">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-darkest" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
+          <p class="smalltext text-center">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-darkest" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
         </div>
       </form>
     </div>

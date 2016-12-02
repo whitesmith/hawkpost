@@ -6,14 +6,6 @@
     padding-bottom: 30px;
 }
 
-/*.faq__box--big {
-overflow: hidden;
-padding: 20px;
-margin: 5px 0 5px;
-width: 100%;
-cursor: pointer;
-}
-*/
 .faq__title {
     margin: 0px;
     padding: 0px 0px 5px;
@@ -48,6 +40,7 @@ cursor: pointer;
 }
 
 .faq__box {
+    cursor: pointer;
     max-height: 80px;
     padding: 20px;
     width: 100%;
