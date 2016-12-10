@@ -3,6 +3,9 @@ from .common import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if 'ALLOWED_HOSTS' in os.environ:
+    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(',')
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
