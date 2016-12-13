@@ -131,7 +131,7 @@ form {
     textarea {
         width: 100%;
         height: auto;
-        border-color: $light;
+        border-color: #9e9e9e;
         margin-top: 10px;
         font-family: TextFont !important;
         &:focus {
@@ -236,7 +236,7 @@ form {
 
 .errorlist {
     padding: 0;
-    color: #4ca7af ;
+    color: red ;
     text-align: center;
 }
 
@@ -264,6 +264,9 @@ form {
 #accordion {
     width: 100%;
     height: 330px;
+    @include breakpoint ($min:xl) {
+        height: 365px;
+    }
     .section {
         display: none;
         &.active {
@@ -283,4 +286,12 @@ form {
 
 #publickey_option, #keyserver_option {
     width: auto;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
 }

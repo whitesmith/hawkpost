@@ -8,6 +8,11 @@
     background: rgba($light, 0.2);
 }
 
+.form__wrap_msg {
+    width: 100%;
+    text-align: left;
+}
+
 .form__wrap--2col {
     width: $form-width;
     @media (min-width: 640px) {
@@ -77,4 +82,32 @@ input {
 
 .logosucess {
     height: 40vh;
+}
+
+.name-frame{
+    background: $blue;
+    color: white;
+    border-radius: 10px;
+    padding: 3px 6px 3px 6px;
+    margin-right: 3px;
+}
+
+.hawkpost__block{
+    max-height: 80px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.hawkpost-text {
+    margin: 0px;
+    padding: 0px;
+    display: none;
+}
+
+.open__hawkpost__text{
+    overflow: hidden;
+    max-height: 600px !important;
+    .hawkpost-text {
+        display: block;
+    }
 }
