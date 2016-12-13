@@ -22,7 +22,8 @@ class UpdateUserInfoForm(ModelForm):
             "timezone"
         ]
         widgets = {
-            'keyserver_url': forms.TextInput(attrs={'placeholder': 'https://example.com/key.asc'})
+            'keyserver_url': forms.TextInput(attrs={'placeholder': 'https://example.com/key.asc'}),
+            'public_key': forms.Textarea(attrs={'placeholder': '-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: SKS 1.1.1\n<PGP KEY>\n-----END PGP PUBLIC KEY BLOCK-----'})
         }
 
     def __init__(self, *args, **kwargs):

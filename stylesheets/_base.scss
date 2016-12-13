@@ -324,6 +324,27 @@ ul li {
         font-size: map-deep-get($typescale, 'xsmalltext1', 'xl');
     }
 }
+.xsmallmedium {
+    font-family: TextFontMedium;
+    @include breakpoint($min: xxs) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'xxs');
+    }
+    @include breakpoint($min: xs) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'xs');
+    }
+    @include breakpoint($min:sm) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'sm');
+    }
+    @include breakpoint($min:md) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'md');
+    }
+    @include breakpoint($min:lg) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'lg');
+    }
+    @include breakpoint($min:xl) {
+        font-size: map-deep-get($typescale, 'xsmallmedium1', 'xl');
+    }
+}
 
 .testelinks {
     color:#4ca7af;

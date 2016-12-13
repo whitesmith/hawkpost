@@ -222,7 +222,7 @@
 
 //modal-fixes
 .padding-modals1 {
-    padding: 10px 0 3px;
+    padding: 9px 0 3px;
     color: white;
     @include breakpoint ($min: xxs) {
         padding: 3px 0 2px;
@@ -230,10 +230,23 @@
 }
 
 .padding-modals2 {
-    padding: 9px 0 0;
+    padding: 3px 0 2px;
     color: white;
-    @include breakpoint ($min: xxs) {
-        padding: 3px 0 2px;
+    @include breakpoint ($min: sm) {
+        height: 40px;
+        padding: 11px 0 2px;
+    }
+    @include breakpoint ($min: md) {
+        height: 40px;
+        padding: 11px 0 2px;
+    }
+    @include breakpoint ($min: lg) {
+        height: 40px;
+        padding: 11px 0 2px;
+    }
+    @include breakpoint ($min: xl) {
+        height: 40px;
+        padding: 11px 0 2px;
     }
 }
 
@@ -256,10 +269,16 @@
 .mb-small {
     margin-bottom: 10px;
 }
+
+.xmb-small {
+    margin-bottom: 5px;
+}
+
 .left-right{
     margin-right: 10px !important;
     margin-left: 10px !important;
 }
+
 .mb-normal {
     margin-bottom: 20px;
     @include breakpoint ($min: lg) {

@@ -36,14 +36,25 @@ $(document).ready(function(){
     if ($('.radio_button:checked').val() == "keyserver") {
       $("#keyserver_url").show();
       $("#public_key").hide();
-      $("#public_key").val('')
     } else {
       $("#keyserver_url").hide();
       $("#public_key").show();
-      $("#keyserver_url").val('')
     }
   });
-
+  if($("#id_keyserver_url").val().length != 0) {
+    $("#keyserver_option").prop("checked", true);
+    $("#keyserver_url").show();
+    $("#public_key").hide();
+  }
+  $("#form").submit(function(event){
+    if ($('.radio_button:checked').val() == "keyserver") {
+      $("#id_public_key").val('');
+      $("#id_public_key").text('');
+    } else {
+      $("#id_keyserver_url").val('');
+      $("#id_keyserver_url").text('');
+    }
+  });
   $(".errorlist").each(function(){
     if ($("li",this).length >= 1) {
       index = $(this).closest(".section").index();

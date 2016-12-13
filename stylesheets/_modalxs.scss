@@ -2,7 +2,7 @@
  
  .md-modal-xs {
 
-     width: 27vw;
+     width: 35vw;
      margin: 0 auto 0;
      @include breakpoint ($min: xxs) {
 
@@ -14,14 +14,23 @@
 
          width: 90vw;
      }
+     @include breakpoint ($min: sm) {
+
+         width: 71vw;
+     }
      @include breakpoint ($min: md) {
 
-         width: 50vw;
+         width: 63vw;
      }
-     @include breakpoint ($min: sm) {
+     @include breakpoint ($min: lg) {
 
          width: 45vw;
      }
+     @include breakpoint ($min: xl) {
+
+         width: 50vw;
+     }
+     
      li {
          list-style: none;
      }
@@ -42,7 +51,7 @@
  .md-content-xs {
      @extend .md-content;
      //padding: 30px 30px 0px;
-     background-color: #4ca7af;
+     background-color: #1d1d1f;
  
     
     

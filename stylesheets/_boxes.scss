@@ -5,60 +5,56 @@
   padding: 0 15px;
 }
 
-
  .box{
-    //box-shadow: 0px 0px 15px 4px rgba(0, 0, 0,0.08);
     background: white;
     margin: 5px;
     text-align: left;
-    height: 100%;
   }
 
-
- .box__info{
-   font-size: 13px;
-   color: black;
- }
-
- .box-container, .box-action{
+ .box-container{
    display:flex;
    flex-direction:column;
  }
-
- .box-action{
-   align-self:stretch;
-   justify-content: flex-start;
-   border-left: 1px solid black;
-   form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    &:first-child {
-     border-bottom: 1px solid black;
-   }
- }
-}
 
 .basic-info{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	border-bottom: 1px solid black;
 }
 
 .box-title-desc, .extra-info{
 	display: flex;
 	flex-direction: column;
-	padding-left: 15px;
+  width: 100%;
+  padding: 5px 0 5px 15px;
+  color: black;
+}
+
+.extra-info{
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .box-title-desc{
-	padding-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: solid 1.5px $blue;
 }
 
 .space{
 	margin-bottom: $spacing--xx-large;
+}
+
+.img-boxes{
+  width: 15px;
+  height: auto;
+  margin-top: 8px;
+  align-self: center !important;
+}
+
+.img-boxes-external{
+  @extend .img-boxes;
+  margin: 9px 6px 7px 7px;
 }
 /*------------------------------------*\
  #BOXES_NAV_BAR_STATUS
@@ -99,19 +95,26 @@
   }
 }
 
-.outro{
-    color:black;
-    cursor: pointer;
-    &:hover{
+.new-box-btn{
+  background: $blue;
+  color: white;
+  &:hover{
    transition: all 0.2s ease-in-out;
    opacity: 0.7;
  }
-   }
+}
 
-.new-box-btn{
-  @extend .outro;
+.icons-{
+  padding: 4px;
+  text-align: center;
+  background: black;
+  border: none;
+  cursor: pointer;
+}
+
+.icons-blue{
+  @extend .icons-;
   background: $blue;
-  color: white;
 }
 
 .container-fluid{
@@ -143,11 +146,7 @@
 }
 
 .new-box{
-  //border: 1px solid $blue;
   box-shadow: 0px 0px 15px 4px rgba(76,167,175,0.35);
-  //background: white;
-  //opacity: 0.9;
-
 }
 
 .text-mob-{
