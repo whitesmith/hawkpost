@@ -368,11 +368,10 @@ body {
 a {
     color: $main-color;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
     cursor: pointer;
     &:hover {
         text-decoration: none;
-        opacity: 0.7;
+        opacity: 0.9;
     }
 }
 
