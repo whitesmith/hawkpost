@@ -201,6 +201,13 @@
     display: flex;
 }
 
+.center-flex{
+    display: flex;
+    margin: auto;
+}
+.center-vertical{
+    align-self: center !important;
+}
 .flex-column {
     display: flex;
     flex-direction: column;

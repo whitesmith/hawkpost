@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load socialaccount %}
 
 {% get_providers as socialaccount_providers %}
@@ -5,17 +6,23 @@
 {% for provider in socialaccount_providers %}
 {% if provider.id == "openid" %}
 {% for brand in provider.get_brands %}
-<li>
-  <a title="{{brand.name}}" 
-     class="socialaccount_provider {{provider.id}} {{brand.id}}" 
-     href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
-     > {{brand.name}}</a>
-</li>
+
+<a title="{{brand.name}}" 
+class="socialaccount_provider {{provider.id}} {{brand.id}}" 
+href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+> {{brand.name}}</a>
+
 {% endfor %}
 {% endif %}
-<li>
-  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
-     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><i class="fa fa-github fa-lg"></i></a>
-</li>
+
+<a title="{{provider.name}}" class="btn-blue flex-row center-xs middle-xs socialaccount_provider {{provider.id}}" 
+href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+  <div class="gitpad no-margin middle-xs center-xs center-flex">
+    <i class="fa fa-github fa-lg"></i>
+    <p class="no-padding center-vertical">{% blocktrans with site.name as site_name %}Sign in with GitHub{% endblocktrans %}</p>
+  </div>
+</a>
+
+
 {% endfor %}
 

@@ -57,16 +57,11 @@
           <p class="no-padding left-right">OR</p>
           <hr class="full-width">
         </div>
-        <div class="col-xs-12 middle-xs mt-small">
-          <button class="btn-blue flex-row center-xs middle-xs">
-            <ul class="gitpad no-margin middle-xs center-xs">
-              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-            </ul>
-            <p class="no-padding">{% blocktrans with site.name as site_name %}Sign in with GitHub  {% endblocktrans %}</p>
-          </button>
-        </div>
         {% endif %}
       </form>
+      <div class="col-xs-12 middle-xs mt-small smalltext">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </div>
     </div>
   </div>
 </div>
@@ -108,19 +103,14 @@
           <p class="no-padding left-right">OR</p>
           <hr class="full-width">
         </div>
-        <div class="col-xs-12 middle-xs mt-small">
-          <button class="btn-blue flex-row center-xs middle-xs">
-            <ul class="gitpad no-margin middle-xs center-xs">
-              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-            </ul>
-            <p class="no-padding">{% blocktrans with site.name as site_name %}Sign in with GitHub  {% endblocktrans %}</p>
-          </button>
-        </div>
-        {% endif %}
-        <div class="col-xs-12">
-          <p class="smalltext text-center">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-darkest" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
-        </div>
       </form>
+      <div class="col-xs-12 middle-xs mt-small smalltext">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </div>
+      {% endif %}
+      <div class="col-xs-12">
+        <p class="smalltext text-center">{% blocktrans %}Already have an account? Then please <a class=" md-trigger text-blue" href="#modal-login" data-modal="modal-login">Sign in</a>{% endblocktrans %}</p>
+      </div>
     </div>
   </div>
 </div>
