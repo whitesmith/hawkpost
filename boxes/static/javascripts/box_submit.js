@@ -17,6 +17,10 @@ $(document).ready(function () {
 
       $("#id_message").val(ciphertext.data);
 
+      /* Also update the input box's message as a visual cue
+       * that it has been sent after being encrypted. */
+      $("#id_plain").val(ciphertext.data);
+
       if (quickCheckFormContent()) {
         $box.submit();
       } else {
