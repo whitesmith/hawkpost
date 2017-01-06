@@ -15,13 +15,11 @@
   background: black;
   color: white;
   width: 100%;
-  transition: all 0.2s ease-in-out;
   //font-size: 0.9375rem;
   text-align: center;
   cursor: pointer;
   &:hover{
-    transition: all 0.2s ease-in-out;
-   opacity: 0.7;
+    opacity: 0.9;
  }
 }
 
@@ -86,8 +84,7 @@
   cursor: pointer;
   flex-direction: column;
   &:hover{
-    transition: all 0.2s ease-in-out;
-   opacity: 0.7;
+   opacity: 0.9;
  }
 }
 
