@@ -161,10 +161,15 @@ class BoxSubmitView(UpdateView):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
             message = self.object.messages.create()
+
+            # Mark box as done
             if self.object.messages.count() >= self.object.max_messages:
                 self.object.status = Box.DONE
                 self.object.save()
+
+            # Schedule e-mail
             process_email.delay(message.id, form.cleaned_data)
+
             return self.response_class(
                 request=self.request,
                 template="boxes/success.html",
