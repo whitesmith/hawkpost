@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
 from django.contrib.auth import logout, authenticate
 from django.views.generic import FormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
 from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
@@ -30,8 +31,7 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
 
     def get(self, request, *args, **kwargs):
         if request.GET.get('setup', None):
-            msg = "To start using hawkpost," \
-                  " you must add a valid public key"
+            msg = _('To start using hawkpost, you must add a valid public key')
             messages.error(request, msg)
         return super().get(request, *args, **kwargs)
 
@@ -48,11 +48,11 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, "Settings successfully updated")
+        messages.success(self.request, _('Settings successfully updated'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "Please check the invalid fields")
+        messages.error(self.request, _('Please check the invalid fields'))
         return super().form_invalid(form)
 
 
@@ -69,11 +69,11 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
             response = super().delete(request, *args, **kwargs)
             logout(request)
             messages.success(request,
-                             "Account deleted successfully."
-                             "We hope you comeback soon.")
+                             _('Account deleted successfully.'
+                               ' We hope you comeback soon.'))
             return response
         else:
             messages.error(request,
-                           "In order to delete the account you must provide"
-                           " the current password.")
+                           _('In order to delete the account you must provide'
+                             ' the current password.'))
             return self.get(request, *args, **kwargs)

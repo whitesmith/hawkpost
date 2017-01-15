@@ -8,11 +8,11 @@
     <div class="row-s start-xs">
       <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}">
         <div class="col-xs-12">
-          <h3 class="title text-lightest">LOGIN</h3>
-          <p>If you have not created an account yet, then please<a class=" md-trigger text-blue" href="#modal-signup" data-modal="modal-signup"><span> sign up </span></a></p>
+          <h3 class="title text-lightest">{% trans "LOGIN" %}</h3>
+          <p>{% blocktrans %}If you have not created an account yet, then please<a class=" md-trigger text-blue" href="#modal-signup" data-modal="modal-signup"><span>sign up</span></a>.{% endblocktrans %}</p>
           <p class="no-padding">
             <div class="login-or">
-              <p class="no-padding smalltext"> {% trans 'Login' %} using your email address:</p>
+              <p class="no-padding smalltext">{% trans "Login using your email address:" %}</p>
             </div>
             {% get_providers as socialaccount_providers %}
             {% if socialaccount_providers %}
@@ -72,8 +72,8 @@
     <div class="row-s start-xs ">
       <form class="signup start-xs smalltext text-lightest" id="signup-form-js" method="post" action="{% url 'account_signup' %}">
         <div class="col-xs-12">
-          <h3 class="title text-lightest">SIGN UP</h3>
-          <div class="login-or"><p class="smalltext">{% trans 'Sign up' %} via email address:</p></div>
+          <h3 class="title text-lightest">{% trans "SIGN UP" %}</h3>
+          <div class="login-or"><p class="smalltext">{% trans "Sign up via email address:" %}</p></div>
           {% csrf_token %}
           <div class="start-xs text-lightest">
             <div class="input-anim">
@@ -100,7 +100,7 @@
         {% if socialaccount_providers %}
         <div class="col-xs-12 center-xs middle-xs flex-in full-width mt-small">
           <hr class="full-width">
-          <p class="no-padding left-right">OR</p>
+          <p class="no-padding left-right">{% trans "OR" %}</p>
           <hr class="full-width">
         </div>
       </form>

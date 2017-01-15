@@ -1,9 +1,10 @@
+{% load i18n %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HawkPost - Submit your content securely</title>
+  <title>{% trans "HawkPost - Submit your content securely" %}</title>
   {% block styles %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- hp styles -->
@@ -26,7 +27,7 @@
     <div class="row  middle-xs full-height">
       <div class="col-xs-8 col-lg-6">
         <a href="https://github.com/whitesmith/hawkpost" target="_blank" class=""><i class="fa fa-github fa-lg"></i></a>
-        <a href="http://whitesmith.co" target="_blank">With love by
+        <a href="http://whitesmith.co" target="_blank">{% trans "With love by" %}
           <svg version="1.1" id="logo" class="svg-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110" height="18" viewBox="6 7 110 18" xml:space="preserve">
             <g>
               <g>
@@ -68,8 +69,8 @@
         <nav  class="nav-big navbar smalltext ">
           <div class="row middle-xs full-height inline-d">
             <ul class="col-xs-4 col-lg-6 end-xs inline-d">
-              <li class="navbar__link"><a href="{%url "pages_about"%}">About</a></li>
-              <li class="navbar__link"><a href="{%url "pages_help"%}">Support</a></li>
+              <li class="navbar__link"><a href="{%url "pages_about"%}">{% trans "About" %}</a></li>
+              <li class="navbar__link"><a href="{%url "pages_help"%}">{% trans "Support" %}</a></li>
             </ul>
           </div>
         </nav>

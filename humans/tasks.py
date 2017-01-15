@@ -6,6 +6,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.db.models import Q
 from django.template.loader import render_to_string
+from django.utils.translation import ugettext_lazy as _
 from .models import User, Notification
 from .utils import key_state
 import requests
@@ -20,7 +21,7 @@ def fetch_key(url):
     if 200 <= res.status_code < 300 and begin >= 0 and end > begin:
         return res.text[begin:end + 34]
     else:
-        raise ValueError("The Url provided does not contain a public key")
+        raise ValueError(_('The Url provided does not contain a public key'))
 
 
 def send_email(user, subject, template):
@@ -36,14 +37,14 @@ def send_email(user, subject, template):
 def update_public_keys():
     users = User.objects.exclude(
         Q(keyserver_url__isnull=True) | Q(keyserver_url__exact=''))
-    logger.info("Start updating user keys")
+    logger.info(_('Start updating user keys'))
     for user in users:
-        logger.info("Working on user: {}".format(user.email))
-        logger.info("URL: {}".format(user.keyserver_url))
+        logger.info(_('Working on user: {}').format(user.email))
+        logger.info(_('URL: {}').format(user.keyserver_url))
         try:
             key = fetch_key(user.keyserver_url)
         except:
-            logger.error("Unable to fetch new key")
+            logger.error(_('Unable to fetch new key'))
             continue
 
         # Check key
@@ -51,7 +52,7 @@ def update_public_keys():
 
         if state in ["expired", "revoked"]:
             # Email user and disable/remove key
-            send_email(user, "Hawkpost: {} key".format(state),
+            send_email(user, _('Hawkpost: {} key').format(state),
                        "humans/emails/key_{}.txt".format(state))
             user.fingerprint = ""
             user.public_key = ""
@@ -60,13 +61,13 @@ def update_public_keys():
         elif state == "invalid":
             # Alert the user and remove keyserver_url
             send_email(user,
-                       "Hawkpost: Keyserver Url providing an invalid key",
+                       _('Hawkpost: Keyserver Url providing an invalid key'),
                        "humans/emails/key_invalid.txt")
             user.keyserver_url = ""
             user.save()
         elif fingerprint != user.fingerprint:
             # Email user and remove the keyserver url
-            send_email(user, "Hawkpost: Fingerprint mismatch",
+            send_email(user, _('Hawkpost: Fingerprint mismatch'),
                        "humans/emails/fingerprint_changed.txt")
             user.keyserver_url = ""
             user.save()
@@ -75,7 +76,7 @@ def update_public_keys():
             user.public_key = key
             user.save()
 
-    logger.info("Finished Updating user keys")
+    logger.info(_('Finished Updating user keys'))
 
 
 @shared_task

@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 from humans.views import LoginRequiredMixin
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
@@ -60,7 +61,7 @@ class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
                                   box=self.object,
                                   user=self.request.user)
 
-        messages.success(self.request, "Box created successfully")
+        messages.success(self.request, _('Box created successfully'))
         url = self.get_success_url() + "?new_box={}".format(self.object.uuid)
         return self.render_to_response({"location": url})
 
@@ -88,10 +89,10 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
         self.object = self.get_object()
         name = self.object.name
         if self.object.status != Box.OPEN:
-            messages.error(request, "Only open boxes can be deleted")
+            messages.error(request, _('Only open boxes can be deleted'))
         else:
             self.object.delete()
-            msg = "Box named {} deleted successfully".format(name)
+            msg = _('Box named {} deleted successfully').format(name)
             messages.success(request, msg)
         success_url = self.get_success_url()
         return HttpResponseRedirect(success_url)
@@ -108,11 +109,11 @@ class BoxCloseView(LoginRequiredMixin, UpdateView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         if self.object.status != Box.OPEN:
-            messages.error(request, "Only open boxes can be closed")
+            messages.error(request, _('Only open boxes can be closed'))
         else:
             self.object.status = Box.CLOSED
             self.object.save()
-            msg = "Box {} was closed".format(self.object.name)
+            msg = _('Box {} was closed').format(self.object.name)
             messages.success(request, msg)
         success_url = self.get_success_url()
         return HttpResponseRedirect(success_url)
@@ -138,7 +139,7 @@ class BoxSubmitView(UpdateView):
             q = queryset.select_related('owner').prefetch_related('recipients')
             return q.get(uuid=self.kwargs.get("box_uuid"))
         except ValueError:
-            raise ObjectDoesNotExist("Not Found. Double check your URL")
+            raise ObjectDoesNotExist(_('Not Found. Double check your URL'))
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -175,6 +176,6 @@ class BoxSubmitView(UpdateView):
                 template="boxes/success.html",
                 using=self.template_engine)
         else:
-            msg = "The message must be encrypted before the server forwards it"
+            msg = _('The message must be encrypted before the server forwards it')
             messages.error(request, msg)
             return self.form_invalid(form)
