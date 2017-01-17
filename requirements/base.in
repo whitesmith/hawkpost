@@ -1,7 +1,7 @@
-django==1.10.3
+django==1.10.5
 django-dotenv==1.4.1
 psycopg2==2.6.2
-django-allauth==0.27.0
+django-allauth==0.30.0
 gnupg==2.0.2
 whitenoise==3.2.1
 celery==3.1.23
