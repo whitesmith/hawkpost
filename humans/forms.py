@@ -86,6 +86,7 @@ class LoginForm(BaseLoginForm):
         super().__init__(*args, **kwargs)
         self.fields['login'].widget.attrs["placeholder"] = ""
         self.fields['password'].widget.attrs["placeholder"] = ""
+        self.fields['password'].widget.attrs["autocomplete"] = "off"
 
 
 class SignupForm(BaseSignupForm):
@@ -94,3 +95,5 @@ class SignupForm(BaseSignupForm):
         self.fields['email'].widget.attrs["placeholder"] = ""
         self.fields['password1'].widget.attrs["placeholder"] = ""
         self.fields['password2'].widget.attrs["placeholder"] = ""
+        self.fields['password1'].widget.attrs["autocomplete"] = "off"
+        self.fields['password2'].widget.attrs["autocomplete"] = "off"
