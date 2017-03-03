@@ -17,7 +17,7 @@ django-debug-toolbar==1.5
 django-dotenv==1.4.1
 django-extensions==1.7.2
 django-timezone-field==2.0rc1
-django==1.10.5
+django==1.10.6
 fake-factory==0.5.3       # via hypothesis
 gnupg==2.0.2
 gunicorn==19.6.0
