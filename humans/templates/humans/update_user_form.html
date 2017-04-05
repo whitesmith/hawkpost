@@ -63,7 +63,7 @@
                   <li class="section" id="section3">
                     <div class="col-xs-12 start-xs">
                       <span class="text-blue smalltext">
-                        The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients confirmed to display this correctly are <strong>Evolution</strong> and <strong>mutt</strong>
+                        <p>The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients that display this feature correctly are <strong>Evolution</strong> and <strong>mutt</strong></p>
                       </span>
                       <div class="checkbox-">
                         {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
@@ -72,7 +72,7 @@
                         </div>
                       </div>
                       <p class="smalltext no-margin">
-                        The key used to sign can be found <a class="text-blue" href="{{sign_key_url}}">here</a> and fingerprint so you can check it is:</p>
+                        The key used to sign can be found <a class="text-blue" href="{{sign_key_url}}">here</a> and fingerprint so you can check it is correct, is the following:</p>
                         <p class="no-margin smalltext text-darkest">{{sign_key_fingerprint}}</p>
                       </div>
                     </li>
