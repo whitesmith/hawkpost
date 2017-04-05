@@ -18,12 +18,7 @@ The way it works is like this:
 1. Finally the server forwards it to your e-mail address.
 
 
-## Disclaimer
-
-This project is in `beta` state. This means it is not 100% ready and you should **use it at your own risk**.
-
-
-# Getting started
+# Setting up a development environment
 
 In this section you can find the steps to setup a minimal development environment on your machine.
 
