@@ -62,6 +62,6 @@ class NotificationAdmin(admin.ModelAdmin):
     delete_selected.short_description = _('Delete selected notifications')
 
 
-admin.site.site_header = _('HawkPost Administration')
-admin.site.site_title = _('HawkPost Admin')
+admin.site.site_header = _('Hawkpost Administration')
+admin.site.site_title = _('Hawkpost Admin')
 admin.site.index_title = _('Project Models')

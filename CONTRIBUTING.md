@@ -1,6 +1,6 @@
 # Contributing to Hawkpost
 
-Given this is an unfinished project and many features are still missing, you are more than welcome to join in and help improve HawkPost. The project will mostly use the Github issues to keep track of bugs, feature requests and milestones. So and account should be all you need to start contributing.
+Given this is an unfinished project and many features are still missing, you are more than welcome to join in and help improve Hawkpost. The project will mostly use the Github issues to keep track of bugs, feature requests and milestones. So and account should be all you need to start contributing.
 
 Below are a few things we follow and would appreciate if you do to.
 
