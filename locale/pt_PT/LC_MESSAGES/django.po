@@ -375,7 +375,7 @@ msgstr ""
 
 #: hawkpost/templates/account/auth_modals.html:15
 msgid "Login using your email address:"
-msgstr "Entre na coonta usando o seu endereço de email:"
+msgstr "Entre na conta usando o seu endereço de email:"
 
 #: hawkpost/templates/account/auth_modals.html:21
 msgid ""
@@ -586,10 +586,12 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Por favor, confirme que <a href=\"mailto:%(email)s\">%(email)s</a> é um endereço "
+"de email para o utilizador %(user_display)s."
 
 #: hawkpost/templates/account/email_confirm.html:20
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: hawkpost/templates/account/email_confirm.html:27
 #, python-format
@@ -597,61 +599,63 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
+"Este link de confirmação expirou ou é inválido. Por favor <a href="
+"\"%(email_url)s\">faça um novo pedido de confirmação de e-mail</a>."
 
 #: hawkpost/templates/account/logout.html:5
 #: hawkpost/templates/account/logout.html:8
 #: hawkpost/templates/account/logout.html:17
 msgid "Sign Out"
-msgstr ""
+msgstr "Sair"
 
 #: hawkpost/templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Tem a certeza de que quer sair?"
 
 #: hawkpost/templates/account/messages/cannot_delete_primary_email.txt:2
 #, python-format
 msgid "You cannot remove your primary e-mail address (%(email)s)."
-msgstr ""
+msgstr "Não pode remover o seu endereço de e-mail primário (%(email)s)."
 
 #: hawkpost/templates/account/messages/email_confirmation_sent.txt:2
 #, python-format
 msgid "Confirmation e-mail sent to %(email)s."
-msgstr ""
+msgstr "E-mail de confirmação enviado para %(email)s."
 
 #: hawkpost/templates/account/messages/email_confirmed.txt:2
 #, python-format
 msgid "You have confirmed %(email)s."
-msgstr ""
+msgstr "Confirmou %(email)s."
 
 #: hawkpost/templates/account/messages/email_deleted.txt:2
 #, python-format
 msgid "Removed e-mail address %(email)s."
-msgstr ""
+msgstr "Removeu o endereço de e-mail %(email)s."
 
 #: hawkpost/templates/account/messages/logged_in.txt:4
 #, python-format
 msgid "Successfully signed in as %(name)s."
-msgstr ""
+msgstr "Iniciou sessão com sucesso como %(name)s."
 
 #: hawkpost/templates/account/messages/logged_out.txt:2
 msgid "You have signed out."
-msgstr ""
+msgstr "Saiu com sucesso."
 
 #: hawkpost/templates/account/messages/password_changed.txt:2
 msgid "Password successfully changed."
-msgstr ""
+msgstr "Password alterada com sucesso"
 
 #: hawkpost/templates/account/messages/password_set.txt:2
 msgid "Password successfully set."
-msgstr ""
+msgstr "Password definida com sucesso."
 
 #: hawkpost/templates/account/messages/primary_email_set.txt:2
 msgid "Primary e-mail address set."
-msgstr ""
+msgstr "Endereço de e-mail primário definido."
 
 #: hawkpost/templates/account/messages/unverified_primary_email.txt:2
 msgid "Your primary e-mail address must be verified."
-msgstr ""
+msgstr "O seu endereço de e-mail tem que ser verificado."
 
 #: hawkpost/templates/account/password_change.html:5
 #: hawkpost/templates/account/password_change.html:13
@@ -659,47 +663,49 @@ msgstr ""
 #: hawkpost/templates/account/password_reset_from_key.html:4
 #: hawkpost/templates/account/password_reset_from_key_done.html:4
 msgid "Change Password"
-msgstr ""
+msgstr "Alterar Password"
 
 #: hawkpost/templates/account/password_change.html:23
 msgid "Insert your current password:"
-msgstr ""
+msgstr "Introduza a sua password actual:"
 
 #: hawkpost/templates/account/password_change.html:28
 msgid "Insert your new password:"
-msgstr ""
+msgstr "Insira a nova password:"
 
 #: hawkpost/templates/account/password_change.html:33
 msgid "Repeat you new password:"
-msgstr ""
+msgstr "Repita a nova password:"
 
 #: hawkpost/templates/account/password_reset.html:6
 #: hawkpost/templates/account/password_reset_done.html:6
 msgid "Password Reset"
-msgstr ""
+msgstr "Password Restabelecida"
 
 #: hawkpost/templates/account/password_reset.html:14
 #: hawkpost/templates/account/password_reset_done.html:14
 msgid "PASSWORD RESET"
-msgstr ""
+msgstr "PASSWORD RESTABELECIDA"
 
 #: hawkpost/templates/account/password_reset.html:18
 msgid ""
 "Forgot your password?<br>Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
 msgstr ""
+"Esqueceu-se da sua password?<br>Introduza o seu endereço de e-mail em baixo e "
+"nós enviaremos um email que lhe permitirá restabelecer a sua password."
 
 #: hawkpost/templates/account/password_reset.html:26
 msgid "Insert your email:"
-msgstr ""
+msgstr "Introduza o seu email:"
 
 #: hawkpost/templates/account/password_reset.html:30
 msgid "Reset My Password"
-msgstr ""
+msgstr "Restabelecer a Minha Password"
 
 #: hawkpost/templates/account/password_reset.html:33
 msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
+msgstr "Por favor contacte-nos se tiver dificuldades em restabelecer a sua password."
 
 #: hawkpost/templates/account/password_reset_done.html:20
 msgid ""
@@ -707,6 +713,9 @@ msgid ""
 "          <br>Please contact us if you do not receive it within a few "
 "minutes."
 msgstr ""
+"Envíamos-lhe um e-mail. \n"
+"          <br>Por favor, contacte-nos se não o receber dentro de uns "
+"minutos."
 
 #: hawkpost/templates/account/password_reset_from_key.html:12
 msgid "Bad Token"
@@ -715,7 +724,7 @@ msgstr ""
 #: hawkpost/templates/account/password_reset_from_key.html:12
 #: hawkpost/templates/account/password_reset_from_key_done.html:12
 msgid "CHANGE PASSWORD"
-msgstr ""
+msgstr "ALTERAR PASSWORD"
 
 #: hawkpost/templates/account/password_reset_from_key.html:16
 #, python-format
@@ -724,33 +733,36 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
 "a>."
 msgstr ""
+"O link para restabelecer a password é inválido, possivelmente por já ter sido "
+"usado.  Por favor, peça um novo <a href=\"%(passwd_reset_url)s\">link para restabelecer a password</"
+"a>."
 
 #: hawkpost/templates/account/password_reset_from_key.html:23
 msgid "Insert new password:"
-msgstr ""
+msgstr "Introduza a nova password:"
 
 #: hawkpost/templates/account/password_reset_from_key.html:29
 msgid "Insert new password (again):"
-msgstr ""
+msgstr "Introduza a nova password(de novo):"
 
 #: hawkpost/templates/account/password_reset_from_key.html:35
 msgid "change password"
-msgstr ""
+msgstr "mudar password"
 
 #: hawkpost/templates/account/password_reset_from_key.html:38
 #: hawkpost/templates/account/password_reset_from_key_done.html:13
 msgid "Your password is now changed."
-msgstr ""
+msgstr "A sua password foi alterada com sucesso"
 
 #: hawkpost/templates/account/password_reset_from_key_done.html:14
 msgid "Take me back!"
-msgstr ""
+msgstr "Levar-me de volta!"
 
 #: hawkpost/templates/account/password_set.html:5
 #: hawkpost/templates/account/password_set.html:8
 #: hawkpost/templates/account/password_set.html:13
 msgid "Set Password"
-msgstr ""
+msgstr "Definir Password"
 
 #: hawkpost/templates/account/signup_closed.html:5
 #: hawkpost/templates/account/signup_closed.html:8
@@ -759,26 +771,26 @@ msgstr ""
 
 #: hawkpost/templates/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
-msgstr ""
+msgstr "Pedimos desculpa, mas não é possível criar uma nova conta."
 
 #: hawkpost/templates/account/snippets/already_logged_in.html:5
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #: hawkpost/templates/account/snippets/already_logged_in.html:5
 #, python-format
 msgid "you are already logged in as %(user_display)s."
-msgstr ""
+msgstr "já tem a sessão iniciada como %(user_display)s."
 
 #: hawkpost/templates/account/verification_sent.html:5
 #: hawkpost/templates/account/verified_email_required.html:5
 msgid "Verify Your E-mail Address"
-msgstr ""
+msgstr "Verifique o seu Endereço de E-mail"
 
 #: hawkpost/templates/account/verification_sent.html:13
 #: hawkpost/templates/account/verified_email_required.html:13
 msgid "VERIFY YOUR E-MAIL ADDRESS"
-msgstr ""
+msgstr "VERIFIQUE O SEU ENDEREÇO DE E-MAIL"
 
 #: hawkpost/templates/account/verification_sent.html:15
 msgid ""
@@ -786,6 +798,9 @@ msgid ""
 "          <p>Follow the link provided to finalize the signup process. Please "
 "contact us if you do not receive it within a few minutes."
 msgstr ""
+"Enviámos-lhe um e-mail para verificação. </p>\n"
+"          <p>Siga o link do e-mail para finalizar o processo de criação de conta."
+"Por favor contacte-nos se não receber e-mail dentro de uns breves minutos."
 
 #: hawkpost/templates/account/verified_email_required.html:17
 msgid ""
@@ -793,6 +808,8 @@ msgid ""
 "be. For this purpose, we require that you verify ownership of your e-mail "
 "address. "
 msgstr ""
+"Esta secção do site requere que verifique que é quem de facto diz ser. Com esse "
+"propósito, pedimos-lhe que verifique o seu endereço de e-mail."
 
 #: hawkpost/templates/account/verified_email_required.html:19
 msgid ""
@@ -800,6 +817,9 @@ msgid ""
 "inside this e-mail. Please contact us if you do not receive it within a few "
 "minutes."
 msgstr ""
+"Enviámos-lhe um e-mail para verificação. Por favor, carrege no link contido "
+"nesse e-mail. Por favor contacte-nos caso não recebe o e-mail dentro de breves "
+"minutos."
 
 #: hawkpost/templates/account/verified_email_required.html:21
 #, python-format
@@ -807,10 +827,12 @@ msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
 msgstr ""
+"<strong>Nota:</strong> pode ainda <a href=\"%(email_url)s\">alterar o seu "
+"endereço de e-mail</a>."
 
 #: hawkpost/templates/layout/base.html:7
 msgid "Hawkpost - Submit your content securely"
-msgstr ""
+msgstr "Submeta o seu conteúdo de modo seguro"
 
 #: hawkpost/templates/layout/base.html:30
 msgid "With love by"
@@ -820,38 +842,39 @@ msgstr ""
 #: hawkpost/templates/layout/navbar.html:22
 #: hawkpost/templates/layout/navbar.html:56
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: hawkpost/templates/layout/base.html:73
 #: hawkpost/templates/layout/navbar.html:23
 #: hawkpost/templates/layout/navbar.html:57
 msgid "Support"
-msgstr ""
+msgstr "Ajuda"
 
 #: hawkpost/templates/layout/navbar.html:15
 #: hawkpost/templates/layout/navbar.html:49
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 #: hawkpost/templates/layout/navbar.html:16
 #: hawkpost/templates/layout/navbar.html:50
 msgid "Logout"
-msgstr ""
+msgstr "Sair"
 
 #: hawkpost/templates/layout/navbar.html:20
 #: hawkpost/templates/layout/navbar.html:54
 msgid "Sign up"
-msgstr ""
+msgstr "Criar conta"
 
 #: hawkpost/templates/socialaccount/authentication_error.html:5
 #: hawkpost/templates/socialaccount/authentication_error.html:8
 msgid "Social Network Login Failure"
-msgstr ""
+msgstr "Falha no login com Rede Social"
 
 #: hawkpost/templates/socialaccount/authentication_error.html:10
 msgid ""
 "An error occurred while attempting to login via your social network account."
 msgstr ""
+"Ocorreu um erro enquanto tentava entrar com a sua conta de rede social."
 
 #: hawkpost/templates/socialaccount/connections.html:5
 #: hawkpost/templates/socialaccount/connections.html:8
@@ -863,11 +886,14 @@ msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
 msgstr ""
+"Pode entrar na sua conta com qualquer uma das contas destes serviços:"
+
 
 #: hawkpost/templates/socialaccount/connections.html:43
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr ""
+"Não tem de momento nenhuma conta de redes sociais ligada a esta conta."
 
 #: hawkpost/templates/socialaccount/connections.html:46
 msgid "Add a 3rd Party Account"
@@ -915,35 +941,35 @@ msgstr ""
 
 #: humans/admin.py:22
 msgid "Key options"
-msgstr ""
+msgstr "Opções chave"
 
 #: humans/admin.py:42
 msgid "Cannot delete \"{}\", the notification was already sent"
-msgstr ""
+msgstr "Impossível apagar \"{}\", a notificação já foi enviada"
 
 #: humans/admin.py:49
 msgid "Removed all unsent notifications in selection"
-msgstr ""
+msgstr "Todas as notificações não enviadas da selecção foram apagadas"
 
 #: humans/admin.py:59
 msgid "All notifications enqueued for sending"
-msgstr ""
+msgstr "Todas as notificações em lista para enviar"
 
 #: humans/admin.py:61
 msgid "Send selected notifications"
-msgstr ""
+msgstr "Enviar notificações selecionadas"
 
 #: humans/admin.py:62
 msgid "Delete selected notifications"
-msgstr ""
+msgstr "Apagar notificações selecionadas"
 
 #: humans/admin.py:65
 msgid "Hawkpost Administration"
-msgstr ""
+msgstr "Administração Hawkpost"
 
 #: humans/admin.py:66
 msgid "Hawkpost Admin"
-msgstr ""
+msgstr "Administrador Hawkpost"
 
 #: humans/admin.py:67
 msgid "Project Models"
@@ -963,15 +989,15 @@ msgstr ""
 
 #: humans/forms.py:45
 msgid "This key is not valid"
-msgstr ""
+msgstr "Esta chave não é válida"
 
 #: humans/forms.py:48
 msgid "This key is revoked"
-msgstr ""
+msgstr "Esta chave foi revogada"
 
 #: humans/forms.py:51
 msgid "This key is expired"
-msgstr ""
+msgstr "Esta chave expirou"
 
 #: humans/forms.py:62
 msgid "Fingerprint does not match"
@@ -979,19 +1005,19 @@ msgstr ""
 
 #: humans/forms.py:72
 msgid "Could not access the specified url"
-msgstr ""
+msgstr "Não foi possível aceder ao url especificado"
 
 #: humans/forms.py:80
 msgid "This url does not have a pgp key"
-msgstr ""
+msgstr "Este url não contém uma chave pgp"
 
 #: humans/models.py:11
 msgid "Organization"
-msgstr ""
+msgstr "Organização"
 
 #: humans/models.py:12
 msgid "Public key"
-msgstr ""
+msgstr "Chave pública"
 
 #: humans/models.py:13
 msgid "Fingerprint"
@@ -999,7 +1025,7 @@ msgstr ""
 
 #: humans/models.py:14
 msgid "Key server URL"
-msgstr ""
+msgstr "URL do servidor de Chaves"
 
 #: humans/models.py:15
 msgid "Server signed"
@@ -1007,35 +1033,35 @@ msgstr ""
 
 #: humans/models.py:16
 msgid "Prefered language"
-msgstr ""
+msgstr "Linguagem preferida"
 
 #: humans/models.py:17
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso horário"
 
 #: humans/models.py:39
 msgid "Subject"
-msgstr ""
+msgstr "Assunto"
 
 #: humans/models.py:40
 msgid "Body"
-msgstr ""
+msgstr "Corpo"
 
 #: humans/models.py:46
 msgid "Send to"
-msgstr ""
+msgstr "Enviar para"
 
 #: humans/models.py:49
 msgid "Notification"
-msgstr ""
+msgstr "Notificação"
 
 #: humans/models.py:50
 msgid "Notifications"
-msgstr ""
+msgstr "Notificações"
 
 #: humans/tasks.py:24
 msgid "The Url provided does not contain a public key"
-msgstr ""
+msgstr "O URL providenciado não contém uma chave pública"
 
 #: humans/tasks.py:40
 msgid "Start updating user keys"
@@ -1071,23 +1097,23 @@ msgstr ""
 
 #: humans/views.py:34
 msgid "To start using hawkpost, you must add a valid public key"
-msgstr ""
+msgstr "Para começar a usar o hawkpost deve adicionar uma chave pública válida"
 
 #: humans/views.py:51
 msgid "Settings successfully updated"
-msgstr ""
+msgstr "Definições actualizadas com sucesso"
 
 #: humans/views.py:55
 msgid "Please check the invalid fields"
-msgstr ""
+msgstr "Por favor, verifique os campos inválidos"
 
 #: humans/views.py:72
 msgid "Account deleted successfully. We hope you comeback soon."
-msgstr ""
+msgstr "Conta apagada com sucesso. Esperemos que regresse em breve."
 
 #: humans/views.py:77
 msgid "In order to delete the account you must provide the current password."
-msgstr ""
+msgstr "De modo a apagar a conta, deve inserir a password actual."
 
 #: pages/templates/pages/about.html:11
 msgid "HAWKPOST"
@@ -1100,6 +1126,10 @@ msgid ""
 "We upgraded the pigeon for a hawk - it's stronger, faster and will protect "
 "all of your messages better."
 msgstr ""
+"Durante muitos anos os pombos foram usados para enviar mensagens privadas de "
+"pessoa para pessoa. Mas hoje, para enviar informação confidencial, um pombo não chega. "
+"Actualizámos o pombo para um falcão - é mais forte, rápido e vai proteger todas "
+"as suas mensagens melhor."
 
 #: pages/templates/pages/about.html:14
 msgid ""
@@ -1108,18 +1138,26 @@ msgid ""
 "we've created Hawkpost - a place where people can send you sensible "
 "information in an easy and secure way."
 msgstr ""
+"Sabemos que por vezes é dificil explicar como encriptar mensagens ou como "
+"instalar aquele software para proteger informação confidencial. Foi por isso "
+"que criámos o Hawkpost - um sítio onde lhe podem enviar informação sensível "
+"de modo fácil e seguro."
 
 #: pages/templates/pages/about.html:15
 msgid ""
 "This project was made at Whitesmith's Hackathon during our company retreat. "
 "The aim of this hackathon was to launch a side-project in 24h."
 msgstr ""
+"Este projecto foi criado no Hackathon da Whitesmith, durante um retiro da nossa companhia. "
+"O objectivo deste hackathon foi lançar um projecto secundário em 24 horas."
 
 #: pages/templates/pages/about.html:16
 msgid ""
 "You can read more about the project in our FAQ at the bottom of our <a class="
 "\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 msgstr ""
+"Pode ler mais sobre o nosso projecto na nossa FAQ no fundo da nossa <a class="
+"\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 
 #: pages/templates/pages/about.html:23
 msgid "WHITESMITH"
@@ -1137,31 +1175,35 @@ msgstr ""
 
 #: pages/templates/pages/help.html:11
 msgid "SUPPORT"
-msgstr ""
+msgstr "AJUDA"
 
 #: pages/templates/pages/help.html:16
 msgid "How to setup Hawkpost"
-msgstr ""
+msgstr "Como configurar o Hawkpost"
 
 #: pages/templates/pages/help.html:17
 msgid "How to generate a PGP key"
-msgstr ""
+msgstr "Como gerar a chave PGP"
 
 #: pages/templates/pages/help.html:18
 msgid "How to verify Hawkpost signature"
-msgstr ""
+msgstr "Como verificar a assinatura do Hawkpost"
 
 #: pages/templates/pages/help.html:30
 msgid ""
 "In this page we try to explain common procedures and features that can be "
 "complex and hard to grasp for newcomers."
 msgstr ""
+"Nesta página tentamos explicar os principais procedimentos e características "
+"que podem ser complexas e difíceis de entender para principiantes"
 
 #: pages/templates/pages/help.html:31
 msgid ""
 "Some are related to Hawkpost directly, but others are related to PGP and "
 "associated tasks and tools."
 msgstr ""
+"Algumas relacionam-se directamente com o Hawkpost, mas outras relacionam-se "
+"com tarefas e ferramentas associadas com o PGP."
 
 #: pages/templates/pages/help.html:32
 msgid ""
@@ -1170,6 +1212,12 @@ msgid ""
 "drop a line through our support channels, and we'll try to help you as soon "
 "as possible."
 msgstr ""
+"Como é óbvio, não nos é possível cobrir toda a matéria ou responder "
+"explicitamente a todas as perguntas neste documento. Portanto, se tiver alguma "
+"questão que não seja respondida aqui, sinta-se à vontade para nos enviar um "
+"email ou para nos escrever pelos nossos canais de suporte e tentaremos ajudá-lo "
+"assim que nos for possível."
+
 
 #: pages/templates/pages/help.html:34
 #, python-format
@@ -1186,7 +1234,7 @@ msgstr ""
 
 #: pages/templates/pages/help.html:44
 msgid "HOW TO SETUP HAWKPOST"
-msgstr ""
+msgstr "COMO CONFIGURAR O HAWKPOST"
 
 #: pages/templates/pages/help.html:47
 msgid ""
