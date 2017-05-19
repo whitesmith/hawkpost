@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'humans',
     'boxes',
     'pages',
+    'languages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,7 +59,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hawkpost.middleware.TimezoneMiddleware'
+    'hawkpost.middleware.TimezoneMiddleware',
+    'hawkpost.middleware.LanguageMiddleware',
 ]
 
 ROOT_URLCONF = 'hawkpost.urls'
