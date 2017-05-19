@@ -32,6 +32,7 @@ class UpdateUserFormTests(TestCase):
             "company": "some company",
             "fingerprint": VALID_KEY_FINGERPRINT,
             "timezone": "UTC",
+            "language": "en-us",
             "public_key": VALID_KEY
         }
 
