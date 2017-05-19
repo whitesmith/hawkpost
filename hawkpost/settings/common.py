@@ -185,3 +185,7 @@ BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
 
 # SITE DOMAIN
 SITE_DOMAIN = os.environ.get("SITE_DOMAIN")
+
+# LOCALE_PATH for translations
+# https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-LOCALE_PATHS
+LOCALE_PATHS = ['locale']
