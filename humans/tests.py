@@ -69,7 +69,7 @@ class UpdateUserFormTests(TestCase):
 
     def test_non_valid_language(self):
         data = copy(self.default_data)
-        data["language"] = ''.join(random.choice(string) for i in range(10))
+        data["language"] = "invalid"
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
