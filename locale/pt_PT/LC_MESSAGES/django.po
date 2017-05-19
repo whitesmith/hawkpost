@@ -1,0 +1,1444 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-19 12:04+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: boxes/forms.py:36
+msgid "The date must be on the future."
+msgstr "A data tem que ser no futuro."
+
+#: boxes/forms.py:39
+msgid "This field is required, unless box is set to never expire."
+msgstr "Este campo é requerido, a não ser que a caixa seja definida para nunca expirar."
+
+#: boxes/forms.py:62 boxes/forms.py:64
+msgid "Invalid PGP message"
+msgstr "Mensagem PGP inválida"
+
+#: boxes/models.py:16 boxes/templates/boxes/box_list.html:20
+msgid "Open"
+msgstr "Abrir"
+
+#: boxes/models.py:17 boxes/templates/boxes/box_list.html:22
+msgid "Expired"
+msgstr "Expirado"
+
+#: boxes/models.py:18 boxes/templates/boxes/box_list.html:21
+msgid "Done"
+msgstr "Concluído"
+
+#: boxes/models.py:19 boxes/templates/boxes/box_list.html:23
+msgid "Closed"
+msgstr "Fechado"
+
+#: boxes/models.py:22
+msgid "Name"
+msgstr "Nome"
+
+#: boxes/models.py:24
+msgid "Description"
+msgstr "Descrição"
+
+#: boxes/models.py:26
+msgid "Unique ID"
+msgstr "ID único"
+
+#: boxes/models.py:29
+msgid "Owner"
+msgstr "Dono"
+
+#: boxes/models.py:35
+msgid "Recipients"
+msgstr "Destinatários"
+
+#: boxes/models.py:37 boxes/models.py:84 boxes/models.py:114
+#: humans/models.py:42
+msgid "Created at"
+msgstr "Creado em"
+
+#: boxes/models.py:39 boxes/models.py:86 boxes/models.py:116
+#: humans/models.py:43
+msgid "Updated at"
+msgstr "Actualizado em"
+
+#: boxes/models.py:41
+msgid "Expires at"
+msgstr "Expira em"
+
+#: boxes/models.py:44 boxes/models.py:112
+msgid "Status"
+msgstr "Estado"
+
+#: boxes/models.py:47
+msgid "Max. messages"
+msgstr "Max. mensagens"
+
+#: boxes/models.py:50
+msgid "Last sent at"
+msgstr "Enviado pela ultima vez em"
+
+#: boxes/models.py:53
+msgid "Box"
+msgstr "Caixa"
+
+#: boxes/models.py:54 hawkpost/templates/layout/navbar.html:14
+#: hawkpost/templates/layout/navbar.html:48
+msgid "Boxes"
+msgstr "Caixas"
+
+#: boxes/models.py:76
+msgid "Knowledge of existence"
+msgstr "Conhecimento de existência"
+
+#: boxes/models.py:77
+msgid "Activity notifications"
+msgstr "Notificações de actividade"
+
+#: boxes/models.py:78
+msgid "Full access to content"
+msgstr "Acesso total ao conteúdo"
+
+#: boxes/models.py:82
+msgid "Rights"
+msgstr "Direitos"
+
+#: boxes/models.py:91
+msgid "Membership"
+msgstr ""
+
+#: boxes/models.py:92
+msgid "Memberships"
+msgstr ""
+
+#: boxes/models.py:105
+msgid "OnQueue"
+msgstr "Em Fila"
+
+#: boxes/models.py:106
+msgid "Sent"
+msgstr "Enviado"
+
+#: boxes/models.py:107
+msgid "Failed"
+msgstr "Falhou"
+
+#: boxes/models.py:118 humans/models.py:45
+msgid "Sent at"
+msgstr "Enviado em"
+
+#: boxes/tasks.py:18
+msgid "New submission to your box: {}"
+msgstr "Nova submissão para a sua caixa: {}"
+
+#: boxes/templates/boxes/box_list.html:11
+msgid "MANAGE BOXES"
+msgstr "GERIR CAIXAS"
+
+#: boxes/templates/boxes/box_list.html:14
+msgid "New Box"
+msgstr "Nova Caixa"
+
+#: boxes/templates/boxes/box_list.html:52
+msgid "Messages:"
+msgstr "Mensagens:"
+
+#: boxes/templates/boxes/box_list.html:56
+msgid "Created on:"
+msgstr "Criado em:"
+
+#: boxes/templates/boxes/box_list.html:61
+msgid "Expires on:"
+msgstr "Expira em:"
+
+#: boxes/templates/boxes/box_list.html:67
+msgid "Last sent:"
+msgstr "Ultimamente enviado:"
+
+#: boxes/templates/boxes/box_list.html:96
+msgid "Previous"
+msgstr "Anterior"
+
+#: boxes/templates/boxes/box_list.html:100
+#, python-format
+msgid "Page %(page_obj.number)s of %(paginator.num_pages)s"
+msgstr "Página %(page_obj.number)s de %(paginator.num_pages)s"
+
+#: boxes/templates/boxes/box_list.html:104
+msgid "Next"
+msgstr "Próximo"
+
+#: boxes/templates/boxes/box_list.html:117
+msgid "CREATE NEW BOX"
+msgstr "CRIAR NOVA CAIXA"
+
+#: boxes/templates/boxes/box_list.html:118
+msgid ""
+"For others to be able to send you encrypted content through Hawkpost, you'll "
+"need to generate \"boxes\"."
+msgstr ""
+"Para que outros sejam capazes de lhe enviar conteúdo encriptado pelo Hawkpost, "
+"terá que gerar \"boxes\"."
+
+#: boxes/templates/boxes/box_list.html:119
+msgid ""
+"Each box has an associated link that you can copy and share with any given "
+"person. If you want, you can set the expiration date and number of messages "
+"after which the link will be locked and no longer accessible."
+msgstr ""
+"Cada caixa tem um link associado que poderá copiar e partilhar com qualquer "
+"pessoa. Se quiser, poderá definir o prazo de validade e o número de mensagens "
+"após o qual o link será bloqueado e não mais acessível."
+
+#: boxes/templates/boxes/box_list.html:162
+msgid "Create"
+msgstr "Criar"
+
+#: boxes/templates/boxes/box_submit.html:16
+#: boxes/templates/boxes/success.html:28
+msgid "Sending your confidential information safely"
+msgstr "Enviar a sua informação de modo seguro"
+
+#: boxes/templates/boxes/box_submit.html:18
+msgid "What is Hawkpost?"
+msgstr "O que é o Hawkpost?"
+
+#: boxes/templates/boxes/box_submit.html:20
+msgid ""
+"Hawkpost is the easiest way to securely receive sensible information from "
+"people who don't know how to use PGP. They don't even need to install "
+"anything: you just share your link and the person who receives it just needs "
+"to submit the information. Our hawk will send it back to you."
+msgstr ""
+"Hawkpost é a maneira mais fácil de receber com segurança informação sensível de "
+"pessoas que não sabem como usar PGP. Elas não precisam de instalar nada: "
+"apenas é necessário que partilhe o seu link e a pessoa que o recebe apenas necessita "
+"de submeter a informação. O nosso falcão trará a sua mensagem de volta para si."
+
+#: boxes/templates/boxes/box_submit.html:27
+msgid "Compose new message"
+msgstr "Escrever nova mensagem"
+
+#: boxes/templates/boxes/box_submit.html:28
+msgid "To:"
+msgstr "Para:"
+
+#: boxes/templates/boxes/box_submit.html:29
+msgid "Organization:"
+msgstr "Organização:"
+
+#: boxes/templates/boxes/box_submit.html:30
+#: boxes/templates/boxes/box_submit.html:37
+msgid "Key fingerprint:"
+msgstr ""
+
+#: boxes/templates/boxes/box_submit.html:33
+msgid "The following people will receive the messages:"
+msgstr "As seguintes pessoas receberão as mensagens:"
+
+#: boxes/templates/boxes/box_submit.html:35
+msgid "Name:"
+msgstr "Nome:"
+
+#: boxes/templates/boxes/box_submit.html:36
+msgid "Email:"
+msgstr "Email:"
+
+#: boxes/templates/boxes/box_submit.html:48
+msgid ""
+"Your browser has Javascript disabled. In order to be able to secure your "
+"content (end-to-end) this page needs JavaScript to be active. Please change "
+"this setting and refresh the page."
+msgstr ""
+"O seu browser tem o Javascript desactivado. De modo a proteger o seu conteúdo "
+"esta página necessita que tenha o Javascript activado. Por favor, altere "
+"as suas definições e actualize a página."
+
+#: boxes/templates/boxes/box_submit.html:49
+msgid ""
+"This also may be caused by the use of certain browser extensions, in this "
+"case add an exception for this page to work."
+msgstr ""
+"Pode também ser causado por certas extensões do browser. Nesse caso "
+"adicione uma excepção para que esta página funcione."
+
+#: boxes/templates/boxes/closed.html:10
+msgid "THIS LINK IS NO LONGER ACTIVE"
+msgstr "ESTE LINK JÁ NÃO SE ENCONTRA ACTIVO"
+
+#: boxes/templates/boxes/closed.html:11
+msgid "That could be because:"
+msgstr "Isso pode ser porque:"
+
+#: boxes/templates/boxes/closed.html:13
+msgid "The link expired"
+msgstr "O link expirou"
+
+#: boxes/templates/boxes/closed.html:14
+msgid "The recipient closed or deactivated the link."
+msgstr "O destinatário fechou ou desactivou o link"
+
+#: boxes/templates/boxes/closed.html:15
+msgid "It was already submitted."
+msgstr "Já foi submetido."
+
+#: boxes/templates/boxes/closed.html:16
+msgid ""
+"The recipient did not suply a valid public key in order to correctly encrypt "
+"the content."
+msgstr ""
+"O destinatário não deu uma chave pública válida para correctamente encriptar "
+"o conteúdo."
+
+#: boxes/templates/boxes/closed.html:19
+#, python-format
+msgid ""
+"In any of the above cases, you should contact the recipient (<a href="
+"\"mailto:%(box.owner.email)s\" class=\"text-blue\">%(box.owner.first_name)s "
+"%(box.owner.last_name)s</a>) in order to fix the issue."
+msgstr ""
+"Em qualquer dos casos acima descritos, deve contactar o destinatário (<a href="
+"\"mailto:%(box.owner.email)s\" class=\"text-blue\">%(box.owner.first_name)s "
+"%(box.owner.last_name)s</a>) de modo a resolver o problema."
+
+#: boxes/templates/boxes/success.html:15
+msgid "MESSAGE SENT WITH SUCCESS!"
+msgstr "MENSAGEM ENVIADA COM SUCESSO!"
+
+#: boxes/templates/boxes/success.html:20
+msgid "by:"
+msgstr "por:"
+
+#: boxes/views.py:64
+msgid "Box created successfully"
+msgstr "Caixa criada com sucesso"
+
+#: boxes/views.py:92
+msgid "Only open boxes can be deleted"
+msgstr "Apenas caixas abertas podem ser apagadas"
+
+#: boxes/views.py:95
+msgid "Box named {} deleted successfully"
+msgstr "A caixa de nome {} foi apagada com sucesso"
+
+#: boxes/views.py:112
+msgid "Only open boxes can be closed"
+msgstr "Apenas caixas abertas podem ser fechadas"
+
+#: boxes/views.py:116
+msgid "Box {} was closed"
+msgstr "A caixa {} foi fechada"
+
+#: boxes/views.py:142
+msgid "Not Found. Double check your URL"
+msgstr "Não encontrado. Por favor, verifique o seu URL"
+
+#: boxes/views.py:179
+msgid "The message must be encrypted before the server forwards it"
+msgstr "A mensagem deve ser encriptada antes do servidor a enviar"
+
+#: hawkpost/templates/account/account_inactive.html:5
+#: hawkpost/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr "Conta Inactiva"
+
+#: hawkpost/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr "Esta conta está inactiva"
+
+#: hawkpost/templates/account/auth_modals.html:11
+msgid "LOGIN"
+msgstr "ENTRAR"
+
+#: hawkpost/templates/account/auth_modals.html:12
+msgid ""
+"If you have not created an account yet, then please <a class=\" md-trigger "
+"text-blue\" href=\"#modal-signup\" data-modal=\"modal-signup\"><span>sign "
+"up</span></a>."
+msgstr ""
+"Se ainda não criou uma conta, então por favor <a class=\" md-trigger "
+"text-blue\" href=\"#modal-signup\" data-modal=\"modal-signup\"><span>crie "
+"conta</span></a>."
+
+#: hawkpost/templates/account/auth_modals.html:15
+msgid "Login using your email address:"
+msgstr "Entre na coonta usando o seu endereço de email:"
+
+#: hawkpost/templates/account/auth_modals.html:21
+msgid ""
+"If you have not created an account yet, then please <a class=\"text-darkest "
+"md-trigger\" data-modal=\"modal-signup\">sign up</a> first."
+msgstr ""
+"Se ainda não criou uma conta, então por favor <a class=\"text-darkest "
+"md-trigger\" data-modal=\"modal-signup\">crie conta</a> primeiro."
+
+#: hawkpost/templates/account/auth_modals.html:49
+#: hawkpost/templates/layout/navbar.html:19
+#: hawkpost/templates/layout/navbar.html:53
+msgid "Login"
+msgstr "Entrar"
+
+#: hawkpost/templates/account/auth_modals.html:52
+msgid "Forgot Password?"
+msgstr "Esqueceu-se da Password?"
+
+#: hawkpost/templates/account/auth_modals.html:75
+msgid "SIGN UP"
+msgstr "CRIAR CONTA"
+
+#: hawkpost/templates/account/auth_modals.html:76
+msgid "Sign up via email address:"
+msgstr "Criar conta através do endereço de email:"
+
+#: hawkpost/templates/account/auth_modals.html:97
+#: hawkpost/templates/socialaccount/signup.html:8
+#: hawkpost/templates/socialaccount/signup.html:19
+#: pages/templates/pages/index.html:115
+msgid "Sign Up"
+msgstr "Criar Conta"
+
+#: hawkpost/templates/account/auth_modals.html:103
+msgid "OR"
+msgstr "OU"
+
+#: hawkpost/templates/account/auth_modals.html:112
+msgid ""
+"Already have an account? Then please <a class=\" md-trigger text-blue\" href="
+"\"#modal-login\" data-modal=\"modal-login\">Sign in</a>"
+msgstr ""
+"Já tem uma conta? Então por favor <a class=\" md-trigger text-blue\" href="
+"\"#modal-login\" data-modal=\"modal-login\">Entre na sua conta</a>"
+
+#: hawkpost/templates/account/email.html:5
+msgid "Account"
+msgstr "Conta"
+
+#: hawkpost/templates/account/email.html:8
+msgid "E-mail Addresses"
+msgstr "Endereços de e-mail"
+
+#: hawkpost/templates/account/email.html:10
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Os seguintes endereços de e-mail estão associados à sua conta:"
+
+#: hawkpost/templates/account/email.html:24
+msgid "Verified"
+msgstr "Verificado"
+
+#: hawkpost/templates/account/email.html:26
+msgid "Unverified"
+msgstr "Não verificado"
+
+#: hawkpost/templates/account/email.html:28
+msgid "Primary"
+msgstr "Primário"
+
+#: hawkpost/templates/account/email.html:34
+msgid "Make Primary"
+msgstr "Tornar primário"
+
+#: hawkpost/templates/account/email.html:35
+msgid "Re-send Verification"
+msgstr "Re-enviar Verificação"
+
+#: hawkpost/templates/account/email.html:36
+#: hawkpost/templates/socialaccount/connections.html:35
+msgid "Remove"
+msgstr "Remover"
+
+#: hawkpost/templates/account/email.html:43
+msgid "Warning:"
+msgstr "Aviso:"
+
+#: hawkpost/templates/account/email.html:43
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"De momento não tem nenhum endereço de e-mail configurado. Deve adicionar um "
+"endereço de e-mail de modo a receber notificações, mudar a password, etc."
+
+#: hawkpost/templates/account/email.html:48
+msgid "Add E-mail Address"
+msgstr "Adicionar um endereço de e-mail"
+
+#: hawkpost/templates/account/email.html:53
+msgid "Add E-mail"
+msgstr "Adicionar E-mail"
+
+#: hawkpost/templates/account/email.html:62
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "De certeza que quer endereço de e-mail seleccionado?"
+
+#: hawkpost/templates/account/email/email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"Hello there,\n"
+"\n"
+"This is an confirmation email, sent by %(site_name)s to every new user of "
+"the service in order to verify their email address.\n"
+"\n"
+"You're receiving it, because you (or someone else) provided it during "
+"registration.\n"
+"\n"
+"To confirm this is correct, please visit the following address: "
+"%(activate_url)s\n"
+"\n"
+"Otherwise you can either ignore this message or contact us through the "
+"support channels (at %(site_domain)s"
+msgstr ""
+"Olá,\n"
+"\n"
+"Este é um email de confirmação, enviado pelo %(site_name)s para todos os novos "
+"utilizadores do serviço, para que possam verificar o seu endereço de e-mail\n"
+"\n"
+"Está a recebê-lo, porque você (ou outra pessoa) o providenciou durante o "
+"registo.\n"
+"\n"
+"De modo a verificar que o e-mail está correcto, por favor visite o seguinte endereço: "
+"%(activate_url)s\n"
+"\n"
+"Caso contrário pode ignorar esta mensagem ou contactar-nos através dos nossos "
+"canais de suporte (em %(site_domain)s"
+
+#: hawkpost/templates/account/email/email_confirmation_message.txt:13
+msgid ", so this account can be removed.\n"
+msgstr ", para que esta conta possa ser removida.\n"
+
+#: hawkpost/templates/account/email/email_confirmation_message.txt:17
+#, python-format
+msgid ""
+"Best regards,\n"
+"%(site_name)s\n"
+"%(site_domain)s\n"
+msgstr ""
+"Com os melhores cumprimentos\n"
+"%(site_name)s\n"
+"%(site_domain)s\n"
+
+#: hawkpost/templates/account/email/email_confirmation_subject.txt:3
+#, python-format
+msgid "%(site_name)s Please Confirm Your E-mail Address"
+msgstr "%(site_name)s Por Favor Confirme O Seu Endereço De E-Mail"
+
+#: hawkpost/templates/account/email/password_reset_key_message.txt:2
+#, python-format
+msgid ""
+"\n"
+"Hi there,\n"
+"\n"
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account at %(site_domain)s.\n"
+"\n"
+"If you did not request a password reset, this message can be safely "
+"ignored.\n"
+"\n"
+"Otherwise, to continue with the process of reseting you password visit the "
+"following page:\n"
+msgstr ""
+"\n"
+"Olá,\n"
+"\n"
+"Recebeu este e-mail porque você, ou outra pessoa, pediu uma nova "
+"palavra passe para a sua conta de utilizador em %(site_domain)s.\n"
+"\n"
+"Se não pediu uma nova palavra passe, esta mensagem pode ser ignorada em "
+"em segurança.\n"
+"\n"
+"Caso contrário, para continuar o processo de restabelecer a sua palavra passe "
+"visite a seguinte página:\n"
+
+#: hawkpost/templates/account/email/password_reset_key_message.txt:14
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s\n"
+msgstr ""
+"Obrigado por usar o %(site_name)s!\n"
+"%(site_domain)s\n"
+
+#: hawkpost/templates/account/email/password_reset_key_subject.txt:3
+#, python-format
+msgid "%(site_name)s Password Reset"
+msgstr "%(site_name)s Restabelecer a Palavra Pass"
+
+#: hawkpost/templates/account/email_confirm.html:6
+#: hawkpost/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Confirmar o Endereço de E-mail"
+
+#: hawkpost/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: hawkpost/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: hawkpost/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: hawkpost/templates/account/logout.html:5
+#: hawkpost/templates/account/logout.html:8
+#: hawkpost/templates/account/logout.html:17
+msgid "Sign Out"
+msgstr ""
+
+#: hawkpost/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: hawkpost/templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr ""
+
+#: hawkpost/templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr ""
+
+#: hawkpost/templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr ""
+
+#: hawkpost/templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr ""
+
+#: hawkpost/templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr ""
+
+#: hawkpost/templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr ""
+
+#: hawkpost/templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr ""
+
+#: hawkpost/templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr ""
+
+#: hawkpost/templates/account/messages/primary_email_set.txt:2
+msgid "Primary e-mail address set."
+msgstr ""
+
+#: hawkpost/templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary e-mail address must be verified."
+msgstr ""
+
+#: hawkpost/templates/account/password_change.html:5
+#: hawkpost/templates/account/password_change.html:13
+#: hawkpost/templates/account/password_change.html:37
+#: hawkpost/templates/account/password_reset_from_key.html:4
+#: hawkpost/templates/account/password_reset_from_key_done.html:4
+msgid "Change Password"
+msgstr ""
+
+#: hawkpost/templates/account/password_change.html:23
+msgid "Insert your current password:"
+msgstr ""
+
+#: hawkpost/templates/account/password_change.html:28
+msgid "Insert your new password:"
+msgstr ""
+
+#: hawkpost/templates/account/password_change.html:33
+msgid "Repeat you new password:"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:6
+#: hawkpost/templates/account/password_reset_done.html:6
+msgid "Password Reset"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:14
+#: hawkpost/templates/account/password_reset_done.html:14
+msgid "PASSWORD RESET"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:18
+msgid ""
+"Forgot your password?<br>Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:26
+msgid "Insert your email:"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:30
+msgid "Reset My Password"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset.html:33
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_done.html:20
+msgid ""
+"We have sent you an e-mail. \n"
+"          <br>Please contact us if you do not receive it within a few "
+"minutes."
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:12
+msgid "Bad Token"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:12
+#: hawkpost/templates/account/password_reset_from_key_done.html:12
+msgid "CHANGE PASSWORD"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:16
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:23
+msgid "Insert new password:"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:29
+msgid "Insert new password (again):"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:35
+msgid "change password"
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key.html:38
+#: hawkpost/templates/account/password_reset_from_key_done.html:13
+msgid "Your password is now changed."
+msgstr ""
+
+#: hawkpost/templates/account/password_reset_from_key_done.html:14
+msgid "Take me back!"
+msgstr ""
+
+#: hawkpost/templates/account/password_set.html:5
+#: hawkpost/templates/account/password_set.html:8
+#: hawkpost/templates/account/password_set.html:13
+msgid "Set Password"
+msgstr ""
+
+#: hawkpost/templates/account/signup_closed.html:5
+#: hawkpost/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: hawkpost/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: hawkpost/templates/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr ""
+
+#: hawkpost/templates/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr ""
+
+#: hawkpost/templates/account/verification_sent.html:5
+#: hawkpost/templates/account/verified_email_required.html:5
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: hawkpost/templates/account/verification_sent.html:13
+#: hawkpost/templates/account/verified_email_required.html:13
+msgid "VERIFY YOUR E-MAIL ADDRESS"
+msgstr ""
+
+#: hawkpost/templates/account/verification_sent.html:15
+msgid ""
+"We have sent an e-mail to you for verification. </p>\n"
+"          <p>Follow the link provided to finalize the signup process. Please "
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: hawkpost/templates/account/verified_email_required.html:17
+msgid ""
+"This part of the site requires us to verify that you are who you claim to "
+"be. For this purpose, we require that you verify ownership of your e-mail "
+"address. "
+msgstr ""
+
+#: hawkpost/templates/account/verified_email_required.html:19
+msgid ""
+"We have sent an e-mail to you for verification. Please click on the link "
+"inside this e-mail. Please contact us if you do not receive it within a few "
+"minutes."
+msgstr ""
+
+#: hawkpost/templates/account/verified_email_required.html:21
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: hawkpost/templates/layout/base.html:7
+msgid "Hawkpost - Submit your content securely"
+msgstr ""
+
+#: hawkpost/templates/layout/base.html:30
+msgid "With love by"
+msgstr ""
+
+#: hawkpost/templates/layout/base.html:72
+#: hawkpost/templates/layout/navbar.html:22
+#: hawkpost/templates/layout/navbar.html:56
+msgid "About"
+msgstr ""
+
+#: hawkpost/templates/layout/base.html:73
+#: hawkpost/templates/layout/navbar.html:23
+#: hawkpost/templates/layout/navbar.html:57
+msgid "Support"
+msgstr ""
+
+#: hawkpost/templates/layout/navbar.html:15
+#: hawkpost/templates/layout/navbar.html:49
+msgid "Settings"
+msgstr ""
+
+#: hawkpost/templates/layout/navbar.html:16
+#: hawkpost/templates/layout/navbar.html:50
+msgid "Logout"
+msgstr ""
+
+#: hawkpost/templates/layout/navbar.html:20
+#: hawkpost/templates/layout/navbar.html:54
+msgid "Sign up"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/authentication_error.html:5
+#: hawkpost/templates/socialaccount/authentication_error.html:8
+msgid "Social Network Login Failure"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/authentication_error.html:10
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/connections.html:5
+#: hawkpost/templates/socialaccount/connections.html:8
+msgid "Account Connections"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/connections.html:11
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/connections.html:43
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/connections.html:46
+msgid "Add a 3rd Party Account"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/login_cancelled.html:5
+#: hawkpost/templates/socialaccount/login_cancelled.html:9
+msgid "Login Cancelled"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/login_cancelled.html:13
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
+"\">sign in</a>."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/messages/account_connected.txt:2
+msgid "The social account has been connected."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The social account is already connected to a different account."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The social account has been disconnected."
+msgstr ""
+
+#: hawkpost/templates/socialaccount/signup.html:5
+msgid "Signup"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/signup.html:10
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+
+#: hawkpost/templates/socialaccount/snippets/provider_list.html:22
+msgid "Sign in with GitHub"
+msgstr ""
+
+#: humans/admin.py:22
+msgid "Key options"
+msgstr ""
+
+#: humans/admin.py:42
+msgid "Cannot delete \"{}\", the notification was already sent"
+msgstr ""
+
+#: humans/admin.py:49
+msgid "Removed all unsent notifications in selection"
+msgstr ""
+
+#: humans/admin.py:59
+msgid "All notifications enqueued for sending"
+msgstr ""
+
+#: humans/admin.py:61
+msgid "Send selected notifications"
+msgstr ""
+
+#: humans/admin.py:62
+msgid "Delete selected notifications"
+msgstr ""
+
+#: humans/admin.py:65
+msgid "Hawkpost Administration"
+msgstr ""
+
+#: humans/admin.py:66
+msgid "Hawkpost Admin"
+msgstr ""
+
+#: humans/admin.py:67
+msgid "Project Models"
+msgstr ""
+
+#: humans/forms.py:26
+msgid "https://example.com/key.asc"
+msgstr ""
+
+#: humans/forms.py:27
+msgid ""
+"-----BEGIN PGP PUBLIC KEY BLOCK-----\n"
+"Version: SKS 1.1.1\n"
+"<PGP KEY>\n"
+"-----END PGP PUBLIC KEY BLOCK-----"
+msgstr ""
+
+#: humans/forms.py:45
+msgid "This key is not valid"
+msgstr ""
+
+#: humans/forms.py:48
+msgid "This key is revoked"
+msgstr ""
+
+#: humans/forms.py:51
+msgid "This key is expired"
+msgstr ""
+
+#: humans/forms.py:62
+msgid "Fingerprint does not match"
+msgstr ""
+
+#: humans/forms.py:72
+msgid "Could not access the specified url"
+msgstr ""
+
+#: humans/forms.py:80
+msgid "This url does not have a pgp key"
+msgstr ""
+
+#: humans/models.py:11
+msgid "Organization"
+msgstr ""
+
+#: humans/models.py:12
+msgid "Public key"
+msgstr ""
+
+#: humans/models.py:13
+msgid "Fingerprint"
+msgstr ""
+
+#: humans/models.py:14
+msgid "Key server URL"
+msgstr ""
+
+#: humans/models.py:15
+msgid "Server signed"
+msgstr ""
+
+#: humans/models.py:16
+msgid "Prefered language"
+msgstr ""
+
+#: humans/models.py:17
+msgid "Timezone"
+msgstr ""
+
+#: humans/models.py:39
+msgid "Subject"
+msgstr ""
+
+#: humans/models.py:40
+msgid "Body"
+msgstr ""
+
+#: humans/models.py:46
+msgid "Send to"
+msgstr ""
+
+#: humans/models.py:49
+msgid "Notification"
+msgstr ""
+
+#: humans/models.py:50
+msgid "Notifications"
+msgstr ""
+
+#: humans/tasks.py:24
+msgid "The Url provided does not contain a public key"
+msgstr ""
+
+#: humans/tasks.py:40
+msgid "Start updating user keys"
+msgstr ""
+
+#: humans/tasks.py:42
+msgid "Working on user: {}"
+msgstr ""
+
+#: humans/tasks.py:43
+msgid "URL: {}"
+msgstr ""
+
+#: humans/tasks.py:47
+msgid "Unable to fetch new key"
+msgstr ""
+
+#: humans/tasks.py:55
+msgid "Hawkpost: {} key"
+msgstr ""
+
+#: humans/tasks.py:64
+msgid "Hawkpost: Keyserver Url providing an invalid key"
+msgstr ""
+
+#: humans/tasks.py:70
+msgid "Hawkpost: Fingerprint mismatch"
+msgstr ""
+
+#: humans/tasks.py:79
+msgid "Finished Updating user keys"
+msgstr ""
+
+#: humans/views.py:34
+msgid "To start using hawkpost, you must add a valid public key"
+msgstr ""
+
+#: humans/views.py:51
+msgid "Settings successfully updated"
+msgstr ""
+
+#: humans/views.py:55
+msgid "Please check the invalid fields"
+msgstr ""
+
+#: humans/views.py:72
+msgid "Account deleted successfully. We hope you comeback soon."
+msgstr ""
+
+#: humans/views.py:77
+msgid "In order to delete the account you must provide the current password."
+msgstr ""
+
+#: pages/templates/pages/about.html:11
+msgid "HAWKPOST"
+msgstr ""
+
+#: pages/templates/pages/about.html:13
+msgid ""
+"For many years pigeons were used to send private messages to people. But "
+"today, to send private and confidential information a pigeon is not enough. "
+"We upgraded the pigeon for a hawk - it's stronger, faster and will protect "
+"all of your messages better."
+msgstr ""
+
+#: pages/templates/pages/about.html:14
+msgid ""
+"We know that sometimes it's difficult to explain how to encrypt messages or "
+"how to install that software to protect confidential information. That's why "
+"we've created Hawkpost - a place where people can send you sensible "
+"information in an easy and secure way."
+msgstr ""
+
+#: pages/templates/pages/about.html:15
+msgid ""
+"This project was made at Whitesmith's Hackathon during our company retreat. "
+"The aim of this hackathon was to launch a side-project in 24h."
+msgstr ""
+
+#: pages/templates/pages/about.html:16
+msgid ""
+"You can read more about the project in our FAQ at the bottom of our <a class="
+"\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
+msgstr ""
+
+#: pages/templates/pages/about.html:23
+msgid "WHITESMITH"
+msgstr ""
+
+#: pages/templates/pages/about.html:24
+msgid ""
+"<a class=\"text-blue\" href=\"https://whitesmith.co\">Whitesmith</a> is a "
+"web and mobile product development studio founded in 2013 and based in "
+"Coimbra (Portugal) and London. From Service Oriented Architecture and "
+"Internet of Things to Web &amp; Mobile apps, we converge into solving real "
+"problems with great user experience. We are more than simple designers &amp; "
+"developers - we are an empowered team of problem solvers."
+msgstr ""
+
+#: pages/templates/pages/help.html:11
+msgid "SUPPORT"
+msgstr ""
+
+#: pages/templates/pages/help.html:16
+msgid "How to setup Hawkpost"
+msgstr ""
+
+#: pages/templates/pages/help.html:17
+msgid "How to generate a PGP key"
+msgstr ""
+
+#: pages/templates/pages/help.html:18
+msgid "How to verify Hawkpost signature"
+msgstr ""
+
+#: pages/templates/pages/help.html:30
+msgid ""
+"In this page we try to explain common procedures and features that can be "
+"complex and hard to grasp for newcomers."
+msgstr ""
+
+#: pages/templates/pages/help.html:31
+msgid ""
+"Some are related to Hawkpost directly, but others are related to PGP and "
+"associated tasks and tools."
+msgstr ""
+
+#: pages/templates/pages/help.html:32
+msgid ""
+"Of course we can't cover all the surface or explicitly address all questions "
+"in this document. So if your question isn't here feel free to email us or "
+"drop a line through our support channels, and we'll try to help you as soon "
+"as possible."
+msgstr ""
+
+#: pages/templates/pages/help.html:34
+#, python-format
+msgid "<b>Email:</b> %(support_email)s"
+msgstr ""
+
+#: pages/templates/pages/help.html:37
+msgid "<b>IRC Channel:</b> #hawkpost on freenode"
+msgstr ""
+
+#: pages/templates/pages/help.html:40
+msgid "<b>Forum:</b> soon"
+msgstr ""
+
+#: pages/templates/pages/help.html:44
+msgid "HOW TO SETUP HAWKPOST"
+msgstr ""
+
+#: pages/templates/pages/help.html:47
+msgid ""
+"In order to start using Hawkpost as a user that receives confidential "
+"information, you have to fill certain requirements, such as:"
+msgstr ""
+
+#: pages/templates/pages/help.html:49
+msgid "Provide a PGP public key"
+msgstr ""
+
+#: pages/templates/pages/help.html:50
+msgid "Provide your key's fingerprint"
+msgstr ""
+
+#: pages/templates/pages/help.html:51
+msgid "Have the required software to decrypt the messages"
+msgstr ""
+
+#: pages/templates/pages/help.html:54
+msgid ""
+"If you don't know how to fulfill the first and third point, <a href=\"#gen-"
+"pgp-key\" class=\"testelinks\">please check the next section</a>. Otherwise "
+"the configuration is quite simple."
+msgstr ""
+
+#: pages/templates/pages/help.html:65
+msgid ""
+"As you can see in the above figure, you just have to fill the <i>public key</"
+"i> field and the matching fingerprint. After this you're ready to go. We "
+"strongly recommend to also fill your personal data (as name) so it can show "
+"up on the submission page."
+msgstr ""
+
+#: pages/templates/pages/help.html:67
+msgid ""
+"To find your key's fingerprint, you can run the following command if you're "
+"using <i>Gnu Privacy Guard (GPG)</i>:"
+msgstr ""
+
+#: pages/templates/pages/help.html:71
+msgid ""
+"If you're using a graphical tool, you can generally find this info on the "
+"<i>key properties section</i> of your tool."
+msgstr ""
+
+#: pages/templates/pages/help.html:77
+msgid ""
+"For extra security and features you can specify the keyserver URL of your "
+"key instead of providing it directly. This way the system will fetch the key "
+"and regularly check that URL for key updates and the system will stop "
+"allowing submissions to your boxes once the key is revoked or expired (the "
+"fingerprint is always required)."
+msgstr ""
+
+#: pages/templates/pages/help.html:83
+msgid "HOW TO GENERATE A PGP KEY"
+msgstr ""
+
+#: pages/templates/pages/help.html:85
+msgid ""
+"Hawkpost works with an encryption technology known as <a href=\"https://en."
+"wikipedia.org/wiki/Pretty_Good_Privacy\" class=\"testelinks\">PGP</a>. So to "
+"create boxes you'll need to setup a PGP key pair and provide us the public "
+"part/key. If you already have one, this section is not for you."
+msgstr ""
+
+#: pages/templates/pages/help.html:87
+msgid ""
+"Since Hawkpost works only through email, the easiest way to setup a key pair "
+"is using your email client, or through a compatible plugin/extension in case "
+"the email client doesn't support PGP natively. There are various articles in "
+"the Internet about this topic, so it's easy to find some that match your "
+"specific setup."
+msgstr ""
+
+#: pages/templates/pages/help.html:89
+msgid ""
+"As an example, in the next paragraphs we point to some tutorials addressing "
+"popular email clients."
+msgstr ""
+
+#: pages/templates/pages/help.html:91
+msgid ""
+"For webmail users, one tool that is very useful is <a href=\"https://www."
+"mailvelope.com/\" class=\"testelinks\">Mailvelope</a>. This browser "
+"extension allows you to easily open the encrypted messages, and also to "
+"generate your keys. An introductory tutorial can be found <a href=\"https://"
+"www.youtube.com/watch?v=Ro3MSBS9w-A\">here</a>."
+msgstr ""
+
+#: pages/templates/pages/help.html:93
+msgid ""
+"For Thunderbird users, the common practice is to install a plugin called <a "
+"href=\"https://www.enigmail.net/index.php/en/\" class=\"testelinks"
+"\">Enigmail</a>, which like Mailvelope, will allow you to decrypt Hawkpost "
+"messages, and manage your keys as well. An introduction can be found <a href="
+"\"https://ssd.eff.org/en/module/how-use-pgp-linux\">here</a>."
+msgstr ""
+
+#: pages/templates/pages/help.html:95
+msgid ""
+"Check <a href=\"https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-"
+"setup-gpg4win-with-outlook-2013/\" class=\"testelinks\">this video for an "
+"Outlook tutorial</a> and <a href=\"https://ssd.eff.org/en/module/how-use-pgp-"
+"mac-os-x\" class=\"testelinks\">this guide for the case of Apple Mail</a>."
+msgstr ""
+
+#: pages/templates/pages/help.html:99
+msgid "EXPERIMENTAL: HOW TO VERIFY HAWKPOST SIGNATURE"
+msgstr ""
+
+#: pages/templates/pages/help.html:104
+msgid ""
+"Recently we've introduced a feature (still on an experimental phase) that "
+"allows the user to confirm that the received email message was really sent "
+"by Hawkpost's server. However it is still only useful to users of <i>mutt</"
+"i> and <i>evolution</i> email clients. But we hope to bring it to other "
+"clients soon."
+msgstr ""
+
+#: pages/templates/pages/help.html:106
+#, python-format
+msgid ""
+"If you use one of these email clients, you should activate the feature on "
+"the settings page (as it is shown on the image below). This way all messages "
+"will be signed with our sign key, that you can import to your keyring in "
+"order to verify its veracity. <a href=\"%(sign_key_url)s\" class=\"testelinks"
+"\">The key can be found here</a>."
+msgstr ""
+
+#: pages/templates/pages/index.html:10
+msgid "GET ENCRYPTED DATA FROM PEOPLE THAT DON'T KNOW HOW TO ENCRYPT"
+msgstr ""
+
+#: pages/templates/pages/index.html:11
+msgid ""
+"No more sharing of passwords in plain text.\n"
+"          <br>Send your Hawkpost link, and receive the confidential "
+"information encrypted in your inbox. It's that easy."
+msgstr ""
+
+#: pages/templates/pages/index.html:25
+msgid "HOW DOES IT WORK?"
+msgstr ""
+
+#: pages/templates/pages/index.html:33
+msgid "Sign up and register your PGP key."
+msgstr ""
+
+#: pages/templates/pages/index.html:40
+msgid ""
+"Send your Hawkpost link to the person that wants to share confidential "
+"information with you. Wait for the information to be submitted."
+msgstr ""
+
+#: pages/templates/pages/index.html:47
+msgid ""
+"Our hawk will deliver the message, now encrypted with your PGP key, to your "
+"e-mail."
+msgstr ""
+
+#: pages/templates/pages/index.html:55
+msgid "Yup, this is for me"
+msgstr ""
+
+#: pages/templates/pages/index.html:66
+msgid "FAQ"
+msgstr ""
+
+#: pages/templates/pages/index.html:71
+msgid "Why should I use Hawkpost?"
+msgstr ""
+
+#: pages/templates/pages/index.html:72
+msgid ""
+"Hawkpost is the easiest way to securely receive sensible information from "
+"people who don't know how to use PGP (ex: passwords, private keys, "
+"confidential messages). Share your Hawkpost link with them, and they're able "
+"to send info securely, <b>without installing any software</b>."
+msgstr ""
+
+#: pages/templates/pages/index.html:75
+msgid "How does it work behind the curtain?"
+msgstr ""
+
+#: pages/templates/pages/index.html:76
+msgid ""
+"The concept is simple, you generate an unique link on Hawkpost, then you "
+"share it with someone that needs to send you secret information. When that "
+"person visits your Hawkpost link and submits the sensitive data, this is "
+"encrypted <b>in their browser</b> with the PGP public key you used on "
+"signup. The encrypted message is sent by our hawks to your email. This means "
+"that we're not able to see the original message, and no message is stored."
+msgstr ""
+
+#: pages/templates/pages/index.html:79
+msgid "Why is this safe?"
+msgstr ""
+
+#: pages/templates/pages/index.html:80
+msgid ""
+"Hawkpost provides end-to-end encryption using <a href=\"https://openpgpjs."
+"org/\">OpenPGP.js</a> library, which means that the submitted information "
+"will be only visible to whom created the link (the owner of the key) and we "
+"will not save it. No message is stored."
+msgstr ""
+
+#: pages/templates/pages/index.html:83
+msgid "What's PGP?"
+msgstr ""
+
+#: pages/templates/pages/index.html:84
+msgid ""
+"PGP is an encryption technology often used for signing, encrypting, and "
+"decrypting texts and files. This is what Hawkpost uses to encrypt messages. "
+"You can read more about how to generate your PGP key on the <a href="
+"\"https://hawkpost.co/help\">help page</a>."
+msgstr ""
+
+#: pages/templates/pages/index.html:89
+msgid "Is my link permanently available?"
+msgstr ""
+
+#: pages/templates/pages/index.html:90
+msgid ""
+"No, at the momment you can create as many unique links as you want, one for "
+"each occasion. You can set an expiration date for each one. However, other "
+"configuration options will be added soon, so you can better adapt the "
+"functionality to your use cases."
+msgstr ""
+
+#: pages/templates/pages/index.html:93
+msgid "What type of information can be submitted?"
+msgstr ""
+
+#: pages/templates/pages/index.html:94
+msgid "Any text information can be submitted."
+msgstr ""
+
+#: pages/templates/pages/index.html:97
+msgid "Can I check the source code?"
+msgstr ""
+
+#: pages/templates/pages/index.html:98
+msgid ""
+"Sure. Hawkpost is open-source. You can either check the source code before "
+"using this service, or if you prefer, you can deploy it on your own server. "
+"Hawkpost's repository can be found <a href=\"https://github.com/whitesmith/"
+"hawkpost\">here</a>."
+msgstr ""
+
+#: pages/templates/pages/index.html:110
+msgid "Ready to start?"
+msgstr ""
