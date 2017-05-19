@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'humans',
     'boxes',
     'pages',
-    'languages',
 ]
 
 MIDDLEWARE_CLASSES = [
