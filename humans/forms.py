@@ -20,7 +20,8 @@ class UpdateUserInfoForm(ModelForm):
             "public_key",
             "fingerprint",
             "server_signed",
-            "timezone"
+            "timezone",
+            "language",
         ]
         widgets = {
             'keyserver_url': forms.TextInput(attrs={'placeholder': _("https://example.com/key.asc")}),
