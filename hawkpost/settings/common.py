@@ -118,6 +118,11 @@ SITE_ID = 1
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
+LANGUAGES = [
+            ('en-us', 'English'),
+            ('pt-pt', 'Portuguese')
+            ]
+            
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
