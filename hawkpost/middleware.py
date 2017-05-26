@@ -1,4 +1,4 @@
-from django.utils import timezone
+from django.utils import timezone, translation
 
 
 class TimezoneMiddleware():
@@ -7,3 +7,8 @@ class TimezoneMiddleware():
             timezone.activate(request.user.timezone)
         else:
             timezone.deactivate()
+
+class LanguageMiddleware():
+    def process_request(self, request):
+        if request.user.is_authenticated():
+            translation.activate(request.user.language)

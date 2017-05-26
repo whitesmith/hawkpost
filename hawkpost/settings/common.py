@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -50,13 +51,15 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hawkpost.middleware.TimezoneMiddleware'
+    'hawkpost.middleware.TimezoneMiddleware',
+    'hawkpost.middleware.LanguageMiddleware',
 ]
 
 ROOT_URLCONF = 'hawkpost.urls'
@@ -118,6 +121,10 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+            ('en-us', _('English')),
+            ('pt-pt', _('Portuguese'))
+]
 
 TIME_ZONE = 'UTC'
 
@@ -185,3 +192,7 @@ BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
 
 # SITE DOMAIN
 SITE_DOMAIN = os.environ.get("SITE_DOMAIN")
+
+# LOCALE_PATH for translations
+# https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-LOCALE_PATHS
+LOCALE_PATHS = ['locale']

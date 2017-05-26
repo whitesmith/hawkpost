@@ -11,6 +11,7 @@ from .utils import key_state
 from .test_constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
 from .test_constants import EXPIRED_KEY_FINGERPRINT, REVOKED_KEY_FINGERPRINT
 from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
+import random, string
 
 from copy import copy
 
@@ -31,6 +32,7 @@ class UpdateUserFormTests(TestCase):
             "company": "some company",
             "fingerprint": VALID_KEY_FINGERPRINT,
             "timezone": "UTC",
+            "language": "en-us",
             "public_key": VALID_KEY
         }
 
@@ -59,6 +61,17 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
+    def test_empty_language(self):
+        data = copy(self.default_data)
+        data["language"] = ""
+        form = UpdateUserInfoForm(data)
+        self.assertEqual(form.is_valid(), False)
+
+    def test_non_valid_language(self):
+        data = copy(self.default_data)
+        data["language"] = "invalid"
+        form = UpdateUserInfoForm(data)
+        self.assertEqual(form.is_valid(), False)
 
 class UtilsTests(TestCase):
 

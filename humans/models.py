@@ -2,19 +2,27 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group
 from django.utils.translation import ugettext_lazy as _
 from timezone_field import TimeZoneField
+#from languages.fields import LanguageField
 
 
 class User(AbstractUser):
     """
         Project's base user model
     """
+    LANGUAGE_CHOICES = (
+        ('en-us', 'English'),
+        ('pt-pt', _('Portuguese')),
+    )
+
     organization = models.CharField(null=True, blank=True, max_length=80, verbose_name=_('Organization'))
     public_key = models.TextField(blank=True, null=True, verbose_name=_('Public key'))
     fingerprint = models.CharField(null=True, blank=True, max_length=50, verbose_name=_('Fingerprint'))
     keyserver_url = models.URLField(null=True, blank=True, verbose_name=_('Key server URL'))
     server_signed = models.BooleanField(default=False, verbose_name=_('Server signed'))
-
     timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
+    language = models.CharField(default="en-us", max_length=16, choices=LANGUAGE_CHOICES , verbose_name=_('Language'))
+
+
 
     def has_setup_complete(self):
         if self.public_key and self.fingerprint:
