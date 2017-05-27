@@ -188,7 +188,7 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
 
 # Celerey Settings
-BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
+CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
 
 # SITE DOMAIN
 SITE_DOMAIN = os.environ.get("SITE_DOMAIN")

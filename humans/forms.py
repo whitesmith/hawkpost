@@ -56,7 +56,8 @@ class UpdateUserInfoForm(ModelForm):
         # Fingerprint provided must match with one provided
         pub_key = self.cleaned_data.get("public_key", "")
         fingerprint = self.cleaned_data.get("fingerprint", "")
-        fingerprint = fingerprint.replace(" ", "")
+        if fingerprint:
+            fingerprint = fingerprint.replace(" ", "")
         if pub_key:
             key_fingerprint, state = key_state(pub_key)
             if fingerprint != key_fingerprint:
