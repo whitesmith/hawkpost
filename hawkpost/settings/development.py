@@ -54,3 +54,5 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
+if 'INTERNAL_IPS' in os.environ:
+    INTERNAL_IPS += os.environ.get("INTERNAL_IPS").split(',')
