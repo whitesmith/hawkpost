@@ -2,18 +2,18 @@ from django.contrib.auth.models import Group
 from django.utils import timezone
 from django.test import TestCase
 from django.core import mail
-from django.conf import settings
 from boxes.tests import create_and_login_user
+from hawkpost import celery_app
 from .models import Notification, User
 from .forms import UpdateUserInfoForm
 from .tasks import enqueue_email_notifications
 from .utils import key_state
 from .test_constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
-from .test_constants import EXPIRED_KEY_FINGERPRINT, REVOKED_KEY_FINGERPRINT
+from .test_constants import EXPIRED_KEY_FINGERPRINT
 from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
-import random, string
 
 from copy import copy
+
 
 def create_notification(sent=False, group=None):
     sent_at = timezone.now() if sent else None
@@ -73,6 +73,7 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
+
 class UtilsTests(TestCase):
 
     def test_invalid_key_state(self):
@@ -108,6 +109,9 @@ class UserModelTests(TestCase):
 
 class NotificationsTests(TestCase):
 
+    def setUp(self):
+        celery_app.conf.update(task_always_eager=True)
+
     def test_delete_sent_notifications(self):
         notification = create_notification(sent=True)
         notification_id = notification.id
@@ -123,7 +127,6 @@ class NotificationsTests(TestCase):
         self.assertEqual(len(queryset), 0)
 
     def test_send_when_group_is_defined(self):
-        settings.CELERY_ALWAYS_EAGER = True
         for i in range(4):
             create_and_login_user(self.client)
         last_user = create_and_login_user(self.client)
@@ -134,7 +137,6 @@ class NotificationsTests(TestCase):
         self.assertEqual(len(mail.outbox), 1)
 
     def test_send_when_group_is_not_defined(self):
-        settings.CELERY_ALWAYS_EAGER = True
         for i in range(4):
             create_and_login_user(self.client)
         notification = create_notification(sent=False)

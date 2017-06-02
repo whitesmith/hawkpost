@@ -1,0 +1,6 @@
+machine:
+  environment:
+    DEFAULT_FROM_EMAIL: test@hawkpost.co
+    HAWKPOST_ENV: development
+    SECRET_KEY: a_not_so_random_secret_key
+    SITE_DOMAIN: localhost:8000

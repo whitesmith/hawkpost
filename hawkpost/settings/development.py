@@ -29,8 +29,30 @@ if 'DB_HOST' in os.environ:
 # Development Applications
 INSTALLED_APPS += (
     'debug_toolbar',
-    'django_extensions'
+    'django_extensions',
 )
+
+MIDDLEWARE_CLASSES.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 EMAIL_HOST = os.environ.get("EMAIL_HOST", "127.0.0.1")
 EMAIL_PORT = os.environ.get("EMAIL_PORT", 1025)
+
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
+
+INTERNAL_IPS = ['127.0.0.1']
+if 'INTERNAL_IPS' in os.environ:
+    INTERNAL_IPS += os.environ.get("INTERNAL_IPS").split(',')

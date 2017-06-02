@@ -26,7 +26,8 @@ def create_boxes(user):
 
 def create_and_login_user(client):
     username = ''.join(random.choice(string.ascii_uppercase) for _ in range(5))
-    user = User.objects.create_user(username=username)
+    user = User.objects.create_user(username=username,
+                                    email="{}@example.com".format(username))
     client.force_login(user)
     return user
 
