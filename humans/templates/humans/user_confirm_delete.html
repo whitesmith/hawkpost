@@ -1,4 +1,5 @@
 {% extends "layout/base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="section-definer-dark">
@@ -6,8 +7,10 @@
     <section class="text-lightest">
       <div class="row center-xs center-sm">
         <div class="col-xs-12 col-offset-sm-2 col-sm-8 col-offset-md-3 col-md-6 mb-normal">
-          <h1 class="title text-light">DELETE ACCOUNT</h1>
-          <p>Your account in Hawkpost is about to be deleted along with all its contents and settings. Are you sure you want to continue?</p>
+          <h1 class="title text-light">{% trans "DELETE ACCOUNT" %}</h1>
+          <p>
+            {% blocktrans %}Your account in Hawkpost is about to be deleted along with all its contents and settings. Are you sure you want to continue?{% endblocktrans %}
+          </p>
         </div>
     </div>
     <div class="row center-xs ">
@@ -15,15 +18,15 @@
             <form class="form__wrap" method="post" action="{% url "humans_delete" %}">
                 {% csrf_token %}
                 <div class="text-left input-anim">
-                    <label for="current-password" class="">Insert your current password:</label>
-                    <input id="current-password" type="password" name="current_password" placeholder="Current password" class="padding-inside mt-normal" autocomplete="off"></input>
+                    <label for="current-password" class="">{% trans "Insert your current password:" %}</label>
+                    <input id="current-password" type="password" name="current_password" placeholder="{% trans "Current password" %}" class="padding-inside mt-normal" autocomplete="off"></input>
                 </div>
                 <br>
                 <div>
-                    <input type="submit" class="btn-danger" value="Yes, I want to delete everything"></input>
+                    <input type="submit" class="btn-danger" value="{% trans "Yes, I want to delete everything" %}"></input>
                 </div>
                 <div>
-                    <p class="text-smaller mt-large"><a href="{% url "humans_update" %}" class="text-underline u-blockify">No, take me back to the settings</a></p>
+                    <p class="text-smaller mt-large"><a href="{% url "humans_update" %}" class="text-underline u-blockify">{% trans "No, take me back to the settings" %}</a></p>
                 </div>
             </form>
         </div>

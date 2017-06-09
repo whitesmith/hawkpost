@@ -234,6 +234,13 @@ form {
     width: 100%;
 }
 
+#id_language {
+    background: none;
+    border: solid 1px black;
+    font-family: TextFont !important;
+    width: 100%;
+}
+
 .errorlist {
     padding: 0;
     color: red ;
@@ -265,7 +272,7 @@ form {
     width: 100%;
     height: 330px;
     @include breakpoint ($min:xl) {
-        height: 365px;
+        height: 450px;
     }
     .section {
         display: none;
