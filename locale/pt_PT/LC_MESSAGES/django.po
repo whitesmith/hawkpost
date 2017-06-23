@@ -33,7 +33,7 @@ msgstr "Mensagem PGP inválida"
 
 #: boxes/models.py:16 boxes/templates/boxes/box_list.html:20
 msgid "Open"
-msgstr "Abrir"
+msgstr "Aberto"
 
 #: boxes/models.py:17 boxes/templates/boxes/box_list.html:22
 msgid "Expired"
