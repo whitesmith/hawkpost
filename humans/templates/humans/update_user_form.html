@@ -1,16 +1,17 @@
 {% extends "layout/base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block content %}
 <div class="section-definer-light">
   <section class="section-resized-settings">
-    <p class="title center-xs">UPDATE YOUR SETTINGS</p>
+    <p class="title center-xs">{% trans "UPDATE YOUR SETTINGS" %}</p>
     <div class="row">
       <ul class="settings__nav subtitle">
         <div class="col-xs-12 nav-st no-padding text-left">
-          <li id="tab1" class="sett__nav__item text-darkest active">Profile</li>
-          <li id="tab2" class="sett__nav__item text-darkest">Keys</li>
-          <li id="tab3" class="sett__nav__item text-darkest">Experimental Features</li>
+          <li id="tab1" class="sett__nav__item text-darkest active">{% trans "Profile" %}</li>
+          <li id="tab2" class="sett__nav__item text-darkest">{% trans "Keys" %}</li>
+          <li id="tab3" class="sett__nav__item text-darkest">{% trans "Experimental Features" %}</li>
         </div>
       </ul>
 
@@ -44,7 +45,7 @@
                     <div class="col-xxs-12 col-xs-12 col-md-12 start-xs">
                       <div class="col-xs-12 no-padding mb-normal">
                         <span class="text-blue smalltext">
-                          You can provide the public key in a static away <strong> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).
+                          {% blocktrans %}You can provide the public key in a static away <strong> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).{% endblocktrans %}
                         </span>
                       </div>
                       <div class="row label-form-b">
@@ -66,7 +67,9 @@
                   <li class="section" id="section3">
                     <div class="col-xs-12 start-xs">
                       <span class="text-blue smalltext">
-                        <p>The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients that display this feature correctly are <strong>Evolution</strong> and <strong>mutt</strong></p>
+                        <p>
+                          {% blocktrans %}The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients that display this feature correctly are <strong>Evolution</strong> and <strong>mutt</strong>{% endblocktrans %}
+                        </p>
                       </span>
                       <div class="checkbox-">
                         {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
@@ -75,21 +78,22 @@
                         </div>
                       </div>
                       <p class="smalltext no-margin">
-                        The key used to sign can be found <a class="text-blue" href="{{sign_key_url}}">here</a> and the fingerprint, so you can verify it, is the following:</p>
-                        <p class="no-margin smalltext text-darkest">{{sign_key_fingerprint}}</p>
+                        {% trans "The key used to sign can be found" %} <a class="text-blue" href="{{sign_key_url}}">{% trans "here" %}</a> {% trans "and the fingerprint, so you can verify it, is the following:" %}
+                      </p>
+                      <p class="no-margin smalltext text-darkest">{{sign_key_fingerprint}}</p>
                       </div>
                     </li>
                   </ul>
                 </div>
                 <div class="col-xs-12">
-                  <input type="submit" class="btn-blue set smalltext" value="Save" />
+                  <input type="submit" class="btn-blue set smalltext" value="{% trans "Save" %}" />
                 </div>
               </div>
             </div>
           </form>
           <div class="text-center">
             <small class="check smalltext text-darkest">
-              Do you wish to delete your account? if yes, just click <a class="text-blue"href="{% url "humans_delete" %}">here</a>
+              {% trans "Do you wish to delete your account? if yes, just click" %}<a class="text-blue"href="{% url "humans_delete" %}">{% trans "here" %}</a>
             </small>
           </div>
         </div>

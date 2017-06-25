@@ -46,7 +46,7 @@
               <button data-src='box-{{box.id}}-url' class="btn-blue copy-to-clipboard-js copy-link"><img src="{% static 'images/external.png' %}" class="img-boxes-external"></button>
             </div>
             {% endif %}
-            
+
             <div class="extra-info">
               <p class="no-margin-bottom mt-small">
                 <span class="xsmallmedium text-darkest">{% trans "Messages:" %}</span>
@@ -74,12 +74,12 @@
               <form class="col-xs-6 center-xs icon-text box-options" action="{% url 'boxes_close' box.id %}" method="post">
                 {% csrf_token %}
                 <img src="{% static 'images/close.png' %}" class="img-boxes">
-                <input class="xsmalltext icons-blue" type="submit" value="CLOSE"/>
+                <input class="xsmalltext icons-blue" type="submit" value="{% trans "CLOSE" %}"/>
               </form>
               <form class="col-xs-6 center-xs icon-text box-options" action="{% url 'boxes_delete' box.id %}" method="post">
                 {% csrf_token %}
                 <img src="{% static 'images/paper-bin.png' %}" class="img-boxes">
-                <input class="xsmalltext icons-" type="submit" value="DELETE"/>
+                <input class="xsmalltext icons-" type="submit" value="{% trans "DELETE" %}"/>
               </form>
             </div>
             {% endif %}
