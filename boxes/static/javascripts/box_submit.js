@@ -2,12 +2,34 @@ $(document).ready(function () {
   /*
    * Encrypt the current form content
    */
-  function encryptContent() {
-    var serverSigned = $('.server-signed-js').text() === 'True';
-    var contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
+  var MAX_MSG_SIZE = 5242880; // ~ 5 Mb
 
+  function encryptContent(){
+    var content;
+    var contentType;
+    var contentFromFile = $("#id_source").is(':checked');
+    var serverSigned = $('.server-signed-js').text() === 'True';
+
+    if (contentFromFile) {
+      var file = $('#id_file_select')[0].files[0];
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        content = new Uint8Array(evt.target.result);
+        encryptAndSend(content, file.name);
+      };
+      reader.readAsArrayBuffer(file);
+
+    } else {
+      contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
+      content = contentType + $("#id_plain").val();
+      encryptAndSend(content, null);
+    }
+    return false;
+  }
+
+  function encryptAndSend(content, fileName) {
     var options = {
-      data: contentType + $("#id_plain").val(),
+      data: content,
       /* Works for one key, need to change when multiple recipients is available */
       publicKeys: openpgp.key.readArmored($(".public-key-js").html()).keys
     };
@@ -16,6 +38,9 @@ $(document).ready(function () {
       var $box = $("#box");
 
       $("#id_message").val(ciphertext.data);
+      if (fileName){
+        $("#id_file_name").val(fileName + ".asc");
+      }
 
       /* Also update the input box's message as a visual cue
        * that it has been sent after being encrypted. */
@@ -27,8 +52,56 @@ $(document).ready(function () {
         alert("Well, encryption doesn't seem to be as it should. Try again.");
       }
     });
+  }
 
-    return false;
+  /*
+   * Shows / Hides the input forms for the diferent formats (Text/File)
+   */
+  function changeSource(){
+    var $source = $("#id_source");
+    if ($source.is(':checked')){
+      $('#id_plain').hide();
+      $('#id_plain_label').hide();
+      $('#id_file_select').show();
+      $('#id_file_select_label').show();
+      checkFileSize();
+    } else {
+      $('#id_file_select').hide();
+      $('#id_file_select_label').hide();
+      $('#id_plain').show();
+      $('#id_plain_label').show();
+      checkMessageSize();
+    }
+  }
+
+  /*
+   * Check if select file size is within the allowed limits
+   */
+  function checkFileSize(){
+    var selectedFile = $('#id_file_select')[0].files[0];
+    var $notificationBox = $("#id_notification");
+    var $sendButton = $("#encrypt-action-js");
+    if(selectedFile && selectedFile.size < MAX_MSG_SIZE){
+      $notificationBox.html("");
+      $sendButton.show();
+    } else {
+      $notificationBox.html("Please select a file smaller than 5Mb.");
+      $sendButton.hide();
+    }
+  }
+
+  function checkMessageSize(){
+    var msg = $('#id_plain');
+    var messageBytes = (new TextEncoder('utf-8').encode(msg.val())).length;
+    var $notificationBox = $("#id_notification");
+    var $sendButton = $("#encrypt-action-js");
+    if (messageBytes < MAX_MSG_SIZE) {
+      $notificationBox.html("");
+      $sendButton.show();
+    } else {
+      $notificationBox.html("Your message cannot excceed 5Mb.");
+      $sendButton.hide();
+    }
   }
 
   /*
@@ -60,12 +133,15 @@ $(document).ready(function () {
     var action = $formDiv.attr("data-action");
 
     var $form = $("<form></form>");
-    $form.attr('id', "box").attr("action", action)
+    $form.attr('id', "box").attr("action", action);
     $form.attr("method", "post");
 
     var $csrfTokenField = $("<input type='hidden' name='csrfmiddlewaretoken'></input>");
     $csrfTokenField.val(csrfToken);
     $form.append($csrfTokenField);
+
+    var $fileName = $("<input id='id_file_name' name='file_name' type='hidden'></input>");
+    $form.append($fileName);
 
     var $encryptedMessage = $("<input id='id_message' name='message' type='hidden'></input>");
     $form.append($encryptedMessage);
@@ -76,17 +152,29 @@ $(document).ready(function () {
     var $inputDiv = $("<div></div>");
     $inputDiv.addClass("form__wrap_msg link-box__box");
 
-    var $label = $("<label for='id_plain'></label>");
+    var $sourceLabel = $("<label id='id_source_label' for='id_source'>Send local file</label>");
+    var $source = $("<input id='id_source' type='checkbox'></input>");
+
+    var $label = $("<label id='id_plain_label' for='id_plain'></label>");
     var $textArea = $("<textarea id='id_plain' cols='40' rows='10'></textarea>");
     $textArea.attr("placeholder", "All the contents, inserted into this box, will be encrypted with " +
-                                  "the recipient's public key before leaving this computer.")
+                                  "the recipient's public key before leaving this computer.");
 
-    $inputDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea));
+    var $fileSelectLabel = $("<label id='id_file_select_label' for='id_file'></label>");
+    var $fileSelect = $("<input id='id_file_select' type='file'></input>");
+
+    $inputDiv.append($("<p class='no-margin-top'></p>").append($sourceLabel).append($source));
+    $inputDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea).append($fileSelectLabel).append($fileSelect));
+    $inputDiv.append($("<p id='id_notification'></p>"));
     $inputDiv.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
 
     $formDiv.append($inputDiv);
 
+    changeSource();
+    $("#id_source").on('change', changeSource);
     $("#encrypt-action-js").on("click", encryptContent);
+    $('#id_file_select').on('change', checkFileSize);
+    $('#id_plain').on('keyup', checkMessageSize);
   }
 
   /*

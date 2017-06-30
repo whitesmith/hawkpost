@@ -1,18 +1,25 @@
 .env
 __pycache__
 .sqlite3
-*.gpg
-*.gpg~
-random_seed
+
+# Static files stuff
 hawkpost/staticfiles/
 /hawkpost/static/css/style.css
 /node_modules
+# Celery
+celerybeat-schedule
 celerybeat-schedule.db
-trustdb.gpg
+
+# Testing files
 .coverage
 
 # gpg homedir for signing
 gpg_home
+# Other gpg stuff
+*.gpg
+*.gpg~
+random_seed
+trustdb.gpg
 
 # Vim
 [._]*.s[a-w][a-z]
@@ -22,4 +29,5 @@ Session.vim
 .netrwhist
 *~
 
+# MacOS Stuff
 .DS_Store
