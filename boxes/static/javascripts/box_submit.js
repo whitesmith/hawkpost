@@ -62,6 +62,7 @@ $(document).ready(function () {
     if ($source.is(':checked')){
       $('#id_plain').hide();
       $('#id_plain_label').hide();
+      $('#id_plain_paragraph').hide();
       $('#id_file_select').show();
       $('#id_file_select_label').show();
       checkFileSize();
@@ -70,6 +71,7 @@ $(document).ready(function () {
       $('#id_file_select_label').hide();
       $('#id_plain').show();
       $('#id_plain_label').show();
+      $('#id_plain_paragraph').show();
       checkMessageSize();
     }
   }
@@ -153,19 +155,22 @@ $(document).ready(function () {
     $inputDiv.addClass("form__wrap_msg link-box__box");
 
     var $sourceLabel = $("<label id='id_source_label' for='id_source'>Send local file</label>");
-    var $source = $("<input id='id_source' type='checkbox'></input>");
+    var $sourceInput = $("<input class='box_submit_input' id='id_source' type='checkbox'></input>");
+    var $sourceGroup = $("<div class='box_submit_checkbox'></div>").append($sourceLabel).append($sourceInput);
 
     var $label = $("<label id='id_plain_label' for='id_plain'></label>");
     var $textArea = $("<textarea id='id_plain' cols='40' rows='10'></textarea>");
     $textArea.attr("placeholder", "All the contents, inserted into this box, will be encrypted with " +
                                   "the recipient's public key before leaving this computer.");
+    var $paragraph = $("<p id='id_plain_paragraph' for='id_source'>Or</p>");
+    var $messageGroup = $("<div></div>").append($label).append($textArea).append($paragraph);
 
     var $fileSelectLabel = $("<label id='id_file_select_label' for='id_file'></label>");
-    var $fileSelect = $("<input id='id_file_select' type='file'></input>");
+    var $fileSelectInput = $("<input class='box_submit_file' id='id_file_select' type='file'></input>");
+    var $fileSelectGroup = $("<div></div>").append($fileSelectLabel).append($fileSelectInput);
 
-    $inputDiv.append($("<p class='no-margin-top'></p>").append($sourceLabel).append($source));
-    $inputDiv.append($("<p class='no-margin-top'></p>").append($label).append($textArea).append($fileSelectLabel).append($fileSelect));
-    $inputDiv.append($("<p id='id_notification'></p>"));
+    $inputDiv.append($("<p class='no-margin'></p>").append($messageGroup).append($sourceGroup).append($fileSelectGroup));
+    $inputDiv.append($("<p class='smalltext no-margin-top' id='id_notification'></p>"));
     $inputDiv.append($("<a id='encrypt-action-js' class='btn-blue smalltext u-blockify'>Encrypt and Send</a>"));
 
     $formDiv.append($inputDiv);
