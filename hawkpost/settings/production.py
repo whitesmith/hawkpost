@@ -60,3 +60,7 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
 RAVEN_CONFIG = {
     'dsn': os.environ.get("SENTRY_URL")
 }
+
+# Axes Behind proxy
+AXES_BEHIND_REVERSE_PROXY = True
+AXES_NUM_PROXIES = 1

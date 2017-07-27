@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'timezone_field',
+    'axes',
     'humans',
     'boxes',
     'pages',
@@ -176,6 +177,12 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user:email']
     }
 }
+
+# Authentication Limits Config (AXES)
+AXES_LOGIN_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = 1  # hour
+AXES_USERNAME_FORM_FIELD = 'login'
+
 
 # GPG keyring for server-signing messages
 GPG_SIGN_DIR = os.environ.get("SIGN_DIR")

@@ -17,9 +17,12 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from axes.decorators import watch_login
+from allauth.account.views import login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^users/login/$', watch_login(login)),
     url(r'^users/', include('allauth.urls')),
     url(r'^users/', include('humans.urls')),
     url(r'^box/', include('boxes.urls')),
