@@ -21,6 +21,7 @@ from axes.decorators import watch_login
 from allauth.account.views import login
 
 urlpatterns = [
+    url(r'^admin/login/$', watch_login(admin.site.login)),
     url(r'^admin/', admin.site.urls),
     url(r'^users/login/$', watch_login(login)),
     url(r'^users/', include('allauth.urls')),
