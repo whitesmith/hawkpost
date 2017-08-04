@@ -176,6 +176,7 @@ class BoxSubmitView(UpdateView):
                 template="boxes/success.html",
                 using=self.template_engine)
         else:
-            msg = _('The message must be encrypted before the server forwards it')
-            messages.error(request, msg)
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
             return self.form_invalid(form)

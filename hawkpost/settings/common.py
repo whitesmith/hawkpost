@@ -196,3 +196,7 @@ SITE_DOMAIN = os.environ.get("SITE_DOMAIN")
 # LOCALE_PATH for translations
 # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-LOCALE_PATHS
 LOCALE_PATHS = ['locale']
+
+
+# File Uploads
+DATA_UPLOAD_MAX_MEMORY_SIZE = 15728640  # bytes == 15Mb

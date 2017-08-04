@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from humans.models import User
 from datetime import timedelta
 from .models import Box, Message
-from .forms import CreateBoxForm, SubmitBoxForm
+from .forms import CreateBoxForm, SubmitBoxForm, MAX_MESSAGE_SIZE
 from .tasks import process_email
 from .test_constants import ENCRYPTED_MESSAGE
 import random
@@ -140,6 +140,15 @@ class SubmitBoxFormTests(TestCase):
         """
         form = SubmitBoxForm({"message": "some clear text message"})
         self.assertEqual(form.is_valid(), False)
+
+    def test_message_too_big(self):
+        form = SubmitBoxForm({"message": "m" * (MAX_MESSAGE_SIZE + 1)})
+        self.assertEqual(form.is_valid(), False)
+
+    def test_encrypted_file(self):
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE,
+                              "file_name": "test"})
+        self.assertEqual(form.is_valid(), True)
 
 
 class BoxListViewTests(TestCase):
