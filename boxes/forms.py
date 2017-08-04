@@ -3,6 +3,10 @@ from .models import Box
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from sys import getsizeof
+
+MAX_MESSAGE_SIZE = 10485760  # Bytes = 10 Mb
+
 
 class CreateBoxForm(ModelForm):
     never_expires = BooleanField(required=False)
@@ -47,12 +51,19 @@ class CreateBoxForm(ModelForm):
 
 
 class SubmitBoxForm(Form):
-    message = CharField(widget=Textarea)
+    message = CharField(widget=Textarea, required=True)
+    file_name = CharField(required=False)
 
     def clean_message(self):
         # Quick check if the message really came encrypted
         message = self.cleaned_data.get("message")
         lines = message.split("\r\n")
+
+        if getsizeof(message) > MAX_MESSAGE_SIZE:
+            self.add_error(
+                "message",
+                _('The message or file exceeds your allowed size limit.')
+            )
 
         begin = "-----BEGIN PGP MESSAGE-----"
         end = "-----END PGP MESSAGE-----"

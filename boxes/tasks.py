@@ -15,9 +15,16 @@ def process_email(message_id, form_data):
     message = Message.objects.get(id=message_id)
     box = message.box
     msg = form_data["message"]
+    file_name = form_data.get("file_name", "")
     subject = _('New submission to your box: {}').format(box)
 
-    if box.owner.server_signed:
+    if file_name:
+        body = _("The submitted file can be found in the attachments.")
+        email = EmailMultiAlternatives(
+            subject, body, settings.DEFAULT_FROM_EMAIL, [box.owner.email],
+            attachments=[(file_name, msg, "application/octet-stream")])
+
+    elif box.owner.server_signed:
         email = GPGSignedEncryptedMessage(subject, msg,
                                           settings.DEFAULT_FROM_EMAIL,
                                           [box.owner.email])

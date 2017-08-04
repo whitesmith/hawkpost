@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 17:15+0000\n"
+"POT-Creation-Date: 2017-06-30 16:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: boxes/forms.py:36
+#: boxes/forms.py:40
 msgid "The date must be on the future."
 msgstr "A data tem que ser no futuro."
 
-#: boxes/forms.py:39
+#: boxes/forms.py:43
 msgid "This field is required, unless box is set to never expire."
 msgstr ""
 "Este campo é obrigatório, a não ser que a caixa seja definida para nunca "
 "expirar."
 
-#: boxes/forms.py:62 boxes/forms.py:64
+#: boxes/forms.py:65
+msgid "The message or file exceeds your allowed size limit."
+msgstr "A mensagem (ou ficheiro) excede o tamanho limite que é permitido."
+
+#: boxes/forms.py:73 boxes/forms.py:75
 msgid "Invalid PGP message"
 msgstr "Mensagem PGP inválida"
 
@@ -142,9 +146,13 @@ msgstr "Falhou"
 msgid "Sent at"
 msgstr "Enviado em"
 
-#: boxes/tasks.py:18
+#: boxes/tasks.py:19
 msgid "New submission to your box: {}"
 msgstr "Nova submissão para a sua caixa: {}"
+
+#: boxes/tasks.py:22
+msgid "The submitted file can be found in the attachments."
+msgstr "O ficheiro submetido pode ser encontrado nos anexos."
 
 #: boxes/templates/boxes/box_list.html:11
 msgid "MANAGE BOXES"
@@ -357,10 +365,6 @@ msgstr "A caixa {} foi fechada"
 #: boxes/views.py:142
 msgid "Not Found. Double check your URL"
 msgstr "Não encontrado. Por favor, verifique o seu URL"
-
-#: boxes/views.py:179
-msgid "The message must be encrypted before the server forwards it"
-msgstr "A mensagem deve ser encriptada antes do servidor a enviar"
 
 #: hawkpost/settings/common.py:125
 msgid "English"
@@ -1688,6 +1692,9 @@ msgstr ""
 #: pages/templates/pages/index.html:110
 msgid "Ready to start?"
 msgstr "Vamos começar?"
+
+#~ msgid "The message must be encrypted before the server forwards it"
+#~ msgstr "A mensagem deve ser encriptada antes do servidor a enviar"
 
 #~ msgid "Prefered language"
 #~ msgstr "Linguagem preferida"
