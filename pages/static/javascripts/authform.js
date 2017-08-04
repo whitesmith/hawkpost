@@ -23,7 +23,7 @@ $(document).ready(function(){
           errorContainer.append("<p class='text-warning'>" + errors[i] + "</p>");
         }
       } else if (data.status === 403){
-        var msg = "To many failed attempts. The account is locked for 1 hour. Please try again later.";
+        var msg = "Too many failed attempts. The account is locked for 1 hour. Please try again later.";
         errorContainer.append("<p class='text-warning'>"+ msg +"</p>");
       }
     });
