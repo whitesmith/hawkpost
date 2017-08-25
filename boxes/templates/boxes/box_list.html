@@ -86,6 +86,14 @@
           </div>
         </div>
       </div>
+      {% empty %}
+        {% if display_status == 'Open' %}
+          <div>
+            <h1 class="text-darkest">{% trans "You don't have any boxes yet" %}</h1>
+            <p class="text-darkest">{% trans "A Box is a generated link where other people can submit information that will be encrypted and delivered to you. They can have several different settings." %}</p>
+            <p class="text-darkest">{% trans "If you already have configured your public key in the settings menu, you just need to click the ''New Box'' button above to start using Hawkpost. If not please add your public key first." %}</p>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
     <div class="row">

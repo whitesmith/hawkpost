@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 16:35+0000\n"
+"POT-Creation-Date: 2017-08-25 12:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,24 +186,48 @@ msgstr "FECHAR"
 msgid "DELETE"
 msgstr "APAGAR"
 
-#: boxes/templates/boxes/box_list.html:96
+#: boxes/templates/boxes/box_list.html:92
+msgid "You don't have any boxes yet"
+msgstr "Ainda não tem caixas criadas"
+
+#: boxes/templates/boxes/box_list.html:93
+msgid ""
+"A Box is a generated link where other people can submit information, that "
+"will be encrypted and delivered to you. They can have several different "
+"settings."
+msgstr ""
+"Uma caixa é um \"link\" gerado onde outras pessoas podem submeter informação "
+"que será cifrada e entregue a si. As caixas podem ter várias configurações "
+"diferentes."
+
+#: boxes/templates/boxes/box_list.html:94
+msgid ""
+"If you already have configured your public key in the settings menu, you "
+"just need to click the ''New Box'' button above to start using Hawkpost. If "
+"not please add your public key first."
+msgstr ""
+"Se já configurou a sua chave pública nas definições, para começar a usar o "
+"Hawkpost precisa apenas de clicar no botão ''Nova caixa''. Se ainda não o fez "
+"por favor adicione a sua chave pública primeiro."
+
+#: boxes/templates/boxes/box_list.html:104
 msgid "Previous"
 msgstr "Anterior"
 
-#: boxes/templates/boxes/box_list.html:100
+#: boxes/templates/boxes/box_list.html:108
 #, python-format
 msgid "Page %(page_obj.number)s of %(paginator.num_pages)s"
 msgstr "Página %(page_obj.number)s de %(paginator.num_pages)s"
 
-#: boxes/templates/boxes/box_list.html:104
+#: boxes/templates/boxes/box_list.html:112
 msgid "Next"
 msgstr "Próximo"
 
-#: boxes/templates/boxes/box_list.html:117
+#: boxes/templates/boxes/box_list.html:125
 msgid "CREATE NEW BOX"
 msgstr "CRIAR NOVA CAIXA"
 
-#: boxes/templates/boxes/box_list.html:118
+#: boxes/templates/boxes/box_list.html:126
 msgid ""
 "For others to be able to send you encrypted content through Hawkpost, you'll "
 "need to generate \"boxes\"."
@@ -211,7 +235,7 @@ msgstr ""
 "Para que outros sejam capazes de lhe enviar conteúdo encriptado pelo "
 "Hawkpost, terá que gerar \"boxes\"."
 
-#: boxes/templates/boxes/box_list.html:119
+#: boxes/templates/boxes/box_list.html:127
 msgid ""
 "Each box has an associated link that you can copy and share with any given "
 "person. If you want, you can set the expiration date and number of messages "
@@ -221,7 +245,7 @@ msgstr ""
 "pessoa. Se quiser, poderá definir o prazo de validade e o número de "
 "mensagens após o qual o link será bloqueado e não mais acessível."
 
-#: boxes/templates/boxes/box_list.html:162
+#: boxes/templates/boxes/box_list.html:170
 msgid "Create"
 msgstr "Criar"
 
@@ -366,11 +390,11 @@ msgstr "A caixa {} foi fechada"
 msgid "Not Found. Double check your URL"
 msgstr "Não encontrado. Por favor, verifique o seu URL"
 
-#: hawkpost/settings/common.py:125
+#: hawkpost/settings/common.py:126
 msgid "English"
 msgstr "Inglês"
 
-#: hawkpost/settings/common.py:126 humans/models.py:14
+#: hawkpost/settings/common.py:127 humans/models.py:14
 msgid "Portuguese"
 msgstr "Português"
 
