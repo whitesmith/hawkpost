@@ -14,7 +14,7 @@ django-axes==2.3.3
 django-braces==1.11.0
 django-dotenv==1.4.1
 django-timezone-field==2.0
-django==1.11.4
+django==1.11.5
 gnupg==2.3.0
 gunicorn==19.7.1
 kombu==4.0.2              # via celery
