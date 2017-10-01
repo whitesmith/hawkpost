@@ -67,7 +67,7 @@ $ python manage.py migrate
 $ gulp build
 ```
 
-* Now you should be able to launch the server and its workers 
+* Now you should be able to launch the server and its workers
 
 ```
 $ python manage.py runserver
@@ -141,7 +141,7 @@ $ gulp build
 
 ```
 $ python manage.py runserver
-$ celery -A hawkpost worker --beat -l info 
+$ celery -A hawkpost worker --beat -l info
 ```
 
 ## Docker
@@ -227,7 +227,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.hawkpost_default.Gateway }}" $CI
 
 This IP won't change unless you remove every container and the corresponding
 network (manually), so you may alias it on your `/etc/hosts` (to something like
-`hawkpost.dev`).
+`hawkpost.test`).
 
 **Note:** This approach was not tested on OS X or Windows platforms, so the
 network feature may require additional steps.
