@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 12:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2017-10-03 15:31+0000\n"
+"PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: boxes/forms.py:40
 msgid "The date must be on the future."
@@ -192,7 +193,7 @@ msgstr "Ainda não tem caixas criadas"
 
 #: boxes/templates/boxes/box_list.html:93
 msgid ""
-"A Box is a generated link where other people can submit information, that "
+"A Box is a generated link where other people can submit information that "
 "will be encrypted and delivered to you. They can have several different "
 "settings."
 msgstr ""
@@ -207,8 +208,8 @@ msgid ""
 "not please add your public key first."
 msgstr ""
 "Se já configurou a sua chave pública nas definições, para começar a usar o "
-"Hawkpost precisa apenas de clicar no botão ''Nova caixa''. Se ainda não o fez "
-"por favor adicione a sua chave pública primeiro."
+"Hawkpost precisa apenas de clicar no botão ''Nova caixa''. Se ainda não o "
+"fez por favor adicione a sua chave pública primeiro."
 
 #: boxes/templates/boxes/box_list.html:104
 msgid "Previous"
@@ -1028,11 +1029,11 @@ msgstr "Administrador Hawkpost"
 msgid "Project Models"
 msgstr "Modelos do projecto"
 
-#: humans/forms.py:27
+#: humans/forms.py:29
 msgid "https://example.com/key.asc"
 msgstr ""
 
-#: humans/forms.py:28
+#: humans/forms.py:30
 msgid ""
 "-----BEGIN PGP PUBLIC KEY BLOCK-----\n"
 "Version: SKS 1.1.1\n"
@@ -1040,27 +1041,47 @@ msgid ""
 "-----END PGP PUBLIC KEY BLOCK-----"
 msgstr ""
 
-#: humans/forms.py:46
+#: humans/forms.py:33 humans/templates/humans/user_confirm_delete.html:22
+msgid "Current password"
+msgstr "Password actual"
+
+#: humans/forms.py:36
+msgid "New password"
+msgstr "Nova password"
+
+#: humans/forms.py:39
+msgid "New password confirmation"
+msgstr "Confirmação da nova password"
+
+#: humans/forms.py:63
+msgid "Your current password was entered incorrectly."
+msgstr "Sua password actual está incorreta."
+
+#: humans/forms.py:76
+msgid "The two password fields didn't match."
+msgstr "As passwords inseridas não são iguais"
+
+#: humans/forms.py:92
 msgid "This key is not valid"
 msgstr "Esta chave não é válida"
 
-#: humans/forms.py:49
+#: humans/forms.py:95
 msgid "This key is revoked"
 msgstr "Esta chave foi revogada"
 
-#: humans/forms.py:52
+#: humans/forms.py:98
 msgid "This key is expired"
 msgstr "Esta chave expirou"
 
-#: humans/forms.py:64
+#: humans/forms.py:110
 msgid "Fingerprint does not match"
 msgstr "A impressão digital não corresponde"
 
-#: humans/forms.py:74
+#: humans/forms.py:120
 msgid "Could not access the specified url"
 msgstr "Não foi possível aceder ao url especificado"
 
-#: humans/forms.py:82
+#: humans/forms.py:128
 msgid "This url does not have a pgp key"
 msgstr "Este url não contém uma chave pgp"
 
@@ -1161,10 +1182,14 @@ msgid "Keys"
 msgstr "Chaves"
 
 #: humans/templates/humans/update_user_form.html:14
+msgid "Password"
+msgstr "Definir Password\n"
+
+#: humans/templates/humans/update_user_form.html:15
 msgid "Experimental Features"
 msgstr "Funcionalidades Experimentais"
 
-#: humans/templates/humans/update_user_form.html:48
+#: humans/templates/humans/update_user_form.html:49
 msgid ""
 "You can provide the public key in a static away <strong> or </strong> "
 "provide a link to your key in a public key server so we can fetch it for you "
@@ -1174,7 +1199,7 @@ msgstr ""
 "através de um endereço para a chave num servidor externo, de forma a "
 "podermos descarrega-la por si(recomendado)."
 
-#: humans/templates/humans/update_user_form.html:71
+#: humans/templates/humans/update_user_form.html:85
 msgid ""
 "The \"Server signed\" feature allows you to improve your security by "
 "allowing us to sign the (<strong>already encrypted</strong>) message with "
@@ -1188,24 +1213,24 @@ msgstr ""
 "Por agora, os únicos clientes de e-mail que intrepretam correctamente esta "
 "funcionalidade são o<strong>Evolution</strong> e <strong>mutt</strong>"
 
-#: humans/templates/humans/update_user_form.html:81
+#: humans/templates/humans/update_user_form.html:95
 msgid "The key used to sign can be found"
 msgstr "A chave usada para assinar pode ser encontrada"
 
-#: humans/templates/humans/update_user_form.html:81
-#: humans/templates/humans/update_user_form.html:96
+#: humans/templates/humans/update_user_form.html:95
+#: humans/templates/humans/update_user_form.html:110
 msgid "here"
 msgstr "aqui"
 
-#: humans/templates/humans/update_user_form.html:81
+#: humans/templates/humans/update_user_form.html:95
 msgid "and the fingerprint, so you can verify it, is the following:"
 msgstr "e a impressão digital, de forma a poder verificar, é a seguinte:"
 
-#: humans/templates/humans/update_user_form.html:89
+#: humans/templates/humans/update_user_form.html:103
 msgid "Save"
 msgstr "Gravar"
 
-#: humans/templates/humans/update_user_form.html:96
+#: humans/templates/humans/update_user_form.html:110
 msgid "Do you wish to delete your account? if yes, just click"
 msgstr "Deseja apagar a sua conta? se sim, clique"
 
@@ -1221,10 +1246,6 @@ msgstr ""
 "A sua conta no Hawkpost irá ser apagada juntamente com todas as informações "
 "relacionada com a mesma. Tem a certeza que deseja continuar?"
 
-#: humans/templates/humans/user_confirm_delete.html:22
-msgid "Current password"
-msgstr "Password actual"
-
 #: humans/templates/humans/user_confirm_delete.html:26
 msgid "Yes, I want to delete everything"
 msgstr "Sim, eu quero apagar tudo"
@@ -1233,23 +1254,23 @@ msgstr "Sim, eu quero apagar tudo"
 msgid "No, take me back to the settings"
 msgstr "Não, voltar para a página das definições"
 
-#: humans/views.py:34
+#: humans/views.py:35
 msgid "To start using hawkpost, you must add a valid public key"
 msgstr "Para começar a usar o hawkpost deve adicionar uma chave pública válida"
 
-#: humans/views.py:51
+#: humans/views.py:54
 msgid "Settings successfully updated"
 msgstr "Definições actualizadas com sucesso"
 
-#: humans/views.py:55
+#: humans/views.py:58
 msgid "Please check the invalid fields"
 msgstr "Por favor, verifique os campos inválidos"
 
-#: humans/views.py:72
+#: humans/views.py:75
 msgid "Account deleted successfully. We hope you comeback soon."
 msgstr "Conta apagada com sucesso. Esperemos que regresse em breve."
 
-#: humans/views.py:77
+#: humans/views.py:80
 msgid "In order to delete the account you must provide the current password."
 msgstr "De modo a apagar a conta, deve inserir a password actual."
 
@@ -1716,6 +1737,11 @@ msgstr ""
 #: pages/templates/pages/index.html:110
 msgid "Ready to start?"
 msgstr "Vamos começar?"
+
+#, fuzzy
+#~| msgid "change password"
+#~ msgid "Old password"
+#~ msgstr "mudar password"
 
 #~ msgid "The message must be encrypted before the server forwards it"
 #~ msgstr "A mensagem deve ser encriptada antes do servidor a enviar"
