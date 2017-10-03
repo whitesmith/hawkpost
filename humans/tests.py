@@ -33,7 +33,10 @@ class UpdateUserFormTests(TestCase):
             "fingerprint": VALID_KEY_FINGERPRINT,
             "timezone": "UTC",
             "language": "en-us",
-            "public_key": VALID_KEY
+            "public_key": VALID_KEY,
+            "old_password": "",
+            "new_password1": "",
+            "new_password2": "",
         }
 
     def test_empty_fingerprint(self):
@@ -73,6 +76,48 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
+    def test_wrong_old_password(self):
+        """
+        Tests if the form is invalidated because the wrong password was sent
+        """
+        data = copy(self.default_data)
+        data["old_password"] = "wrongpassword"
+        user = create_and_login_user(self.client)
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('old_password' in form.errors)
+
+    def test_invalid_password(self):
+        """
+        Tests that Django password constraints are being tested
+        """
+        data = copy(self.default_data)
+        data["old_password"] = '123123'
+        data["new_password1"] = 'a'
+        data["new_password2"] = 'a'
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('new_password2' in form.errors)
+
+    def test_non_matching_passwords(self):
+        """
+        Tests if the form invalidates when password are valid but different
+        """
+        data = copy(self.default_data)
+        data["old_password"] = '123123'
+        data["new_password1"] = 'abcABCD123'
+        data["new_password2"] = 'abcABCD1234'
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('new_password2' in form.errors)
 
 class UtilsTests(TestCase):
 
