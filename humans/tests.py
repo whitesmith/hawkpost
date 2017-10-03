@@ -91,10 +91,13 @@ class UpdateUserFormTests(TestCase):
         """
         Tests that Django password constraints are being tested
         """
-        data = copy(self.default_data)
-        data["old_password"] = '123123'
-        data["new_password1"] = 'a'
-        data["new_password2"] = 'a'
+        data = {
+            'old_password': '123123',
+            'new_password1': 'a',
+            'new_password2': 'a',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
         user = create_and_login_user(self.client)
         user.set_password('123123')
         user.save()
@@ -107,10 +110,13 @@ class UpdateUserFormTests(TestCase):
         """
         Tests if the form invalidates when password are valid but different
         """
-        data = copy(self.default_data)
-        data["old_password"] = '123123'
-        data["new_password1"] = 'abcABCD123'
-        data["new_password2"] = 'abcABCD1234'
+        data = {
+            'old_password': '123123',
+            'new_password1': 'abcABCD123',
+            'new_password2': 'abcABCD1234',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
         user = create_and_login_user(self.client)
         user.set_password('123123')
         user.save()
@@ -118,6 +124,28 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data, instance=user)
         self.assertEqual(form.is_valid(), False)
         self.assertTrue('new_password2' in form.errors)
+
+    def test_change_password(self):
+        """
+        Tests if the password is actually changed
+        """
+        data = {
+            'old_password':'123123',
+            'new_password1': 'abcABCD123',
+            'new_password2': 'abcABCD123',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), True)
+        form.save()
+        user.refresh_from_db()
+        self.assertTrue(user.check_password(data["new_password1"]))
+
 
 class UtilsTests(TestCase):
 
