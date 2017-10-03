@@ -85,15 +85,15 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-xs-12">
-                  <input type="submit" class="btn-blue set smalltext" value="{% trans "Save" %}" />
+                <div class="col-xs-12 form__block">
+                  <input type="submit" class="btn-blue smalltext" value="{% trans "Save" %}" />
                 </div>
               </div>
             </div>
           </form>
           <div class="text-center">
             <small class="check smalltext text-darkest">
-              {% trans "Do you wish to delete your account? if yes, just click" %}<a class="text-blue"href="{% url "humans_delete" %}">{% trans "here" %}</a>
+              {% trans "Do you wish to delete your account? if yes, just click" %} <a class="text-blue"href="{% url "humans_delete" %}">{% trans "here" %}</a>
             </small>
           </div>
         </div>

@@ -284,10 +284,6 @@ form {
 
 #accordion {
     width: 100%;
-    height: 330px;
-    @include breakpoint ($min:xl) {
-        height: 450px;
-    }
     .section {
         display: none;
         &.active {
