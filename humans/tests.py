@@ -47,7 +47,6 @@ class UpdateUserFormTests(TestCase):
         data["fingerprint"] = VALID_KEY_FINGERPRINT
         data["public_key"] = VALID_KEY
         form = UpdateUserInfoForm(data)
-        import pdb; pdb.set_trace()
         self.assertEqual(form.is_valid(), True)
 
     def test_fingerprint_plus_keyserver_url(self):
