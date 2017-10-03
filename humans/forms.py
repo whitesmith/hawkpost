@@ -1,15 +1,16 @@
 from django.forms import ModelForm
 from django import forms
+from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import ugettext_lazy as _
 from allauth.account.forms import LoginForm as BaseLoginForm
 from allauth.account.forms import SignupForm as BaseSignupForm
 from .models import User
 from .utils import key_state
-
 import requests
 
 
 class UpdateUserInfoForm(ModelForm):
+
     class Meta:
         model = User
         fields = [
@@ -21,16 +22,61 @@ class UpdateUserInfoForm(ModelForm):
             "fingerprint",
             "server_signed",
             "timezone",
-            "language",
+            "language"
         ]
+
         widgets = {
             'keyserver_url': forms.TextInput(attrs={'placeholder': _("https://example.com/key.asc")}),
             'public_key': forms.Textarea(attrs={'placeholder': _("-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: SKS 1.1.1\n<PGP KEY>\n-----END PGP PUBLIC KEY BLOCK-----")})
         }
 
+    old_password = forms.CharField(label=_("Old password"),
+                                   required=False,
+                                   widget=forms.PasswordInput)
+    new_password1 = forms.CharField(label=_("New password"),
+                                    required=False,
+                                    widget=forms.PasswordInput)
+    new_password2 = forms.CharField(label=_("New password confirmation"),
+                                    required=False,
+                                    widget=forms.PasswordInput)
+
     def __init__(self, *args, **kwargs):
+        # Flag to let the save method know when to call set_password
+        self.change_password = False
         self.pub_key = None
         return super().__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        new_password = self.cleaned_data['new_password2']
+        if self.change_password:
+            self.instance.set_password(new_password)
+        return super(UpdateUserInfoForm, self).save(commit=commit)
+
+    def clean_old_password(self):
+        """
+        Validates that the old_password field is correct.
+        """
+        old_password = self.cleaned_data["old_password"]
+        if len(old_password) > 0:
+            if not self.instance.check_password(old_password):
+                self.add_error('old_password',
+                               _('Your old password was entered incorrectly.'))
+        return old_password
+
+    def clean_new_password2(self):
+        """
+        Validates that both new password entries are equal.
+        """
+        password1 = self.cleaned_data.get('new_password1')
+        password2 = self.cleaned_data.get('new_password2')
+        validate_password(password1, self.instance)
+        if password1 and password2:
+            if password1 != password2:
+                self.add_error('new_password2',
+                               _("The two password fields didn't match."))
+            else:
+                self.change_password = True
+        return password2
 
     def clean_public_key(self):
         # Validate the public key

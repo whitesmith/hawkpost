@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
 from django.contrib.auth import logout, authenticate
+from django.contrib.auth import update_session_auth_hash
 from django.views.generic import FormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -48,6 +49,8 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
+        if form.change_password:
+            update_session_auth_hash(self.request, form.instance)
         messages.success(self.request, _('Settings successfully updated'))
         return super().form_valid(form)
 
