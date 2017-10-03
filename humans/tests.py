@@ -80,8 +80,11 @@ class UpdateUserFormTests(TestCase):
         """
         Tests if the form is invalidated because the wrong password was sent
         """
-        data = copy(self.default_data)
-        data["old_password"] = "wrongpassword"
+        data = {
+            'old_password': 'wrongpassword',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
         user = create_and_login_user(self.client)
         form = UpdateUserInfoForm(data, instance=user)
         self.assertEqual(form.is_valid(), False)
