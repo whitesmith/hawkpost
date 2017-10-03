@@ -30,13 +30,13 @@ class UpdateUserInfoForm(ModelForm):
             'public_key': forms.Textarea(attrs={'placeholder': _("-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: SKS 1.1.1\n<PGP KEY>\n-----END PGP PUBLIC KEY BLOCK-----")})
         }
 
-    old_password = forms.CharField(label=_("Old password"),
+    current_password = forms.CharField(label=_('Current password'),
                                    required=False,
                                    widget=forms.PasswordInput)
-    new_password1 = forms.CharField(label=_("New password"),
+    new_password1 = forms.CharField(label=_('New password'),
                                     required=False,
                                     widget=forms.PasswordInput)
-    new_password2 = forms.CharField(label=_("New password confirmation"),
+    new_password2 = forms.CharField(label=_('New password confirmation'),
                                     required=False,
                                     widget=forms.PasswordInput)
 
@@ -52,16 +52,16 @@ class UpdateUserInfoForm(ModelForm):
             self.instance.set_password(new_password)
         return super(UpdateUserInfoForm, self).save(commit=commit)
 
-    def clean_old_password(self):
+    def clean_current_password(self):
         """
-        Validates that the old_password field is correct.
+        Validates that the current_password field is correct.
         """
-        old_password = self.cleaned_data.get('old_password')
-        if len(old_password) > 0:
-            if not self.instance.check_password(old_password):
-                self.add_error('old_password',
-                               _('Your old password was entered incorrectly.'))
-        return old_password
+        current_password = self.cleaned_data.get('current_password')
+        if len(current_password) > 0:
+            if not self.instance.check_password(current_password):
+                self.add_error('current_password',
+                               _('Your current password was entered incorrectly.'))
+        return current_password
 
     def clean_new_password2(self):
         """

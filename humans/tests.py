@@ -74,26 +74,26 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
-    def test_wrong_old_password(self):
+    def test_wrong_current_password(self):
         """
         Tests if the form is invalidated because the wrong password was sent
         """
         data = {
-            'old_password': 'wrongpassword',
+            'current_password': 'wrongpassword',
             'timezone': 'UTC',
             'language': 'en-us'
         }
         user = create_and_login_user(self.client)
         form = UpdateUserInfoForm(data, instance=user)
         self.assertEqual(form.is_valid(), False)
-        self.assertTrue('old_password' in form.errors)
+        self.assertTrue('current_password' in form.errors)
 
     def test_invalid_password(self):
         """
         Tests that Django password constraints are being tested
         """
         data = {
-            'old_password': '123123',
+            'current_password': '123123',
             'new_password1': 'a',
             'new_password2': 'a',
             'timezone': 'UTC',
@@ -112,7 +112,7 @@ class UpdateUserFormTests(TestCase):
         Tests if the form invalidates when password are valid but different
         """
         data = {
-            'old_password': '123123',
+            'current_password': '123123',
             'new_password1': 'abcABCD123',
             'new_password2': 'abcABCD1234',
             'timezone': 'UTC',
@@ -131,7 +131,7 @@ class UpdateUserFormTests(TestCase):
         Tests if the password is actually changed
         """
         data = {
-            'old_password':'123123',
+            'current_password':'123123',
             'new_password1': 'abcABCD123',
             'new_password2': 'abcABCD123',
             'timezone': 'UTC',
