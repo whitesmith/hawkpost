@@ -33,10 +33,7 @@ class UpdateUserFormTests(TestCase):
             "fingerprint": VALID_KEY_FINGERPRINT,
             "timezone": "UTC",
             "language": "en-us",
-            "public_key": VALID_KEY,
-            "old_password": "",
-            "new_password1": "",
-            "new_password2": "",
+            "public_key": VALID_KEY
         }
 
     def test_empty_fingerprint(self):
@@ -50,6 +47,7 @@ class UpdateUserFormTests(TestCase):
         data["fingerprint"] = VALID_KEY_FINGERPRINT
         data["public_key"] = VALID_KEY
         form = UpdateUserInfoForm(data)
+        import pdb; pdb.set_trace()
         self.assertEqual(form.is_valid(), True)
 
     def test_fingerprint_plus_keyserver_url(self):

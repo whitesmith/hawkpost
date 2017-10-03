@@ -69,8 +69,8 @@ class UpdateUserInfoForm(ModelForm):
         """
         password1 = self.cleaned_data.get('new_password1')
         password2 = self.cleaned_data.get('new_password2')
-        validate_password(password1, self.instance)
         if password1 and password2:
+            validate_password(password1, self.instance)
             if password1 != password2:
                 self.add_error('new_password2',
                                _("The two password fields didn't match."))
