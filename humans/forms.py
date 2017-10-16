@@ -44,13 +44,13 @@ class UpdateUserInfoForm(ModelForm):
         # Flag to let the save method know when to call set_password
         self.change_password = False
         self.pub_key = None
-        return super(UpdateUserInfoForm, self).__init__(*args, **kwargs)
+        return super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
         new_password = self.cleaned_data.get('new_password2')
         if self.change_password:
             self.instance.set_password(new_password)
-        return super(UpdateUserInfoForm, self).save(commit=commit)
+        return super().save(commit=commit)
 
     def clean_current_password(self):
         """
