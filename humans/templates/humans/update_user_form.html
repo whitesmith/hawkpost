@@ -11,7 +11,9 @@
         <div class="col-xs-12 nav-st no-padding text-left">
           <li id="tab1" class="sett__nav__item text-darkest active">{% trans "Profile" %}</li>
           <li id="tab2" class="sett__nav__item text-darkest">{% trans "Keys" %}</li>
+          {% if not form.instance.has_github_login %}
           <li id="tab3" class="sett__nav__item text-darkest">{% trans "Password" %}</li>
+          {%endif %}
           <li id="tab4" class="sett__nav__item text-darkest">{% trans "Experimental Features" %}</li>
         </div>
       </ul>
