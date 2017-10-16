@@ -22,12 +22,14 @@ class User(AbstractUser):
     timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
     language = models.CharField(default="en-us", max_length=16, choices=LANGUAGE_CHOICES , verbose_name=_('Language'))
 
-
-
     def has_setup_complete(self):
         if self.public_key and self.fingerprint:
             return True
         return False
+
+    @property
+    def has_github_login(self):
+        return self.socialaccount_set.filter(provider='github').count() >= 1
 
     @property
     def has_public_key(self):
