@@ -73,6 +73,79 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), False)
 
+    def test_wrong_current_password(self):
+        """
+        Tests if the form is invalidated because the wrong password was sent
+        """
+        data = {
+            'current_password': 'wrongpassword',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
+        user = create_and_login_user(self.client)
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('current_password' in form.errors)
+
+    def test_invalid_password(self):
+        """
+        Tests that Django password constraints are being tested
+        """
+        data = {
+            'current_password': '123123',
+            'new_password1': 'a',
+            'new_password2': 'a',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('new_password2' in form.errors)
+
+    def test_non_matching_passwords(self):
+        """
+        Tests if the form invalidates when password are valid but different
+        """
+        data = {
+            'current_password': '123123',
+            'new_password1': 'abcABCD123',
+            'new_password2': 'abcABCD1234',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), False)
+        self.assertTrue('new_password2' in form.errors)
+
+    def test_change_password(self):
+        """
+        Tests if the password is actually changed
+        """
+        data = {
+            'current_password':'123123',
+            'new_password1': 'abcABCD123',
+            'new_password2': 'abcABCD123',
+            'timezone': 'UTC',
+            'language': 'en-us'
+        }
+        user = create_and_login_user(self.client)
+        user.set_password('123123')
+        user.save()
+
+        form = UpdateUserInfoForm(data, instance=user)
+        self.assertEqual(form.is_valid(), True)
+        form.save()
+        user.refresh_from_db()
+        self.assertTrue(user.check_password(data["new_password1"]))
+
 
 class UtilsTests(TestCase):
 
