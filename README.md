@@ -218,7 +218,7 @@ The `web` container will reload on code changes.
 
 You may access the application by **opening `http://<docker-network-ip>` on
 your browser**, which you can find by **running** (you may need to run this as
-`root` depending on your setup)
+`root` depending on your setup).
 
 ```
 CID=$(docker ps | grep 'hawkpost_web' | cut -d ' ' -f 1)
