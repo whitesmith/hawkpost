@@ -1,4 +1,4 @@
-django==1.11.6
+django==1.11.7
 django-dotenv==1.4.1
 psycopg2==2.7.1
 django-allauth==0.32.0
