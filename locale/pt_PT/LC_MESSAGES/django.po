@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-03 15:31+0000\n"
+"POT-Creation-Date: 2017-11-10 11:46+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.0.1\n"
 
 #: boxes/forms.py:40
@@ -73,12 +73,12 @@ msgid "Recipients"
 msgstr "Destinatários"
 
 #: boxes/models.py:37 boxes/models.py:84 boxes/models.py:114
-#: humans/models.py:50
+#: humans/models.py:52
 msgid "Created at"
 msgstr "Criado em"
 
 #: boxes/models.py:39 boxes/models.py:86 boxes/models.py:116
-#: humans/models.py:51
+#: humans/models.py:53
 msgid "Updated at"
 msgstr "Actualizado em"
 
@@ -143,7 +143,7 @@ msgstr "Enviado"
 msgid "Failed"
 msgstr "Falhou"
 
-#: boxes/models.py:118 humans/models.py:53
+#: boxes/models.py:118 humans/models.py:55
 msgid "Sent at"
 msgstr "Enviado em"
 
@@ -1113,23 +1113,23 @@ msgstr "Fuso horário"
 msgid "Language"
 msgstr "Lingua"
 
-#: humans/models.py:47
+#: humans/models.py:49
 msgid "Subject"
 msgstr "Assunto"
 
-#: humans/models.py:48
+#: humans/models.py:50
 msgid "Body"
 msgstr "Corpo"
 
-#: humans/models.py:54
+#: humans/models.py:56
 msgid "Send to"
 msgstr "Enviar para"
 
-#: humans/models.py:57
+#: humans/models.py:59
 msgid "Notification"
 msgstr "Notificação"
 
-#: humans/models.py:58
+#: humans/models.py:60
 msgid "Notifications"
 msgstr "Notificações"
 
@@ -1181,15 +1181,15 @@ msgstr "Perfil"
 msgid "Keys"
 msgstr "Chaves"
 
-#: humans/templates/humans/update_user_form.html:14
-msgid "Password"
-msgstr "Definir Password\n"
-
 #: humans/templates/humans/update_user_form.html:15
+msgid "Password"
+msgstr "Definir Password"
+
+#: humans/templates/humans/update_user_form.html:17
 msgid "Experimental Features"
 msgstr "Funcionalidades Experimentais"
 
-#: humans/templates/humans/update_user_form.html:49
+#: humans/templates/humans/update_user_form.html:51
 msgid ""
 "You can provide the public key in a static away <strong> or </strong> "
 "provide a link to your key in a public key server so we can fetch it for you "
@@ -1199,7 +1199,7 @@ msgstr ""
 "através de um endereço para a chave num servidor externo, de forma a "
 "podermos descarrega-la por si(recomendado)."
 
-#: humans/templates/humans/update_user_form.html:85
+#: humans/templates/humans/update_user_form.html:87
 msgid ""
 "The \"Server signed\" feature allows you to improve your security by "
 "allowing us to sign the (<strong>already encrypted</strong>) message with "
@@ -1213,24 +1213,24 @@ msgstr ""
 "Por agora, os únicos clientes de e-mail que intrepretam correctamente esta "
 "funcionalidade são o<strong>Evolution</strong> e <strong>mutt</strong>"
 
-#: humans/templates/humans/update_user_form.html:95
+#: humans/templates/humans/update_user_form.html:97
 msgid "The key used to sign can be found"
 msgstr "A chave usada para assinar pode ser encontrada"
 
-#: humans/templates/humans/update_user_form.html:95
-#: humans/templates/humans/update_user_form.html:110
+#: humans/templates/humans/update_user_form.html:97
+#: humans/templates/humans/update_user_form.html:112
 msgid "here"
 msgstr "aqui"
 
-#: humans/templates/humans/update_user_form.html:95
+#: humans/templates/humans/update_user_form.html:97
 msgid "and the fingerprint, so you can verify it, is the following:"
 msgstr "e a impressão digital, de forma a poder verificar, é a seguinte:"
 
-#: humans/templates/humans/update_user_form.html:103
+#: humans/templates/humans/update_user_form.html:105
 msgid "Save"
 msgstr "Gravar"
 
-#: humans/templates/humans/update_user_form.html:110
+#: humans/templates/humans/update_user_form.html:112
 msgid "Do you wish to delete your account? if yes, just click"
 msgstr "Deseja apagar a sua conta? se sim, clique"
 
@@ -1275,10 +1275,36 @@ msgid "In order to delete the account you must provide the current password."
 msgstr "De modo a apagar a conta, deve inserir a password actual."
 
 #: pages/templates/pages/about.html:11
+msgid "INSTANCE"
+msgstr "INSTÂNCIA"
+
+#: pages/templates/pages/about.html:13
+msgid ""
+"This website is an instance of the Hawkpost software project (see more "
+"details about it below). For your information here are a few details about "
+"the people responsible for this particular website:"
+msgstr ""
+"Este website é um instância do projecto de software Hawkpost (veja mais "
+"detalhes na secção abaixo). Para sua informação aqui ficam alguns detalhes "
+"sobre a pessoa responsável por esta website em particular:"
+
+#: pages/templates/pages/about.html:14
+msgid "Main Administrator"
+msgstr "Administrador principal"
+
+#: pages/templates/pages/about.html:15
+msgid "Contact"
+msgstr "Contacto"
+
+#: pages/templates/pages/about.html:17
+msgid "Instance description"
+msgstr "Descrição da instância"
+
+#: pages/templates/pages/about.html:24
 msgid "HAWKPOST"
 msgstr ""
 
-#: pages/templates/pages/about.html:13
+#: pages/templates/pages/about.html:26
 msgid ""
 "For many years pigeons were used to send private messages to people. But "
 "today, to send private and confidential information a pigeon is not enough. "
@@ -1290,7 +1316,7 @@ msgstr ""
 "não chega. Actualizámos o pombo para um falcão - é mais forte, rápido e vai "
 "proteger todas as suas mensagens melhor."
 
-#: pages/templates/pages/about.html:14
+#: pages/templates/pages/about.html:27
 msgid ""
 "We know that sometimes it's difficult to explain how to encrypt messages or "
 "how to install that software to protect confidential information. That's why "
@@ -1302,7 +1328,7 @@ msgstr ""
 "que criámos o Hawkpost - um sítio onde lhe podem enviar informação sensível "
 "de modo fácil e seguro."
 
-#: pages/templates/pages/about.html:15
+#: pages/templates/pages/about.html:28
 msgid ""
 "This project was made at Whitesmith's Hackathon during our company retreat. "
 "The aim of this hackathon was to launch a side-project in 24h."
@@ -1311,7 +1337,7 @@ msgstr ""
 "nossa companhia. O objectivo deste hackathon foi lançar um projecto "
 "secundário em 24 horas."
 
-#: pages/templates/pages/about.html:16
+#: pages/templates/pages/about.html:29
 msgid ""
 "You can read more about the project in our FAQ at the bottom of our <a class="
 "\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
@@ -1319,11 +1345,11 @@ msgstr ""
 "Pode ler mais sobre o nosso projecto na nossa FAQ no fundo da nossa <a class="
 "\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 
-#: pages/templates/pages/about.html:23
+#: pages/templates/pages/about.html:36
 msgid "WHITESMITH"
 msgstr ""
 
-#: pages/templates/pages/about.html:24
+#: pages/templates/pages/about.html:37
 msgid ""
 "<a class=\"text-blue\" href=\"https://whitesmith.co\">Whitesmith</a> is a "
 "web and mobile product development studio founded in 2013 and based in "
@@ -1368,52 +1394,59 @@ msgstr ""
 #: pages/templates/pages/help.html:32
 msgid ""
 "Of course we can't cover all the surface or explicitly address all questions "
-"in this document. So if your question isn't here feel free to email us or "
-"drop a line through our support channels, and we'll try to help you as soon "
-"as possible."
+"in this document. So if your question isn't here feel free to drop a line "
+"through our support channels, and we'll try to help you as soon as possible."
 msgstr ""
 "Como é óbvio, não nos é possível cobrir toda a matéria ou responder "
 "explicitamente a todas as perguntas neste documento. Portanto, se tiver "
 "alguma questão que não seja respondida aqui, sinta-se à vontade para nos "
-"enviar um email ou para nos escrever pelos nossos canais de suporte e "
+"contactar pelos nossos canais de suporte e "
 "tentaremos ajudá-lo assim que nos for possível."
 
-#: pages/templates/pages/help.html:34
-#, python-format
-msgid "<b>Email:</b> %(support_email)s"
-msgstr ""
+#: pages/templates/pages/help.html:35
+msgid "Ask the instance administrator through email"
+msgstr "Porgunte ao administrador da instância por correio electrónico"
 
 #: pages/templates/pages/help.html:37
-msgid "<b>IRC Channel:</b> #hawkpost on freenode"
+msgid ""
+"Chat with the development team on IRC. The channel is #hawkpost on freenode"
 msgstr ""
+"Converse com a equipa de desenvolvimento atráves do IRC. O Canal é #hawkpost "
+"na rede freenode"
 
-#: pages/templates/pages/help.html:40
-msgid "<b>Forum:</b> soon"
-msgstr "<b>Forum:</b> Brevemente"
+#: pages/templates/pages/help.html:38
+msgid ""
+"<a href=\"https://github.com/whitesmith/hawkpost/issues\" class=\"testelinks"
+"\">Open an issue on the project board with your question</a> "
+msgstr ""
+"<a href=\"https://github.com/whitesmith/hawkpost/issues\" class=\"testelinks"
+"\">Abra uma questão no forúm problemas do projecto</a> "
 
-#: pages/templates/pages/help.html:44
+#: pages/templates/pages/help.html:42
 msgid "HOW TO SETUP HAWKPOST"
 msgstr "COMO CONFIGURAR O HAWKPOST"
 
-#: pages/templates/pages/help.html:47
+#: pages/templates/pages/help.html:45
 msgid ""
 "In order to start using Hawkpost as a user that receives confidential "
 "information, you have to fill certain requirements, such as:"
 msgstr ""
+"De modo a começar a usar o Hawkpost, como um utilizador que recebe informação "
+"confidencial, terá de cumprir com determinados requisitos, tais como:"
 
-#: pages/templates/pages/help.html:49
+#: pages/templates/pages/help.html:47
 msgid "Provide a PGP public key"
 msgstr "Fornecer uma chave pública (PGP)"
 
-#: pages/templates/pages/help.html:50
+#: pages/templates/pages/help.html:48
 msgid "Provide your key's fingerprint"
 msgstr "Fornecer a impressão digital da sua chave"
 
-#: pages/templates/pages/help.html:51
+#: pages/templates/pages/help.html:49
 msgid "Have the required software to decrypt the messages"
 msgstr "Ter o software necessário para decifrar as mensagens"
 
-#: pages/templates/pages/help.html:54
+#: pages/templates/pages/help.html:52
 msgid ""
 "If you don't know how to fulfill the first and third point, <a href=\"#gen-"
 "pgp-key\" class=\"testelinks\">please check the next section</a>. Otherwise "
@@ -1423,7 +1456,7 @@ msgstr ""
 "key\" class=\"testelinks\">por favor leia a próxima secção</a>. Em caso "
 "contrário a configuração é relativamente simples."
 
-#: pages/templates/pages/help.html:65
+#: pages/templates/pages/help.html:63
 msgid ""
 "As you can see in the above figure, you just have to fill the <i>public key</"
 "i> field and the matching fingerprint. After this you're ready to go. We "
@@ -1435,7 +1468,7 @@ msgstr ""
 "feito. Nós recomendamos vivamente que também preencha os seus dados pessoais "
 "(como o nome), que apareçam na página das submissões."
 
-#: pages/templates/pages/help.html:67
+#: pages/templates/pages/help.html:65
 msgid ""
 "To find your key's fingerprint, you can run the following command if you're "
 "using <i>Gnu Privacy Guard (GPG)</i>:"
@@ -1443,7 +1476,7 @@ msgstr ""
 "Para descobrir a sua impressão digital, poderá correr o seguinte comando se "
 "estiver a usar o <i>Gnu Privacy Guard (GPG)</i>:"
 
-#: pages/templates/pages/help.html:71
+#: pages/templates/pages/help.html:69
 msgid ""
 "If you're using a graphical tool, you can generally find this info on the "
 "<i>key properties section</i> of your tool."
@@ -1451,7 +1484,7 @@ msgstr ""
 "Se estiver a usar uma ferramenta com interface gráfica, poderá encontrar "
 "esta informação na <i>secção de propriedades</i> da chave."
 
-#: pages/templates/pages/help.html:77
+#: pages/templates/pages/help.html:75
 msgid ""
 "For extra security and features you can specify the keyserver URL of your "
 "key instead of providing it directly. This way the system will fetch the key "
@@ -1466,11 +1499,11 @@ msgstr ""
 "detectar que a chave foi revogada ou que expirou (a impressão digital "
 "continua a ser obrigatória)."
 
-#: pages/templates/pages/help.html:83
+#: pages/templates/pages/help.html:81
 msgid "HOW TO GENERATE A PGP KEY"
 msgstr "COMO GERAR UMA CHAVE PGP"
 
-#: pages/templates/pages/help.html:85
+#: pages/templates/pages/help.html:83
 msgid ""
 "Hawkpost works with an encryption technology known as <a href=\"https://en."
 "wikipedia.org/wiki/Pretty_Good_Privacy\" class=\"testelinks\">PGP</a>. So to "
@@ -1482,7 +1515,7 @@ msgstr ""
 "criar chaves você irá precisar de criar um par de chaves PGP e fornever-nos "
 "a componente publica. Se já tiver uma, esta secção não é para si."
 
-#: pages/templates/pages/help.html:87
+#: pages/templates/pages/help.html:85
 msgid ""
 "Since Hawkpost works only through email, the easiest way to setup a key pair "
 "is using your email client, or through a compatible plugin/extension in case "
@@ -1496,7 +1529,7 @@ msgstr ""
 "suporte nativo para PGP. Existem vários artigos na Internet sobre este "
 "tópico, por tanto deverá ser fácil encontrar algum que enderece o seu caso."
 
-#: pages/templates/pages/help.html:89
+#: pages/templates/pages/help.html:87
 msgid ""
 "As an example, in the next paragraphs we point to some tutorials addressing "
 "popular email clients."
@@ -1504,7 +1537,7 @@ msgstr ""
 "Como exemplo, nos próximos parágrafos nós indicamos alguns guias para "
 "clientes mais comuns."
 
-#: pages/templates/pages/help.html:91
+#: pages/templates/pages/help.html:89
 msgid ""
 "For webmail users, one tool that is very useful is <a href=\"https://www."
 "mailvelope.com/\" class=\"testelinks\">Mailvelope</a>. This browser "
@@ -1518,7 +1551,7 @@ msgstr ""
 "como gerar o seu par de chaves. Um guia introdutório pode ser encontrado <a "
 "href=\"https://www.youtube.com/watch?v=Ro3MSBS9w-A\">aqui</a>."
 
-#: pages/templates/pages/help.html:93
+#: pages/templates/pages/help.html:91
 msgid ""
 "For Thunderbird users, the common practice is to install a plugin called <a "
 "href=\"https://www.enigmail.net/index.php/en/\" class=\"testelinks"
@@ -1533,7 +1566,7 @@ msgstr ""
 "introdução pode ser encontrada <a href=\"https://ssd.eff.org/en/module/how-"
 "use-pgp-linux\">aqui</a>."
 
-#: pages/templates/pages/help.html:95
+#: pages/templates/pages/help.html:93
 msgid ""
 "Check <a href=\"https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-"
 "setup-gpg4win-with-outlook-2013/\" class=\"testelinks\">this video for an "
@@ -1545,11 +1578,11 @@ msgstr ""
 "o guia do Outlook</a> e <a href=\"https://ssd.eff.org/en/module/how-use-pgp-"
 "mac-os-x\" class=\"testelinks\">este guia para o caso do Apple Mail</a>."
 
-#: pages/templates/pages/help.html:99
+#: pages/templates/pages/help.html:97
 msgid "EXPERIMENTAL: HOW TO VERIFY HAWKPOST SIGNATURE"
 msgstr "EXPERIMENTAL: COMO VERIFICAR A ASSINATURA DO HAWKPOST"
 
-#: pages/templates/pages/help.html:104
+#: pages/templates/pages/help.html:102
 msgid ""
 "Recently we've introduced a feature (still on an experimental phase) that "
 "allows the user to confirm that the received email message was really sent "
@@ -1563,7 +1596,7 @@ msgstr ""
 "utilizadores dos clientes <i>mutt</i> e <i>evolution</i>. Mas esperamos "
 "tornar compatível com outros clientes brevemente."
 
-#: pages/templates/pages/help.html:106
+#: pages/templates/pages/help.html:104
 #, python-format
 msgid ""
 "If you use one of these email clients, you should activate the feature on "
@@ -1737,6 +1770,9 @@ msgstr ""
 #: pages/templates/pages/index.html:110
 msgid "Ready to start?"
 msgstr "Vamos começar?"
+
+#~ msgid "<b>Forum:</b> soon"
+#~ msgstr "<b>Forum:</b> Brevemente"
 
 #, fuzzy
 #~| msgid "change password"
