@@ -193,7 +193,6 @@ GPG_SIGN_KEY_URL = os.environ.get("SIGN_KEY_URL", "")
 GPG_SIGN_KEY_FINGERPRINT = os.environ.get("SIGN_KEY_FINGERPRINT", "")
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
-SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
 
 # Celerey Settings
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
@@ -208,3 +207,8 @@ LOCALE_PATHS = ['locale']
 
 # File Uploads
 DATA_UPLOAD_MAX_MEMORY_SIZE = 15728640  # bytes == 15Mb
+
+# Data about the instance
+SUPPORT_NAME = os.environ.get("SUPPORT_NAME", "")
+SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
+INSTANCE_DESCRIPTION = os.environ.get("INSTANCE_DESCRIPTION", "")

@@ -4,28 +4,41 @@
 {% block content %}
 
 <div class="section-definer-dark">
-	<section class=" section-resized-extra">
-		<div class="container-fluid">
-			<div class="row center-xs">
-				<div class="col-xs-12 col-sm-9 col-md-8">
-					<p class="text-dark title ">{% trans "HAWKPOST" %}</p>
-					<div class="text-left text-lightest ">
-						<p>{% trans "For many years pigeons were used to send private messages to people. But today, to send private and confidential information a pigeon is not enough. We upgraded the pigeon for a hawk - it's stronger, faster and will protect all of your messages better." %}</p>
-						<p>{% trans "We know that sometimes it's difficult to explain how to encrypt messages or how to install that software to protect confidential information. That's why we've created Hawkpost - a place where people can send you sensible information in an easy and secure way." %}</p>
-						<p>{% trans "This project was made at Whitesmith's Hackathon during our company retreat. The aim of this hackathon was to launch a side-project in 24h." %}</p>
-						<p>{% blocktrans %}You can read more about the project in our FAQ at the bottom of our <a class="text-blue" href="https://hawkpost.co/">landing page</a>.{% endblocktrans %}</p>
-					</div>
-				</div>
-			</div>
-			<br/>
-			<div class="row center-xs">
-				<div class="col-xs-12 col-sm-9 col-md-8">
-					<p class="text-dark title">{% trans "WHITESMITH" %}</p>
-					<div class=" text-left text-lightest"><p>{% blocktrans %}<a class="text-blue" href="https://whitesmith.co">Whitesmith</a> is a web and mobile product development studio founded in 2013 and based in Coimbra (Portugal) and London. From Service Oriented Architecture and Internet of Things to Web &amp; Mobile apps, we converge into solving real problems with great user experience. We are more than simple designers &amp; developers - we are an empowered team of problem solvers.{% endblocktrans %}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class=" section-resized-extra">
+    <div class="container-fluid">
+      <div class="row center-xs">
+        <div class="col-xs-12 col-sm-9 col-md-8">
+          <p class="text-dark title ">{% trans "INSTANCE" %}</p>
+          <div class="text-left text-lightest ">
+            <p>{% trans "This website is an instance of the Hawkpost software project (see more details about it below). For your information here are a few details about the people responsible for this particular website:" %}</p>
+            <p><b>{% trans "Main Administrator" %}:</b> {{ admin_name }}</p>
+            <p><b>{% trans "Contact" %}:</b> {{ admin_email }}</p>
+            {% if description %}
+              <p><b>Instance description:</b> {{ description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="row center-xs">
+        <div class="col-xs-12 col-sm-9 col-md-8">
+          <p class="text-dark title ">{% trans "HAWKPOST" %}</p>
+          <div class="text-left text-lightest ">
+            <p>{% trans "For many years pigeons were used to send private messages to people. But today, to send private and confidential information a pigeon is not enough. We upgraded the pigeon for a hawk - it's stronger, faster and will protect all of your messages better." %}</p>
+            <p>{% trans "We know that sometimes it's difficult to explain how to encrypt messages or how to install that software to protect confidential information. That's why we've created Hawkpost - a place where people can send you sensible information in an easy and secure way." %}</p>
+            <p>{% trans "This project was made at Whitesmith's Hackathon during our company retreat. The aim of this hackathon was to launch a side-project in 24h." %}</p>
+            <p>{% blocktrans %}You can read more about the project in our FAQ at the bottom of our <a class="text-blue" href="https://hawkpost.co/">landing page</a>.{% endblocktrans %}</p>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="row center-xs">
+        <div class="col-xs-12 col-sm-9 col-md-8">
+          <p class="text-dark title">{% trans "WHITESMITH" %}</p>
+          <div class=" text-left text-lightest"><p>{% blocktrans %}<a class="text-blue" href="https://whitesmith.co">Whitesmith</a> is a web and mobile product development studio founded in 2013 and based in Coimbra (Portugal) and London. From Service Oriented Architecture and Internet of Things to Web &amp; Mobile apps, we converge into solving real problems with great user experience. We are more than simple designers &amp; developers - we are an empowered team of problem solvers.{% endblocktrans %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock content %}

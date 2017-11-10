@@ -12,6 +12,13 @@ class AboutView(AuthMixin, TemplateView):
     """View for the About page of the website"""
     template_name = "pages/about.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["admin_name"] = settings.SUPPORT_NAME
+        context["admin_email"] = settings.SUPPORT_EMAIL
+        context["description"] = settings.INSTANCE_DESCRIPTION
+        return context
+
 
 class HelpView(AuthMixin, TemplateView):
     """View for the About page of the website"""
