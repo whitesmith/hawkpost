@@ -17,6 +17,7 @@ class AboutView(AuthMixin, TemplateView):
         context["admin_name"] = settings.SUPPORT_NAME
         context["admin_email"] = settings.SUPPORT_EMAIL
         context["description"] = settings.INSTANCE_DESCRIPTION
+        context["version"] = settings.VERSION
         return context
 
 
