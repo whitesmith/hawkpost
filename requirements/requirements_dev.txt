@@ -10,7 +10,7 @@ celery==4.0.2
 contextlib2==0.5.1        # via raven
 coverage==4.2
 defusedxml==0.4.1         # via python3-openid
-django-allauth==0.32.0
+django-allauth==0.34.0
 django-axes==2.3.3
 django-braces==1.11.0
 django-debug-toolbar==1.5
