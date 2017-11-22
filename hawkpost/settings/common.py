@@ -209,7 +209,7 @@ LOCALE_PATHS = ['locale']
 DATA_UPLOAD_MAX_MEMORY_SIZE = 15728640  # bytes == 15Mb
 
 # Data about the instance
-SUPPORT_NAME = os.environ.get("SUPPORT_NAME", "")
-SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "")
+SUPPORT_NAME = os.environ.get("SUPPORT_NAME")
+SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL")
 INSTANCE_DESCRIPTION = os.environ.get("INSTANCE_DESCRIPTION", "")
 VERSION = "1.1.0"
