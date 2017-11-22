@@ -19,7 +19,7 @@ django-extensions==1.7.2
 django-timezone-field==2.0
 django==1.11.7
 fake-factory==0.5.3       # via hypothesis
-gnupg==2.3.0
+gnupg==2.3.1
 gunicorn==19.7.1
 hypothesis[django]==3.4.2
 kombu==4.0.2              # via celery

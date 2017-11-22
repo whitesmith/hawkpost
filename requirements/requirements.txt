@@ -15,7 +15,7 @@ django-braces==1.11.0
 django-dotenv==1.4.1
 django-timezone-field==2.0
 django==1.11.7
-gnupg==2.3.0
+gnupg==2.3.1
 gunicorn==19.7.1
 kombu==4.0.2              # via celery
 oauthlib==1.0.3           # via requests-oauthlib

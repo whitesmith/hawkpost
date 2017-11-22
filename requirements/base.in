@@ -2,7 +2,7 @@ django==1.11.7
 django-dotenv==1.4.1
 psycopg2==2.7.1
 django-allauth==0.34.0
-gnupg==2.3.0
+gnupg==2.3.1
 whitenoise==3.3.0
 celery==4.0.2
 redis==2.10.5
