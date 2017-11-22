@@ -1420,7 +1420,7 @@ msgid ""
 "\">Open an issue on the project board with your question</a> "
 msgstr ""
 "<a href=\"https://github.com/whitesmith/hawkpost/issues\" class=\"testelinks"
-"\">Abra uma questão no forúm problemas do projecto</a> "
+"\">Abra uma questão no fórum de discussão de problemas do projecto</a> "
 
 #: pages/templates/pages/help.html:42
 msgid "HOW TO SETUP HAWKPOST"
