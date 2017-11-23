@@ -29,8 +29,8 @@ def key_state(key, gpg):
 
     state = "valid"
     result = results[-1]
-    # Since the keyring is exlusive for this import.
-    # Only the imported ket exists in it.
+    # Since the keyring is exclusive for this import
+    # only the imported key exists in it.
     key = gpg.list_keys()[0]
 
     exp_timestamp = int(key["expires"]) if key["expires"] else 0
