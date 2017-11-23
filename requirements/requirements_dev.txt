@@ -10,16 +10,16 @@ celery==4.0.2
 contextlib2==0.5.1        # via raven
 coverage==4.2
 defusedxml==0.4.1         # via python3-openid
-django-allauth==0.32.0
+django-allauth==0.34.0
 django-axes==2.3.3
 django-braces==1.11.0
 django-debug-toolbar==1.5
 django-dotenv==1.4.1
 django-extensions==1.7.2
 django-timezone-field==2.0
-django==1.11.6
+django==1.11.7
 fake-factory==0.5.3       # via hypothesis
-gnupg==2.3.0
+gnupg==2.3.1
 gunicorn==19.7.1
 hypothesis[django]==3.4.2
 kombu==4.0.2              # via celery

@@ -24,19 +24,20 @@ def with_gpg_obj(func):
 @with_gpg_obj
 def key_state(key, gpg):
     results = gpg.import_keys(key).results
-    keys = gpg.list_keys()
-    if not results or not results[0]["fingerprint"]:
+    if not results or not results[-1]["fingerprint"]:
         return None, "invalid"
-    else:
-        state = "valid"
-        result = results[0]
-    for key in keys:
-        if key["fingerprint"] == result["fingerprint"]:
-            exp_timestamp = int(key["expires"]) if key["expires"] else 0
-            expires = datetime.fromtimestamp(exp_timestamp, timezone.utc)
-            if key["trust"] == "r":
-                state = "revoked"
-            elif exp_timestamp and expires < timezone.now():
-                state = "expired"
-            break
+
+    state = "valid"
+    result = results[-1]
+    # Since the keyring is exclusive for this import
+    # only the imported key exists in it.
+    key = gpg.list_keys()[0]
+
+    exp_timestamp = int(key["expires"]) if key["expires"] else 0
+    expires = datetime.fromtimestamp(exp_timestamp, timezone.utc)
+    if key["trust"] == "r":
+        state = "revoked"
+    elif exp_timestamp and expires < timezone.now():
+        state = "expired"
+
     return result["fingerprint"], state
