@@ -23,6 +23,8 @@ def with_gpg_obj(func):
 
 @with_gpg_obj
 def key_state(key, gpg):
+    if not key:
+        return None, "invalid"
     results = gpg.import_keys(key).results
     # Key data is present in the last element of the list
     if not results or not results[-1]["fingerprint"]:
