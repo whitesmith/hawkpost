@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-10 11:46+0000\n"
+"POT-Creation-Date: 2017-11-17 14:49+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1274,6 +1274,62 @@ msgstr "Conta apagada com sucesso. Esperemos que regresse em breve."
 msgid "In order to delete the account you must provide the current password."
 msgstr "De modo a apagar a conta, deve inserir a password actual."
 
+#: pages/templates/403.html:10
+msgid "Forbidden"
+msgstr "Proibido"
+
+#: pages/templates/403.html:13
+msgid "You are not allowed to access this page."
+msgstr "Você não está authorizado a visualizar esta página"
+
+#: pages/templates/403.html:16
+msgid ""
+"You can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
+"Hawkpost's main page."
+msgstr ""
+"Você pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir "
+"para a página inicial."
+
+#: pages/templates/404.html:10
+msgid "NOT FOUND"
+msgstr "NÃO ENCONTRADO"
+
+#: pages/templates/404.html:13
+msgid ""
+"The page you are looking for, does not exist. Please check the URL to check "
+"you entered it correctly."
+msgstr ""
+"A página que está à procura não existe. Por favor verifique se o endereço "
+"que inseriu está correcto."
+
+#: pages/templates/404.html:16
+msgid ""
+"Otherwise you can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
+"Hawkpost's main page."
+msgstr ""
+"Ou então pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir para "
+"a página inicial."
+
+#: pages/templates/500.html:10
+msgid "Server Error"
+msgstr "Erro no Servidor"
+
+#: pages/templates/500.html:13
+msgid ""
+"Somewhere, somehow something went wrong and we weren't able to handle your "
+"request."
+msgstr ""
+"Algures, de alguma forma, algo correu mal e não conseguimos satisfazer o seu "
+"pedido."
+
+#: pages/templates/500.html:16
+msgid ""
+"An administrator was notified of the occurrence and will try fix the "
+"problem. Please try again later."
+msgstr ""
+"Um administrador foi notificado da ocorrência e tentar resolver o problema. "
+"Por favor, volte a tentar mais tarde."
+
 #: pages/templates/pages/about.html:11
 msgid "INSTANCE"
 msgstr "INSTÂNCIA"
@@ -1300,11 +1356,15 @@ msgstr "Contacto"
 msgid "Instance description"
 msgstr "Descrição da instância"
 
-#: pages/templates/pages/about.html:24
+#: pages/templates/pages/about.html:19
+msgid "Version"
+msgstr ""
+
+#: pages/templates/pages/about.html:25
 msgid "HAWKPOST"
 msgstr ""
 
-#: pages/templates/pages/about.html:26
+#: pages/templates/pages/about.html:27
 msgid ""
 "For many years pigeons were used to send private messages to people. But "
 "today, to send private and confidential information a pigeon is not enough. "
@@ -1316,7 +1376,7 @@ msgstr ""
 "não chega. Actualizámos o pombo para um falcão - é mais forte, rápido e vai "
 "proteger todas as suas mensagens melhor."
 
-#: pages/templates/pages/about.html:27
+#: pages/templates/pages/about.html:28
 msgid ""
 "We know that sometimes it's difficult to explain how to encrypt messages or "
 "how to install that software to protect confidential information. That's why "
@@ -1328,7 +1388,7 @@ msgstr ""
 "que criámos o Hawkpost - um sítio onde lhe podem enviar informação sensível "
 "de modo fácil e seguro."
 
-#: pages/templates/pages/about.html:28
+#: pages/templates/pages/about.html:29
 msgid ""
 "This project was made at Whitesmith's Hackathon during our company retreat. "
 "The aim of this hackathon was to launch a side-project in 24h."
@@ -1337,7 +1397,7 @@ msgstr ""
 "nossa companhia. O objectivo deste hackathon foi lançar um projecto "
 "secundário em 24 horas."
 
-#: pages/templates/pages/about.html:29
+#: pages/templates/pages/about.html:30
 msgid ""
 "You can read more about the project in our FAQ at the bottom of our <a class="
 "\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
@@ -1345,11 +1405,11 @@ msgstr ""
 "Pode ler mais sobre o nosso projecto na nossa FAQ no fundo da nossa <a class="
 "\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 
-#: pages/templates/pages/about.html:36
+#: pages/templates/pages/about.html:37
 msgid "WHITESMITH"
 msgstr ""
 
-#: pages/templates/pages/about.html:37
+#: pages/templates/pages/about.html:38
 msgid ""
 "<a class=\"text-blue\" href=\"https://whitesmith.co\">Whitesmith</a> is a "
 "web and mobile product development studio founded in 2013 and based in "
@@ -1400,8 +1460,8 @@ msgstr ""
 "Como é óbvio, não nos é possível cobrir toda a matéria ou responder "
 "explicitamente a todas as perguntas neste documento. Portanto, se tiver "
 "alguma questão que não seja respondida aqui, sinta-se à vontade para nos "
-"contactar pelos nossos canais de suporte e "
-"tentaremos ajudá-lo assim que nos for possível."
+"contactar pelos nossos canais de suporte e tentaremos ajudá-lo assim que nos "
+"for possível."
 
 #: pages/templates/pages/help.html:35
 msgid "Ask the instance administrator through email"
@@ -1431,8 +1491,9 @@ msgid ""
 "In order to start using Hawkpost as a user that receives confidential "
 "information, you have to fill certain requirements, such as:"
 msgstr ""
-"De modo a começar a usar o Hawkpost, como um utilizador que recebe informação "
-"confidencial, terá de cumprir com determinados requisitos, tais como:"
+"De modo a começar a usar o Hawkpost, como um utilizador que recebe "
+"informação confidencial, terá de cumprir com determinados requisitos, tais "
+"como:"
 
 #: pages/templates/pages/help.html:47
 msgid "Provide a PGP public key"
