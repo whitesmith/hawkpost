@@ -228,8 +228,8 @@ class BoxSubmitViewTests(TestCase):
 
     def test_expired_owner_key(self):
         user = create_and_login_user(self.client)
-        user.public_key = REVOKED_KEY
-        user.fingerprint = REVOKED_KEY_FINGERPRINT
+        user.public_key = EXPIRED_KEY
+        user.fingerprint = EXPIRED_KEY_FINGERPRINT
         user.save()
         box = create_open_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
