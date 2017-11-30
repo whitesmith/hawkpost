@@ -1,0 +1,24 @@
+{% extends "layout/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="section-definer-dark">
+    <section class=" section-resized-extra">
+        <div class="container-fluid">
+            <div class="row center-xs">
+                <div class="col-xs-12 col-sm-9 col-md-8">
+                    <p class="text-dark title ">{% trans "NOT FOUND" %}</p>
+                    <div class="text-left text-lightest ">
+                        <p>
+                        {% blocktrans %}The page you are looking for, does not exist. Please check the URL to check you entered it correctly.{% endblocktrans %}
+                        </p>
+                        <p>
+                        {% blocktrans %}Otherwise you can click <a class="testelinks" href="/">here</a> to go to Hawkpost's main page.{% endblocktrans %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}
