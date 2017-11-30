@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from humans.views import LoginRequiredMixin
+from humans.utils import key_state
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
 from .models import Box, Membership
@@ -143,13 +144,17 @@ class BoxSubmitView(UpdateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
+        owner = self.object.owner
+        fingerprint, state = key_state(owner.public_key)
         now = timezone.now()
         if self.object.expires_at and now > self.object.expires_at:
             self.object.status = Box.EXPIRED
             self.object.save()
 
-        owner = self.object.owner
-        if self.object.status != Box.OPEN or not owner.has_setup_complete():
+        not_open = self.object.status != Box.OPEN
+        not_complete = not owner.has_setup_complete()
+        not_valid = state != 'valid'
+        if not_open or not_complete or not_valid:
             return self.response_class(
                 request=self.request,
                 context={"box": self.object},

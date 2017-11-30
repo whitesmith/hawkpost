@@ -7,6 +7,8 @@ from .models import Box, Message
 from .forms import CreateBoxForm, SubmitBoxForm, MAX_MESSAGE_SIZE
 from .tasks import process_email
 from .test_constants import ENCRYPTED_MESSAGE
+from humans.test_constants import EXPIRED_KEY, EXPIRED_KEY_FINGERPRINT, \
+    REVOKED_KEY, REVOKED_KEY_FINGERPRINT, VALID_KEY, VALID_KEY_FINGERPRINT
 import random
 import string
 
@@ -22,6 +24,13 @@ def create_boxes(user):
         name="sent", expires_at=not_expired, status=Box.DONE)
     user.own_boxes.create(
         name="expired", expires_at=expired, status=Box.EXPIRED)
+
+
+def create_open_box(user):
+    expires_at = timezone.now() + timedelta(hours=3)
+    return user.own_boxes.create(name="open",
+                                 expires_at=expires_at,
+                                 status=Box.OPEN)
 
 
 def create_and_login_user(client):
@@ -195,6 +204,43 @@ class BoxListViewTests(TestCase):
                                    {'display': 'Done'})
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.DONE)
+
+
+class BoxSubmitViewTests(TestCase):
+
+    def test_valid_owner_key(self):
+        user = create_and_login_user(self.client)
+        user.public_key = VALID_KEY
+        user.fingerprint = VALID_KEY_FINGERPRINT
+        user.save()
+        box = create_open_box(user)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.template_name[0], 'boxes/box_submit.html')
+
+    def test_revoked_owner_key(self):
+        user = create_and_login_user(self.client)
+        user.public_key = REVOKED_KEY
+        user.fingerprint = REVOKED_KEY_FINGERPRINT
+        user.save()
+        box = create_open_box(user)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.template_name, 'boxes/closed.html')
+
+    def test_expired_owner_key(self):
+        user = create_and_login_user(self.client)
+        user.public_key = EXPIRED_KEY
+        user.fingerprint = EXPIRED_KEY_FINGERPRINT
+        user.save()
+        box = create_open_box(user)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.template_name, 'boxes/closed.html')
+
+    def test_no_owner_key(self):
+        user = create_and_login_user(self.client)
+        box = create_open_box(user)
+        user.save()
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.template_name, 'boxes/closed.html')
 
 
 class MailTaskTests(TestCase):
