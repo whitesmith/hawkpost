@@ -14,13 +14,13 @@ django-axes==2.3.3
 django-braces==1.11.0
 django-dotenv==1.4.1
 django-timezone-field==2.0
-django==1.11.7
+django==1.11.9
 gnupg==2.3.1
 gunicorn==19.7.1
 kombu==4.0.2              # via celery
 oauthlib==1.0.3           # via requests-oauthlib
 psutil==4.1.0             # via gnupg
-psycopg2==2.7.1
+psycopg2==2.7.3.2
 python3-openid==3.0.9     # via django-allauth
 pytz==2016.3              # via celery, django, django-axes, django-timezone-field
 raven==6.1.0
