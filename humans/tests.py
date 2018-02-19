@@ -162,7 +162,7 @@ class UtilsTests(TestCase):
         self.assertEqual(state, "revoked")
 
     def test_valid_key_state(self):
-        fingerprint, (state, days_to_expire)= key_state(VALID_KEY)
+        fingerprint, (state, days_to_expire) = key_state(VALID_KEY)
         self.assertEqual(state, "valid")
 
 
