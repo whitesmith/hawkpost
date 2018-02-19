@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-17 14:49+0000\n"
+"POT-Creation-Date: 2018-02-19 10:38+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -367,27 +367,27 @@ msgstr "MENSAGEM ENVIADA COM SUCESSO!"
 msgid "by:"
 msgstr "por:"
 
-#: boxes/views.py:64
+#: boxes/views.py:65
 msgid "Box created successfully"
 msgstr "Caixa criada com sucesso"
 
-#: boxes/views.py:92
+#: boxes/views.py:93
 msgid "Only open boxes can be deleted"
 msgstr "Apenas caixas abertas podem ser apagadas"
 
-#: boxes/views.py:95
+#: boxes/views.py:96
 msgid "Box named {} deleted successfully"
 msgstr "A caixa de nome {} foi apagada com sucesso"
 
-#: boxes/views.py:112
+#: boxes/views.py:113
 msgid "Only open boxes can be closed"
 msgstr "Apenas caixas abertas podem ser fechadas"
 
-#: boxes/views.py:116
+#: boxes/views.py:117
 msgid "Box {} was closed"
 msgstr "A caixa {} foi fechada"
 
-#: boxes/views.py:142
+#: boxes/views.py:143
 msgid "Not Found. Double check your URL"
 msgstr "Não encontrado. Por favor, verifique o seu URL"
 
@@ -1165,7 +1165,11 @@ msgstr "Hawkpost: O endereço da chave, retornou uma chave inválida"
 msgid "Hawkpost: Fingerprint mismatch"
 msgstr "Hawkpost: A impressão digital não corresponde à chave"
 
-#: humans/tasks.py:79
+#: humans/tasks.py:78
+msgid "Hawkpost: Key will expire in {} days"
+msgstr "Hawkpost: A sua chave irá expirar dentro de {} dias"
+
+#: humans/tasks.py:85
 msgid "Finished Updating user keys"
 msgstr "Terminou a actualização das chaves"
 
@@ -1287,8 +1291,8 @@ msgid ""
 "You can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
 "Hawkpost's main page."
 msgstr ""
-"Você pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir "
-"para a página inicial."
+"Você pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir para a "
+"página inicial."
 
 #: pages/templates/404.html:10
 msgid "NOT FOUND"
@@ -1307,8 +1311,8 @@ msgid ""
 "Otherwise you can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
 "Hawkpost's main page."
 msgstr ""
-"Ou então pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir para "
-"a página inicial."
+"Ou então pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir "
+"para a página inicial."
 
 #: pages/templates/500.html:10
 msgid "Server Error"
