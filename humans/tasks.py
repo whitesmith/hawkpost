@@ -48,7 +48,7 @@ def update_public_keys():
             continue
 
         # Check key
-        fingerprint, state = key_state(key)
+        fingerprint, (state, days_to_expire) = key_state(key)
 
         if state in ["expired", "revoked"]:
             # Email user and disable/remove key
@@ -72,6 +72,12 @@ def update_public_keys():
             user.keyserver_url = ""
             user.save()
         elif state == "valid":
+            # Warns user if key about to expire
+            if days_to_expire == 7 or days_to_expire == 1:
+                send_email(user,
+                           _('Hawkpost: Key will expire in {} days').format(days_to_expire),
+                           "humans/emails/key_will_expire.txt")
+
             # Update the key store in the database
             user.public_key = key
             user.save()
