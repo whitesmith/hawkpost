@@ -150,19 +150,19 @@ class UpdateUserFormTests(TestCase):
 class UtilsTests(TestCase):
 
     def test_invalid_key_state(self):
-        fingerprint, state = key_state("invalid stuff")
+        fingerprint, (state, days_to_expire) = key_state("invalid stuff")
         self.assertEqual(state, "invalid")
 
     def test_expired_key_state(self):
-        fingerprint, state = key_state(EXPIRED_KEY)
+        fingerprint, (state, days_to_expire) = key_state(EXPIRED_KEY)
         self.assertEqual(state, "expired")
 
     def test_revoked_key_state(self):
-        fingerprint, state = key_state(REVOKED_KEY)
+        fingerprint, (state, days_to_expire) = key_state(REVOKED_KEY)
         self.assertEqual(state, "revoked")
 
     def test_valid_key_state(self):
-        fingerprint, state = key_state(VALID_KEY)
+        fingerprint, (state, days_to_expire)= key_state(VALID_KEY)
         self.assertEqual(state, "valid")
 
 
