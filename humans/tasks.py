@@ -75,7 +75,7 @@ def update_public_keys():
             # Warns user if key about to expire
             if days_to_expire == 7 or days_to_expire == 1:
                 send_email(user,
-                           _('Hawkpost: Key will expire in {} days').format(days_to_expire),
+                           _('Hawkpost: Key will expire in {} day(s)').format(days_to_expire),
                            "humans/emails/key_will_expire.txt")
 
             # Update the key store in the database
