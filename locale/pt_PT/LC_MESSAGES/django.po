@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-19 10:38+0000\n"
+"POT-Creation-Date: 2018-03-02 16:54+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1166,8 +1166,10 @@ msgid "Hawkpost: Fingerprint mismatch"
 msgstr "Hawkpost: A impressão digital não corresponde à chave"
 
 #: humans/tasks.py:78
-msgid "Hawkpost: Key will expire in {} days"
-msgstr "Hawkpost: A sua chave irá expirar dentro de {} dias"
+#, fuzzy
+#| msgid "Hawkpost: Key will expire in {} days"
+msgid "Hawkpost: Key will expire in {} day(s)"
+msgstr "Hawkpost: A sua chave irá expirar dentro de {} dia(s)"
 
 #: humans/tasks.py:85
 msgid "Finished Updating user keys"
