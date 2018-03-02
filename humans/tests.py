@@ -13,7 +13,9 @@ from .test_constants import EXPIRED_KEY_FINGERPRINT
 from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
 
 from copy import copy
-
+from shutil import rmtree
+import gnupg
+import tempfile
 
 def create_notification(sent=False, group=None):
     sent_at = timezone.now() if sent else None
@@ -22,6 +24,26 @@ def create_notification(sent=False, group=None):
                                        sent_at=sent_at,
                                        send_to=group)
 
+def create_expiring_key(days_to_expire):
+    temp_dir = tempfile.mkdtemp()
+    gpg = gnupg.GPG(homedir=temp_dir,
+                        keyring="pub.gpg",
+                        secring="sec.gpg")
+
+    gpg.encoding = 'utf-8'
+    days_to_expire = str(days_to_expire) + "d"
+    # Example values for expire_date: “2009-12-31”, “365d”, “3m”, “6w”, “5y”, “seconds=<epoch>”, 0
+    input_data = gpg.gen_key_input(key_type="RSA",
+                                    key_length=1024,
+                                    expire_date=days_to_expire,
+                                    passphrase="secret")
+
+    key_id = gpg.gen_key(input_data)
+    # retrieve the key
+    key_ascii = gpg.export_keys(key_id)
+    # remove the keyring
+    rmtree(temp_dir)
+    return key_ascii
 
 class UpdateUserFormTests(TestCase):
 
@@ -163,6 +185,19 @@ class UtilsTests(TestCase):
 
     def test_valid_key_state(self):
         fingerprint, (state, days_to_expire) = key_state(VALID_KEY)
+        self.assertEqual(state, "valid")
+
+    def test_key_days_to_expire(self):
+        key = create_expiring_key(days_to_expire=7)
+        fingerprint, (state, days_to_expire) = key_state(key)
+        self.assertGreaterEqual(days_to_expire, 6)
+        self.assertLess(days_to_expire, 8)
+        self.assertEqual(state, "valid")
+
+        key = create_expiring_key(days_to_expire=1)
+        fingerprint, (state, days_to_expire) = key_state(key)
+        self.assertGreaterEqual(days_to_expire, 0)
+        self.assertLess(days_to_expire, 1)
         self.assertEqual(state, "valid")
 
 
