@@ -145,7 +145,7 @@ class BoxSubmitView(UpdateView):
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
         owner = self.object.owner
-        fingerprint, (state, days_to_expire) = key_state(owner.public_key)
+        fingerprint, *state = key_state(owner.public_key)
         now = timezone.now()
         if self.object.expires_at and now > self.object.expires_at:
             self.object.status = Box.EXPIRED
@@ -153,7 +153,7 @@ class BoxSubmitView(UpdateView):
 
         not_open = self.object.status != Box.OPEN
         not_complete = not owner.has_setup_complete()
-        not_valid = state != 'valid'
+        not_valid = state[0] != 'valid'
         if not_open or not_complete or not_valid:
             return self.response_class(
                 request=self.request,

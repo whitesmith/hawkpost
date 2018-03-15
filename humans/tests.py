@@ -172,33 +172,33 @@ class UpdateUserFormTests(TestCase):
 class UtilsTests(TestCase):
 
     def test_invalid_key_state(self):
-        fingerprint, (state, days_to_expire) = key_state("invalid stuff")
-        self.assertEqual(state, "invalid")
+        fingerprint, *state = key_state("invalid stuff")
+        self.assertEqual(state[0], "invalid")
 
     def test_expired_key_state(self):
-        fingerprint, (state, days_to_expire) = key_state(EXPIRED_KEY)
-        self.assertEqual(state, "expired")
+        fingerprint, *state = key_state(EXPIRED_KEY)
+        self.assertEqual(state[0], "expired")
 
     def test_revoked_key_state(self):
-        fingerprint, (state, days_to_expire) = key_state(REVOKED_KEY)
-        self.assertEqual(state, "revoked")
+        fingerprint, *state = key_state(REVOKED_KEY)
+        self.assertEqual(state[0], "revoked")
 
     def test_valid_key_state(self):
-        fingerprint, (state, days_to_expire) = key_state(VALID_KEY)
-        self.assertEqual(state, "valid")
+        fingerprint, *state = key_state(VALID_KEY)
+        self.assertEqual(state[0], "valid")
 
     def test_key_days_to_expire(self):
         key = create_expiring_key(days_to_expire=7)
-        fingerprint, (state, days_to_expire) = key_state(key)
-        self.assertGreaterEqual(days_to_expire, 6)
-        self.assertLess(days_to_expire, 8)
-        self.assertEqual(state, "valid")
+        fingerprint, *state = key_state(key)
+        self.assertEqual(state[0], "valid")
+        self.assertGreaterEqual(state[1], 6)
+        self.assertLess(state[1], 8)
 
         key = create_expiring_key(days_to_expire=1)
-        fingerprint, (state, days_to_expire) = key_state(key)
-        self.assertGreaterEqual(days_to_expire, 0)
-        self.assertLess(days_to_expire, 1)
-        self.assertEqual(state, "valid")
+        fingerprint, *state = key_state(key)
+        self.assertEqual(state[0], "valid")
+        self.assertGreaterEqual(state[1], 0)
+        self.assertLess(state[1], 1)
 
 
 class UserModelTests(TestCase):

@@ -24,11 +24,11 @@ def with_gpg_obj(func):
 @with_gpg_obj
 def key_state(key, gpg):
     if not key:
-        return None, ("invalid", -1)
+        return None, "invalid", -1
     results = gpg.import_keys(key).results
     # Key data is present in the last element of the list
     if not results or not results[-1]["fingerprint"]:
-        return None, ("invalid", -1)
+        return None, "invalid", -1
 
     key_fingerprint = results[-1]["fingerprint"]
 
@@ -47,4 +47,4 @@ def key_state(key, gpg):
     else:
         state = "valid"
 
-    return key_fingerprint, (state, days_to_expire)
+    return key_fingerprint, state, days_to_expire
