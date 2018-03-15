@@ -1,8 +1,7 @@
 {% load i18n %}
 
+{% trans "Hello" %} {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
 {% blocktrans %}
-Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
-
 During our automatic updates and checks, using the keyserver url that you provided, the system spotted that the key that is currently present on that URL is invalid (probably due a change in the document).
 
 To avoid using the wrong key, we removed the provided URL and will continue to use the key that we have stored (all open boxes will remmain active).

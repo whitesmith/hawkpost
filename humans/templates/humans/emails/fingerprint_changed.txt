@@ -1,8 +1,7 @@
 {% load i18n %}
 
+{% trans "Hello" %} {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
 {% blocktrans %}
-{Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
-
 During our automatic updates and checks, using the keyserver url that you provided, the system spotted that the key present on that URL, no longer has the same fingerprint that the one you provided on your settings.
 
 To avoid using the wrong key, we removed the provided URL and will continue to use the key we have stored (all open boxes will remmain active).
