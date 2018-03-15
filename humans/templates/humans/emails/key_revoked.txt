@@ -1,3 +1,6 @@
+{% load i18n %}
+
+{% blocktrans %}
 Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
 
 During our automatic updates and checks, using the keyserver url that you provided, the system spotted that your current key was revoked. To avoid any issue or compromise, the key was removed and all open boxes deactivated until a new one is added.
@@ -6,3 +9,4 @@ To enable all functionality again, please go to the settings and add your new pu
 
 best regards,
 Hawkpost Team
+{% endblocktrans %}

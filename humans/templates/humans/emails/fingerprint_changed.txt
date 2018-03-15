@@ -1,4 +1,7 @@
-Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
+{% load i18n %}
+
+{% blocktrans %}
+{Hello {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
 
 During our automatic updates and checks, using the keyserver url that you provided, the system spotted that the key present on that URL, no longer has the same fingerprint that the one you provided on your settings.
 
@@ -8,3 +11,4 @@ To enable the automatic verifications again, go to the settings and update your 
 
 best regards,
 Hawkpost Team
+{% endblocktrans %}
