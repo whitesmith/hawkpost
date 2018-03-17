@@ -166,8 +166,10 @@ class BoxSubmitView(UpdateView):
     def post(self, request, *args, **kwargs):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
-            message = self.object.messages.create()
-
+            message = self.object.messages.create(metadata={
+                "user_agent": request.META.get('HTTP_USER_AGENT', ''),
+                "ip": request.META.get('REMOTE_ADDR', '')
+            })
             # Mark box as done
             if self.object.messages.count() >= self.object.max_messages:
                 self.object.status = Box.DONE

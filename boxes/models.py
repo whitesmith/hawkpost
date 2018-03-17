@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator
+from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
@@ -26,7 +27,8 @@ class Box(models.Model):
                             verbose_name=_('Unique ID'))
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL,
-                              related_name='own_boxes', verbose_name=_('Owner'))
+                              related_name='own_boxes',
+                              verbose_name=_('Owner'))
 
     recipients = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='boxes',
@@ -116,3 +118,4 @@ class Message(models.Model):
                                       verbose_name=_('Updated at'))
     sent_at = models.DateTimeField(null=True, blank=True,
                                    verbose_name=_('Sent at'))
+    metadata = JSONField(default={})
