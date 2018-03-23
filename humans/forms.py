@@ -86,15 +86,15 @@ class UpdateUserInfoForm(ModelForm):
             pub_key = self.cleaned_data.get("public_key", "")
 
         if pub_key:
-            fingerprint, state = key_state(pub_key)
+            fingerprint, *state = key_state(pub_key)
             # Check if has valid format
-            if state == "invalid":
+            if state[0] == "invalid":
                 self.add_error('public_key', _('This key is not valid'))
             # Check if it is not expired
-            elif state == "revoked":
+            elif state[0] == "revoked":
                 self.add_error('public_key', _('This key is revoked'))
             # Check if is was not revoked
-            elif state == "expired":
+            elif state[0] == "expired":
                 self.add_error('public_key', _('This key is expired'))
         return pub_key
 
@@ -105,7 +105,7 @@ class UpdateUserInfoForm(ModelForm):
         if fingerprint:
             fingerprint = fingerprint.replace(" ", "")
         if pub_key:
-            key_fingerprint, state = key_state(pub_key)
+            key_fingerprint, *state = key_state(pub_key)
             if fingerprint != key_fingerprint:
                 self.add_error('fingerprint', _('Fingerprint does not match'))
         return fingerprint

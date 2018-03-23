@@ -7,13 +7,15 @@ from hawkpost import celery_app
 from .models import Notification, User
 from .forms import UpdateUserInfoForm
 from .tasks import enqueue_email_notifications
-from .utils import key_state
+from .utils import key_state, with_gpg_obj
 from .test_constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
 from .test_constants import EXPIRED_KEY_FINGERPRINT
 from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
 
 from copy import copy
-
+from shutil import rmtree
+import gnupg
+import tempfile
 
 def create_notification(sent=False, group=None):
     sent_at = timezone.now() if sent else None
@@ -22,6 +24,19 @@ def create_notification(sent=False, group=None):
                                        sent_at=sent_at,
                                        send_to=group)
 
+@with_gpg_obj
+def create_expiring_key(days_to_expire, gpg):
+    days_to_expire = str(days_to_expire) + "d"
+    # Example values for expire_date: “2009-12-31”, “365d”, “3m”, “6w”, “5y”, “seconds=<epoch>”, 0
+    input_data = gpg.gen_key_input(key_type="RSA",
+                                    key_length=1024,
+                                    expire_date=days_to_expire,
+                                    passphrase="secret")
+    key_id = gpg.gen_key(input_data)
+    # retrieve the key
+    key_ascii = gpg.export_keys(key_id)
+    # remove the keyring
+    return key_ascii
 
 class UpdateUserFormTests(TestCase):
 
@@ -150,20 +165,33 @@ class UpdateUserFormTests(TestCase):
 class UtilsTests(TestCase):
 
     def test_invalid_key_state(self):
-        fingerprint, state = key_state("invalid stuff")
-        self.assertEqual(state, "invalid")
+        fingerprint, *state = key_state("invalid stuff")
+        self.assertEqual(state[0], "invalid")
 
     def test_expired_key_state(self):
-        fingerprint, state = key_state(EXPIRED_KEY)
-        self.assertEqual(state, "expired")
+        fingerprint, *state = key_state(EXPIRED_KEY)
+        self.assertEqual(state[0], "expired")
 
     def test_revoked_key_state(self):
-        fingerprint, state = key_state(REVOKED_KEY)
-        self.assertEqual(state, "revoked")
+        fingerprint, *state = key_state(REVOKED_KEY)
+        self.assertEqual(state[0], "revoked")
 
     def test_valid_key_state(self):
-        fingerprint, state = key_state(VALID_KEY)
-        self.assertEqual(state, "valid")
+        fingerprint, *state = key_state(VALID_KEY)
+        self.assertEqual(state[0], "valid")
+
+    def test_key_days_to_expire(self):
+        key = create_expiring_key(7)
+        fingerprint, *state = key_state(key)
+        self.assertEqual(state[0], "valid")
+        self.assertGreaterEqual(state[1], 6)
+        self.assertLess(state[1], 8)
+
+        key = create_expiring_key(1)
+        fingerprint, *state = key_state(key)
+        self.assertEqual(state[0], "valid")
+        self.assertGreaterEqual(state[1], 0)
+        self.assertLess(state[1], 1)
 
 
 class UserModelTests(TestCase):

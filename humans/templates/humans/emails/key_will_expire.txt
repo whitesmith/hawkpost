@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% trans "Hello" %} {% if user.first_name %} {{user.first_name}} {{user.last_name}} {% else %} {{user.username}} {% endif %},
+{% blocktrans %}
+During our automatic updates and checks, using the key that you provided, the system spotted that the key you provided will soon expire.
+
+To avoid any issues, the key will be removed from Hawkpost when it expires and all open boxes deactivated until a new one is added. As such, please make sure to update your key as soon as possible.
+
+Best Regards,
+{% endblocktrans %}

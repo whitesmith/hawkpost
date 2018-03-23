@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-17 14:49+0000\n"
+"POT-Creation-Date: 2018-03-15 12:59+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -367,27 +367,27 @@ msgstr "MENSAGEM ENVIADA COM SUCESSO!"
 msgid "by:"
 msgstr "por:"
 
-#: boxes/views.py:64
+#: boxes/views.py:65
 msgid "Box created successfully"
 msgstr "Caixa criada com sucesso"
 
-#: boxes/views.py:92
+#: boxes/views.py:93
 msgid "Only open boxes can be deleted"
 msgstr "Apenas caixas abertas podem ser apagadas"
 
-#: boxes/views.py:95
+#: boxes/views.py:96
 msgid "Box named {} deleted successfully"
 msgstr "A caixa de nome {} foi apagada com sucesso"
 
-#: boxes/views.py:112
+#: boxes/views.py:113
 msgid "Only open boxes can be closed"
 msgstr "Apenas caixas abertas podem ser fechadas"
 
-#: boxes/views.py:116
+#: boxes/views.py:117
 msgid "Box {} was closed"
 msgstr "A caixa {} foi fechada"
 
-#: boxes/views.py:142
+#: boxes/views.py:143
 msgid "Not Found. Double check your URL"
 msgstr "Não encontrado. Por favor, verifique o seu URL"
 
@@ -1165,9 +1165,109 @@ msgstr "Hawkpost: O endereço da chave, retornou uma chave inválida"
 msgid "Hawkpost: Fingerprint mismatch"
 msgstr "Hawkpost: A impressão digital não corresponde à chave"
 
-#: humans/tasks.py:79
+#: humans/tasks.py:78
+#, fuzzy
+#| msgid "Hawkpost: Key will expire in {} days"
+msgid "Hawkpost: Key will expire in {} day(s)"
+msgstr "Hawkpost: A sua chave irá expirar dentro de {} dia(s)"
+
+#: humans/tasks.py:85
 msgid "Finished Updating user keys"
 msgstr "Terminou a actualização das chaves"
+
+#: humans/templates/humans/emails/fingerprint_changed.txt:3
+#: humans/templates/humans/emails/key_expired.txt:3
+#: humans/templates/humans/emails/key_invalid.txt:3
+#: humans/templates/humans/emails/key_revoked.txt:3
+#: humans/templates/humans/emails/key_will_expire.txt:3
+msgid "Hello"
+msgstr "Olá"
+
+#: humans/templates/humans/emails/fingerprint_changed.txt:4
+msgid ""
+"\n"
+"During our automatic updates and checks, using the keyserver url that you "
+"provided, the system spotted that the key present on that URL, no longer has "
+"the same fingerprint that the one you provided on your settings.\n"
+"\n"
+"To avoid using the wrong key, we removed the provided URL and will continue "
+"to use the key we have stored (all open boxes will remmain active).\n"
+"\n"
+"To enable the automatic verifications again, go to the settings and update "
+"your keyserver url.\n"
+"\n"
+"best regards,\n"
+"Hawkpost Team\n"
+msgstr ""
+"\n"
+"Durante as nossas verificações e actualizações automáticas, usando o URL do "
+"servidor de chaves por si dado, o sistema descobriu que a chave presente "
+"nesse URL já não tem a mesma fingerprint que foi dada nas suas definições.\n"
+"\n"
+"De modo a evitar o uso da chave errada, removemos o URL por si dado e "
+"continuaremos a usar a chave que temos guardada (todas as boxes abertas "
+"continuarão activas).\n"
+"\n"
+"Para voltar a activar novamente as verificações automáticas, por favor vá às "
+"suas definições e actualize o URL do seu servidor de chaves.\n"
+"\n"
+"Com os melhores cumprimentos,\n"
+"Equipa Hawkpost\n"
+
+#: humans/templates/humans/emails/key_invalid.txt:4
+msgid ""
+"\n"
+"During our automatic updates and checks, using the keyserver url that you "
+"provided, the system spotted that the key that is currently present on that "
+"URL is invalid (probably due a change in the document).\n"
+"\n"
+"To avoid using the wrong key, we removed the provided URL and will continue "
+"to use the key that we have stored (all open boxes will remmain active).\n"
+"\n"
+"To enable the automatic verifications again, go to the settings and update "
+"your keyserver url.\n"
+"\n"
+"best regards,\n"
+"Hawkpost Team\n"
+msgstr ""
+"\n"
+"Durante as nossas verificações e actualizações automáticas, usando o URL do "
+"servidor de chaves por si dado, o sistema descobriu que a chave presente "
+"nesse URL é inválida (provavelmente devido a alguma alteração no "
+"documento).\n"
+"\n"
+"De modo a evitar o uso da chave errada, removemos o URL por si dado e "
+"continuaremos a usar a chave que temos guardada (todas as boxes abertas "
+"continuarão activas).\n"
+"\n"
+"Para voltar a activar novamente as verificações automáticas, por favor vá às "
+"suas definições e actualize o URL do seu servidor de chaves.\n"
+"\n"
+"Com os melhores cumprimentos,\n"
+"Equipa Hawkpost\n"
+
+#: humans/templates/humans/emails/key_will_expire.txt:4
+msgid ""
+"\n"
+"During our automatic updates and checks, using the key that you provided, "
+"the system spotted that the key you provided will soon expire.\n"
+"\n"
+"To avoid any issues, the key will be removed from Hawkpost when it expires "
+"and all open boxes deactivated until a new one is added. As such, please "
+"make sure to update your key as soon as possible.\n"
+"\n"
+"Best Regards,\n"
+msgstr ""
+"\n"
+"Durante as nossas verificações e actualizações automáticas, usando a chave por si dada, "
+"o sistema descobriu que a chave existente irá expirar em breve.\n"
+"\n"
+"De modo a evitar possiveis constrangimentos, a chave será removida do Hawkpost assim que expire "
+"e todas as suas boxes serão desactivadas até que uma nova chave seja adicionada. Por esse motivo, "
+"pedimos-lhe que actualize a sua chave assim que lhe possível.\n"
+"\n"
+"Com os melhores cumprimentos,\n"
+"Equipa Hawkpost\n"
 
 #: humans/templates/humans/update_user_form.html:8
 msgid "UPDATE YOUR SETTINGS"
@@ -1287,8 +1387,8 @@ msgid ""
 "You can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
 "Hawkpost's main page."
 msgstr ""
-"Você pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir "
-"para a página inicial."
+"Você pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir para a "
+"página inicial."
 
 #: pages/templates/404.html:10
 msgid "NOT FOUND"
@@ -1307,8 +1407,8 @@ msgid ""
 "Otherwise you can click <a class=\"testelinks\" href=\"/\">here</a> to go to "
 "Hawkpost's main page."
 msgstr ""
-"Ou então pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir para "
-"a página inicial."
+"Ou então pode clicar <a class=\"testelinks\" href=\"/\">aqui</a> para ir "
+"para a página inicial."
 
 #: pages/templates/500.html:10
 msgid "Server Error"
