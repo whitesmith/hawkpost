@@ -49,3 +49,9 @@ def key_state(key, gpg):
         state = "valid"
 
     return key_fingerprint, state, days_to_expire
+
+
+def request_ip_address(request):
+    """Takes a Request Object and returns the caller IP address"""
+    x_forward_for = request.META.get('HTTP_X_FORWARDED_FOR', None)
+    return x_forward_for if x_forward_for else request.META.get('REMOTE_ADDR')

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group
 from django.utils.translation import ugettext_lazy as _
 from timezone_field import TimeZoneField
-#from languages.fields import LanguageField
+from django.db import transaction
 
 
 class User(AbstractUser):
@@ -21,6 +21,23 @@ class User(AbstractUser):
     server_signed = models.BooleanField(default=False, verbose_name=_('Server signed'))
     timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
     language = models.CharField(default="en-us", max_length=16, choices=LANGUAGE_CHOICES , verbose_name=_('Language'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.base_fingerprint = self.fingerprint
+
+    def save(self, *args, **kwargs):
+        ip = kwargs.pop('ip', None)
+        agent = kwargs.pop('agent', '')
+        with transaction.atomic():
+            super().save(*args, **kwargs)
+            if self.base_fingerprint != self.fingerprint:
+                self.keychanges.create(user=self,
+                                       prev_fingerprint=self.base_fingerprint,
+                                       to_fingerprint=self.fingerprint,
+                                       ip_address=ip,
+                                       agent=agent)
+                self.base_fingerprint = self.fingerprint
 
     def has_setup_complete(self):
         if self.public_key and self.fingerprint:
@@ -41,8 +58,7 @@ class User(AbstractUser):
 
 
 class Notification(models.Model):
-    """
-        These notifications are emails sent to all users (or some subset)
+    """ These notifications are emails sent to all users (or some subset)
         by an Administrator. Just once.
     """
 
@@ -64,3 +80,28 @@ class Notification(models.Model):
 
     def delete(self):
         return super().delete() if not self.sent_at else False
+
+
+class KeyChangeRecord(models.Model):
+    """ Records the information about the change of a key by the user.
+        This allows the user to be aware of any suspicious activity
+    """
+    user = models.ForeignKey(User,
+                             related_name='keychanges',
+                             verbose_name=_('User'))
+    prev_fingerprint = models.CharField(null=True,
+                                        blank=True,
+                                        max_length=50,
+                                        verbose_name=_('Previous Fingerprint'))
+    to_fingerprint = models.CharField(null=True,
+                                      blank=True,
+                                      max_length=50,
+                                      verbose_name=_('To Fingerprint'))
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    agent = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      verbose_name=_('Created at'))
+
+    class Meta:
+        verbose_name = _('KeyChangeRecord')
+        verbose_name_plural = _('KeyChangeRecords')

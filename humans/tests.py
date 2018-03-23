@@ -243,3 +243,38 @@ class NotificationsTests(TestCase):
         notification = create_notification(sent=False)
         enqueue_email_notifications(notification.id, None)
         self.assertEqual(len(mail.outbox), User.objects.count())
+
+
+class KeyChangeRecordsTests(TestCase):
+
+    def setUp(self):
+        self.user = create_and_login_user(self.client)
+
+        self.data = {
+            'public_key': VALID_KEY,
+            'fingerprint': VALID_KEY_FINGERPRINT
+        }
+
+    def test_if_no_key_change_no_record(self):
+        form = UpdateUserInfoForm({}, instance=self.user)
+        form.is_valid()
+        form.save()
+        self.assertEqual(self.user.keychanges.count(), 0)
+
+    def test_key_changes_are_recorded(self):
+        form = UpdateUserInfoForm(self.data, instance=self.user)
+        form.is_valid()
+        form.save()
+        self.assertEqual(self.user.keychanges.count(), 1)
+        keychangerecord = self.user.keychanges.last()
+        self.assertEqual(keychangerecord.ip_address, None)
+        self.assertEqual(keychangerecord.agent, '')
+
+    def test_ip_address_and_user_agent_are_recorded_when_available(self):
+        form = UpdateUserInfoForm(self.data, instance=self.user)
+        form.is_valid()
+        form.save(ip='127.0.0.1', agent='test_agent')
+        self.assertEqual(self.user.keychanges.count(), 1)
+        keychangerecord = self.user.keychanges.last()
+        self.assertEqual(keychangerecord.ip_address, '127.0.0.1')
+        self.assertEqual(keychangerecord.agent, 'test_agent')

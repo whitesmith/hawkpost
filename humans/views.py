@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
 from .models import User
+from .utils import request_ip_address
 
 
 class LoginRequiredMixin(LoginRequired):
@@ -48,7 +49,9 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
         return kwargs
 
     def form_valid(self, form):
-        form.save()
+        ip = request_ip_address(self.request)
+        agent = self.request.META.get('HTTP_USER_AGENT')
+        form.save(ip=ip, agent=agent)
         if form.change_password:
             update_session_auth_hash(self.request, form.instance)
         messages.success(self.request, _('Settings successfully updated'))
