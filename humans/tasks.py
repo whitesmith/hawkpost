@@ -13,14 +13,6 @@ import requests
 
 logger = get_task_logger(__name__)
 
-
-def check_key_expiration_date(days_to_expire):
-    if days_to_expire == 7 or days_to_expire == 1:
-        # Warns user if key about to expire
-        send_email(user,
-                   _('Hawkpost: Key will expire in {} day(s)').format(days_to_expire),
-                   "humans/emails/key_will_expire.txt")
-
 def fetch_key(url):
     res = requests.get(url)
     begin = res.text.find("-----BEGIN PGP PUBLIC KEY BLOCK-----")
@@ -79,13 +71,39 @@ def update_public_keys():
             user.keyserver_url = ""
             user.save()
         elif state[0] == "valid":
-            # Checks if key is about to expire
-            check_key_expiration_date(state[1])
-            # Update the key store in the database
             user.public_key = key
             user.save()
 
     logger.info(_('Finished Updating user keys'))
+
+# Every day at 5h30 AM UTC
+@periodic_task(run_every=(crontab(minute=30, hour=5)), ignore_result=True)
+def validate_public_keys():
+    users = User.objects.exclude(
+        Q(public_key__isnull=True) | Q(public_key__exact=''))
+    logger.info(_('Start validating user keys'))
+    for user in users:
+        logger.info(_('Working on user: {}').format(user.email))
+        key = user.public_key
+        # Check key
+        fingerprint, *state = key_state(key)
+
+        if state[0] == "expired":
+            # Email user and disable/remove key
+            send_email(user, _('Hawkpost: {} key').format(state[0]),
+                       "humans/emails/key_{}.txt".format(state[0]))
+            user.fingerprint = ""
+            user.public_key = ""
+            user.save()
+
+        elif state[0] == "valid":
+            # Checks if key is about to expire
+            days_to_expire = state[1]
+            if days_to_expire == 7 or days_to_expire == 1:
+                # Warns user if key about to expire
+                send_email(user,
+                           _('Hawkpost: Key will expire in {} day(s)').format(days_to_expire),
+                           "humans/emails/key_will_expire.txt")
 
 
 @shared_task
