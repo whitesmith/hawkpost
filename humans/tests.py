@@ -7,7 +7,7 @@ from hawkpost import celery_app
 from .models import Notification, User
 from .forms import UpdateUserInfoForm
 from .tasks import enqueue_email_notifications
-from .utils import key_state
+from .utils import key_state, with_gpg_obj
 from .test_constants import VALID_KEY_FINGERPRINT, VALID_KEYSERVER_URL
 from .test_constants import EXPIRED_KEY_FINGERPRINT
 from .test_constants import REVOKED_KEY, EXPIRED_KEY, VALID_KEY
@@ -24,25 +24,18 @@ def create_notification(sent=False, group=None):
                                        sent_at=sent_at,
                                        send_to=group)
 
-def create_expiring_key(days_to_expire):
-    temp_dir = tempfile.mkdtemp()
-    gpg = gnupg.GPG(homedir=temp_dir,
-                        keyring="pub.gpg",
-                        secring="sec.gpg")
-
-    gpg.encoding = 'utf-8'
+@with_gpg_obj
+def create_expiring_key(days_to_expire, gpg):
     days_to_expire = str(days_to_expire) + "d"
     # Example values for expire_date: “2009-12-31”, “365d”, “3m”, “6w”, “5y”, “seconds=<epoch>”, 0
     input_data = gpg.gen_key_input(key_type="RSA",
                                     key_length=1024,
                                     expire_date=days_to_expire,
                                     passphrase="secret")
-
     key_id = gpg.gen_key(input_data)
     # retrieve the key
     key_ascii = gpg.export_keys(key_id)
     # remove the keyring
-    rmtree(temp_dir)
     return key_ascii
 
 class UpdateUserFormTests(TestCase):
@@ -188,13 +181,13 @@ class UtilsTests(TestCase):
         self.assertEqual(state[0], "valid")
 
     def test_key_days_to_expire(self):
-        key = create_expiring_key(days_to_expire=7)
+        key = create_expiring_key(7)
         fingerprint, *state = key_state(key)
         self.assertEqual(state[0], "valid")
         self.assertGreaterEqual(state[1], 6)
         self.assertLess(state[1], 8)
 
-        key = create_expiring_key(days_to_expire=1)
+        key = create_expiring_key(1)
         fingerprint, *state = key_state(key)
         self.assertEqual(state[0], "valid")
         self.assertGreaterEqual(state[1], 0)

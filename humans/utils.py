@@ -14,6 +14,7 @@ def with_gpg_obj(func):
         gpg_obj = gnupg.GPG(homedir=temp_dir,
                             keyring="pub.gpg",
                             secring="sec.gpg")
+        gpg_obj.encoding= 'utf-8'
         ret = func(key, gpg_obj)
         # remove the keyring
         rmtree(temp_dir)
