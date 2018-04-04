@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 12:59+0000\n"
+"POT-Creation-Date: 2018-04-04 15:57+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -73,12 +73,12 @@ msgid "Recipients"
 msgstr "Destinatários"
 
 #: boxes/models.py:37 boxes/models.py:84 boxes/models.py:114
-#: humans/models.py:52
+#: humans/models.py:68 humans/models.py:103
 msgid "Created at"
 msgstr "Criado em"
 
 #: boxes/models.py:39 boxes/models.py:86 boxes/models.py:116
-#: humans/models.py:53
+#: humans/models.py:69
 msgid "Updated at"
 msgstr "Actualizado em"
 
@@ -143,7 +143,7 @@ msgstr "Enviado"
 msgid "Failed"
 msgstr "Falhou"
 
-#: boxes/models.py:118 humans/models.py:55
+#: boxes/models.py:118 humans/models.py:71
 msgid "Sent at"
 msgstr "Enviado em"
 
@@ -1017,15 +1017,15 @@ msgstr "Enviar notificações selecionadas"
 msgid "Delete selected notifications"
 msgstr "Apagar notificações selecionadas"
 
-#: humans/admin.py:65
+#: humans/admin.py:87
 msgid "Hawkpost Administration"
 msgstr "Administração Hawkpost"
 
-#: humans/admin.py:66
+#: humans/admin.py:88
 msgid "Hawkpost Admin"
 msgstr "Administrador Hawkpost"
 
-#: humans/admin.py:67
+#: humans/admin.py:89
 msgid "Project Models"
 msgstr "Modelos do projecto"
 
@@ -1053,35 +1053,35 @@ msgstr "Nova password"
 msgid "New password confirmation"
 msgstr "Confirmação da nova password"
 
-#: humans/forms.py:63
+#: humans/forms.py:64
 msgid "Your current password was entered incorrectly."
 msgstr "Sua password actual está incorreta."
 
-#: humans/forms.py:76
+#: humans/forms.py:77
 msgid "The two password fields didn't match."
 msgstr "As passwords inseridas não são iguais"
 
-#: humans/forms.py:92
+#: humans/forms.py:93
 msgid "This key is not valid"
 msgstr "Esta chave não é válida"
 
-#: humans/forms.py:95
+#: humans/forms.py:96
 msgid "This key is revoked"
 msgstr "Esta chave foi revogada"
 
-#: humans/forms.py:98
+#: humans/forms.py:99
 msgid "This key is expired"
 msgstr "Esta chave expirou"
 
-#: humans/forms.py:110
+#: humans/forms.py:111
 msgid "Fingerprint does not match"
 msgstr "A impressão digital não corresponde"
 
-#: humans/forms.py:120
+#: humans/forms.py:121
 msgid "Could not access the specified url"
 msgstr "Não foi possível aceder ao url especificado"
 
-#: humans/forms.py:128
+#: humans/forms.py:129
 msgid "This url does not have a pgp key"
 msgstr "Este url não contém uma chave pgp"
 
@@ -1113,67 +1113,99 @@ msgstr "Fuso horário"
 msgid "Language"
 msgstr "Lingua"
 
-#: humans/models.py:49
+#: humans/models.py:65
 msgid "Subject"
 msgstr "Assunto"
 
-#: humans/models.py:50
+#: humans/models.py:66
 msgid "Body"
 msgstr "Corpo"
 
-#: humans/models.py:56
+#: humans/models.py:72
 msgid "Send to"
 msgstr "Enviar para"
 
-#: humans/models.py:59
+#: humans/models.py:75
 msgid "Notification"
 msgstr "Notificação"
 
-#: humans/models.py:60
+#: humans/models.py:76
 msgid "Notifications"
 msgstr "Notificações"
 
-#: humans/tasks.py:24
+#: humans/models.py:91
+msgid "User"
+msgstr "Utilizador"
+
+#: humans/models.py:95
+#, fuzzy
+#| msgid "Provide your key's fingerprint"
+msgid "Previous Fingerprint"
+msgstr "Impressão digital anterior"
+
+#: humans/models.py:99
+#, fuzzy
+#| msgid "Fingerprint"
+msgid "To Fingerprint"
+msgstr "Nova Impressão Digital"
+
+#: humans/models.py:106
+#, fuzzy
+#| msgid "Change Password"
+msgid "KeyChangeRecord"
+msgstr "Registo de Alteração de Chave"
+
+#: humans/models.py:107
+msgid "KeyChangeRecords"
+msgstr "Registos de Alteração de Chave"
+
+#: humans/tasks.py:23
 msgid "The Url provided does not contain a public key"
 msgstr "O URL providenciado não contém uma chave pública"
 
-#: humans/tasks.py:40
+#: humans/tasks.py:39
 msgid "Start updating user keys"
 msgstr "Início da actualização das chaves dos utilizadores"
 
-#: humans/tasks.py:42
+#: humans/tasks.py:41 humans/tasks.py:86
 msgid "Working on user: {}"
 msgstr "Trabalhando no utilizador: {}"
 
-#: humans/tasks.py:43
+#: humans/tasks.py:42
 msgid "URL: {}"
 msgstr ""
 
-#: humans/tasks.py:47
+#: humans/tasks.py:46
 msgid "Unable to fetch new key"
 msgstr "Não foi possivel ir buscar a nova chave"
 
-#: humans/tasks.py:55
+#: humans/tasks.py:54 humans/tasks.py:93
 msgid "Hawkpost: {} key"
 msgstr "Hawkpost: chave {}"
 
-#: humans/tasks.py:64
+#: humans/tasks.py:63
 msgid "Hawkpost: Keyserver Url providing an invalid key"
 msgstr "Hawkpost: O endereço da chave, retornou uma chave inválida"
 
-#: humans/tasks.py:70
+#: humans/tasks.py:69
 msgid "Hawkpost: Fingerprint mismatch"
 msgstr "Hawkpost: A impressão digital não corresponde à chave"
 
-#: humans/tasks.py:78
+#: humans/tasks.py:77
+msgid "Finished Updating user keys"
+msgstr "Terminou a actualização das chaves"
+
+#: humans/tasks.py:84
+#, fuzzy
+#| msgid "Start updating user keys"
+msgid "Start validating user keys"
+msgstr "Início da actualização das chaves dos utilizadores"
+
+#: humans/tasks.py:105
 #, fuzzy
 #| msgid "Hawkpost: Key will expire in {} days"
 msgid "Hawkpost: Key will expire in {} day(s)"
 msgstr "Hawkpost: A sua chave irá expirar dentro de {} dia(s)"
-
-#: humans/tasks.py:85
-msgid "Finished Updating user keys"
-msgstr "Terminou a actualização das chaves"
 
 #: humans/templates/humans/emails/fingerprint_changed.txt:3
 #: humans/templates/humans/emails/key_expired.txt:3
@@ -1259,15 +1291,45 @@ msgid ""
 "Best Regards,\n"
 msgstr ""
 "\n"
-"Durante as nossas verificações e actualizações automáticas, usando a chave por si dada, "
-"o sistema descobriu que a chave existente irá expirar em breve.\n"
+"Durante as nossas verificações e actualizações automáticas, usando a chave "
+"por si dada, o sistema descobriu que a chave existente irá expirar em "
+"breve.\n"
 "\n"
-"De modo a evitar possiveis constrangimentos, a chave será removida do Hawkpost assim que expire "
-"e todas as suas boxes serão desactivadas até que uma nova chave seja adicionada. Por esse motivo, "
-"pedimos-lhe que actualize a sua chave assim que lhe possível.\n"
+"De modo a evitar possiveis constrangimentos, a chave será removida do "
+"Hawkpost assim que expire e todas as suas boxes serão desactivadas até que "
+"uma nova chave seja adicionada. Por esse motivo, pedimos-lhe que actualize a "
+"sua chave assim que lhe possível.\n"
 "\n"
 "Com os melhores cumprimentos,\n"
 "Equipa Hawkpost\n"
+
+#: humans/templates/humans/key_change_modal.html:8
+msgid "Key Change Logs"
+msgstr "Registo the Alterações de Chave"
+
+#: humans/templates/humans/key_change_modal.html:9
+msgid ""
+"The following table contains the list of all recent changes to the key used "
+"by your account."
+msgstr ""
+"A seguinte tabela contém a lista de todas as recentes alterações à chave "
+"usada na sua conta."
+
+#: humans/templates/humans/key_change_modal.html:15
+msgid "Date"
+msgstr "Data"
+
+#: humans/templates/humans/key_change_modal.html:16
+msgid "New Key"
+msgstr "Nova Chave"
+
+#: humans/templates/humans/key_change_modal.html:17
+msgid "IP address"
+msgstr "Endereço IP"
+
+#: humans/templates/humans/key_change_modal.html:18
+msgid "User Agent"
+msgstr "User Agent"
 
 #: humans/templates/humans/update_user_form.html:8
 msgid "UPDATE YOUR SETTINGS"
@@ -1299,7 +1361,19 @@ msgstr ""
 "através de um endereço para a chave num servidor externo, de forma a "
 "podermos descarrega-la por si(recomendado)."
 
-#: humans/templates/humans/update_user_form.html:87
+#: humans/templates/humans/update_user_form.html:55
+#, fuzzy
+#| msgid "To verify the log of the last changes to your key please click"
+msgid "To verify the log of the last changes to your key please click"
+msgstr "Para verificar o registo das últimas alterações à sua clique"
+
+#: humans/templates/humans/update_user_form.html:55
+#: humans/templates/humans/update_user_form.html:101
+#: humans/templates/humans/update_user_form.html:116
+msgid "here"
+msgstr "aqui"
+
+#: humans/templates/humans/update_user_form.html:91
 msgid ""
 "The \"Server signed\" feature allows you to improve your security by "
 "allowing us to sign the (<strong>already encrypted</strong>) message with "
@@ -1313,24 +1387,19 @@ msgstr ""
 "Por agora, os únicos clientes de e-mail que intrepretam correctamente esta "
 "funcionalidade são o<strong>Evolution</strong> e <strong>mutt</strong>"
 
-#: humans/templates/humans/update_user_form.html:97
+#: humans/templates/humans/update_user_form.html:101
 msgid "The key used to sign can be found"
 msgstr "A chave usada para assinar pode ser encontrada"
 
-#: humans/templates/humans/update_user_form.html:97
-#: humans/templates/humans/update_user_form.html:112
-msgid "here"
-msgstr "aqui"
-
-#: humans/templates/humans/update_user_form.html:97
+#: humans/templates/humans/update_user_form.html:101
 msgid "and the fingerprint, so you can verify it, is the following:"
 msgstr "e a impressão digital, de forma a poder verificar, é a seguinte:"
 
-#: humans/templates/humans/update_user_form.html:105
+#: humans/templates/humans/update_user_form.html:109
 msgid "Save"
 msgstr "Gravar"
 
-#: humans/templates/humans/update_user_form.html:112
+#: humans/templates/humans/update_user_form.html:116
 msgid "Do you wish to delete your account? if yes, just click"
 msgstr "Deseja apagar a sua conta? se sim, clique"
 
@@ -1354,23 +1423,23 @@ msgstr "Sim, eu quero apagar tudo"
 msgid "No, take me back to the settings"
 msgstr "Não, voltar para a página das definições"
 
-#: humans/views.py:35
+#: humans/views.py:36
 msgid "To start using hawkpost, you must add a valid public key"
 msgstr "Para começar a usar o hawkpost deve adicionar uma chave pública válida"
 
-#: humans/views.py:54
+#: humans/views.py:59
 msgid "Settings successfully updated"
 msgstr "Definições actualizadas com sucesso"
 
-#: humans/views.py:58
+#: humans/views.py:63
 msgid "Please check the invalid fields"
 msgstr "Por favor, verifique os campos inválidos"
 
-#: humans/views.py:75
+#: humans/views.py:80
 msgid "Account deleted successfully. We hope you comeback soon."
 msgstr "Conta apagada com sucesso. Esperemos que regresse em breve."
 
-#: humans/views.py:80
+#: humans/views.py:85
 msgid "In order to delete the account you must provide the current password."
 msgstr "De modo a apagar a conta, deve inserir a password actual."
 
