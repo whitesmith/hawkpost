@@ -38,9 +38,11 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
+        user = self.request.user
         context = super().get_context_data(**kwargs)
         context["sign_key_url"] = settings.GPG_SIGN_KEY_URL
         context["sign_key_fingerprint"] = settings.GPG_SIGN_KEY_FINGERPRINT
+        context["key_changes"] = user.keychanges.order_by('-created_at')[:20]
         return context
 
     def get_form_kwargs(self):
