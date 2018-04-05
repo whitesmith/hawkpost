@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
 from django.contrib import messages
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from .models import User, Notification
+from .models import User, Notification, KeyChangeRecord
 from .tasks import enqueue_email_notifications
 
 
@@ -60,6 +60,28 @@ class NotificationAdmin(admin.ModelAdmin):
 
     send_notification.short_description = _('Send selected notifications')
     delete_selected.short_description = _('Delete selected notifications')
+
+
+@admin.register(KeyChangeRecord)
+class KeyChangeRecordAdmin(admin.ModelAdmin):
+    list_display = ('user',
+                    'prev_fingerprint',
+                    'to_fingerprint',
+                    'ip_address',
+                    'agent',
+                    'created_at')
+    search_fields = ['user__email', 'ip_address', 'agent']
+    list_filter = ('created_at',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.readonly_fields = [f.name for f in self.model._meta.get_fields()]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 admin.site.site_header = _('Hawkpost Administration')

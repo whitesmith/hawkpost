@@ -50,6 +50,10 @@
                         <span class="text-blue smalltext">
                           {% blocktrans %}You can provide the public key in a static away <strong> or </strong> provide a link to your key in a public key server so we can fetch it for you (recommended).{% endblocktrans %}
                         </span>
+                        <br>
+                        <span class="text-blue smalltext">
+                          {% trans "To verify the log of the last changes to your key please click" %} <b><a class="md-trigger text-blue" data-modal="modal-key-changes">{% trans "here" %}</a></b>.
+                        </span>
                       </div>
                       <div class="row label-form-b">
                         <div class="col-xs-6">{{ form.public_key.label_tag }}<input type="radio" name="type" id="publickey_option" class="radio_button" value="publickey" checked="checked"></div>
@@ -116,6 +120,9 @@
       </div>
     </section>
   </div>
+
+  {% include "humans/key_change_modal.html" %}
+
   {% endblock content %}
 
   {% block scripts %}

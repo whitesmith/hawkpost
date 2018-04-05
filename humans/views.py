@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
 from .models import User
+from .utils import request_ip_address
 
 
 class LoginRequiredMixin(LoginRequired):
@@ -37,9 +38,11 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
+        user = self.request.user
         context = super().get_context_data(**kwargs)
         context["sign_key_url"] = settings.GPG_SIGN_KEY_URL
         context["sign_key_fingerprint"] = settings.GPG_SIGN_KEY_FINGERPRINT
+        context["key_changes"] = user.keychanges.order_by('-created_at')[:20]
         return context
 
     def get_form_kwargs(self):
@@ -48,7 +51,9 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
         return kwargs
 
     def form_valid(self, form):
-        form.save()
+        ip = request_ip_address(self.request)
+        agent = self.request.META.get('HTTP_USER_AGENT')
+        form.save(ip=ip, agent=agent)
         if form.change_password:
             update_session_auth_hash(self.request, form.instance)
         messages.success(self.request, _('Settings successfully updated'))

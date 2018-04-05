@@ -1,0 +1,37 @@
+{% load i18n %}
+
+<div class="md-modal-xs md-effect-1" id="modal-key-changes">
+  <div class="md-content-xs">
+    <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+    <div class="row center-xs center-md center-lg">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <h3 class="subtitle center-xs text-lightest">{% trans "Key Change Logs" %}</h3>
+        <p class="smalltext text-lightest text-mob-">{% blocktrans %}The following table contains the list of all recent changes to the key used by your account.{% endblocktrans %}</p>
+        <br>
+        <div class="md-scrollable-div">
+          <table class="md-table">
+            <thead>
+              <tr>
+                <th width="20%">{% trans "Date" %}</th>
+                <th width="30%">{% trans "New Key" %}</th>
+                <th width="20%">{% trans "IP address" %}</th>
+                <th width="30%">{% trans "User Agent" %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for change in key_changes %}
+              <tr>
+                <td>{{ change.created_at|date:"M d, Y" }}</td>
+                <td>{{ change.to_fingerprint }}</td>
+                <td>{{ change.ip_address }}</td>
+                <td>{{ change.agent }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="md-overlay"></div>

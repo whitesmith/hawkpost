@@ -150,3 +150,12 @@ perspective effects (not including the modals and the overlay).
     transform: scale(1);
     opacity: 1;
 }
+
+.md-table {
+    word-break: break-all;
+}
+
+.md-scrollable-div {
+    max-height: 400px;
+    overflow-y: scroll;
+}

@@ -46,11 +46,12 @@ class UpdateUserInfoForm(ModelForm):
         self.pub_key = None
         return super().__init__(*args, **kwargs)
 
-    def save(self, commit=True):
+    def save(self, commit=True, **kwargs):
         new_password = self.cleaned_data.get('new_password2')
         if self.change_password:
             self.instance.set_password(new_password)
-        return super().save(commit=commit)
+        self.instance.save(**kwargs)
+        return self.instance
 
     def clean_current_password(self):
         """
