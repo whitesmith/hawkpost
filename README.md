@@ -114,7 +114,7 @@ $ docker-compose up -d db redis
 
 # Perform the migrations
 # (using `--rm` to remove the temporary container afterwards)
-$ docker-compose run --rm web python manage.py migrate
+$ docker-compose run --rm web pipenv run python manage.py migrate
 
 # Run the web, celery and mail_debug containers
 # (`docker-compose up` would log db and redis as well)

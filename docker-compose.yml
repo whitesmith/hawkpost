@@ -12,7 +12,7 @@ services:
     extends:
       file: common.yml
       service: app
-    command: celery -A hawkpost worker --beat -l info
+    command: pipenv run celery -A hawkpost worker --beat -l info
     volumes:
       - "./gpg_home:/home/user/.gnupg"
 
@@ -20,7 +20,7 @@ services:
     extends:
       file: common.yml
       service: app
-    command: python manage.py mail_debug --settings hawkpost.settings.development --use-settings
+    command: pipenv run python manage.py mail_debug --settings hawkpost.settings.development --use-settings
     ports:
       - "1025:1025"
     environment:
