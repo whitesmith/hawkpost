@@ -45,7 +45,7 @@ $ pipenv install
 * Migrate the database
 
 ```
-$ python manage.py migrate
+$ pipenv run python manage.py migrate
 ```
 
 * Generate stylesheet with gulp (installation instructions for gulp can be found [here](https://gulpjs.com/))
@@ -57,9 +57,11 @@ $ gulp build
 * Now you should be able to launch the server and its workers
 
 ```
-$ python manage.py runserver
-$ celery -A hawkpost worker --beat -l info
+$ pipenv run python manage.py runserver
+$ pipenv run celery -A hawkpost worker --beat -l info
 ```
+
+You can avoid `pipenv run` in every command if you first active the virtual environment with `pipenv shell`.
 
 ## Using Docker
 
