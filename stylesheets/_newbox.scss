@@ -22,7 +22,7 @@
 
 textarea {
     width: 100%;
-    height: 8vh !important;
+    height: 5vh;
     border-color: $light;
     resize: none;
     &:focus {
@@ -30,6 +30,10 @@ textarea {
         border: 1px solid rgba($main-color-dark, 0.5);
         box-shadow: inset 0 1px 1px rgba($main-color-dark, 0.3);
     }
+}
+
+.multiline-input textarea {
+    height: 8vh;
 }
 
 input {
