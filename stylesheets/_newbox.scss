@@ -32,6 +32,10 @@ textarea {
     }
 }
 
+.multiline-input textarea {
+    height: 8vh;
+}
+
 input {
     width: 100%;
     padding: 10px 0;
