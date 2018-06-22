@@ -36,7 +36,7 @@
               <div class="basic-info">
                 <div class="box-title-desc">
                   <p class="xmb-small textbold text-darkest">{{box.name}}</p>
-                  <p class="xmb-small smalltext text-darkest">{{box.description}}</p>
+                  <p class="xmb-small smalltext text-darkest">{{box.description|linebreaks}}</p>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@
             </p>
             <div class="row middle-xs">
               <div class="col-xs-9 col-xxs-12 col-sm-8">
-                <p>
+                <p class="multiline-input">
                   <span id="description-errors-js">{{ form.description.errors }}</span>
                   {{ form.description.label_tag }}
                   {{ form.description }}

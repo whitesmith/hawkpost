@@ -59,7 +59,7 @@ var tasks = {};
 tasks.browser_sync = function () {
   var config = {
       proxy: {
-          target: "http://0.0.0.0:8000",
+          target: "http://localhost:8000",
           ws: true
       },
       ghostMode: {
