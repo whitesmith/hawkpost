@@ -27,30 +27,17 @@ Base requirements:
 * Python 3
 * Redis
 * PostgreSQL
-* gulp
 
-## Linux
+## On Linux
 
 On a **Debian** based operating system execute the following steps, after cloning the repository:
 
-* Install VirtualEnv and VirtualEnvWrapper
-
-```
-$ sudo apt-get install python-virtualenvwrapper
-```
-
-(follow their installation steps)
-
-* Create a virtual environment, using python3
-
-```
-$ mkvirtualenv hawkpost --python=python3
-```
+* Make sure you have `pipenv` installed. You can check [this page for more information](https://docs.pipenv.org/install/#installing-pipenv)
 
 * Install the dependencies
 
 ```
-$ pip install -r requirements/requirements_dev.txt
+$ pipenv install
 ```
 
 * Create the local postgreSQL database with your user and no password
@@ -58,80 +45,10 @@ $ pip install -r requirements/requirements_dev.txt
 * Migrate the database
 
 ```
-$ python manage.py migrate
+$ pipenv run python manage.py migrate
 ```
 
-* Generate stylesheet
-
-```
-$ gulp build
-```
-
-* Now you should be able to launch the server and its workers
-
-```
-$ python manage.py runserver
-$ celery -A hawkpost worker --beat -l info
-```
-
-## OSX
-
-First, install [Postgres.app](http://postgresapp.com/) and make sure it's in the Applications folder. Add `/Applications/Postgres.app/Contents/Versions/latest/bin` to your $PATH.
-
-Steps:
-
-* Update [Homebrew](http://brew.sh/)
-
-```
-$ brew update
-```
-
-* Update [Pip](https://pip.pypa.io/en/stable/installing/)
-
-```
-$ sudo pip install --upgrade pip
-```
-
-* Install the latest 2.7.x version and 3.x of Python via Homebrew
-
-```
-$ brew install python
-$ brew install python3
-```
-
-* Install Virtualenv
-
-```
-$ pip install virtualenv
-```
-
-* Setup Virtualenv
-```
-$ mkdir ~/.virtualenvs
-$ cd ~/.virtualenvs
-$ virtualenv hawkpost --python=python3
-$ source hawkpost/bin/activate
-```
-
-* Clone the project, go to the folder and install the dependencies
-
-```
-$ pip install -r requirements/requirements_dev.txt
-```
-
-* Create the database for the first time
-
-```
-$ psql CREATE DATABASE hawkpost_dev;
-```
-
-* Prepare the database
-
-```
-$ python manage.py migrate
-```
-
-* Generate stylesheet
+* Generate stylesheet with gulp (installation instructions for gulp can be found [here](https://gulpjs.com/))
 
 ```
 $ gulp build
@@ -140,11 +57,13 @@ $ gulp build
 * Now you should be able to launch the server and its workers
 
 ```
-$ python manage.py runserver
-$ celery -A hawkpost worker --beat -l info
+$ pipenv run python manage.py runserver
+$ pipenv run celery -A hawkpost worker --beat -l info
 ```
 
-## Docker
+You can avoid `pipenv run` in every command if you first active the virtual environment with `pipenv shell`.
+
+## Using Docker
 
 To use this approach you need to have [Docker][docker-overview] and
 [Docker Compose][docker-compose-overview] installed.
@@ -197,7 +116,7 @@ $ docker-compose up -d db redis
 
 # Perform the migrations
 # (using `--rm` to remove the temporary container afterwards)
-$ docker-compose run --rm web python manage.py migrate
+$ docker-compose run --rm web pipenv run python manage.py migrate
 
 # Run the web, celery and mail_debug containers
 # (`docker-compose up` would log db and redis as well)

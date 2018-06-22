@@ -8,23 +8,15 @@ Below are a few things we follow and would appreciate if you do too.
 
 When reporting bugs or requesting new features, please provide as much detail and context as you can. This will make things much easier to the people trying to address your issue.
 
-## How to add/remove dependencies
+## Dependencies
 
-* Add/remove to the correct `.in` file the required package. For dev only dependencies `requirements_dev.in`, otherwise `requirements.in`. Note: you should pin the version number.
+If you need to use other dependencies, please make sure you install them using `pipenv` with the command:
 
-* Compile the new requirements (You will need to install `pip-tools`)
+>$ pipenv install <package>
 
-```
-$ pip-compile requirements/base.in -o requirements/requirements.txt
-```
+or in case it is only useful for developers add the `--dev` flag.
 
-and 
-
-```
-$ pip-compile requirements/base.in requirements/development.in -o requirements/requirements_dev.txt
-```
-
-* Commit these changes alongside your other code modifications
+You should add the changes in `Pipfile` and `Pipfile.lock` to your commit.
 
 ## Style
 

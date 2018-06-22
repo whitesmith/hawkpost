@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/hawkpost
+    docker:
+      - image: circleci/python:3.6.4
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+          DB_HOST: localhost
+          DB_USER: root
+          USERNAME: root
+      - image: circleci/postgres:9.6.2
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: hawkpost_dev
+    steps:
+      - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - restore_cache:
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          command: |
+            sudo pip install pipenv
+            pipenv install --dev
+      - save_cache:
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "/usr/local/bin"
+            - "/usr/local/lib/python3.6/site-packages"
+      - run:
+          command: |
+            set +e
+            touch $BASH_ENV
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+            echo 'nvm install v6.2.2' >> $BASH_ENV
+            echo 'nvm alias default v6.2.2' >> $BASH_ENV
+      - run:
+          command: |
+            npm install gulp-cli -g
+      - run:
+          command: |
+            npm install
+      - run:
+          command: |
+            gulp build
+      - run:
+          command: |
+            pipenv run "python manage.py collectstatic --no-input"
+      - run:
+          command: |
+            pipenv run "python manage.py test"
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: tr1
