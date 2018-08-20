@@ -6,7 +6,7 @@
     <div class="row middle-xs">
       <div class="col-xs-2 start-xs col-sm-2 col-lg-2">
         <a href="{%url "pages_index"%}" class="row start-xs middle-xs full-height">
-          <img src="{%static 'images/logow-small.png'%}" class="logo">
+          <img src="{%static 'images/logow-small.png'%}" alt="Hawkpost Logo Small" class="logo">
         </a>
       </div>
       <ul class="col-xs-8 end-xs  col-sm-10 col-lg-10">
@@ -43,7 +43,7 @@
       <div class="nav__header text-darkest"></div>
       <ul class="nav__list col-xs-12 ">
         <label class="nav__item " for="nav-trigger">
-          <li><a class="nav__link center-xs" href="{%url "pages_index"%}"><img src="{%static 'images/logob.png'%}" class="logo"></a></li>
+          <li><a class="nav__link center-xs" href="{%url "pages_index"%}"><img src="{%static 'images/logob.png'%}" alt="Hawkpost logo" class="logo"></a></li>
           {% if request.user.is_authenticated %}
           <li><a class="nav__link" href="{%url "boxes_list"%}">{% trans "Boxes" %}</a></li>
           <li><a class="nav__link" href="{%url "humans_update" %}">{% trans "Settings" %}</a></li>
