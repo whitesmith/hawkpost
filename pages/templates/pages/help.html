@@ -92,22 +92,6 @@
 
           <p>{% blocktrans %}Check <a href="https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-setup-gpg4win-with-outlook-2013/" class="testelinks">this video for an Outlook tutorial</a> and <a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x" class="testelinks">this guide for the case of Apple Mail</a>.{% endblocktrans %}</p>
         </div>
-
-        <div class="col-xs-12  col-sm-11">
-          <h2 id="verify-sender" class="title text-dark center-xs">{% trans "EXPERIMENTAL: HOW TO VERIFY HAWKPOST SIGNATURE" %}</h2>
-
-          <div class="row center-xs text-left middle-xs">
-
-            <div class="col-xs-12 col-sm-7 col-md-12 col-lg-6">
-              <p>{% blocktrans %}Recently we've introduced a feature (still on an experimental phase) that allows the user to confirm that the received email message was really sent by Hawkpost's server. However it is still only useful to users of <i>mutt</i> and <i>evolution</i> email clients. But we hope to bring it to other clients soon.{% endblocktrans %}</p>
-
-              <p>{% blocktrans %}If you use one of these email clients, you should activate the feature on the settings page (as it is shown on the image below). This way all messages will be signed with our sign key, that you can import to your keyring in order to verify its veracity. <a href="{{sign_key_url}}" class="testelinks">The key can be found here</a>.{% endblocktrans %}</p>
-            </div>
-            <div class="col-xxs-12 col-xs-8 col-sm-5 col-md-7 col-lg-4">
-              <img  class="setup" src="{% static 'images/server_signed.png' %}">
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

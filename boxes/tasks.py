@@ -23,11 +23,6 @@ def process_email(message_id, form_data):
         email = EmailMultiAlternatives(
             subject, body, settings.DEFAULT_FROM_EMAIL, [box.owner.email],
             attachments=[(file_name, msg, "application/octet-stream")])
-
-    elif box.owner.server_signed:
-        email = GPGSignedEncryptedMessage(subject, msg,
-                                          settings.DEFAULT_FROM_EMAIL,
-                                          [box.owner.email])
     else:
         email = EmailMultiAlternatives(subject, msg,
                                        settings.DEFAULT_FROM_EMAIL,

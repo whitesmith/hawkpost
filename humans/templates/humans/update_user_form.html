@@ -14,7 +14,6 @@
           {% if not form.instance.has_github_login %}
           <li id="tab3" class="sett__nav__item text-darkest">{% trans "Password" %}</li>
           {%endif %}
-          <li id="tab4" class="sett__nav__item text-darkest">{% trans "Experimental Features" %}</li>
         </div>
       </ul>
 
@@ -84,48 +83,27 @@
                       </div>
                     </div>
                   </li>
-                  <li class="section" id="section4">
-                    <div class="col-xs-12 start-xs">
-                      <span class="text-blue smalltext">
-                        <p>
-                          {% blocktrans %}The "Server signed" feature allows you to improve your security by allowing us to sign the (<strong>already encrypted</strong>) message with our key, so you can make sure the message really came from us. For now, the only e-mail clients that display this feature correctly are <strong>Evolution</strong> and <strong>mutt</strong>{% endblocktrans %}
-                        </p>
-                      </span>
-                      <div class="checkbox-">
-                        {{ form.server_signed.errors }} {{ form.server_signed.label_tag }}
-                        <div class=".control__indicator">
-                          {{ form.server_signed }}
-                        </div>
-                      </div>
-                      <p class="smalltext no-margin">
-                        {% trans "The key used to sign can be found" %} <a class="text-blue" href="{{sign_key_url}}">{% trans "here" %}</a> {% trans "and the fingerprint, so you can verify it, is the following:" %}
-                      </p>
-                      <p class="no-margin smalltext text-darkest">{{sign_key_fingerprint}}</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-xs-12 form__block">
-                  <input type="submit" class="btn-blue smalltext" value="{% trans "Save" %}" />
-                </div>
+                </ul>
+              </div>
+              <div class="col-xs-12 form__block">
+                <input type="submit" class="btn-blue smalltext" value="{% trans "Save" %}" />
               </div>
             </div>
-          </form>
-          <div class="text-center">
-            <small class="check smalltext text-darkest">
-              {% trans "Do you wish to delete your account? if yes, just click" %} <a class="text-blue"href="{% url "humans_delete" %}">{% trans "here" %}</a>
-            </small>
           </div>
+        </form>
+        <div class="text-center">
+          <small class="check smalltext text-darkest">
+            {% trans "Do you wish to delete your account? if yes, just click" %} <a class="text-blue"href="{% url "humans_delete" %}">{% trans "here" %}</a>
+          </small>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>
+{% include "humans/key_change_modal.html" %}
+{% endblock content %}
 
-  {% include "humans/key_change_modal.html" %}
-
-  {% endblock content %}
-
-  {% block scripts %}
+{% block scripts %}
   {{ block.super }}
   <script src="{% static 'javascripts/update_user_form.js' %}"></script>
-  {% endblock scripts %}
+{% endblock scripts %}
