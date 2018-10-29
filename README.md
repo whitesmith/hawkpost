@@ -99,9 +99,6 @@ DB_HOST=db
 DB_USER=hawkpost
 DB_PASSWORD=hawkpost
 REDIS_URL=redis://redis:6379/0
-SIGN_KEY=/home/user/.gnupg/key.gpg
-SIGN_DIR=/home/user/.gnupg
-SIGN_KEY_PASSPHRASE=<your-signing-key-password>
 EMAIL_HOST=mail_debug
 ```
 

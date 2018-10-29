@@ -184,13 +184,6 @@ AXES_COOLOFF_TIME = 1  # hour
 AXES_USERNAME_FORM_FIELD = 'login'
 AXES_DISABLE_SUCCESS_ACCESS_LOG = True
 
-
-# GPG keyring for server-signing messages
-GPG_SIGN_DIR = os.environ.get("SIGN_DIR")
-GPG_SIGN_KEY = os.environ.get("SIGN_KEY")
-GPG_SIGN_KEY_PASSPHRASE = os.environ.get("SIGN_KEY_PASSPHRASE")
-GPG_SIGN_KEY_URL = os.environ.get("SIGN_KEY_URL", "")
-GPG_SIGN_KEY_FINGERPRINT = os.environ.get("SIGN_KEY_FINGERPRINT", "")
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 

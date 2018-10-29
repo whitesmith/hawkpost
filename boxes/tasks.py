@@ -5,7 +5,6 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from .models import Message
-from .email import GPGSignedEncryptedMessage
 
 from celery import shared_task
 
