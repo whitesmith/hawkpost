@@ -173,8 +173,15 @@ class BoxSubmitView(UpdateView):
                 self.object.status = Box.DONE
                 self.object.save()
 
+            if request.user.is_authenticated():
+                user_email = request.user.email
+            else:
+                user_email = None
+
             # Schedule e-mail
-            process_email.delay(message.id, form.cleaned_data)
+            process_email.delay(
+                message.id, form.cleaned_data, sent_by=user_email
+            )
 
             return self.response_class(
                 request=self.request,
