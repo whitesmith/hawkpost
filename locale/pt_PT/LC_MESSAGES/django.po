@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-09 17:15+0000\n"
+"POT-Creation-Date: 2018-10-26 00:38+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -347,17 +347,16 @@ msgstr ""
 "O destinatário não forneceu uma chave pública válida para cifrar "
 "correctamente o conteúdo."
 
-#: boxes/templates/boxes/closed.html:19
-#, python-format
+#: boxes/templates/boxes/closed.html:21
 msgid ""
 "In any of the above cases, you should contact the recipient (<a href="
-"\"mailto:%(box.owner.email)s\" class=\"text-blue\">%(box.owner.first_name)s "
-"%(box.owner.last_name)s</a>) in order to fix the issue."
+"\"mailto:%(email)s\" class=\"text-blue\">%(name)s</a>) in order to fix the "
+"issue.\n"
+"            "
 msgstr ""
 "Em qualquer dos casos acima descritos, deve contactar o destinatário (<a "
-"href=\"mailto:%(box.owner.email)s\" class=\"text-blue\">"
-"%(box.owner.first_name)s %(box.owner.last_name)s</a>) de modo a resolver o "
-"problema."
+"href=\"mailto:%(email)s\" class=\"text-blue\">%(name)s</"
+"a>) de modo a resolver o problema."
 
 #: boxes/templates/boxes/success.html:15
 msgid "MESSAGE SENT WITH SUCCESS!"
@@ -886,17 +885,17 @@ msgstr ""
 msgid "Hawkpost - Submit your content securely"
 msgstr "Hawkpost - Submeta o seu conteúdo de modo seguro"
 
-#: hawkpost/templates/layout/base.html:30
+#: hawkpost/templates/layout/base.html:31
 msgid "With love by"
 msgstr "Desenvolvido pela"
 
-#: hawkpost/templates/layout/base.html:72
+#: hawkpost/templates/layout/base.html:73
 #: hawkpost/templates/layout/navbar.html:22
 #: hawkpost/templates/layout/navbar.html:56
 msgid "About"
 msgstr "Sobre"
 
-#: hawkpost/templates/layout/base.html:73
+#: hawkpost/templates/layout/base.html:74
 #: hawkpost/templates/layout/navbar.html:23
 #: hawkpost/templates/layout/navbar.html:57
 msgid "Support"
@@ -1273,7 +1272,9 @@ msgid ""
 msgstr ""
 "\n"
 "Durante as nossas verificações e actualizações automáticas, usando a chave "
-"por si dada, o sistema descobriu que a chave existente já expirou. Para evitar a ocurrência de algum problema, a chave foi removida e as caixas existentes desactivadas até que uma nova chave seja introduzida.\n"
+"por si dada, o sistema descobriu que a chave existente já expirou. Para "
+"evitar a ocurrência de algum problema, a chave foi removida e as caixas "
+"existentes desactivadas até que uma nova chave seja introduzida.\n"
 "\n"
 "Para que possa dispor novamente de todas as funcionalidades do Hawkpost, por "
 "favor vá às definições e adicione uma nova chave pública.\n"
