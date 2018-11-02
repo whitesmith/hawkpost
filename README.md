@@ -157,6 +157,16 @@ network feature may require additional steps.
 [docker-install-docs]: https://docs.docker.com/engine/installation
 [docker-compose-install-docs]: https://github.com/docker/compose/releases
 
+# Running the test suite
+
+To execute our current test suite, you just need to execute the following command after settinng up your local development environment:
+
+> $ pipenv run python manage.py test
+
+In case you are using our docker setup the command should be:
+
+> $ docker-compose run --rm web pipenv run python manage.py test
+
 # Credits
 
 ![Whitesmith](http://i.imgur.com/Si2l3kd.png)
