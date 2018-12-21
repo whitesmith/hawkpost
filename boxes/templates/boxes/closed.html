@@ -16,7 +16,10 @@
             <li class="mt-small"><span class="subtitle">- </span>{% trans "The recipient did not suply a valid public key in order to correctly encrypt the content." %}</li>
             <br>
           </ul>
-          <p class="text-note">{% blocktrans %}In any of the above cases, you should contact the recipient (<a href="mailto:{{box.owner.email}}" class="text-blue">{{box.owner.first_name}} {{box.owner.last_name}}</a>) in order to fix the issue.{% endblocktrans %}</p>
+          <p class="text-note">
+            {% blocktrans with name=box.owner.get_full_name|default:box.owner.email email=box.owner.email %}In any of the above cases, you should contact the recipient (<a href="mailto:{{email}}" class="text-blue">{{name}}</a>) in order to fix the issue.
+            {% endblocktrans %}
+          </p>
         </div>
       </div>
     </div>
