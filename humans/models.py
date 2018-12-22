@@ -18,7 +18,6 @@ class User(AbstractUser):
     public_key = models.TextField(blank=True, null=True, verbose_name=_('Public key'))
     fingerprint = models.CharField(null=True, blank=True, max_length=50, verbose_name=_('Fingerprint'))
     keyserver_url = models.URLField(null=True, blank=True, verbose_name=_('Key server URL'))
-    server_signed = models.BooleanField(default=False, verbose_name=_('Server signed'))
     timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
     language = models.CharField(default="en-us", max_length=16, choices=LANGUAGE_CHOICES , verbose_name=_('Language'))
 

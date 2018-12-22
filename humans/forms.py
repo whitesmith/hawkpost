@@ -20,7 +20,6 @@ class UpdateUserInfoForm(ModelForm):
             "keyserver_url",
             "public_key",
             "fingerprint",
-            "server_signed",
             "timezone",
             "language"
         ]

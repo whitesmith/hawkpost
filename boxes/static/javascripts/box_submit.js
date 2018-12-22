@@ -8,7 +8,6 @@ $(document).ready(function () {
     var content;
     var contentType;
     var contentFromFile = $("#id_source").is(':checked');
-    var serverSigned = $('.server-signed-js').text() === 'True';
 
     if (contentFromFile) {
       var file = $('#id_file_select')[0].files[0];
@@ -20,8 +19,7 @@ $(document).ready(function () {
       reader.readAsArrayBuffer(file);
 
     } else {
-      contentType = serverSigned ? 'Content-Type: text/plain\n\n' : '';
-      content = contentType + $("#id_plain").val();
+      content = $("#id_plain").val();
       encryptAndSend(content, null);
     }
     return false;

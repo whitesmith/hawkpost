@@ -36,7 +36,6 @@
           <p>{% trans "Email:" %} {{recipient.email}}</p>
           <p>{% trans "Key fingerprint:" %} {{recipient.fingerprint}}</p>
           <div class="hidden public-key-js">{{recipient.public_key}}</div>
-          <div class="hidden server-signed-js">{{recipient.server_signed}}</div>
           {% endfor %}
         </div>
       </div>
