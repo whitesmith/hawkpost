@@ -54,6 +54,9 @@
               <p class="xmt-small smalltext no-margin-bottom">{{object.description|linebreaks}}</p>
             </div>
           </div>
+          {% if request.user.is_authenticated %}
+          <input type="hidden" id="authenticated_user">
+          {% endif %}
         </div>
       </div>
     </div>

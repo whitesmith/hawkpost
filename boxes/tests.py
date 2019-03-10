@@ -160,6 +160,17 @@ class SubmitBoxFormTests(TestCase):
                               "file_name": "test"})
         self.assertEqual(form.is_valid(), True)
 
+    def test_add_reply_to_is_present(self):
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE,
+                              "add_reply_to": "on"})
+        self.assertEqual(form.is_valid(), True)
+        self.assertTrue(form.cleaned_data.get("add_reply_to"))
+
+    def test_add_reply_to_is_not_present(self):
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE})
+        self.assertEqual(form.is_valid(), True)
+        self.assertFalse(form.cleaned_data.get("add_reply_to"))
+
 
 class BoxListViewTests(TestCase):
 

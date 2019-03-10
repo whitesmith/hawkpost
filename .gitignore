@@ -31,3 +31,6 @@ Session.vim
 
 # MacOS Stuff
 .DS_Store
+
+# Editor Stuff
+.vscode

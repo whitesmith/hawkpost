@@ -53,6 +53,7 @@ class CreateBoxForm(ModelForm):
 class SubmitBoxForm(Form):
     message = CharField(widget=Textarea, required=True)
     file_name = CharField(required=False)
+    add_reply_to = BooleanField(required=False)
 
     def clean_message(self):
         # Quick check if the message really came encrypted
