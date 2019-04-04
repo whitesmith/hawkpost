@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from django.core import mail
 from humans.models import User
 from datetime import timedelta
 from .models import Box, Message
@@ -159,6 +160,17 @@ class SubmitBoxFormTests(TestCase):
                               "file_name": "test"})
         self.assertEqual(form.is_valid(), True)
 
+    def test_add_reply_to_is_present(self):
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE,
+                              "add_reply_to": "on"})
+        self.assertEqual(form.is_valid(), True)
+        self.assertTrue(form.cleaned_data.get("add_reply_to"))
+
+    def test_add_reply_to_is_not_present(self):
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE})
+        self.assertEqual(form.is_valid(), True)
+        self.assertFalse(form.cleaned_data.get("add_reply_to"))
+
 
 class BoxListViewTests(TestCase):
 
@@ -247,8 +259,8 @@ class MailTaskTests(TestCase):
 
     def test_email_sending(self):
         """
-            With a valid box_id an email is sent and the box status is changed
-            to sent
+            With a valid message_id an email is sent and the Message status
+            is changed to sent
         """
         user = create_and_login_user(self.client)
         create_boxes(user)
@@ -257,5 +269,21 @@ class MailTaskTests(TestCase):
         process_email(message.id, {"message": ENCRYPTED_MESSAGE})
         after_box = user.own_boxes.get(id=initial_box.id)
         after_msg = after_box.messages.get(id=message.id)
-        #self.assertEqual(message.status, Message.SENT)
+        message.refresh_from_db()
+        self.assertEqual(message.status, Message.SENT)
         self.assertEqual(after_msg.sent_at, after_box.last_sent_at)
+        self.assertEqual(len(mail.outbox[0].reply_to), 0)
+
+    def test_email_sending_with_reply_to(self):
+        mail.outbox = []
+        user = create_and_login_user(self.client)
+        create_boxes(user)
+        initial_box = user.own_boxes.all()[0]
+        message = initial_box.messages.create()
+        process_email(
+            message.id, {"message": ENCRYPTED_MESSAGE}, sent_by=user.email
+        )
+        message.refresh_from_db()
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn(user.email, mail.outbox[0].reply_to)
+        self.assertEqual(message.status, Message.SENT)

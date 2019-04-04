@@ -166,6 +166,7 @@ class BoxSubmitView(UpdateView):
     def post(self, request, *args, **kwargs):
         form = self.get_form(data={"data": request.POST})
         if form.is_valid():
+            cleaned_data = form.cleaned_data
             message = self.object.messages.create()
 
             # Mark box as done
@@ -173,8 +174,16 @@ class BoxSubmitView(UpdateView):
                 self.object.status = Box.DONE
                 self.object.save()
 
+            add_user_email = cleaned_data.get("add_reply_to", False)
+            if request.user.is_authenticated() and add_user_email:
+                user_email = request.user.email
+            else:
+                user_email = None
+
             # Schedule e-mail
-            process_email.delay(message.id, form.cleaned_data)
+            process_email.delay(
+                message.id, form.cleaned_data, sent_by=user_email
+            )
 
             return self.response_class(
                 request=self.request,
