@@ -2,6 +2,7 @@ from django.contrib.auth.models import Group
 from django.utils import timezone
 from django.test import TestCase
 from django.core import mail
+from django.urls import reverse
 from boxes.tests import create_and_login_user
 from hawkpost import celery_app
 from .models import Notification, User
@@ -16,6 +17,22 @@ from copy import copy
 from shutil import rmtree
 import gnupg
 import tempfile
+import random
+import string
+from unittest import mock
+from collections import namedtuple
+
+
+DEFAULT_USER_DATA = {
+    "first_name": "some name",
+    "last_name": "some last name",
+    "company": "some company",
+    "fingerprint": VALID_KEY_FINGERPRINT,
+    "timezone": "UTC",
+    "language": "en-us",
+    "public_key": VALID_KEY
+}
+
 
 def create_notification(sent=False, group=None):
     sent_at = timezone.now() if sent else None
@@ -24,32 +41,34 @@ def create_notification(sent=False, group=None):
                                        sent_at=sent_at,
                                        send_to=group)
 
+
 @with_gpg_obj
 def create_expiring_key(days_to_expire, gpg):
     days_to_expire = str(days_to_expire) + "d"
     # Example values for expire_date: “2009-12-31”, “365d”, “3m”, “6w”, “5y”, “seconds=<epoch>”, 0
     input_data = gpg.gen_key_input(key_type="RSA",
-                                    key_length=1024,
-                                    expire_date=days_to_expire,
-                                    passphrase="secret")
+                                   key_length=1024,
+                                   expire_date=days_to_expire,
+                                   passphrase="secret")
     key_id = gpg.gen_key(input_data)
     # retrieve the key
     key_ascii = gpg.export_keys(key_id)
     # remove the keyring
     return key_ascii
 
+
+def create_and_login_user(client):
+    username = ''.join(random.choice(string.ascii_uppercase) for _ in range(5))
+    user = User.objects.create_user(username=username,
+                                    email="{}@example.com".format(username))
+    client.force_login(user)
+    return user
+
+
 class UpdateUserFormTests(TestCase):
 
     def setUp(self):
-        self.default_data = {
-            "first_name": "some name",
-            "last_name": "some last name",
-            "company": "some company",
-            "fingerprint": VALID_KEY_FINGERPRINT,
-            "timezone": "UTC",
-            "language": "en-us",
-            "public_key": VALID_KEY
-        }
+        self.default_data = DEFAULT_USER_DATA
 
     def test_empty_fingerprint(self):
         data = copy(self.default_data)
@@ -64,7 +83,10 @@ class UpdateUserFormTests(TestCase):
         form = UpdateUserInfoForm(data)
         self.assertEqual(form.is_valid(), True)
 
-    def test_fingerprint_plus_keyserver_url(self):
+    @mock.patch("humans.forms.requests.get")
+    def test_fingerprint_plus_keyserver_url(self, get_mock):
+        Response = namedtuple("Response", "status_code,text")
+        get_mock.return_value = Response(200, VALID_KEY)
         data = copy(self.default_data)
         data["keyserver_url"] = VALID_KEYSERVER_URL
         form = UpdateUserInfoForm(data)
@@ -145,7 +167,7 @@ class UpdateUserFormTests(TestCase):
         Tests if the password is actually changed
         """
         data = {
-            'current_password':'123123',
+            'current_password': '123123',
             'new_password1': 'abcABCD123',
             'new_password2': 'abcABCD123',
             'timezone': 'UTC',
@@ -278,3 +300,73 @@ class KeyChangeRecordsTests(TestCase):
         keychangerecord = self.user.keychanges.last()
         self.assertEqual(keychangerecord.ip_address, '127.0.0.1')
         self.assertEqual(keychangerecord.agent, 'test_agent')
+
+
+class UpdateSettingsTests(TestCase):
+
+    def test_unauthenticated_get_request(self):
+        response = self.client.get(reverse("humans_update"))
+        self.assertEqual(response.status_code, 302)
+
+    def test_unauthenticated_post_request(self):
+        response = self.client.post(reverse("humans_update"))
+        self.assertEqual(response.status_code, 302)
+
+    def test_authenticated_get_request(self):
+        create_and_login_user(self.client)
+        response = self.client.get(reverse("humans_update"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_update_user_name(self):
+        user = create_and_login_user(self.client)
+        response = self.client.post(reverse("humans_update"),
+                                    DEFAULT_USER_DATA,
+                                    HTTP_USER_AGENT="testagent")
+        self.assertEqual(response.status_code, 302)
+        user.refresh_from_db()
+        self.assertEqual(user.first_name, "some name")
+
+
+class DeleteUserTests(TestCase):
+
+    def test_unauthenticated_get_request(self):
+        response = self.client.get(reverse("humans_delete"))
+        self.assertEqual(response.status_code, 302)
+
+    def test_authenticated_get_request(self):
+        create_and_login_user(self.client)
+        response = self.client.get(reverse("humans_delete"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete_without_password(self):
+        create_and_login_user(self.client)
+        response = self.client.post(reverse("humans_delete"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(User.objects.all().exists())
+        self.assertIn(
+            "In order to delete the account you must provide the current password.",
+            [str(msg) for msg in response.context["messages"]])
+
+    def test_delete_with_wrong_password(self):
+        user = create_and_login_user(self.client)
+        user.set_password("somepassword")
+        user.save()
+        self.client.force_login(user)
+        response = self.client.post(reverse("humans_delete"), {
+                                    "current_password": "wrong"})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(
+            "In order to delete the account you must provide the current password.",
+            [str(msg) for msg in response.context["messages"]])
+        self.assertTrue(User.objects.all().exists())
+
+    def test_delete_with_correct_password(self):
+        password = "somepassword"
+        user = create_and_login_user(self.client)
+        user.set_password(password)
+        user.save()
+        self.client.force_login(user)
+        response = self.client.post(reverse("humans_delete"), {
+                                    "current_password": password})
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(User.objects.all().exists())

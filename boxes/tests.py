@@ -255,6 +255,60 @@ class BoxSubmitViewTests(TestCase):
         self.assertEqual(response.template_name, 'boxes/closed.html')
 
 
+class BoxCreateViewTests(TestCase):
+
+    def test_create_new_box(self):
+        user = create_and_login_user(self.client)
+        user.public_key = VALID_KEY
+        user.fingerprint = VALID_KEY_FINGERPRINT
+        user.save()
+        response = self.client.post(reverse("boxes_create"), {
+                                    "name": "test",
+                                    "never_expires": True,
+                                    "max_messages": 1})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(user.boxes.count(), 1)
+        self.assertEqual(user.boxes.first().name, "test")
+
+
+class BoxDeleteViewTests(TestCase):
+
+    def test_delete_existing_box(self):
+        user = create_and_login_user(self.client)
+        create_boxes(user)
+        box = user.own_boxes.filter(name="open").first()
+        response = self.client.post(reverse("boxes_delete", args=(box.id,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(user.own_boxes.count(), 3)
+
+    def test_cannot_delete_box_that_are_not_open(self):
+        user = create_and_login_user(self.client)
+        create_boxes(user)
+        box = user.own_boxes.filter(name="closed").first()
+        response = self.client.post(reverse("boxes_delete", args=(box.id,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(user.own_boxes.count(), 4)
+
+
+class BoxCloseView(TestCase):
+
+    def test_close_an_open_box(self):
+        user = create_and_login_user(self.client)
+        create_boxes(user)
+        box = user.own_boxes.filter(name="open").first()
+        response = self.client.post(reverse("boxes_close", args=(box.id,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(user.own_boxes.filter(status=Box.CLOSED).count(), 2)
+
+    def test_close_box_that_is_not_open(self):
+        user = create_and_login_user(self.client)
+        create_boxes(user)
+        box = user.own_boxes.filter(name="sent").first()
+        response = self.client.post(reverse("boxes_close", args=(box.id,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(user.own_boxes.filter(status=Box.CLOSED).count(), 1)
+
+
 class MailTaskTests(TestCase):
 
     def test_email_sending(self):
