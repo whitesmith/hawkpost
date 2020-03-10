@@ -32,7 +32,7 @@ Base requirements:
 
 On a **Debian** based operating system execute the following steps, after cloning the repository:
 
-* Make sure you have `pipenv` installed. You can check [this page for more information](https://docs.pipenv.org/install/#installing-pipenv)
+* Make sure you have `pipenv` installed. You can check [this page for more information](https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv)
 
 * Install the dependencies
 
