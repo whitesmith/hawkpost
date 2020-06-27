@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 import os
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'pages',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,11 +56,11 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'hawkpost.middleware.TimezoneMiddleware',
     'hawkpost.middleware.LanguageMiddleware',
+    'axes.middleware.AxesMiddleware'
 ]
 
 ROOT_URLCONF = 'hawkpost.urls'
@@ -106,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Authentication settings
 
 AUTHENTICATION_BACKENDS = (
+    'axes.backends.AxesBackend',
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
     # `allauth` specific authentication methods, such as login by e-mail
@@ -123,8 +124,8 @@ SITE_ID = 1
 
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = [
-            ('en-us', _('English')),
-            ('pt-pt', _('Portuguese'))
+    ('en-us', _('English')),
+    ('pt-pt', _('Portuguese'))
 ]
 
 TIME_ZONE = 'UTC'
@@ -179,10 +180,9 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # Authentication Limits Config (AXES)
-AXES_LOGIN_FAILURE_LIMIT = 5
+AXES_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = 1  # hour
 AXES_USERNAME_FORM_FIELD = 'login'
-AXES_DISABLE_SUCCESS_ACCESS_LOG = True
 
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
