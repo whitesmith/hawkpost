@@ -1,10 +1,8 @@
-Hawkpost
-========
+# Hawkpost
 
 Hawkpost lets you create unique links that you can share with the person that desires to send you important information but doesn't know how to deal with PGP.
 
 You can deploy your own server using the code from this repository or use the official server (that is running an exact copy of this repo) at [https://hawkpost.co](https://hawkpost.co).
-
 
 ## Rationale
 
@@ -17,44 +15,43 @@ The way it works is like this:
 1. The server then signs (**experimental**) the encrypted content.
 1. Finally the server forwards it to your e-mail address.
 
-
 # Setting up a development environment
 
 In this section you can find the steps to setup a minimal development environment on your machine.
 
 Base requirements:
 
-* Python 3
-* Redis
-* PostgreSQL
+- Python 3
+- Redis
+- PostgreSQL
 
 ## On Linux
 
 On a **Debian** based operating system execute the following steps, after cloning the repository:
 
-* Make sure you have `pipenv` installed. You can check [this page for more information](https://docs.pipenv.org/install/#installing-pipenv)
+- Make sure you have `pipenv` installed. You can check [this page for more information](https://docs.pipenv.org/install/#installing-pipenv)
 
-* Install the dependencies
+- Install the dependencies
 
 ```
 $ pipenv install
 ```
 
-* Create the local postgreSQL database with your user and no password
+- Create the local postgreSQL database with your user and no password
 
-* Migrate the database
+- Migrate the database
 
 ```
 $ pipenv run python manage.py migrate
 ```
 
-* Generate stylesheet with gulp (installation instructions for gulp can be found [here](https://gulpjs.com/))
+- Generate stylesheet with gulp (installation instructions for gulp can be found [here](https://gulpjs.com/))
 
 ```
 $ gulp build
 ```
 
-* Now you should be able to launch the server and its workers
+- Now you should be able to launch the server and its workers
 
 ```
 $ pipenv run python manage.py runserver
@@ -99,7 +96,6 @@ DB_HOST=db
 DB_USER=hawkpost
 DB_PASSWORD=hawkpost
 REDIS_URL=redis://redis:6379/0
-EMAIL_HOST=mail_debug
 ```
 
 **Don't forget to set the remaining variables** as well.
@@ -115,9 +111,9 @@ $ docker-compose up -d db redis
 # (using `--rm` to remove the temporary container afterwards)
 $ docker-compose run --rm web pipenv run python manage.py migrate
 
-# Run the web, celery and mail_debug containers
+# Run the web and celery containers
 # (`docker-compose up` would log db and redis as well)
-$ docker-compose up web celery mail_debug
+$ docker-compose up web celery
 ```
 
 These commands
@@ -126,9 +122,8 @@ These commands
    we're not bothered by their logs while working on the application.
 1. **Perform the migrations** using a temporary `web` container; it is removed
    afterwards.
-1. **Run the `web`, `celery` and `mail_debug` containers** attached to the
-   console. `mail_debug` is optional since it is only used when debugging the
-   e-mails being sent.
+1. **Run the `web` and `celery`** attached to the
+   console.
 
 The `web` container will reload on code changes.
 
@@ -156,13 +151,13 @@ network feature may require additional steps.
 
 # Running the test suite
 
-To execute our current test suite, you just need to execute the following command after settinng up your local development environment:
+To execute our current test suite, you just need to execute the following command after setting up your local development environment:
 
-> $ pipenv run python manage.py test
+> \$ pipenv run python manage.py test
 
 In case you are using our docker setup the command should be:
 
-> $ docker-compose run --rm web pipenv run python manage.py test
+> \$ docker-compose run --rm web pipenv run python manage.py test
 
 # Credits
 

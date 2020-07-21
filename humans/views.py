@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
 from django.contrib.auth import logout, authenticate
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import FormView, DeleteView
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
 from django.conf import settings
@@ -19,7 +19,7 @@ class LoginRequiredMixin(LoginRequired):
 class AuthMixin():
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             context["login_form"] = LoginForm()
             context["signup_form"] = SignupForm()
         return context
@@ -71,7 +71,7 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         current_pw = request.POST.get("current_password", "")
-        if authenticate(username=request.user.username, password=current_pw):
+        if authenticate(username=request.user.username, password=current_pw, request=request):
             response = super().delete(request, *args, **kwargs)
             logout(request)
             messages.success(request,

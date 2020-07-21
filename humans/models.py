@@ -14,12 +14,17 @@ class User(AbstractUser):
         ('pt-pt', _('Portuguese')),
     )
 
-    organization = models.CharField(null=True, blank=True, max_length=80, verbose_name=_('Organization'))
-    public_key = models.TextField(blank=True, null=True, verbose_name=_('Public key'))
-    fingerprint = models.CharField(null=True, blank=True, max_length=50, verbose_name=_('Fingerprint'))
-    keyserver_url = models.URLField(null=True, blank=True, verbose_name=_('Key server URL'))
+    organization = models.CharField(
+        null=True, blank=True, max_length=80, verbose_name=_('Organization'))
+    public_key = models.TextField(
+        blank=True, null=True, verbose_name=_('Public key'))
+    fingerprint = models.CharField(
+        null=True, blank=True, max_length=50, verbose_name=_('Fingerprint'))
+    keyserver_url = models.URLField(
+        null=True, blank=True, verbose_name=_('Key server URL'))
     timezone = TimeZoneField(default='UTC', verbose_name=_('Timezone'))
-    language = models.CharField(default="en-us", max_length=16, choices=LANGUAGE_CHOICES , verbose_name=_('Language'))
+    language = models.CharField(
+        default="en-us", max_length=16, choices=LANGUAGE_CHOICES, verbose_name=_('Language'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -61,14 +66,18 @@ class Notification(models.Model):
         by an Administrator. Just once.
     """
 
-    subject = models.CharField(null=False, blank=False, max_length=150, verbose_name=_('Subject'))
+    subject = models.CharField(
+        null=False, blank=False, max_length=150, verbose_name=_('Subject'))
     body = models.TextField(null=False, blank=False, verbose_name=_('Body'))
 
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created at'))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_('Updated at'))
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name=_('Created at'))
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name=_('Updated at'))
 
     sent_at = models.DateTimeField(null=True, verbose_name=_('Sent at'))
-    send_to = models.ForeignKey(Group, null=True, blank=True, verbose_name=_('Send to'))
+    send_to = models.ForeignKey(
+        Group, null=True, blank=True, on_delete=models.CASCADE, verbose_name=_('Send to'))
 
     class Meta:
         verbose_name = _('Notification')
@@ -86,6 +95,7 @@ class KeyChangeRecord(models.Model):
         This allows the user to be aware of any suspicious activity
     """
     user = models.ForeignKey(User,
+                             on_delete=models.CASCADE,
                              related_name='keychanges',
                              verbose_name=_('User'))
     prev_fingerprint = models.CharField(null=True,

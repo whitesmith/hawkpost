@@ -32,11 +32,9 @@ INSTALLED_APPS += (
     'django_extensions',
 )
 
-MIDDLEWARE_CLASSES.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
-EMAIL_HOST = os.environ.get("EMAIL_HOST", "127.0.0.1")
-EMAIL_PORT = os.environ.get("EMAIL_PORT", 1025)
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',

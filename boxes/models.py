@@ -26,7 +26,9 @@ class Box(models.Model):
                             verbose_name=_('Unique ID'))
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL,
-                              related_name='own_boxes', verbose_name=_('Owner'))
+                              on_delete=models.CASCADE,
+                              related_name='own_boxes',
+                              verbose_name=_('Owner'))
 
     recipients = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                         related_name='boxes',
@@ -84,8 +86,9 @@ class Membership(models.Model):
                                       verbose_name=_('Created at'))
     updated_at = models.DateTimeField(auto_now=True,
                                       verbose_name=_('Updated at'))
-    box = models.ForeignKey("Box")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    box = models.ForeignKey("Box", on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _('Membership')
@@ -107,7 +110,8 @@ class Message(models.Model):
         (FAILED, _('Failed'))
     )
 
-    box = models.ForeignKey("Box", related_name='messages')
+    box = models.ForeignKey(
+        "Box", on_delete=models.CASCADE, related_name='messages')
     status = models.IntegerField(choices=STATUSES, default=ONQUEUE,
                                  verbose_name=_('Status'))
     created_at = models.DateTimeField(auto_now_add=True,

@@ -30,8 +30,8 @@ class UpdateUserInfoForm(ModelForm):
         }
 
     current_password = forms.CharField(label=_('Current password'),
-                                   required=False,
-                                   widget=forms.PasswordInput)
+                                       required=False,
+                                       widget=forms.PasswordInput)
     new_password1 = forms.CharField(label=_('New password'),
                                     required=False,
                                     widget=forms.PasswordInput)
@@ -135,6 +135,12 @@ class LoginForm(BaseLoginForm):
         self.fields['login'].widget.attrs["placeholder"] = ""
         self.fields['password'].widget.attrs["placeholder"] = ""
         self.fields['password'].widget.attrs["autocomplete"] = "off"
+
+    def user_credentials(self):
+        credentials = super().user_credentials()
+        credentials['login'] = credentials.get(
+            'email') or credentials.get('username')
+        return credentials
 
 
 class SignupForm(BaseSignupForm):
