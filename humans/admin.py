@@ -35,7 +35,7 @@ class NotificationAdmin(admin.ModelAdmin):
     fields = ["subject", "body", "send_to"]
     search_fields = ['subject', 'body']
 
-    actions = ["send_notification", "delete_selected"]
+    actions = ["send_notification"]
 
     def delete_model(self, request, obj):
         if obj.sent_at:
@@ -58,8 +58,8 @@ class NotificationAdmin(admin.ModelAdmin):
         queryset.update(sent_at=timezone.now())
         messages.success(request, _('All notifications enqueued for sending'))
 
-    send_notification.short_description = _('Send selected notifications')
     delete_selected.short_description = _('Delete selected notifications')
+    send_notification.short_description = _('Send selected notifications')
 
 
 @admin.register(KeyChangeRecord)

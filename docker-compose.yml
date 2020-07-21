@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   web:
@@ -15,17 +15,6 @@ services:
     command: pipenv run celery -A hawkpost worker --beat -l info
     volumes:
       - "./gpg_home:/home/user/.gnupg"
-
-  mail_debug:
-    extends:
-      file: common.yml
-      service: app
-    command: pipenv run python manage.py mail_debug --settings hawkpost.settings.development --use-settings
-    ports:
-      - "1025:1025"
-    environment:
-      EMAIL_HOST: 0.0.0.0
-      EMAIL_PORT: 1025
 
   db:
     image: postgres:9

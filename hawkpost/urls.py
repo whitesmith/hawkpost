@@ -17,13 +17,23 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
-from axes.decorators import watch_login
-from allauth.account.views import login
+from django.utils.decorators import method_decorator
+
+from allauth.account.views import LoginView
+from axes.decorators import axes_dispatch
+from axes.decorators import axes_form_invalid
+
+from humans.forms import LoginForm
+
+LoginView.dispatch = method_decorator(axes_dispatch)(LoginView.dispatch)
+LoginView.form_invalid = method_decorator(
+    axes_form_invalid)(LoginView.form_invalid)
 
 urlpatterns = [
-    url(r'^admin/login/$', watch_login(admin.site.login)),
+    url(r'^admin/login/$', admin.site.login),
     url(r'^admin/', admin.site.urls),
-    url(r'^users/login/$', watch_login(login)),
+    url(r'^users/login/$', LoginView.as_view(form_class=LoginForm),
+        name='account_login'),
     url(r'^users/', include('allauth.urls')),
     url(r'^users/', include('humans.urls')),
     url(r'^box/', include('boxes.urls')),

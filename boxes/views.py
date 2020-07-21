@@ -1,6 +1,6 @@
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.utils import timezone
@@ -47,7 +47,7 @@ class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
     def dispatch(self, request, *args, **kwargs):
         # Check if user can create boxes:
         user = request.user
-        if user.is_authenticated() and not user.has_setup_complete():
+        if user.is_authenticated and not user.has_setup_complete():
             url = reverse_lazy("humans_update") + "?setup=1"
             return self.render_to_response({"location": url})
 
@@ -175,7 +175,7 @@ class BoxSubmitView(UpdateView):
                 self.object.save()
 
             add_user_email = cleaned_data.get("add_reply_to", False)
-            if request.user.is_authenticated() and add_user_email:
+            if request.user.is_authenticated and add_user_email:
                 user_email = request.user.email
             else:
                 user_email = None
