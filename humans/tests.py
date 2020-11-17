@@ -339,7 +339,10 @@ class DeleteUserTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_delete_without_password(self):
-        create_and_login_user(self.client)
+        user = create_and_login_user(self.client)
+        user.set_password("somepassword")
+        user.save()
+        self.client.force_login(user)
         response = self.client.post(reverse("humans_delete"))
         self.assertEqual(response.status_code, 200)
         self.assertTrue(User.objects.all().exists())
@@ -368,5 +371,12 @@ class DeleteUserTests(TestCase):
         self.client.force_login(user)
         response = self.client.post(reverse("humans_delete"), {
                                     "current_password": password})
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(User.objects.all().exists())
+
+    def test_delete_passwordless_account(self):
+        user = create_and_login_user(self.client)
+        self.client.force_login(user)
+        response = self.client.post(reverse("humans_delete"))
         self.assertEqual(response.status_code, 302)
         self.assertFalse(User.objects.all().exists())
