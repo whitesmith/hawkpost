@@ -17,11 +17,13 @@
         <div class="col-xs-12 col-offset-sm-2 col-sm-8 col-offset-md-3 col-md-6">
             <form class="form__wrap" method="post" action="{% url "humans_delete" %}">
                 {% csrf_token %}
+                {% if request.user.has_usable_password %}
                 <div class="text-left input-anim">
                     <label for="current-password" class="">{% trans "Insert your current password:" %}</label>
                     <input id="current-password" type="password" name="current_password" placeholder="{% trans "Current password" %}" class="padding-inside mt-normal" autocomplete="off"></input>
                 </div>
                 <br>
+                {% endif %}
                 <div>
                     <input type="submit" class="btn-danger" value="{% trans "Yes, I want to delete everything" %}"></input>
                 </div>
