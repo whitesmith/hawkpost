@@ -71,7 +71,8 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         current_pw = request.POST.get("current_password", "")
-        if authenticate(username=request.user.username, password=current_pw, request=request):
+        if not request.user.has_usable_password() or authenticate(
+                username=request.user.username, password=current_pw, request=request):
             response = super().delete(request, *args, **kwargs)
             logout(request)
             messages.success(request,
