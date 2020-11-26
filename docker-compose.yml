@@ -17,7 +17,7 @@ services:
       - "./gpg_home:/home/user/.gnupg"
 
   db:
-    image: postgres:9
+    image: postgres:12.5
     ports:
       - "5432:5432"
     environment:
@@ -26,6 +26,6 @@ services:
       - POSTGRES_DB=hawkpost_dev
 
   redis:
-    image: redis:3-alpine
+    image: redis:5-alpine
     ports:
       - "6379:6379"

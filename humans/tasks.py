@@ -1,5 +1,4 @@
-from celery.task.schedules import crontab
-from celery.decorators import periodic_task
+from celery.schedules import crontab
 from celery import shared_task
 from celery.utils.log import get_task_logger
 from django.core.mail import EmailMultiAlternatives
@@ -7,6 +6,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+from hawkpost.celery import app as celery_app
 from .models import User, Notification
 from .utils import key_state
 import requests
@@ -31,8 +31,17 @@ def send_email(user, subject, template):
     email.send()
 
 
-# Every day at 4 AM UTC
-@periodic_task(run_every=(crontab(minute=0, hour=4)), ignore_result=True)
+@celery_app.on_after_finalize.connect
+def setup_periodic_tasks(sender, **kwargs):
+    # Every day at 4 AM UTC
+    sender.add_periodic_task(crontab(minute=0, hour=4), update_public_keys.s())
+
+    # Every day at 5h30 AM UTC
+    sender.add_periodic_task(
+        crontab(minute=30, hour=5), validate_public_keys.s())
+
+
+@celery_app.task(ignore_result=True)
 def update_public_keys():
     users = User.objects.exclude(
         Q(keyserver_url__isnull=True) | Q(keyserver_url__exact=''))
@@ -76,8 +85,8 @@ def update_public_keys():
 
     logger.info(_('Finished Updating user keys'))
 
-# Every day at 5h30 AM UTC
-@periodic_task(run_every=(crontab(minute=30, hour=5)), ignore_result=True)
+
+@celery_app.task(ignore_result=True)
 def validate_public_keys():
     users = User.objects.exclude(
         Q(public_key__isnull=True) | Q(public_key__exact=''))
