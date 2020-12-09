@@ -254,6 +254,16 @@ class BoxSubmitViewTests(TestCase):
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.template_name, 'boxes/closed.html')
 
+    def test_box_not_found(self):
+        user = create_and_login_user(self.client)
+        user.public_key = VALID_KEY
+        user.fingerprint = VALID_KEY_FINGERPRINT
+        user.save()
+        box = create_open_box(user)
+        box.delete()
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.status_code, 404)
+
 
 class BoxCreateViewTests(TestCase):
 

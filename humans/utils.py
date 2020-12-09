@@ -2,36 +2,35 @@ from django.utils import timezone
 from datetime import datetime
 from functools import wraps
 from shutil import rmtree
+from tempfile import TemporaryDirectory
 import gnupg
-import tempfile
 
 
 def with_gpg_obj(func):
     @wraps(func)
     def inner(key):
-        # create temp gpg keyring
-        temp_dir = tempfile.mkdtemp()
-        gpg_obj = gnupg.GPG(homedir=temp_dir,
-                            keyring="pub.gpg",
-                            secring="sec.gpg")
-        gpg_obj.encoding = 'utf-8'
-        ret = func(key, gpg_obj)
-        # remove the keyring
-        rmtree(temp_dir)
+        with TemporaryDirectory() as temp_dir:
+            gpg_obj = gnupg.GPG(homedir=temp_dir,
+                                keyring="pub.gpg",
+                                secring="sec.gpg")
+            gpg_obj.encoding = 'utf-8'
+            ret = func(key, gpg_obj)
         return ret
     return inner
 
 
 @with_gpg_obj
 def key_state(key, gpg):
+    INVALID = (None, "invalid", -1)
     if not key:
-        return None, "invalid", -1
+        return INVALID
     results = gpg.import_keys(key).results
+    if not results:
+        return INVALID
     # Key data is present in the last element of the list
-    if not results or not results[-1]["fingerprint"]:
-        return None, "invalid", -1
-
-    key_fingerprint = results[-1]["fingerprint"]
+    key_fingerprint = results[-1].get("fingerprint")
+    if not key_fingerprint:
+        return INVALID
 
     # Since the keyring is exclusive for this import
     # only the imported key exists in it.
