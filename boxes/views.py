@@ -1,5 +1,5 @@
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -139,8 +139,8 @@ class BoxSubmitView(UpdateView):
         try:
             q = queryset.select_related('owner').prefetch_related('recipients')
             return q.get(uuid=self.kwargs.get("box_uuid"))
-        except ValueError:
-            raise ObjectDoesNotExist(_('Not Found. Double check your URL'))
+        except (ValueError, Box.DoesNotExist):
+            raise Http404(_('Not Found. Double check your URL'))
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
