@@ -13,24 +13,24 @@ from humans.test_constants import EXPIRED_KEY, EXPIRED_KEY_FINGERPRINT, \
 import random
 import string
 
+future_datetime = timezone.now() + timedelta(days=1)
+future_datetime_string = future_datetime.strftime("%m/%d/%Y %H:%M")
 
 def create_boxes(user):
-    not_expired = timezone.now() + timedelta(hours=3)
-    expired = timezone.now() - timedelta(hours=3)
     user.own_boxes.create(
-        name="open", expires_at=not_expired, status=Box.OPEN)
+        name="open", expires_at=future_datetime, status=Box.OPEN)
     user.own_boxes.create(
-        name="closed", expires_at=not_expired, status=Box.CLOSED)
+        name="closed", expires_at=future_datetime, status=Box.CLOSED)
     user.own_boxes.create(
-        name="sent", expires_at=not_expired, status=Box.DONE)
+        name="sent", expires_at=future_datetime, status=Box.DONE)
+    past_datetime = timezone.now() - timedelta(days=1)
     user.own_boxes.create(
-        name="expired", expires_at=expired, status=Box.EXPIRED)
+        name="expired", expires_at=past_datetime, status=Box.EXPIRED)
 
 
 def create_open_box(user):
-    expires_at = timezone.now() + timedelta(hours=3)
     return user.own_boxes.create(name="open",
-                                 expires_at=expires_at,
+                                 expires_at=future_datetime,
                                  status=Box.OPEN)
 
 
@@ -66,7 +66,7 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "some text",
-            "expires_at": "12/12/2020 23:00",
+            "expires_at": future_datetime_string,
             "max_messages": 1
         }
         form = CreateBoxForm(data)
@@ -92,20 +92,20 @@ class BoxFormTests(TestCase):
         data = {
             "name": "",
             "description": "some text",
-            "expires_at": "12/12/2020 23:00",
+            "expires_at": future_datetime_string,
             "max_messages": 1
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
 
-    def test_empty_desription(self):
+    def test_empty_description(self):
         """
             Description is optional
         """
         data = {
             "name": "some name",
             "description": "",
-            "expires_at": "12/12/2020 23:00",
+            "expires_at": future_datetime_string,
             "max_messages": 1
         }
         form = CreateBoxForm(data)
@@ -118,7 +118,7 @@ class BoxFormTests(TestCase):
         data = {
             "name": "some name",
             "description": "",
-            "expires_at": "12/12/2020 23:00",
+            "expires_at": future_datetime_string,
             "max_messages": 0
         }
         form = CreateBoxForm(data)
