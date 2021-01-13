@@ -47,7 +47,7 @@ class BoxFormTests(TestCase):
     def test_invalid_expiration_date(self):
         """
             Expiration must be submitted provided and with valid format
-            If one of this the above statments are not true form must be
+            If one of this the above statements are not true form must be
             invalid
         """
         data = {
