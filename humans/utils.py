@@ -2,19 +2,23 @@ from django.utils import timezone
 from datetime import datetime
 from functools import wraps
 from shutil import rmtree
-from tempfile import TemporaryDirectory
 import gnupg
+import tempfile
 
 
 def with_gpg_obj(func):
     @wraps(func)
     def inner(key):
-        with TemporaryDirectory() as temp_dir:
-            gpg_obj = gnupg.GPG(homedir=temp_dir,
-                                keyring="pub.gpg",
-                                secring="sec.gpg")
-            gpg_obj.encoding = 'utf-8'
-            ret = func(key, gpg_obj)
+        # create temp gpg keyring
+        temp_dir = tempfile.mkdtemp()
+        gpg_obj = gnupg.GPG(homedir=temp_dir,
+                            keyring="pub.gpg",
+                            secring="sec.gpg")
+        gpg_obj.encoding = 'utf-8'
+        ret = func(key, gpg_obj)
+        # remove the keyring
+        rmtree(temp_dir, ignore_errors=True)
+
         return ret
     return inner
 
