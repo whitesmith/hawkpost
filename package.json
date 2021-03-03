@@ -18,16 +18,16 @@
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-if": "^2.0.0",
     "gulp-notify": "^2.2.0",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^4.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.1.5",
     "sass-module-importer": "^1.2.0",
-    "yargs": "^4.3.2"
+    "yargs": "^16.2.0"
   }
 }
