@@ -14,7 +14,7 @@
 
 /* Gulp dependencies */
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
+var runSequence = require('gulp4-run-sequence');
 var gutil = require('gulp-util');
 var del = require('del');
 var gulpif = require('gulp-if');
