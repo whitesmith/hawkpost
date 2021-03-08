@@ -14,7 +14,7 @@
 
 /* Gulp dependencies */
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
+var runSequence = require('gulp4-run-sequence');
 var gutil = require('gulp-util');
 var del = require('del');
 var gulpif = require('gulp-if');
@@ -58,16 +58,16 @@ var tasks = {};
 
 tasks.browser_sync = function () {
   var config = {
-      proxy: {
-          target: "http://localhost:8000",
-          ws: true
-      },
-      ghostMode: {
-        clicks: false,
-        location: false,
-        forms: false,
-        scroll: false
-      }
+    proxy: {
+      target: "http://localhost:8000",
+      ws: true
+    },
+    ghostMode: {
+      clicks: false,
+      location: false,
+      forms: false,
+      scroll: false
+    }
   };
 
   browserSync(config);
@@ -97,7 +97,7 @@ tasks.sass = function () {
       loadMaps: true
     })))
     /* Autoprefixer */
-   .pipe(autoprefixer({
+    .pipe(autoprefixer({
       browsers: ['last 2 versions'],
     }))
     /* We don't serve the source files,
@@ -117,9 +117,9 @@ gulp.task('sass', tasks.sass);
 /* Assets compilation and reload. */
 gulp.task('browser-sync', tasks.browser_sync);
 var browserSyncRefresh = browserSync.reload.bind(browserSync);
-var browserSyncStream  = function () { browserSync.reload({ stream: true }); };
+var browserSyncStream = function () { browserSync.reload({ stream: true }); };
 
-gulp.task('reload-sass', ['sass'], browserSyncStream);
+gulp.task('reload-sass', gulp.series('sass'), browserSyncStream);
 
 /* Watch task */
 gulp.task('watch', function (cb) {
@@ -141,9 +141,9 @@ gulp.task('build', function (cb) {
   /* Clean first, build afterwards. */
   return runSequence(
     'clean', [
-      'sass',
-    ], cb);
+    'sass',
+  ], cb);
 });
 
 /* Default task (`watch`) */
-gulp.task('default', ['watch']);
+gulp.task('default', gulp.series('watch'));
