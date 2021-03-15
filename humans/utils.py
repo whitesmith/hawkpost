@@ -11,14 +11,11 @@ def with_gpg_obj(func):
     def inner(key):
         # create temp gpg keyring
         temp_dir = tempfile.mkdtemp()
-        gpg_obj = gnupg.GPG(homedir=temp_dir,
-                            keyring="pub.gpg",
-                            secring="sec.gpg")
+        gpg_obj = gnupg.GPG(gnupghome=temp_dir)
         gpg_obj.encoding = 'utf-8'
         ret = func(key, gpg_obj)
         # remove the keyring
         rmtree(temp_dir, ignore_errors=True)
-
         return ret
     return inner
 

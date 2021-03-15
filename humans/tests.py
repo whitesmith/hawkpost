@@ -50,7 +50,7 @@ def create_expiring_key(days_to_expire, gpg):
                                    key_length=1024,
                                    expire_date=days_to_expire,
                                    passphrase="secret")
-    key_id = gpg.gen_key(input_data)
+    key_id = str(gpg.gen_key(input_data))
     # retrieve the key
     key_ascii = gpg.export_keys(key_id)
     # remove the keyring
