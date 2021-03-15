@@ -98,6 +98,10 @@ msgstr "Max. mensagens"
 msgid "Last sent at"
 msgstr "Enviado pela ultima vez em"
 
+#: boxes/models.py:55
+msgid "Restrict to verified users"
+msgstr "Limitar a utilizadores verificados"
+
 #: boxes/models.py:53
 msgid "Box"
 msgstr "Caixa"
@@ -162,6 +166,10 @@ msgstr "GERIR CAIXAS"
 #: boxes/templates/boxes/box_list.html:14
 msgid "New Box"
 msgstr "Nova Caixa"
+
+#: boxes/templates/boxes/box_list.html:52
+msgid "Restricted to verified users"
+msgstr "Limitada a utilizadores verificados"
 
 #: boxes/templates/boxes/box_list.html:52
 msgid "Messages:"
@@ -2071,6 +2079,12 @@ msgstr ""
 #: pages/templates/pages/index.html:110
 msgid "Ready to start?"
 msgstr "Vamos começar?"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
 
 #~ msgid "<b>Forum:</b> soon"
 #~ msgstr "<b>Forum:</b> Brevemente"

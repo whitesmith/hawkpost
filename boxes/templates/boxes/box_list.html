@@ -49,6 +49,10 @@
 
             <div class="extra-info">
               <p class="no-margin-bottom mt-small">
+                <span class="xsmallmedium text-darkest">{% trans "Restricted to verified users:" %}</span>
+                <span class="xsmalltext text-darkest">{% if box.verified_only %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</span>
+              </p>
+              <p class="no-margin-bottom mt-small">
                 <span class="xsmallmedium text-darkest">{% trans "Messages:" %}</span>
                 <span class="xsmalltext text-darkest">{{box.messages.count}}/{{box.max_messages}}</span>
               </p>
@@ -129,11 +133,22 @@
         <form action="{% url 'boxes_create' %}" method="post" class="" id="box-create-form-js">
           {% csrf_token %}
           <label class="input-anim smalltext">
-            <p>
-              <span id="name-errors-js">{{ form.name.errors }}</span>
-              {{ form.name.label_tag }}
-              {{ form.name }}
-            </p>
+            <div class="row middle-xs">
+              <div class="col-xs-9 col-xxs-12 col-sm-8">
+                <p>
+                  <span id="name-errors-js">{{ form.name.errors }}</span>
+                  {{ form.name.label_tag }}
+                  {{ form.name }}
+                </p>
+              </div>
+              <div class="col-xs-3 col-xxs-12 col-sm-4">
+                <p>
+                  <span id="max_messages-errors-js">{{ form.max_messages.errors }}</span>
+                  {{ form.max_messages.label_tag }}
+                  {{ form.max_messages }}
+                </p>
+              </div>
+            </div>
             <div class="row middle-xs">
               <div class="col-xs-9 col-xxs-12 col-sm-8">
                 <p class="multiline-input">
@@ -143,11 +158,13 @@
                 </p>
               </div>
               <div class="col-xs-3 col-xxs-12 col-sm-4">
-                <p>
-                  <span id="max_messages-errors-js">{{ form.max_messages.errors }}</span>
-                  {{ form.max_messages.label_tag }}
-                  {{ form.max_messages }}
-                </p>
+                <div class="start-xs middle-xs">
+                  <p>
+                    <span id="verified_only-errors-js">{{ form.verified_only.errors }}</span>
+                    {{ form.verified_only.label_tag }}
+                  </p>
+                  {{ form.verified_only }}
+                </div>
               </div>
             </div>
             <div class="row bottom-xs padding-b-m">
@@ -160,7 +177,10 @@
               </div>
               <div class="col-xs-3 col-xxs-12 col-sm-4">
                 <div class="start-xs middle-xs">
-                  <p><span id="never_expires-errors-js">{{ form.never_expires.errors }}</span>{{ form.never_expires.label_tag }}</p>
+                  <p>
+                    <span id="never_expires-errors-js">{{ form.never_expires.errors }}</span>
+                    {{ form.never_expires.label_tag }}
+                  </p>
                   {{ form.never_expires }}
                 </div>
               </div>
