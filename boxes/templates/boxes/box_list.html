@@ -18,7 +18,7 @@
         <div class="row no-padding">
           <div class="center-xs col-xs-12 flex-d">
             <li class="full-width"><a href="{% url "boxes_list" %}?display=Open" class="box__nav__item {% if display_status == 'Open' %}active{% endif %}">{% trans "Open" %}</a></li>
-            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Done"class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">{% trans "Done" %}</a></li>
+            <li class="full-width" ><a href="{% url "boxes_list" %}?display=Done" class="box__nav__item {% if display_status == 'Done' %}active{% endif %}">{% trans "Done" %}</a></li>
             <li class="full-width"><a href="{% url "boxes_list" %}?display=Expired" class="box__nav__item {% if display_status == 'Expired' %}active{% endif %}">{% trans "Expired" %}</a></li>
             <li class="full-width" ><a href="{% url "boxes_list" %}?display=Closed" class="box__nav__item {% if display_status == 'Closed' %}active{% endif %}">{% trans "Closed" %}</a></li>
           </div>

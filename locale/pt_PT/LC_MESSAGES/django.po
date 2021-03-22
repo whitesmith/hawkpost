@@ -2099,3 +2099,13 @@ msgstr "Não"
 
 #~ msgid "Prefered language"
 #~ msgstr "Linguagem preferida"
+
+#: boxes/templates/boxes/verified_only.html
+msgid "Verify Your Identity"
+msgstr "Verifique a sua identidade"
+
+msgid "To access this page you need to verify your identity. Please login to your Hawkpost account or sign up if you don't have one."
+msgstr "Para aceder a esta página precisa de verificar a sua identidade. Por favor entre na sua conta Hawkpost, ou registe-se, caso ainda não tenha uma."
+
+msgid "Note that if you've signed up using your email address, you need to verify it to get access. To do this, simply visit the link provided in the email that was sent to you upon registration."
+msgstr "Note que se registou a sua conta usando o seu endereço de email, terá que o verificar para obter acesso. Para o fazer, basta visitar o link disponibilizado no email que lhe foi enviado após o registo."
