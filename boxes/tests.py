@@ -31,18 +31,19 @@ def create_user(add_key=True):
     return User.objects.create_user(**user_data)
 
 
-def create_box(user, status="open"):
+def create_box(user, status="open", verified_only=False):
+    statuses = {
+        "open": Box.OPEN,
+        "done": Box.DONE,
+        "closed": Box.CLOSED,
+        "expired": Box.EXPIRED
+    }
     past_datetime = timezone.now() - timedelta(days=1)
     return user.own_boxes.create(
         name="test_box",
+        status=statuses[status],
         expires_at=past_datetime if status is "expired" else future_datetime,
-        status={
-            "open": Box.OPEN,
-            "done": Box.DONE,
-            "closed": Box.CLOSED,
-            "expired": Box.EXPIRED
-        }[status]
-    )
+        verified_only=verified_only)
 
 
 class BoxFormTests(TestCase):
@@ -187,6 +188,16 @@ class BoxListViewTests(TestCase):
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.OPEN)
 
+    def test_verified_only_boxes_list(self):
+        """
+            Base page shows verified_only boxes
+        """
+        user = create_and_login_user(self.client)
+        create_box(user, verified_only=True)
+        response = self.client.get(reverse("boxes_list"))
+        for box in response.context["object_list"]:
+            self.assertTrue(box.verified_only)
+
     def test_expired_boxes_list(self):
         """
             With expired query param expired boxes are shown
@@ -259,6 +270,19 @@ class BoxSubmitViewTests(TestCase):
         box.delete()
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.status_code, 404)
+
+    def test_anonymous_access_to_verified_only_box(self):
+        user = create_user()
+        box = create_box(user, verified_only=True)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.status_code, 401)
+
+    def test_authenticated_access_to_verified_only_box(self):
+        user = create_user()
+        box = create_box(user, verified_only=True)
+        create_and_login_user(self.client)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.status_code, 200)
 
 
 class BoxCreateViewTests(TestCase):
