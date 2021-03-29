@@ -18,21 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.1\n"
 
-#: boxes/forms.py:40
+#: boxes/forms.py:41
 msgid "The date must be on the future."
 msgstr "A data tem que ser no futuro."
 
-#: boxes/forms.py:43
+#: boxes/forms.py:44
 msgid "This field is required, unless box is set to never expire."
 msgstr ""
 "Este campo é obrigatório, a não ser que a caixa seja definida para nunca "
 "expirar."
 
-#: boxes/forms.py:66
+#: boxes/forms.py:67
 msgid "The message or file exceeds your allowed size limit."
 msgstr "A mensagem (ou ficheiro) excede o tamanho limite que é permitido."
 
-#: boxes/forms.py:74 boxes/forms.py:76
+#: boxes/forms.py:75 boxes/forms.py:77
 msgid "Invalid PGP message"
 msgstr "Mensagem PGP inválida"
 
@@ -72,12 +72,12 @@ msgstr "Dono"
 msgid "Recipients"
 msgstr "Destinatários"
 
-#: boxes/models.py:39 boxes/models.py:86 boxes/models.py:118
+#: boxes/models.py:39 boxes/models.py:89 boxes/models.py:121
 #: humans/models.py:74 humans/models.py:112
 msgid "Created at"
 msgstr "Criado em"
 
-#: boxes/models.py:41 boxes/models.py:88 boxes/models.py:120
+#: boxes/models.py:41 boxes/models.py:91 boxes/models.py:123
 #: humans/models.py:76
 msgid "Updated at"
 msgstr "Actualizado em"
@@ -86,7 +86,7 @@ msgstr "Actualizado em"
 msgid "Expires at"
 msgstr "Expira em"
 
-#: boxes/models.py:46 boxes/models.py:116
+#: boxes/models.py:46 boxes/models.py:119
 msgid "Status"
 msgstr "Estado"
 
@@ -99,51 +99,55 @@ msgid "Last sent at"
 msgstr "Enviado pela ultima vez em"
 
 #: boxes/models.py:55
+msgid "Restrict to verified users"
+msgstr "Limitar a utilizadores verificados"
+
+#: boxes/models.py:58
 msgid "Box"
 msgstr "Caixa"
 
-#: boxes/models.py:56 hawkpost/templates/layout/navbar.html:14
+#: boxes/models.py:59 hawkpost/templates/layout/navbar.html:14
 #: hawkpost/templates/layout/navbar.html:48
 msgid "Boxes"
 msgstr "Caixas"
 
-#: boxes/models.py:78
+#: boxes/models.py:81
 msgid "Knowledge of existence"
 msgstr "Conhecimento de existência"
 
-#: boxes/models.py:79
+#: boxes/models.py:82
 msgid "Activity notifications"
 msgstr "Notificações de actividade"
 
-#: boxes/models.py:80
+#: boxes/models.py:83
 msgid "Full access to content"
 msgstr "Acesso total ao conteúdo"
 
-#: boxes/models.py:84
+#: boxes/models.py:87
 msgid "Rights"
 msgstr "Direitos"
 
-#: boxes/models.py:94
+#: boxes/models.py:97
 msgid "Membership"
 msgstr "Associação"
 
-#: boxes/models.py:95
+#: boxes/models.py:98
 msgid "Memberships"
 msgstr "Associações"
 
-#: boxes/models.py:108
+#: boxes/models.py:111
 msgid "OnQueue"
 msgstr "Em Fila"
 
-#: boxes/models.py:109
+#: boxes/models.py:112
 msgid "Sent"
 msgstr "Enviado"
 
-#: boxes/models.py:110
+#: boxes/models.py:113
 msgid "Failed"
 msgstr "Falhou"
 
-#: boxes/models.py:122 humans/models.py:78
+#: boxes/models.py:125 humans/models.py:78
 msgid "Sent at"
 msgstr "Enviado em"
 
@@ -164,38 +168,48 @@ msgid "New Box"
 msgstr "Nova Caixa"
 
 #: boxes/templates/boxes/box_list.html:52
-msgid "Restricted to verified users"
+msgid "Restricted to verified users:"
 msgstr "Limitada a utilizadores verificados"
 
-#: boxes/templates/boxes/box_list.html:52
+#: boxes/templates/boxes/box_list.html:53
+msgid "Yes"
+msgstr "Sim"
+
+#: boxes/templates/boxes/box_list.html:53
+#, fuzzy
+#| msgid "Note"
+msgid "No"
+msgstr "Não"
+
+#: boxes/templates/boxes/box_list.html:56
 msgid "Messages:"
 msgstr "Mensagens:"
 
-#: boxes/templates/boxes/box_list.html:56
+#: boxes/templates/boxes/box_list.html:60
 msgid "Created on:"
 msgstr "Criado em:"
 
-#: boxes/templates/boxes/box_list.html:61
+#: boxes/templates/boxes/box_list.html:65
 msgid "Expires on:"
 msgstr "Expira em:"
 
-#: boxes/templates/boxes/box_list.html:67
+#: boxes/templates/boxes/box_list.html:71
 msgid "Last sent:"
 msgstr "Ultimamente enviado:"
 
-#: boxes/templates/boxes/box_list.html:77
+#: boxes/templates/boxes/box_list.html:81
 msgid "CLOSE"
 msgstr "FECHAR"
 
-#: boxes/templates/boxes/box_list.html:82
+#: boxes/templates/boxes/box_list.html:86
 msgid "DELETE"
 msgstr "APAGAR"
 
-#: boxes/templates/boxes/box_list.html:92
+#: boxes/templates/boxes/box_list.html:96
 msgid "You don't have any boxes yet"
 msgstr "Ainda não tem caixas criadas"
 
-#: boxes/templates/boxes/box_list.html:93
+#: boxes/templates/boxes/box_list.html:97
 msgid ""
 "A Box is a generated link where other people can submit information that "
 "will be encrypted and delivered to you. They can have several different "
@@ -205,7 +219,7 @@ msgstr ""
 "que será cifrada e entregue a si. As caixas podem ter várias configurações "
 "diferentes."
 
-#: boxes/templates/boxes/box_list.html:94
+#: boxes/templates/boxes/box_list.html:98
 msgid ""
 "If you already have configured your public key in the settings menu, you "
 "just need to click the ''New Box'' button above to start using Hawkpost. If "
@@ -215,24 +229,24 @@ msgstr ""
 "Hawkpost precisa apenas de clicar no botão ''Nova caixa''. Se ainda não o "
 "fez por favor adicione a sua chave pública primeiro."
 
-#: boxes/templates/boxes/box_list.html:104
+#: boxes/templates/boxes/box_list.html:108
 msgid "Previous"
 msgstr "Anterior"
 
-#: boxes/templates/boxes/box_list.html:108
+#: boxes/templates/boxes/box_list.html:112
 #, python-format
 msgid "Page %(page_obj.number)s of %(paginator.num_pages)s"
 msgstr "Página %(page_obj.number)s de %(paginator.num_pages)s"
 
-#: boxes/templates/boxes/box_list.html:112
+#: boxes/templates/boxes/box_list.html:116
 msgid "Next"
 msgstr "Próximo"
 
-#: boxes/templates/boxes/box_list.html:125
+#: boxes/templates/boxes/box_list.html:129
 msgid "CREATE NEW BOX"
 msgstr "CRIAR NOVA CAIXA"
 
-#: boxes/templates/boxes/box_list.html:126
+#: boxes/templates/boxes/box_list.html:130
 msgid ""
 "For others to be able to send you encrypted content through Hawkpost, you'll "
 "need to generate \"boxes\"."
@@ -240,7 +254,7 @@ msgstr ""
 "Para que outros sejam capazes de lhe enviar conteúdo encriptado pelo "
 "Hawkpost, terá que gerar \"boxes\"."
 
-#: boxes/templates/boxes/box_list.html:127
+#: boxes/templates/boxes/box_list.html:131
 msgid ""
 "Each box has an associated link that you can copy and share with any given "
 "person. If you want, you can set the expiration date and number of messages "
@@ -250,7 +264,7 @@ msgstr ""
 "pessoa. Se quiser, poderá definir o prazo de validade e o número de "
 "mensagens após o qual o link será bloqueado e não mais acessível."
 
-#: boxes/templates/boxes/box_list.html:170
+#: boxes/templates/boxes/box_list.html:190
 msgid "Create"
 msgstr "Criar"
 
@@ -370,6 +384,31 @@ msgstr "MENSAGEM ENVIADA COM SUCESSO!"
 #: boxes/templates/boxes/success.html:20
 msgid "by:"
 msgstr "por:"
+
+#: boxes/templates/boxes/verified_only.html:4
+#: boxes/templates/boxes/verified_only.html:13
+#, fuzzy
+#| msgid "Verify Your E-mail Address"
+msgid "Verify Your Identity"
+msgstr "Verifique a sua identidade"
+
+#: boxes/templates/boxes/verified_only.html:16
+msgid ""
+"To access this page you need to verify your identity. Please login to your "
+"Hawkpost account or sign up if you don't have one."
+msgstr ""
+"Para aceder a esta página precisa de verificar a sua identidade. Por favor "
+"entre na sua conta Hawkpost, ou registe-se, caso ainda não tenha uma."
+
+#: boxes/templates/boxes/verified_only.html:19
+msgid ""
+"Note that if you've signed up using your email address, you need to verify "
+"it to get access. To do this, simply visit the link provided in the email "
+"that was sent to you upon registration."
+msgstr ""
+"Note que se registou a sua conta usando o seu endereço de email, terá que o "
+"verificar para obter acesso. Para o fazer, basta visitar o link "
+"disponibilizado no email que lhe foi enviado após o registo."
 
 #: boxes/views.py:65
 msgid "Box created successfully"
@@ -2081,13 +2120,3 @@ msgstr "Vamos começar?"
 
 #~ msgid "Prefered language"
 #~ msgstr "Linguagem preferida"
-
-#: boxes/templates/boxes/verified_only.html
-msgid "Verify Your Identity"
-msgstr "Verifique a sua identidade"
-
-msgid "To access this page you need to verify your identity. Please login to your Hawkpost account or sign up if you don't have one."
-msgstr "Para aceder a esta página precisa de verificar a sua identidade. Por favor entre na sua conta Hawkpost, ou registe-se, caso ainda não tenha uma."
-
-msgid "Note that if you've signed up using your email address, you need to verify it to get access. To do this, simply visit the link provided in the email that was sent to you upon registration."
-msgstr "Note que se registou a sua conta usando o seu endereço de email, terá que o verificar para obter acesso. Para o fazer, basta visitar o link disponibilizado no email que lhe foi enviado após o registo."
