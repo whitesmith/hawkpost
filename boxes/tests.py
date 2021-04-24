@@ -16,6 +16,7 @@ import string
 future_datetime = timezone.now() + timedelta(days=1)
 future_datetime_string = future_datetime.strftime("%m/%d/%Y %H:%M")
 
+
 def create_boxes(user):
     user.own_boxes.create(
         name="open", expires_at=future_datetime, status=Box.OPEN)
@@ -47,7 +48,7 @@ class BoxFormTests(TestCase):
     def test_invalid_expiration_date(self):
         """
             Expiration must be submitted provided and with valid format
-            If one of this the above statments are not true form must be
+            If one of this the above statements are not true form must be
             invalid
         """
         data = {
