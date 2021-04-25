@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from humans.views import LoginRequiredMixin
+from humans.views import AuthMixin, LoginRequiredMixin
 from humans.utils import key_state
 from django.conf import settings
 from .forms import CreateBoxForm, SubmitBoxForm
@@ -120,7 +120,7 @@ class BoxCloseView(LoginRequiredMixin, UpdateView):
         return HttpResponseRedirect(success_url)
 
 
-class BoxSubmitView(UpdateView):
+class BoxSubmitView(AuthMixin, UpdateView):
     template_name = "boxes/box_submit.html"
     form_class = SubmitBoxForm
     model = Box
@@ -160,6 +160,13 @@ class BoxSubmitView(UpdateView):
                 context={"box": self.object},
                 template="boxes/closed.html",
                 using=self.template_engine)
+        elif self.object.verified_only and request.user.is_anonymous:
+            return self.response_class(
+                request=request,
+                context=super().get_context_data(),
+                template="boxes/verified_only.html",
+                using=self.template_engine,
+                status=401)
         else:
             return super().dispatch(request, *args, **kwargs)
 
