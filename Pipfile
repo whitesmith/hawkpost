@@ -20,7 +20,7 @@ raven = "==6.4.0"
 django-timezone-field = "==2.0"
 django-braces = "==1.11.0"
 django-axes = "==5.3.5"
-Django = "==2.2.24"
+Django = "==2.2.26"
 
 [requires]
 python_version = "3.6"
