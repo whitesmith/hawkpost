@@ -51,6 +51,9 @@ class Box(models.Model):
     last_sent_at = models.DateTimeField(null=True,
                                         verbose_name=_('Last sent at'))
 
+    verified_only = models.BooleanField(default=False,
+                                        verbose_name=_('Restrict to verified users'))
+
     class Meta:
         verbose_name = _('Box')
         verbose_name_plural = _('Boxes')
