@@ -17,30 +17,34 @@ future_datetime = timezone.now() + timedelta(days=1)
 future_datetime_string = future_datetime.strftime("%m/%d/%Y %H:%M")
 
 
-def create_boxes(user):
-    user.own_boxes.create(
-        name="open", expires_at=future_datetime, status=Box.OPEN)
-    user.own_boxes.create(
-        name="closed", expires_at=future_datetime, status=Box.CLOSED)
-    user.own_boxes.create(
-        name="sent", expires_at=future_datetime, status=Box.DONE)
-    past_datetime = timezone.now() - timedelta(days=1)
-    user.own_boxes.create(
-        name="expired", expires_at=past_datetime, status=Box.EXPIRED)
-
-
-def create_open_box(user):
-    return user.own_boxes.create(name="open",
-                                 expires_at=future_datetime,
-                                 status=Box.OPEN)
-
-
-def create_and_login_user(client):
-    username = ''.join(random.choice(string.ascii_uppercase) for _ in range(5))
-    user = User.objects.create_user(username=username,
-                                    email="{}@example.com".format(username))
+def create_and_login_user(client, add_key=True):
+    user = create_user(add_key)
     client.force_login(user)
     return user
+
+
+def create_user(add_key=True):
+    username = "".join(random.choice(string.ascii_uppercase) for _ in range(5))
+    user_data = {"username": username, "email": f"{username}@example.com"}
+    if add_key:
+        user_data["public_key"] = VALID_KEY
+        user_data["fingerprint"] = VALID_KEY_FINGERPRINT
+    return User.objects.create_user(**user_data)
+
+
+def create_box(user, status="open", verified_only=False):
+    statuses = {
+        "open": Box.OPEN,
+        "done": Box.DONE,
+        "closed": Box.CLOSED,
+        "expired": Box.EXPIRED
+    }
+    past_datetime = timezone.now() - timedelta(days=1)
+    return user.own_boxes.create(
+        name="test_box",
+        status=statuses[status],
+        expires_at=past_datetime if status is "expired" else future_datetime,
+        verified_only=verified_only)
 
 
 class BoxFormTests(TestCase):
@@ -180,17 +184,27 @@ class BoxListViewTests(TestCase):
             Base page shows list of open boxes
         """
         user = create_and_login_user(self.client)
-        create_boxes(user)
+        create_box(user)
         response = self.client.get(reverse("boxes_list"))
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.OPEN)
+
+    def test_verified_only_boxes_list(self):
+        """
+            Base page shows verified_only boxes
+        """
+        user = create_and_login_user(self.client)
+        create_box(user, verified_only=True)
+        response = self.client.get(reverse("boxes_list"))
+        for box in response.context["object_list"]:
+            self.assertTrue(box.verified_only)
 
     def test_expired_boxes_list(self):
         """
             With expired query param expired boxes are shown
         """
         user = create_and_login_user(self.client)
-        create_boxes(user)
+        create_box(user, status="expired")
         response = self.client.get(reverse("boxes_list"),
                                    {'display': 'Expired'})
         for box in response.context["object_list"]:
@@ -201,7 +215,7 @@ class BoxListViewTests(TestCase):
             With closed query param closed boxes are shown
         """
         user = create_and_login_user(self.client)
-        create_boxes(user)
+        create_box(user, status="closed")
         response = self.client.get(reverse("boxes_list"),
                                    {'display': 'Closed'})
         for box in response.context["object_list"]:
@@ -212,7 +226,7 @@ class BoxListViewTests(TestCase):
             With sent query param sent boxes are shown
         """
         user = create_and_login_user(self.client)
-        create_boxes(user)
+        create_box(user, status="done")
         response = self.client.get(reverse("boxes_list"),
                                    {'display': 'Done'})
         for box in response.context["object_list"]:
@@ -222,57 +236,60 @@ class BoxListViewTests(TestCase):
 class BoxSubmitViewTests(TestCase):
 
     def test_valid_owner_key(self):
-        user = create_and_login_user(self.client)
-        user.public_key = VALID_KEY
-        user.fingerprint = VALID_KEY_FINGERPRINT
-        user.save()
-        box = create_open_box(user)
+        user = create_user()
+        box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.template_name[0], 'boxes/box_submit.html')
 
     def test_revoked_owner_key(self):
-        user = create_and_login_user(self.client)
+        user = create_user(add_key=False)
         user.public_key = REVOKED_KEY
         user.fingerprint = REVOKED_KEY_FINGERPRINT
         user.save()
-        box = create_open_box(user)
+        box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.template_name, 'boxes/closed.html')
 
     def test_expired_owner_key(self):
-        user = create_and_login_user(self.client)
+        user = create_user(add_key=False)
         user.public_key = EXPIRED_KEY
         user.fingerprint = EXPIRED_KEY_FINGERPRINT
         user.save()
-        box = create_open_box(user)
+        box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.template_name, 'boxes/closed.html')
 
     def test_no_owner_key(self):
-        user = create_and_login_user(self.client)
-        box = create_open_box(user)
-        user.save()
+        user = create_user(add_key=False)
+        box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.template_name, 'boxes/closed.html')
 
     def test_box_not_found(self):
-        user = create_and_login_user(self.client)
-        user.public_key = VALID_KEY
-        user.fingerprint = VALID_KEY_FINGERPRINT
-        user.save()
-        box = create_open_box(user)
+        user = create_user()
+        box = create_box(user)
         box.delete()
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
         self.assertEqual(response.status_code, 404)
+
+    def test_anonymous_access_to_verified_only_box(self):
+        user = create_user()
+        box = create_box(user, verified_only=True)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.status_code, 401)
+
+    def test_authenticated_access_to_verified_only_box(self):
+        user = create_user()
+        box = create_box(user, verified_only=True)
+        create_and_login_user(self.client)
+        response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
+        self.assertEqual(response.status_code, 200)
 
 
 class BoxCreateViewTests(TestCase):
 
     def test_create_new_box(self):
         user = create_and_login_user(self.client)
-        user.public_key = VALID_KEY
-        user.fingerprint = VALID_KEY_FINGERPRINT
-        user.save()
         response = self.client.post(reverse("boxes_create"), {
                                     "name": "test",
                                     "never_expires": True,
@@ -286,38 +303,34 @@ class BoxDeleteViewTests(TestCase):
 
     def test_delete_existing_box(self):
         user = create_and_login_user(self.client)
-        create_boxes(user)
-        box = user.own_boxes.filter(name="open").first()
+        box = create_box(user)
         response = self.client.post(reverse("boxes_delete", args=(box.id,)))
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(user.own_boxes.count(), 3)
+        self.assertEqual(user.own_boxes.count(), 0)
 
     def test_cannot_delete_box_that_are_not_open(self):
         user = create_and_login_user(self.client)
-        create_boxes(user)
-        box = user.own_boxes.filter(name="closed").first()
+        box = create_box(user, status="closed")
         response = self.client.post(reverse("boxes_delete", args=(box.id,)))
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(user.own_boxes.count(), 4)
+        self.assertEqual(user.own_boxes.count(), 1)
 
 
 class BoxCloseView(TestCase):
 
     def test_close_an_open_box(self):
         user = create_and_login_user(self.client)
-        create_boxes(user)
-        box = user.own_boxes.filter(name="open").first()
-        response = self.client.post(reverse("boxes_close", args=(box.id,)))
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(user.own_boxes.filter(status=Box.CLOSED).count(), 2)
-
-    def test_close_box_that_is_not_open(self):
-        user = create_and_login_user(self.client)
-        create_boxes(user)
-        box = user.own_boxes.filter(name="sent").first()
+        box = create_box(user)
         response = self.client.post(reverse("boxes_close", args=(box.id,)))
         self.assertEqual(response.status_code, 302)
         self.assertEqual(user.own_boxes.filter(status=Box.CLOSED).count(), 1)
+
+    def test_close_box_that_is_not_open(self):
+        user = create_and_login_user(self.client)
+        box = create_box(user, status="done")
+        response = self.client.post(reverse("boxes_close", args=(box.id,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(user.own_boxes.filter(status=Box.CLOSED).count(), 0)
 
 
 class MailTaskTests(TestCase):
@@ -327,9 +340,8 @@ class MailTaskTests(TestCase):
             With a valid message_id an email is sent and the Message status
             is changed to sent
         """
-        user = create_and_login_user(self.client)
-        create_boxes(user)
-        initial_box = user.own_boxes.all()[0]
+        user = create_user()
+        initial_box = create_box(user)
         message = initial_box.messages.create()
         process_email(message.id, {"message": ENCRYPTED_MESSAGE})
         after_box = user.own_boxes.get(id=initial_box.id)
@@ -341,13 +353,11 @@ class MailTaskTests(TestCase):
 
     def test_email_sending_with_reply_to(self):
         mail.outbox = []
-        user = create_and_login_user(self.client)
-        create_boxes(user)
-        initial_box = user.own_boxes.all()[0]
+        user = create_user()
+        initial_box = create_box(user)
         message = initial_box.messages.create()
         process_email(
-            message.id, {"message": ENCRYPTED_MESSAGE}, sent_by=user.email
-        )
+            message.id, {"message": ENCRYPTED_MESSAGE}, sent_by=user.email)
         message.refresh_from_db()
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn(user.email, mail.outbox[0].reply_to)

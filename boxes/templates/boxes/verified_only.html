@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your Identity" %}{% endblock %}
+
+{% block content %}
+<div class="section-definer-dark">
+  <div class="section-definer section-resized-extra">
+    <section class="text-lightest">
+      <div class="row center-xs center-sm">
+        <div class="col-offset-xs-1 col-xs-10 col-offset-sm-2 col-xs-8">
+          <h1 class="title text-upper text-lightest">
+            {% trans "Verify Your Identity" %}
+          </h1>
+          <p>
+            {% trans "To access this page you need to verify your identity. Please login to your Hawkpost account or sign up if you don't have one." %}
+          </p>
+          <p>
+            {% trans "Note that if you've signed up using your email address, you need to verify it to get access. To do this, simply visit the link provided in the email that was sent to you upon registration." %}
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@
   <div class="md-content-xs ">
     <button type="button" class="md-close btn-none"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
     <div class="row-s start-xs">
-      <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}">
+      <form class="login smalltext text-lightest" id="login-form-js" method="POST" action="{% url 'account_login' %}?next={{ request.path_info }}">
         <div class="col-xs-12">
           <h3 class="title text-lightest">{% trans "LOGIN" %}</h3>
           <p>{% blocktrans %}If you have not created an account yet, then please <a class=" md-trigger text-blue" href="#modal-signup" data-modal="modal-signup"><span>sign up</span></a>.{% endblocktrans %}</p>
