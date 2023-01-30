@@ -8,7 +8,7 @@ django-debug-toolbar = "==1.11.1"
 django-extensions = "*"
 
 [packages]
-django-dotenv = "==1.4.1"
+django-dotenv = "==1.4.2"
 "psycopg2" = "==2.7.3.2"
 django-allauth = "==0.42.0"
 gnupg = "==2.3.1"
