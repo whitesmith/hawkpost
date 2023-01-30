@@ -19,7 +19,7 @@ gunicorn = "==19.7.1"
 raven = "==6.4.0"
 django-timezone-field = "==2.0"
 django-braces = "==1.11.0"
-django-axes = "==5.3.5"
+django-axes = "==5.27.0"
 Django = "==2.2.26"
 
 [requires]

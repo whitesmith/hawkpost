@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "70bd99abfa4bd33d3ade9bf3f52baa73e8a321ba3ad9ffbba822523e7d12e818"
+            "sha256": "4c066dd8352bcc0a48001acad5050fdd2848e88047dc719c00b5a9e1394edd59"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -77,21 +77,13 @@
             "index": "pypi",
             "version": "==0.42.0"
         },
-        "django-appconf": {
-            "hashes": [
-                "sha256:ae9f864ee1958c815a965ed63b3fba4874eec13de10236ba063a788f9a17389d",
-                "sha256:be3db0be6c81fa84742000b89a81c016d70ae66a7ccb620cdef592b1f1a6aaa4"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.0.5"
-        },
         "django-axes": {
             "hashes": [
-                "sha256:6a1fa03b7a35783d00dd1f665931553d6f98ecaaf31b012ff0765de4b410486b",
-                "sha256:7c03b95cff99cd0cc69e0617df7888c5ffdf36daeb9772e83ca851062e5af599"
+                "sha256:65c8f71025a42d03b65d0db3ef779ec2f672cfc40f6017b2aa3bcb5b560e5fd0",
+                "sha256:e6ac2266626d4e52a44939bdb861817766f127efe110c8e8ce2a776270954926"
             ],
             "index": "pypi",
-            "version": "==5.3.5"
+            "version": "==5.27.0"
         },
         "django-braces": {
             "hashes": [
@@ -111,9 +103,11 @@
         },
         "django-ipware": {
             "hashes": [
-                "sha256:a7c7a8fd019dbdc9c357e6e582f65034e897572fc79a7e467674efa8aef9d00b"
+                "sha256:602a58325a4808bd19197fef2676a0b2da2df40d0ecf21be414b2ff48c72ad05",
+                "sha256:878dbb06a87e25550798e9ef3204ed70a200dd8b15e47dcef848cf08244f04c9"
             ],
-            "version": "==2.1.0"
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "version": "==4.0.2"
         },
         "django-timezone-field": {
             "hashes": [
@@ -273,6 +267,14 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.3.1"
+        },
+        "setuptools": {
+            "hashes": [
+                "sha256:22c7348c6d2976a52632c67f7ab0cdf40147db7789f9aed18734643fe9cf3373",
+                "sha256:4ce92f1e1f8f01233ee9952c04f6b81d1e02939d6e1b488428154974a4d0783e"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==59.6.0"
         },
         "sqlparse": {
             "hashes": [
