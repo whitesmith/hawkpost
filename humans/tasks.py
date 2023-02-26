@@ -1,5 +1,3 @@
-from celery.task.schedules import crontab
-from celery.decorators import periodic_task
 from celery import shared_task
 from celery.utils.log import get_task_logger
 from django.core.mail import EmailMultiAlternatives
@@ -31,8 +29,7 @@ def send_email(user, subject, template):
     email.send()
 
 
-# Every day at 4 AM UTC
-@periodic_task(run_every=(crontab(minute=0, hour=4)), ignore_result=True)
+@shared_task(ignore_result=True)
 def update_public_keys():
     users = User.objects.exclude(
         Q(keyserver_url__isnull=True) | Q(keyserver_url__exact=''))
@@ -76,8 +73,8 @@ def update_public_keys():
 
     logger.info(_('Finished Updating user keys'))
 
-# Every day at 5h30 AM UTC
-@periodic_task(run_every=(crontab(minute=30, hour=5)), ignore_result=True)
+
+@shared_task(ignore_result=True)
 def validate_public_keys():
     users = User.objects.exclude(
         Q(public_key__isnull=True) | Q(public_key__exact=''))
