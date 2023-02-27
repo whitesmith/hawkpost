@@ -18,7 +18,7 @@ redis = "==3.2.0"
 gunicorn = "==19.7.1"
 raven = "==6.4.0"
 django-timezone-field = "==4.2.3"
-django-braces = "==1.11.0"
+django-braces = "==1.15.0"
 django-axes = "==5.27.0"
 Django = "==2.2.26"
 
