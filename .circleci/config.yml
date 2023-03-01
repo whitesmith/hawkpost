@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/hawkpost
     docker:
-      - image: circleci/python:3.6.4
+      - image: cimg/python:3.9.16
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DB_HOST: localhost
