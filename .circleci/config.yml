@@ -39,10 +39,10 @@ jobs:
             gulp build
       - run:
           command: |
-            pipenv run "python manage.py collectstatic --no-input"
+            pipenv run python manage.py collectstatic --no-input
       - run:
           command: |
-            pipenv run "python manage.py test"
+            pipenv run python manage.py test
       - store_test_results:
           path: test-results
       - store_artifacts:
