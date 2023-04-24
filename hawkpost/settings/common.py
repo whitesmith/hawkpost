@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from celery.schedules import crontab
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'boxes',
     'pages',
 ]
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -148,7 +150,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media Files
 
@@ -191,6 +193,16 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 # Celerey Settings
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
+CELERY_BEAT_SCHEDULE = {
+    "update_public_keys": {
+        "task": "humans.tasks.update_public_keys",
+        "schedule": crontab(minute=0, hour=4),  # Every day at 4 AM UTC
+    },
+    "validate_public_keys": {
+        "task": "humans.tasks.validate_public_keys",
+        "schedule": crontab(minute=30, hour=5),  # Every day at 5:30 AM UTC
+    }
+}
 
 # SITE DOMAIN
 SITE_DOMAIN = os.environ.get("SITE_DOMAIN")
