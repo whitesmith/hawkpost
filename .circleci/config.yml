@@ -15,28 +15,9 @@ jobs:
           POSTGRES_DB: hawkpost_dev
     steps:
       - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
       - run:
           command: |
             pipenv install --dev
-      - run:
-          command: |
-            set +e
-            touch $BASH_ENV
-            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
-            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
-            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
-            echo 'nvm install v14.16.0' >> $BASH_ENV
-            echo 'nvm alias default v14.16.0' >> $BASH_ENV
-      - run:
-          command: |
-            npm install gulp-cli -g
-      - run:
-          command: |
-            npm install
-      - run:
-          command: |
-            gulp build
       - run:
           command: |
             pipenv run python manage.py collectstatic --no-input
