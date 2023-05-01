@@ -24,7 +24,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^4.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-util": "^3.0.7",
     "gulp4-run-sequence": "^1.0.1",
     "sass-module-importer": "^1.2.0",
