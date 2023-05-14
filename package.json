@@ -17,7 +17,7 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.11.2",
-    "del": "^2.2.0",
+    "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-if": "^2.0.0",
