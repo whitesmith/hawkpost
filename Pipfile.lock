@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "43d6d587f505613489c1e2222e78c493b3a4a2ff3dd2596ff7acc37829a627ca"
+            "sha256": "35a1c7ff012a70d29a6b5570fa8c4bd477b1f363976321c5022e507972e49e18"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -229,7 +229,7 @@
                 "sha256:a0713dc7a1de3f06bc0df5a9567ad19ead2d3d5689b434768a6145bff77c0667",
                 "sha256:f184f0d851d96b6d29297354ed981b7dd71df7ff500d82fa6d11f0856bee8035"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.2'",
+            "markers": "python_full_version >= '3.6.2' and python_full_version < '4.0.0'",
             "version": "==0.3.0"
         },
         "click-plugins": {
@@ -288,10 +288,10 @@
         },
         "django-allauth": {
             "hashes": [
-                "sha256:2bcf09d4c6e672620981d283f555d643982ac066b71f8947dbd81882a1d7c5e8"
+                "sha256:120e265f802b65738899c6cb627b827fde46a4d03067034c633f516c2adf3e3e"
             ],
             "index": "pypi",
-            "version": "==0.47.0"
+            "version": "==0.54.0"
         },
         "django-axes": {
             "hashes": [
