@@ -9,7 +9,7 @@ django-extensions = "==3.2.1"
 
 [packages]
 django-dotenv = "==1.4.2"
-"psycopg2-binary" = "==2.9.5"
+"psycopg2-binary" = "==2.9.6"
 django-allauth = "==0.47.0"
 gnupg = "==2.3.1"
 whitenoise = "==5.3.0"
