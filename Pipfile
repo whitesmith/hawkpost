@@ -17,7 +17,7 @@ gunicorn = "==20.1.0"
 raven = "==6.4.0"
 django-timezone-field = "==4.2.3"
 django-braces = "==1.15.0"
-django-axes = "==5.40.1"
+django-axes = "==6.0.3"
 Django = "==3.2.19"
 celery = {version = "==5.2.7", extras = ["redis"]}
 
