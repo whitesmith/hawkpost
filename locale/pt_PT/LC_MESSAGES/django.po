@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 20:47+0000\n"
+"POT-Creation-Date: 2024-06-28 16:58+0000\n"
 "PO-Revision-Date: 2017-10-03 12:36-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -368,9 +368,9 @@ msgstr ""
 #: boxes/templates/boxes/closed.html:20
 #, python-format
 msgid ""
-"In any of the above cases, you should contact the recipient (<a href="
-"\"mailto:%(email)s\" class=\"text-blue\">%(name)s</a>) in order to fix the "
-"issue.\n"
+"In any of the above cases, you should contact the recipient (<a "
+"href=\"mailto:%(email)s\" class=\"text-blue\">%(name)s</a>) in order to fix "
+"the issue.\n"
 "            "
 msgstr ""
 "Em qualquer dos casos acima descritos, deve contactar o destinatário (<a "
@@ -434,11 +434,11 @@ msgstr "A caixa {} foi fechada"
 msgid "Not Found. Double check your URL"
 msgstr "Não encontrado. Por favor, verifique o seu URL"
 
-#: hawkpost/settings/common.py:127
+#: hawkpost/settings/common.py:129
 msgid "English"
 msgstr "Inglês"
 
-#: hawkpost/settings/common.py:128 humans/models.py:14
+#: hawkpost/settings/common.py:130 humans/models.py:14
 msgid "Portuguese"
 msgstr "Português"
 
@@ -508,11 +508,11 @@ msgstr "OU"
 
 #: hawkpost/templates/account/auth_modals.html:112
 msgid ""
-"Already have an account? Then please <a class=\" md-trigger text-blue\" href="
-"\"#modal-login\" data-modal=\"modal-login\">Sign in</a>"
+"Already have an account? Then please <a class=\" md-trigger text-blue\" "
+"href=\"#modal-login\" data-modal=\"modal-login\">Sign in</a>"
 msgstr ""
-"Já tem uma conta? Então por favor <a class=\" md-trigger text-blue\" href="
-"\"#modal-login\" data-modal=\"modal-login\">Entre na sua conta</a>"
+"Já tem uma conta? Então por favor <a class=\" md-trigger text-blue\" "
+"href=\"#modal-login\" data-modal=\"modal-login\">Entre na sua conta</a>"
 
 #: hawkpost/templates/account/email.html:5
 msgid "Account"
@@ -689,11 +689,11 @@ msgstr "Confirmar"
 #: hawkpost/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Este link de confirmação expirou ou é inválido. Por favor <a href="
-"\"%(email_url)s\">faça um novo pedido de confirmação de e-mail</a>."
+"Este link de confirmação expirou ou é inválido. Por favor <a "
+"href=\"%(email_url)s\">faça um novo pedido de confirmação de e-mail</a>."
 
 #: hawkpost/templates/account/logout.html:5
 #: hawkpost/templates/account/logout.html:8
@@ -1000,12 +1000,12 @@ msgstr "Autenticação cancelada"
 #, python-format
 msgid ""
 "You decided to cancel logging in to our site using one of your existing "
-"accounts. If this was a mistake, please proceed to <a href=\"%(login_url)s"
-"\">sign in</a>."
+"accounts. If this was a mistake, please proceed to <a "
+"href=\"%(login_url)s\">sign in</a>."
 msgstr ""
 "Decidiu cancelar a authenticação no nosso site usando uma conta já existete. "
-"Se isto foi um engano, por favor proceda para <a href=\"%(login_url)s"
-"\">Entrar</a>."
+"Se isto foi um engano, por favor proceda para <a "
+"href=\"%(login_url)s\">Entrar</a>."
 
 #: hawkpost/templates/socialaccount/messages/account_connected.txt:2
 msgid "The social account has been connected."
@@ -1198,49 +1198,49 @@ msgstr "Registo de Alteração de Chave"
 msgid "KeyChangeRecords"
 msgstr "Registos de Alteração de Chave"
 
-#: humans/tasks.py:23
+#: humans/tasks.py:21
 msgid "The Url provided does not contain a public key"
 msgstr "O URL providenciado não contém uma chave pública"
 
-#: humans/tasks.py:39
+#: humans/tasks.py:36
 msgid "Start updating user keys"
 msgstr "Início da actualização das chaves dos utilizadores"
 
-#: humans/tasks.py:41 humans/tasks.py:86
+#: humans/tasks.py:38 humans/tasks.py:83
 msgid "Working on user: {}"
 msgstr "Trabalhando no utilizador: {}"
 
-#: humans/tasks.py:42
+#: humans/tasks.py:39
 msgid "URL: {}"
 msgstr ""
 
-#: humans/tasks.py:46
+#: humans/tasks.py:43
 msgid "Unable to fetch new key"
 msgstr "Não foi possivel ir buscar a nova chave"
 
-#: humans/tasks.py:54 humans/tasks.py:93
+#: humans/tasks.py:51 humans/tasks.py:90
 msgid "Hawkpost: {} key"
 msgstr "Hawkpost: chave {}"
 
-#: humans/tasks.py:63
+#: humans/tasks.py:60
 msgid "Hawkpost: Keyserver Url providing an invalid key"
 msgstr "Hawkpost: O endereço da chave, retornou uma chave inválida"
 
-#: humans/tasks.py:69
+#: humans/tasks.py:66
 msgid "Hawkpost: Fingerprint mismatch"
 msgstr "Hawkpost: A impressão digital não corresponde à chave"
 
-#: humans/tasks.py:77
+#: humans/tasks.py:74
 msgid "Finished Updating user keys"
 msgstr "Terminou a actualização das chaves"
 
-#: humans/tasks.py:84
+#: humans/tasks.py:81
 #, fuzzy
 #| msgid "Start updating user keys"
 msgid "Start validating user keys"
 msgstr "Início da actualização das chaves dos utilizadores"
 
-#: humans/tasks.py:105
+#: humans/tasks.py:102
 #, fuzzy
 #| msgid "Hawkpost: Key will expire in {} days"
 msgid "Hawkpost: Key will expire in {} day(s)"
@@ -1652,11 +1652,11 @@ msgstr ""
 
 #: pages/templates/pages/about.html:30
 msgid ""
-"You can read more about the project in our FAQ at the bottom of our <a class="
-"\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
+"You can read more about the project in our FAQ at the bottom of our <a "
+"class=\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 msgstr ""
-"Pode ler mais sobre o nosso projecto na nossa FAQ no fundo da nossa <a class="
-"\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
+"Pode ler mais sobre o nosso projecto na nossa FAQ no fundo da nossa <a "
+"class=\"text-blue\" href=\"https://hawkpost.co/\">landing page</a>."
 
 #: pages/templates/pages/about.html:37
 msgid "WHITESMITH"
@@ -1714,28 +1714,23 @@ msgstr ""
 
 #: pages/templates/pages/help.html:34
 msgid "Ask the instance administrator through email"
-msgstr "Porgunte ao administrador da instância por correio electrónico"
+msgstr "Pergunte ao administrador da instância por correio electrónico"
 
 #: pages/templates/pages/help.html:36
 msgid ""
-"Chat with the development team on IRC. The channel is #hawkpost on freenode"
+"<a href=\"https://github.com/whitesmith/hawkpost/discussions\" "
+"class=\"testelinks\">Open a new discussion on the project code repository "
+"with your question</a> "
 msgstr ""
-"Converse com a equipa de desenvolvimento atráves do IRC. O Canal é #hawkpost "
-"na rede freenode"
+"<a href=\"https://github.com/whitesmith/hawkpost/discussions\" "
+"class=\"testelinks\">Abra uma nova discussão no repositório de codigo do "
+"projecto com a sua questão</a> "
 
-#: pages/templates/pages/help.html:37
-msgid ""
-"<a href=\"https://github.com/whitesmith/hawkpost/issues\" class=\"testelinks"
-"\">Open an issue on the project board with your question</a> "
-msgstr ""
-"<a href=\"https://github.com/whitesmith/hawkpost/issues\" class=\"testelinks"
-"\">Abra uma questão no fórum de discussão de problemas do projecto</a> "
-
-#: pages/templates/pages/help.html:41
+#: pages/templates/pages/help.html:40
 msgid "HOW TO SETUP HAWKPOST"
 msgstr "COMO CONFIGURAR O HAWKPOST"
 
-#: pages/templates/pages/help.html:44
+#: pages/templates/pages/help.html:43
 msgid ""
 "In order to start using Hawkpost as a user that receives confidential "
 "information, you have to fill certain requirements, such as:"
@@ -1744,19 +1739,19 @@ msgstr ""
 "informação confidencial, terá de cumprir com determinados requisitos, tais "
 "como:"
 
-#: pages/templates/pages/help.html:46
+#: pages/templates/pages/help.html:45
 msgid "Provide a PGP public key"
 msgstr "Fornecer uma chave pública (PGP)"
 
-#: pages/templates/pages/help.html:47
+#: pages/templates/pages/help.html:46
 msgid "Provide your key's fingerprint"
 msgstr "Fornecer a impressão digital da sua chave"
 
-#: pages/templates/pages/help.html:48
+#: pages/templates/pages/help.html:47
 msgid "Have the required software to decrypt the messages"
 msgstr "Ter o software necessário para decifrar as mensagens"
 
-#: pages/templates/pages/help.html:51
+#: pages/templates/pages/help.html:50
 msgid ""
 "If you don't know how to fulfill the first and third point, <a href=\"#gen-"
 "pgp-key\" class=\"testelinks\">please check the next section</a>. Otherwise "
@@ -1766,7 +1761,7 @@ msgstr ""
 "key\" class=\"testelinks\">por favor leia a próxima secção</a>. Em caso "
 "contrário a configuração é relativamente simples."
 
-#: pages/templates/pages/help.html:62
+#: pages/templates/pages/help.html:61
 msgid ""
 "As you can see in the above figure, you just have to fill the <i>public key</"
 "i> field and the matching fingerprint. After this you're ready to go. We "
@@ -1778,7 +1773,7 @@ msgstr ""
 "feito. Nós recomendamos vivamente que também preencha os seus dados pessoais "
 "(como o nome), que apareçam na página das submissões."
 
-#: pages/templates/pages/help.html:64
+#: pages/templates/pages/help.html:63
 msgid ""
 "To find your key's fingerprint, you can run the following command if you're "
 "using <i>Gnu Privacy Guard (GPG)</i>:"
@@ -1786,7 +1781,7 @@ msgstr ""
 "Para descobrir a sua impressão digital, poderá correr o seguinte comando se "
 "estiver a usar o <i>Gnu Privacy Guard (GPG)</i>:"
 
-#: pages/templates/pages/help.html:68
+#: pages/templates/pages/help.html:67
 msgid ""
 "If you're using a graphical tool, you can generally find this info on the "
 "<i>key properties section</i> of your tool."
@@ -1794,7 +1789,7 @@ msgstr ""
 "Se estiver a usar uma ferramenta com interface gráfica, poderá encontrar "
 "esta informação na <i>secção de propriedades</i> da chave."
 
-#: pages/templates/pages/help.html:74
+#: pages/templates/pages/help.html:73
 msgid ""
 "For extra security and features you can specify the keyserver URL of your "
 "key instead of providing it directly. This way the system will fetch the key "
@@ -1809,11 +1804,11 @@ msgstr ""
 "detectar que a chave foi revogada ou que expirou (a impressão digital "
 "continua a ser obrigatória)."
 
-#: pages/templates/pages/help.html:80
+#: pages/templates/pages/help.html:79
 msgid "HOW TO GENERATE A PGP KEY"
 msgstr "COMO GERAR UMA CHAVE PGP"
 
-#: pages/templates/pages/help.html:82
+#: pages/templates/pages/help.html:81
 msgid ""
 "Hawkpost works with an encryption technology known as <a href=\"https://en."
 "wikipedia.org/wiki/Pretty_Good_Privacy\" class=\"testelinks\">PGP</a>. So to "
@@ -1825,7 +1820,7 @@ msgstr ""
 "criar chaves você irá precisar de criar um par de chaves PGP e fornever-nos "
 "a componente publica. Se já tiver uma, esta secção não é para si."
 
-#: pages/templates/pages/help.html:84
+#: pages/templates/pages/help.html:83
 msgid ""
 "Since Hawkpost works only through email, the easiest way to setup a key pair "
 "is using your email client, or through a compatible plugin/extension in case "
@@ -1839,7 +1834,7 @@ msgstr ""
 "suporte nativo para PGP. Existem vários artigos na Internet sobre este "
 "tópico, por tanto deverá ser fácil encontrar algum que enderece o seu caso."
 
-#: pages/templates/pages/help.html:86
+#: pages/templates/pages/help.html:85
 msgid ""
 "As an example, in the next paragraphs we point to some tutorials addressing "
 "popular email clients."
@@ -1847,7 +1842,7 @@ msgstr ""
 "Como exemplo, nos próximos parágrafos nós indicamos alguns guias para "
 "clientes mais comuns."
 
-#: pages/templates/pages/help.html:88
+#: pages/templates/pages/help.html:87
 msgid ""
 "For webmail users, one tool that is very useful is <a href=\"https://www."
 "mailvelope.com/\" class=\"testelinks\">Mailvelope</a>. This browser "
@@ -1855,28 +1850,29 @@ msgid ""
 "generate your keys. An introductory tutorial can be found <a href=\"https://"
 "www.youtube.com/watch?v=Ro3MSBS9w-A\">here</a>."
 msgstr ""
-"Para utilizadores de Webmail, uma ferramenta muito útil é o <a href="
-"\"https://www.mailvelope.com/\" class=\"testelinks\">Mailvelope</a>. Esta "
-"extensão para o seunavegador, permite cifrar mensagens facilmente, assim "
-"como gerar o seu par de chaves. Um guia introdutório pode ser encontrado <a "
-"href=\"https://www.youtube.com/watch?v=Ro3MSBS9w-A\">aqui</a>."
+"Para utilizadores de Webmail, uma ferramenta muito útil é o <a "
+"href=\"https://www.mailvelope.com/\" class=\"testelinks\">Mailvelope</a>. "
+"Esta extensão para o seunavegador, permite cifrar mensagens facilmente, "
+"assim como gerar o seu par de chaves. Um guia introdutório pode ser "
+"encontrado <a href=\"https://www.youtube.com/watch?v=Ro3MSBS9w-A\">aqui</a>."
 
-#: pages/templates/pages/help.html:90
+#: pages/templates/pages/help.html:89
 msgid ""
 "For Thunderbird users, the common practice is to install a plugin called <a "
-"href=\"https://www.enigmail.net/index.php/en/\" class=\"testelinks"
-"\">Enigmail</a>, which like Mailvelope, will allow you to decrypt Hawkpost "
-"messages, and manage your keys as well. An introduction can be found <a href="
-"\"https://ssd.eff.org/en/module/how-use-pgp-linux\">here</a>."
+"href=\"https://www.enigmail.net/index.php/en/\" "
+"class=\"testelinks\">Enigmail</a>, which like Mailvelope, will allow you to "
+"decrypt Hawkpost messages, and manage your keys as well. An introduction can "
+"be found <a href=\"https://ssd.eff.org/en/module/how-use-pgp-linux\">here</"
+"a>."
 msgstr ""
 "Para os utilizadores do Thunderbird, uma prática comum é instalar uma "
-"extensão chamada <a href=\"https://www.enigmail.net/index.php/en/\" class="
-"\"testelinks\">Enigmail</a>, que como o Mailvelope, irá permitir decifrar as "
-"messagens enviadas pelo Hawkpost, assim como gerir as suas chaves. Uma "
-"introdução pode ser encontrada <a href=\"https://ssd.eff.org/en/module/how-"
-"use-pgp-linux\">aqui</a>."
+"extensão chamada <a href=\"https://www.enigmail.net/index.php/en/\" "
+"class=\"testelinks\">Enigmail</a>, que como o Mailvelope, irá permitir "
+"decifrar as messagens enviadas pelo Hawkpost, assim como gerir as suas "
+"chaves. Uma introdução pode ser encontrada <a href=\"https://ssd.eff.org/en/"
+"module/how-use-pgp-linux\">aqui</a>."
 
-#: pages/templates/pages/help.html:92
+#: pages/templates/pages/help.html:91
 msgid ""
 "Check <a href=\"https://blog.jigsawpieces.me/2015/03/19/tutorial-how-to-"
 "setup-gpg4win-with-outlook-2013/\" class=\"testelinks\">this video for an "
@@ -1983,10 +1979,10 @@ msgid ""
 "will be only visible to whom created the link (the owner of the key) and we "
 "will not save it. No message is stored."
 msgstr ""
-"O Hawkpost providencia cifragem \"end-to-end\" usando a biblioteca <a href="
-"\"https://openpgpjs.org/\">OpenPGP.js</a>, o que significa que a informação "
-"submetida apenas estará disponível para o dono da chave usada no endereço "
-"gerado, e nós não o iremos guardar. Nenhuma mensagem é guardada."
+"O Hawkpost providencia cifragem \"end-to-end\" usando a biblioteca <a "
+"href=\"https://openpgpjs.org/\">OpenPGP.js</a>, o que significa que a "
+"informação submetida apenas estará disponível para o dono da chave usada no "
+"endereço gerado, e nós não o iremos guardar. Nenhuma mensagem é guardada."
 
 #: pages/templates/pages/index.html:83
 msgid "What's PGP?"
@@ -1996,13 +1992,13 @@ msgstr "O que é o PGP?"
 msgid ""
 "PGP is an encryption technology often used for signing, encrypting, and "
 "decrypting texts and files. This is what Hawkpost uses to encrypt messages. "
-"You can read more about how to generate your PGP key on the <a href="
-"\"https://hawkpost.co/help\">help page</a>."
+"You can read more about how to generate your PGP key on the <a "
+"href=\"https://hawkpost.co/help\">help page</a>."
 msgstr ""
 "PGP é uma technologia muito usada para cifrar, decifrar e assinar textos e "
 "ficheiros. O Hawkpost faz uso desta para cifrar todas as mensagens. Poderá "
-"ser mais sobre como gerar a sua chave na <a href=\"https://hawkpost.co/help"
-"\">página de ajuda</a>."
+"ser mais sobre como gerar a sua chave na <a href=\"https://hawkpost.co/"
+"help\">página de ajuda</a>."
 
 #: pages/templates/pages/index.html:89
 msgid "Is my link permanently available?"
@@ -2103,9 +2099,9 @@ msgstr "Vamos começar?"
 #~ "Se usa um desses clientes, deverá activar esta funcionalidade na página "
 #~ "das definições (como mostra a imagem abaixo). Desta forma todas as "
 #~ "mensagens serão assinadas com a nossa chave, que você poderá importar "
-#~ "para o seu \"keyring\" de modo a verificar a autenticidade. <a href="
-#~ "\"%(sign_key_url)s\" class=\"testelinks\">A chave pode ser encontrada "
-#~ "aqui</a>."
+#~ "para o seu \"keyring\" de modo a verificar a autenticidade. <a "
+#~ "href=\"%(sign_key_url)s\" class=\"testelinks\">A chave pode ser "
+#~ "encontrada aqui</a>."
 
 #~ msgid "<b>Forum:</b> soon"
 #~ msgstr "<b>Forum:</b> Brevemente"
