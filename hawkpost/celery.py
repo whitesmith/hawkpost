@@ -5,11 +5,12 @@ from raven.contrib.celery import register_signal, register_logger_signal
 from celery import Celery as BaseCelery
 import os
 
-read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 # set the default Django settings module for the 'celery' program.
 environment = os.environ.get("HAWKPOST_ENV", "development")
-os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-                      "hawkpost.settings.{}".format(environment))
+os.environ.setdefault(
+    "DJANGO_SETTINGS_MODULE", "hawkpost.settings.{}".format(environment)
+)
 
 from django.conf import settings  # noqa
 
@@ -24,10 +25,10 @@ class Celery(BaseCelery):
 
 
 if environment == "development":
-    app = BaseCelery('hawkpost')
+    app = BaseCelery("hawkpost")
 else:
-    app = Celery('hawkpost')
+    app = Celery("hawkpost")
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.
-app.config_from_object('django.conf:settings', namespace='CELERY')
+app.config_from_object("django.conf:settings", namespace="CELERY")
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

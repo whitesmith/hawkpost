@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boxes', '0008_auto_20170519_1431'),
+        ("boxes", "0008_auto_20170519_1431"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='box',
-            name='verified_only',
-            field=models.BooleanField(default=False, verbose_name='Restrict to verified users'),
+            model_name="box",
+            name="verified_only",
+            field=models.BooleanField(
+                default=False, verbose_name="Restrict to verified users"
+            ),
         ),
     ]

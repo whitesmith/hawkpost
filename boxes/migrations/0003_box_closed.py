@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boxes', '0002_box_uuid'),
+        ("boxes", "0002_box_uuid"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='box',
-            name='closed',
+            model_name="box",
+            name="closed",
             field=models.BooleanField(default=False),
         ),
     ]

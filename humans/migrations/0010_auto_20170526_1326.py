@@ -8,13 +8,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0009_auto_20170519_1431'),
+        ("humans", "0009_auto_20170519_1431"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='language',
-            field=models.CharField(choices=[('en-us', 'English'), ('pt-pt', 'Portuguese')], default='en-us', max_length=16, verbose_name='Language'),
+            model_name="user",
+            name="language",
+            field=models.CharField(
+                choices=[("en-us", "English"), ("pt-pt", "Portuguese")],
+                default="en-us",
+                max_length=16,
+                verbose_name="Language",
+            ),
         ),
     ]

@@ -11,15 +11,14 @@ def with_gpg_obj(func):
     def inner(key):
         # create temp gpg keyring
         temp_dir = tempfile.mkdtemp()
-        gpg_obj = gnupg.GPG(homedir=temp_dir,
-                            keyring="pub.gpg",
-                            secring="sec.gpg")
-        gpg_obj.encoding = 'utf-8'
+        gpg_obj = gnupg.GPG(homedir=temp_dir, keyring="pub.gpg", secring="sec.gpg")
+        gpg_obj.encoding = "utf-8"
         ret = func(key, gpg_obj)
         # remove the keyring
         rmtree(temp_dir, ignore_errors=True)
 
         return ret
+
     return inner
 
 
@@ -56,5 +55,5 @@ def key_state(key, gpg):
 
 def request_ip_address(request):
     """Takes a Request Object and returns the caller IP address"""
-    x_forward_for = request.META.get('HTTP_X_FORWARDED_FOR', None)
-    return x_forward_for if x_forward_for else request.META.get('REMOTE_ADDR')
+    x_forward_for = request.META.get("HTTP_X_FORWARDED_FOR", None)
+    return x_forward_for if x_forward_for else request.META.get("REMOTE_ADDR")

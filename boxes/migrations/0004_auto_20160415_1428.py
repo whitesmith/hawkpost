@@ -8,17 +8,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boxes', '0003_box_closed'),
+        ("boxes", "0003_box_closed"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='box',
-            name='closed',
+            model_name="box",
+            name="closed",
         ),
         migrations.AddField(
-            model_name='box',
-            name='status',
-            field=models.IntegerField(choices=[(10, 'Open'), (20, 'Expired'), (30, 'Sent'), (40, 'Closed')], default=10),
+            model_name="box",
+            name="status",
+            field=models.IntegerField(
+                choices=[(10, "Open"), (20, "Expired"), (30, "Sent"), (40, "Closed")],
+                default=10,
+            ),
         ),
     ]

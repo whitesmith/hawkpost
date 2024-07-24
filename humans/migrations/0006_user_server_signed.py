@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0005_user_timezone'),
+        ("humans", "0005_user_timezone"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='server_signed',
+            model_name="user",
+            name="server_signed",
             field=models.BooleanField(default=False),
         ),
     ]

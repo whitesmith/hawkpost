@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -26,26 +27,27 @@ from axes.decorators import axes_form_invalid
 from humans.forms import LoginForm
 
 LoginView.dispatch = method_decorator(axes_dispatch)(LoginView.dispatch)
-LoginView.form_invalid = method_decorator(
-    axes_form_invalid)(LoginView.form_invalid)
+LoginView.form_invalid = method_decorator(axes_form_invalid)(LoginView.form_invalid)
 
 urlpatterns = [
-    url(r'^admin/login/$', admin.site.login),
-    url(r'^admin/', admin.site.urls),
-    url(r'^users/login/$', LoginView.as_view(form_class=LoginForm),
-        name='account_login'),
-    url(r'^users/', include('allauth.urls')),
-    url(r'^users/', include('humans.urls')),
-    url(r'^box/', include('boxes.urls')),
-    url(r'^', include('pages.urls'))
+    url(r"^admin/login/$", admin.site.login),
+    url(r"^admin/", admin.site.urls),
+    url(
+        r"^users/login/$", LoginView.as_view(form_class=LoginForm), name="account_login"
+    ),
+    url(r"^users/", include("allauth.urls")),
+    url(r"^users/", include("humans.urls")),
+    url(r"^box/", include("boxes.urls")),
+    url(r"^", include("pages.urls")),
 ]
 
 urlpatterns += i18n_patterns(
-    url(r'^', include('pages.urls')),
+    url(r"^", include("pages.urls")),
 )
 
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r"^__debug__/", include(debug_toolbar.urls)),
     ] + urlpatterns

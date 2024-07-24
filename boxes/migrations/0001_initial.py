@@ -17,39 +17,87 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Box',
+            name="Box",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('expires_at', models.DateTimeField()),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='own_boxes', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=128)),
+                ("description", models.TextField(blank=True, null=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("expires_at", models.DateTimeField()),
+                (
+                    "owner",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="own_boxes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Boxes',
-                'verbose_name': 'Box',
+                "verbose_name_plural": "Boxes",
+                "verbose_name": "Box",
             },
         ),
         migrations.CreateModel(
-            name='Membership',
+            name="Membership",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('access', models.IntegerField(choices=[(10, 'Knowledge of existence'), (20, 'Activity notifications'), (30, 'Full access to content')], default=30)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('box', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='boxes.Box')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "access",
+                    models.IntegerField(
+                        choices=[
+                            (10, "Knowledge of existence"),
+                            (20, "Activity notifications"),
+                            (30, "Full access to content"),
+                        ],
+                        default=30,
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "box",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="boxes.Box"
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Memberships',
-                'verbose_name': 'Membership',
+                "verbose_name_plural": "Memberships",
+                "verbose_name": "Membership",
             },
         ),
         migrations.AddField(
-            model_name='box',
-            name='recipients',
-            field=models.ManyToManyField(related_name='boxes', through='boxes.Membership', to=settings.AUTH_USER_MODEL),
+            model_name="box",
+            name="recipients",
+            field=models.ManyToManyField(
+                related_name="boxes",
+                through="boxes.Membership",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

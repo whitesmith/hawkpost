@@ -5,11 +5,13 @@ from humans.views import AuthMixin
 
 class HomeView(AuthMixin, TemplateView):
     """View for the Index page of the website"""
+
     template_name = "pages/index.html"
 
 
 class AboutView(AuthMixin, TemplateView):
     """View for the About page of the website"""
+
     template_name = "pages/about.html"
 
     def get_context_data(self, **kwargs):
@@ -23,6 +25,7 @@ class AboutView(AuthMixin, TemplateView):
 
 class HelpView(AuthMixin, TemplateView):
     """View for the About page of the website"""
+
     template_name = "pages/help.html"
 
     def get_context_data(self, **kwargs):
