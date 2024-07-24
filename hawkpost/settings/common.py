@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
+
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from celery.schedules import crontab
@@ -31,59 +32,59 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
-    'timezone_field',
-    'axes',
-    'humans',
-    'boxes',
-    'pages',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "timezone_field",
+    "axes",
+    "humans",
+    "boxes",
+    "pages",
 ]
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hawkpost.middleware.TimezoneMiddleware',
-    'hawkpost.middleware.LanguageMiddleware',
-    'axes.middleware.AxesMiddleware'
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "hawkpost.middleware.TimezoneMiddleware",
+    "hawkpost.middleware.LanguageMiddleware",
+    "axes.middleware.AxesMiddleware",
 ]
 
-ROOT_URLCONF = 'hawkpost.urls'
+ROOT_URLCONF = "hawkpost.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + "/templates/"],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR + "/templates/"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'hawkpost.wsgi.application'
+WSGI_APPLICATION = "hawkpost.wsgi.application"
 
 
 # Password validation
@@ -91,16 +92,16 @@ WSGI_APPLICATION = 'hawkpost.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -108,11 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Authentication settings
 
 AUTHENTICATION_BACKENDS = (
-    'axes.backends.AxesBackend',
+    "axes.backends.AxesBackend",
     # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
+    "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 
@@ -124,13 +125,10 @@ SITE_ID = 1
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-LANGUAGES = [
-    ('en-us', _('English')),
-    ('pt-pt', _('Portuguese'))
-]
+LANGUAGE_CODE = "en-us"
+LANGUAGES = [("en-us", _("English")), ("pt-pt", _("Portuguese"))]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -142,23 +140,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # Media Files
 
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 
 # Custom User Model
 
-AUTH_USER_MODEL = 'humans.User'
+AUTH_USER_MODEL = "humans.User"
 
 
 # AllAUth Config
@@ -175,18 +173,14 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 ACCOUNT_LOGOUT_ON_GET = True
 
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': ['user:email']
-    }
-}
+SOCIALACCOUNT_PROVIDERS = {"github": {"SCOPE": ["user:email"]}}
 
-SOCIALACCOUNT_ADAPTER = 'humans.adapter.SocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = "humans.adapter.SocialAccountAdapter"
 
 # Authentication Limits Config (AXES)
 AXES_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = 1  # hour
-AXES_USERNAME_FORM_FIELD = 'login'
+AXES_USERNAME_FORM_FIELD = "login"
 
 # Email Settings
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
@@ -201,7 +195,7 @@ CELERY_BEAT_SCHEDULE = {
     "validate_public_keys": {
         "task": "humans.tasks.validate_public_keys",
         "schedule": crontab(minute=30, hour=5),  # Every day at 5:30 AM UTC
-    }
+    },
 }
 
 # SITE DOMAIN
@@ -209,7 +203,7 @@ SITE_DOMAIN = os.environ.get("SITE_DOMAIN")
 
 # LOCALE_PATH for translations
 # https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-LOCALE_PATHS
-LOCALE_PATHS = ['locale']
+LOCALE_PATHS = ["locale"]
 
 
 # File Uploads

@@ -8,13 +8,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boxes', '0005_box_last_sent_at'),
+        ("boxes", "0005_box_last_sent_at"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='box',
-            name='status',
-            field=models.IntegerField(choices=[(10, 'Open'), (20, 'Expired'), (30, 'Sent'), (50, 'On Queue'), (40, 'Closed')], default=10),
+            model_name="box",
+            name="status",
+            field=models.IntegerField(
+                choices=[
+                    (10, "Open"),
+                    (20, "Expired"),
+                    (30, "Sent"),
+                    (50, "On Queue"),
+                    (40, "Closed"),
+                ],
+                default=10,
+            ),
         ),
     ]

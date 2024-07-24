@@ -9,13 +9,13 @@ import timezone_field.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0004_auto_20160330_1430'),
+        ("humans", "0004_auto_20160330_1430"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='timezone',
-            field=timezone_field.fields.TimeZoneField(default='UTC'),
+            model_name="user",
+            name="timezone",
+            field=timezone_field.fields.TimeZoneField(default="UTC"),
         ),
     ]

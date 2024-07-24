@@ -8,8 +8,14 @@ from .models import Box, Message
 from .forms import CreateBoxForm, SubmitBoxForm, MAX_MESSAGE_SIZE
 from .tasks import process_email
 from .test_constants import ENCRYPTED_MESSAGE
-from humans.test_constants import EXPIRED_KEY, EXPIRED_KEY_FINGERPRINT, \
-    REVOKED_KEY, REVOKED_KEY_FINGERPRINT, VALID_KEY, VALID_KEY_FINGERPRINT
+from humans.test_constants import (
+    EXPIRED_KEY,
+    EXPIRED_KEY_FINGERPRINT,
+    REVOKED_KEY,
+    REVOKED_KEY_FINGERPRINT,
+    VALID_KEY,
+    VALID_KEY_FINGERPRINT,
+)
 import random
 import string
 
@@ -37,94 +43,95 @@ def create_box(user, status="open", verified_only=False):
         "open": Box.OPEN,
         "done": Box.DONE,
         "closed": Box.CLOSED,
-        "expired": Box.EXPIRED
+        "expired": Box.EXPIRED,
     }
     past_datetime = timezone.now() - timedelta(days=1)
     return user.own_boxes.create(
         name="test_box",
         status=statuses[status],
         expires_at=past_datetime if status is "expired" else future_datetime,
-        verified_only=verified_only)
+        verified_only=verified_only,
+    )
 
 
 class BoxFormTests(TestCase):
 
     def test_invalid_expiration_date(self):
         """
-            Expiration must be submitted provided and with valid format
-            If one of this the above statements are not true form must be
-            invalid
+        Expiration must be submitted provided and with valid format
+        If one of this the above statements are not true form must be
+        invalid
         """
         data = {
             "name": "some name",
             "description": "some text",
             "expires_at": "31/31/2000 24:00",
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
 
     def test_valid_expiration_date(self):
         """
-            If expiration date is valid and in the future form is valid
+        If expiration date is valid and in the future form is valid
         """
         data = {
             "name": "some name",
             "description": "some text",
             "expires_at": future_datetime_string,
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), True)
 
     def test_expiration_date_from_past(self):
         """
-            If date already belongs to the past, the form must be invalid
+        If date already belongs to the past, the form must be invalid
         """
         data = {
             "name": "some name",
             "description": "some text",
             "expires_at": "12/12/2012 23:00",
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
 
     def test_empty_name(self):
         """
-            Name must be present
+        Name must be present
         """
         data = {
             "name": "",
             "description": "some text",
             "expires_at": future_datetime_string,
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
 
     def test_empty_description(self):
         """
-            Description is optional
+        Description is optional
         """
         data = {
             "name": "some name",
             "description": "",
             "expires_at": future_datetime_string,
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), True)
 
     def test_invalid_max_messages(self):
         """
-            Description is optional
+        Description is optional
         """
         data = {
             "name": "some name",
             "description": "",
             "expires_at": future_datetime_string,
-            "max_messages": 0
+            "max_messages": 0,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), False)
@@ -134,7 +141,7 @@ class BoxFormTests(TestCase):
             "name": "some name",
             "description": "",
             "never_expires": True,
-            "max_messages": 1
+            "max_messages": 1,
         }
         form = CreateBoxForm(data)
         self.assertEqual(form.is_valid(), True)
@@ -144,14 +151,14 @@ class SubmitBoxFormTests(TestCase):
 
     def test_encrypted_content(self):
         """
-            Form is valid if content is encrypted
+        Form is valid if content is encrypted
         """
         form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE})
         self.assertEqual(form.is_valid(), True)
 
     def test_clear_text_content(self):
         """
-            If not PGP message, form is invalid
+        If not PGP message, form is invalid
         """
         form = SubmitBoxForm({"message": "some clear text message"})
         self.assertEqual(form.is_valid(), False)
@@ -161,13 +168,11 @@ class SubmitBoxFormTests(TestCase):
         self.assertEqual(form.is_valid(), False)
 
     def test_encrypted_file(self):
-        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE,
-                              "file_name": "test"})
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE, "file_name": "test"})
         self.assertEqual(form.is_valid(), True)
 
     def test_add_reply_to_is_present(self):
-        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE,
-                              "add_reply_to": "on"})
+        form = SubmitBoxForm({"message": ENCRYPTED_MESSAGE, "add_reply_to": "on"})
         self.assertEqual(form.is_valid(), True)
         self.assertTrue(form.cleaned_data.get("add_reply_to"))
 
@@ -181,7 +186,7 @@ class BoxListViewTests(TestCase):
 
     def test_open_boxes_are_default_list(self):
         """
-            Base page shows list of open boxes
+        Base page shows list of open boxes
         """
         user = create_and_login_user(self.client)
         create_box(user)
@@ -191,7 +196,7 @@ class BoxListViewTests(TestCase):
 
     def test_verified_only_boxes_list(self):
         """
-            Base page shows verified_only boxes
+        Base page shows verified_only boxes
         """
         user = create_and_login_user(self.client)
         create_box(user, verified_only=True)
@@ -201,34 +206,31 @@ class BoxListViewTests(TestCase):
 
     def test_expired_boxes_list(self):
         """
-            With expired query param expired boxes are shown
+        With expired query param expired boxes are shown
         """
         user = create_and_login_user(self.client)
         create_box(user, status="expired")
-        response = self.client.get(reverse("boxes_list"),
-                                   {'display': 'Expired'})
+        response = self.client.get(reverse("boxes_list"), {"display": "Expired"})
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.EXPIRED)
 
     def test_closed_boxes_list(self):
         """
-            With closed query param closed boxes are shown
+        With closed query param closed boxes are shown
         """
         user = create_and_login_user(self.client)
         create_box(user, status="closed")
-        response = self.client.get(reverse("boxes_list"),
-                                   {'display': 'Closed'})
+        response = self.client.get(reverse("boxes_list"), {"display": "Closed"})
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.CLOSED)
 
     def test_sent_boxes_list(self):
         """
-            With sent query param sent boxes are shown
+        With sent query param sent boxes are shown
         """
         user = create_and_login_user(self.client)
         create_box(user, status="done")
-        response = self.client.get(reverse("boxes_list"),
-                                   {'display': 'Done'})
+        response = self.client.get(reverse("boxes_list"), {"display": "Done"})
         for box in response.context["object_list"]:
             self.assertEqual(box.status, Box.DONE)
 
@@ -239,7 +241,7 @@ class BoxSubmitViewTests(TestCase):
         user = create_user()
         box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
-        self.assertEqual(response.template_name[0], 'boxes/box_submit.html')
+        self.assertEqual(response.template_name[0], "boxes/box_submit.html")
 
     def test_revoked_owner_key(self):
         user = create_user(add_key=False)
@@ -248,7 +250,7 @@ class BoxSubmitViewTests(TestCase):
         user.save()
         box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
-        self.assertEqual(response.template_name, 'boxes/closed.html')
+        self.assertEqual(response.template_name, "boxes/closed.html")
 
     def test_expired_owner_key(self):
         user = create_user(add_key=False)
@@ -257,13 +259,13 @@ class BoxSubmitViewTests(TestCase):
         user.save()
         box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
-        self.assertEqual(response.template_name, 'boxes/closed.html')
+        self.assertEqual(response.template_name, "boxes/closed.html")
 
     def test_no_owner_key(self):
         user = create_user(add_key=False)
         box = create_box(user)
         response = self.client.get(reverse("boxes_show", args=(box.uuid,)))
-        self.assertEqual(response.template_name, 'boxes/closed.html')
+        self.assertEqual(response.template_name, "boxes/closed.html")
 
     def test_box_not_found(self):
         user = create_user()
@@ -290,10 +292,10 @@ class BoxCreateViewTests(TestCase):
 
     def test_create_new_box(self):
         user = create_and_login_user(self.client)
-        response = self.client.post(reverse("boxes_create"), {
-                                    "name": "test",
-                                    "never_expires": True,
-                                    "max_messages": 1})
+        response = self.client.post(
+            reverse("boxes_create"),
+            {"name": "test", "never_expires": True, "max_messages": 1},
+        )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(user.boxes.count(), 1)
         self.assertEqual(user.boxes.first().name, "test")
@@ -337,8 +339,8 @@ class MailTaskTests(TestCase):
 
     def test_email_sending(self):
         """
-            With a valid message_id an email is sent and the Message status
-            is changed to sent
+        With a valid message_id an email is sent and the Message status
+        is changed to sent
         """
         user = create_user()
         initial_box = create_box(user)
@@ -356,8 +358,7 @@ class MailTaskTests(TestCase):
         user = create_user()
         initial_box = create_box(user)
         message = initial_box.messages.create()
-        process_email(
-            message.id, {"message": ENCRYPTED_MESSAGE}, sent_by=user.email)
+        process_email(message.id, {"message": ENCRYPTED_MESSAGE}, sent_by=user.email)
         message.refresh_from_db()
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn(user.email, mail.outbox[0].reply_to)

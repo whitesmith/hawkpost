@@ -1,4 +1,3 @@
-
 ENCRYPTED_MESSAGE = """-----BEGIN PGP MESSAGE-----\r
 Version: OpenPGP.js v2.2.0\r
 Comment: http://openpgpjs.org\r

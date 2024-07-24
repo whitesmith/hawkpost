@@ -8,12 +8,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0011_keychangerecord'),
+        ("humans", "0011_keychangerecord"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
-            name='server_signed',
+            model_name="user",
+            name="server_signed",
         ),
     ]

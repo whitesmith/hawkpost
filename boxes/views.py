@@ -17,15 +17,18 @@ from braces.views import JSONResponseMixin
 
 class BoxListView(LoginRequiredMixin, ListView):
     template_name = "boxes/box_list.html"
-    page_kwarg = 'page'
+    page_kwarg = "page"
     paginate_by = 15
 
     def get_queryset(self):
         display_param = self.request.GET.get("display", "Open")
         query_filter = Box.get_status(display_param)
         own_boxes = self.request.user.own_boxes
-        return own_boxes.filter(status=query_filter).order_by(
-            "-created_at").prefetch_related("messages")
+        return (
+            own_boxes.filter(status=query_filter)
+            .order_by("-created_at")
+            .prefetch_related("messages")
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -39,7 +42,7 @@ class BoxListView(LoginRequiredMixin, ListView):
 
 class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
     template_name = "boxes/box_create.html"
-    http_method_names = [u'post']
+    http_method_names = ["post"]
     form_class = CreateBoxForm
     model = Box
     success_url = reverse_lazy("boxes_list")
@@ -58,28 +61,26 @@ class BoxCreateView(JSONResponseMixin, LoginRequiredMixin, CreateView):
         self.object.owner = self.request.user
         self.object.save()
 
-        Membership.objects.create(access=Membership.FULL,
-                                  box=self.object,
-                                  user=self.request.user)
+        Membership.objects.create(
+            access=Membership.FULL, box=self.object, user=self.request.user
+        )
 
-        messages.success(self.request, _('Box created successfully'))
+        messages.success(self.request, _("Box created successfully"))
         url = self.get_success_url() + "?new_box={}".format(self.object.uuid)
         return self.render_to_response({"location": url})
 
     def render_to_response(self, context, **response_kwargs):
         json_context = context
         status = 200
-        if context.get('form', None):
-            json_context = {
-                "form_errors": context["form"].errors
-            }
+        if context.get("form", None):
+            json_context = {"form_errors": context["form"].errors}
             status = 400
 
         return self.render_json_response(json_context, status=status)
 
 
 class BoxDeleteView(LoginRequiredMixin, DeleteView):
-    http_method_names = [u'post']
+    http_method_names = ["post"]
     success_url = reverse_lazy("boxes_list")
     model = Box
 
@@ -90,17 +91,17 @@ class BoxDeleteView(LoginRequiredMixin, DeleteView):
         self.object = self.get_object()
         name = self.object.name
         if self.object.status != Box.OPEN:
-            messages.error(request, _('Only open boxes can be deleted'))
+            messages.error(request, _("Only open boxes can be deleted"))
         else:
             self.object.delete()
-            msg = _('Box named {} deleted successfully').format(name)
+            msg = _("Box named {} deleted successfully").format(name)
             messages.success(request, msg)
         success_url = self.get_success_url()
         return HttpResponseRedirect(success_url)
 
 
 class BoxCloseView(LoginRequiredMixin, UpdateView):
-    http_method_names = [u'post']
+    http_method_names = ["post"]
     success_url = reverse_lazy("boxes_list")
     model = Box
 
@@ -110,11 +111,11 @@ class BoxCloseView(LoginRequiredMixin, UpdateView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         if self.object.status != Box.OPEN:
-            messages.error(request, _('Only open boxes can be closed'))
+            messages.error(request, _("Only open boxes can be closed"))
         else:
             self.object.status = Box.CLOSED
             self.object.save()
-            msg = _('Box {} was closed').format(self.object.name)
+            msg = _("Box {} was closed").format(self.object.name)
             messages.success(request, msg)
         success_url = self.get_success_url()
         return HttpResponseRedirect(success_url)
@@ -137,10 +138,10 @@ class BoxSubmitView(AuthMixin, UpdateView):
         if queryset is None:
             queryset = self.get_queryset()
         try:
-            q = queryset.select_related('owner').prefetch_related('recipients')
+            q = queryset.select_related("owner").prefetch_related("recipients")
             return q.get(uuid=self.kwargs.get("box_uuid"))
         except (ValueError, Box.DoesNotExist):
-            raise Http404(_('Not Found. Double check your URL'))
+            raise Http404(_("Not Found. Double check your URL"))
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -153,20 +154,22 @@ class BoxSubmitView(AuthMixin, UpdateView):
 
         not_open = self.object.status != Box.OPEN
         not_complete = not owner.has_setup_complete()
-        not_valid = state[0] != 'valid'
+        not_valid = state[0] != "valid"
         if not_open or not_complete or not_valid:
             return self.response_class(
                 request=self.request,
                 context={"box": self.object},
                 template="boxes/closed.html",
-                using=self.template_engine)
+                using=self.template_engine,
+            )
         elif self.object.verified_only and request.user.is_anonymous:
             return self.response_class(
                 request=request,
                 context=super().get_context_data(),
                 template="boxes/verified_only.html",
                 using=self.template_engine,
-                status=401)
+                status=401,
+            )
         else:
             return super().dispatch(request, *args, **kwargs)
 
@@ -188,14 +191,13 @@ class BoxSubmitView(AuthMixin, UpdateView):
                 user_email = None
 
             # Schedule e-mail
-            process_email.delay(
-                message.id, form.cleaned_data, sent_by=user_email
-            )
+            process_email.delay(message.id, form.cleaned_data, sent_by=user_email)
 
             return self.response_class(
                 request=self.request,
                 template="boxes/success.html",
-                using=self.template_engine)
+                using=self.template_engine,
+            )
         else:
             for field, errors in form.errors.items():
                 for error in errors:

@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0003_user_organization'),
+        ("humans", "0003_user_organization"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='fingerprint',
+            model_name="user",
+            name="fingerprint",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
     ]

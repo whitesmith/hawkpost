@@ -15,7 +15,7 @@ def process_email(message_id, form_data, sent_by=None):
     box = message.box
     msg = form_data["message"]
     file_name = form_data.get("file_name", "")
-    subject = _('New submission to your box: {}').format(box)
+    subject = _("New submission to your box: {}").format(box)
     reply_to = [sent_by] if sent_by else []
 
     if file_name:
@@ -26,14 +26,16 @@ def process_email(message_id, form_data, sent_by=None):
             settings.DEFAULT_FROM_EMAIL,
             [box.owner.email],
             reply_to=reply_to,
-            attachments=[(file_name, msg, "application/octet-stream")]
+            attachments=[(file_name, msg, "application/octet-stream")],
         )
     else:
-        email = EmailMultiAlternatives(subject,
-                                       msg,
-                                       settings.DEFAULT_FROM_EMAIL,
-                                       [box.owner.email],
-                                       reply_to=reply_to)
+        email = EmailMultiAlternatives(
+            subject,
+            msg,
+            settings.DEFAULT_FROM_EMAIL,
+            [box.owner.email],
+            reply_to=reply_to,
+        )
 
     # Output e-mail message for debug purposes
     # with open('email.mbox', 'w') as f:

@@ -9,13 +9,13 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('boxes', '0001_initial'),
+        ("boxes", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='box',
-            name='uuid',
+            model_name="box",
+            name="uuid",
             field=models.UUIDField(default=uuid.uuid4, editable=False),
         ),
     ]

@@ -8,23 +8,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('humans', '0001_initial'),
+        ("humans", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='fingerprint',
+            model_name="user",
+            name="fingerprint",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='keyserver_url',
+            model_name="user",
+            name="keyserver_url",
             field=models.URLField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='public_key',
+            model_name="user",
+            name="public_key",
             field=models.TextField(blank=True, null=True),
         ),
     ]
