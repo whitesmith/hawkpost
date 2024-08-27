@@ -3,7 +3,7 @@ from django.contrib.auth import logout, authenticate
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import FormView, DeleteView
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
@@ -50,7 +50,7 @@ class UpdateSettingsView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         ip = request_ip_address(self.request)
-        agent = self.request.META.get('HTTP_USER_AGENT')
+        agent = self.request.headers.get('user-agent')
         form.save(ip=ip, agent=agent)
         if form.change_password:
             update_session_auth_hash(self.request, form.instance)

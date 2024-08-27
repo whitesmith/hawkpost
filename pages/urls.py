@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from .views import HomeView, AboutView, HelpView
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view(), name="pages_index"),
-    url(r'^about$', AboutView.as_view(), name="pages_about"),
-    url(r'^help$', HelpView.as_view(), name="pages_help")
+    path('', HomeView.as_view(), name="pages_index"),
+    path('about', AboutView.as_view(), name="pages_about"),
+    path('help', HelpView.as_view(), name="pages_help")
 ]

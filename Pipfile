@@ -10,15 +10,15 @@ django-extensions = "==3.2.1"
 [packages]
 django-dotenv = "==1.4.2"
 "psycopg2-binary" = "==2.9.5"
-django-allauth = "==0.50.0"
+django-allauth = "==64.1.0"
 gnupg = "==2.3.1"
 whitenoise = "==5.3.0"
-gunicorn = "==20.1.0"
+gunicorn = "==23.0.0"
 raven = "==6.4.0"
 django-timezone-field = "==4.2.3"
 django-braces = "==1.15.0"
 django-axes = "==5.40.1"
-Django = "==3.2.19"
+Django = "==4.2.15"
 celery = {version = "==5.2.7", extras = ["redis"]}
 
 [requires]

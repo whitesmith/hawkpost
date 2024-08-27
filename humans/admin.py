@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
 from django.contrib import messages
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from .models import User, Notification, KeyChangeRecord
 from .tasks import enqueue_email_notifications
 
@@ -44,11 +44,17 @@ class NotificationAdmin(admin.ModelAdmin):
         else:
             obj.delete()
 
+    @admin.action(
+        description=_('Delete selected notifications')
+    )
     def delete_selected(self, request, queryset):
         queryset.filter(sent_at=None).delete()
         msg = _('Removed all unsent notifications in selection')
         messages.success(request, msg)
 
+    @admin.action(
+        description=_('Send selected notifications')
+    )
     def send_notification(self, request, queryset):
         queryset = queryset.filter(sent_at=None)
         for notification in queryset:
@@ -58,8 +64,6 @@ class NotificationAdmin(admin.ModelAdmin):
         queryset.update(sent_at=timezone.now())
         messages.success(request, _('All notifications enqueued for sending'))
 
-    delete_selected.short_description = _('Delete selected notifications')
-    send_notification.short_description = _('Send selected notifications')
 
 
 @admin.register(KeyChangeRecord)

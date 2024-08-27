@@ -321,7 +321,7 @@ class UpdateSettingsTests(TestCase):
         user = create_and_login_user(self.client)
         response = self.client.post(reverse("humans_update"),
                                     DEFAULT_USER_DATA,
-                                    HTTP_USER_AGENT="testagent")
+                                    headers={"user-agent": "testagent"})
         self.assertEqual(response.status_code, 302)
         user.refresh_from_db()
         self.assertEqual(user.first_name, "some name")

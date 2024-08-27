@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
+from django.urls import include, path, re_path
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.decorators import method_decorator
@@ -30,22 +30,22 @@ LoginView.form_invalid = method_decorator(
     axes_form_invalid)(LoginView.form_invalid)
 
 urlpatterns = [
-    url(r'^admin/login/$', admin.site.login),
-    url(r'^admin/', admin.site.urls),
-    url(r'^users/login/$', LoginView.as_view(form_class=LoginForm),
+    path('admin/login/', admin.site.login),
+    re_path(r'^admin/', admin.site.urls),
+    path('users/login/', LoginView.as_view(form_class=LoginForm),
         name='account_login'),
-    url(r'^users/', include('allauth.urls')),
-    url(r'^users/', include('humans.urls')),
-    url(r'^box/', include('boxes.urls')),
-    url(r'^', include('pages.urls'))
+    path('users/', include('allauth.urls')),
+    path('users/', include('humans.urls')),
+    path('box/', include('boxes.urls')),
+    path('', include('pages.urls'))
 ]
 
 urlpatterns += i18n_patterns(
-    url(r'^', include('pages.urls')),
+    path('', include('pages.urls')),
 )
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
+        path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns

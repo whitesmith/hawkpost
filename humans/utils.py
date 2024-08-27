@@ -56,5 +56,5 @@ def key_state(key, gpg):
 
 def request_ip_address(request):
     """Takes a Request Object and returns the caller IP address"""
-    x_forward_for = request.META.get('HTTP_X_FORWARDED_FOR', None)
+    x_forward_for = request.headers.get('x-forwarded-for', None)
     return x_forward_for if x_forward_for else request.META.get('REMOTE_ADDR')

@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 from .views import UpdateSettingsView, DeleteUserView
 
 urlpatterns = [
-    url(r'^settings$', UpdateSettingsView.as_view(), name="humans_update"),
-    url(r'^delete$', DeleteUserView.as_view(), name="humans_delete"),
+    path('settings', UpdateSettingsView.as_view(), name="humans_update"),
+    path('delete', DeleteUserView.as_view(), name="humans_delete"),
 ]
