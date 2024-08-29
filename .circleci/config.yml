@@ -9,7 +9,7 @@ jobs:
           DB_HOST: localhost
           DB_USER: root
           USERNAME: root
-      - image: circleci/postgres:16.4.0
+      - image: cimg/postgres:16.4.0
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: hawkpost_dev
