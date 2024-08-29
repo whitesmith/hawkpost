@@ -20,7 +20,7 @@ DATABASES = {
 if 'DB_HOST' in os.environ:
     DATABASES['default']['HOST'] = os.environ.get("DB_HOST", "localhost")
     DATABASES['default']['PORT'] = os.environ.get("DB_PORT", 5432)
-    DATABASES['default']['USER'] = os.environ.get("DB_USER" "postgres")
+    DATABASES['default']['USER'] = os.environ.get("DB_USER", "postgres")
     DATABASES['default']['NAME'] = os.environ.get("DB_NAME", "hawkpost_dev")
 
     if 'DB_PASSWORD' in os.environ:
