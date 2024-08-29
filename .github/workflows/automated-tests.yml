@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  pytest:
+  unittest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
