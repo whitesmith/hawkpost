@@ -1,11 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin as LoginRequired
-from django.contrib.auth import logout, authenticate
+from django.contrib.auth import logout
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import FormView, DeleteView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
-from django.conf import settings
 from .forms import UpdateUserInfoForm, LoginForm, SignupForm
 from .models import User
 from .utils import request_ip_address
@@ -69,18 +68,18 @@ class DeleteUserView(LoginRequiredMixin, DeleteView):
     def get_object(self, queryset=None):
         return self.request.user
 
-    def delete(self, request, *args, **kwargs):
-        current_pw = request.POST.get("current_password", "")
-        if not request.user.has_usable_password() or authenticate(
-                username=request.user.username, password=current_pw, request=request):
-            response = super().delete(request, *args, **kwargs)
-            logout(request)
-            messages.success(request,
+    def form_valid(self, form):
+        current_pw = self.request.POST.get("current_password", "")
+        user = self.request.user
+        if not user.has_usable_password() or user.check_password(current_pw):
+            response = super().form_valid(form)
+            logout(self.request)
+            messages.success(self.request,
                              _('Account deleted successfully.'
                                ' We hope you comeback soon.'))
             return response
         else:
-            messages.error(request,
+            messages.error(self.request,
                            _('In order to delete the account you must provide'
                              ' the current password.'))
-            return self.get(request, *args, **kwargs)
+            return self.get(self.request)
