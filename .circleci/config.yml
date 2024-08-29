@@ -7,11 +7,12 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DB_HOST: localhost
-          DB_USER: root
+          DB_USER: postgres
           USERNAME: root
       - image: cimg/postgres:16.4
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: hawkpost_dev
     steps:
       - checkout
