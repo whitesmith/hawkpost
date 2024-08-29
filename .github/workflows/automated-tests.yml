@@ -8,6 +8,7 @@ on:
 
 env:
   DB_HOST: localhost
+  USERNAME: root
 
 jobs:
   unittest:
