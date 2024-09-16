@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8f64851f1dd9ab271d99e46cd2fc1cb2c192053f1d8c1d8b88437bde7d92721d"
+            "sha256": "0c6577d973b7cc3212b0f2bf1974978d5d96430f0e36917dfc9b68f8de9311ed"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -352,12 +352,12 @@
         },
         "django-timezone-field": {
             "hashes": [
-                "sha256:5dd5bd9249382bef8847d3e7e4c32b7be182a4b538f354130d1252ed228892f8",
-                "sha256:7552d2b0f145684b7de3fb5046101c7efd600cc6ba951b15c630fa1e1b83558e"
+                "sha256:3232e7ecde66ba4464abb6f9e6b8cc739b914efb9b29dc2cf2eee451f7cc2acb",
+                "sha256:aa6f4965838484317b7f08d22c0d91a53d64e7bbbd34264468ae83d4023898a7"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.5'",
-            "version": "==4.2.3"
+            "markers": "python_version >= '3.8' and python_version < '4.0'",
+            "version": "==7.0"
         },
         "gnupg": {
             "hashes": [
