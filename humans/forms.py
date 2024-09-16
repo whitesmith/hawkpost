@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.password_validation import validate_password
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from allauth.account.forms import LoginForm as BaseLoginForm
 from allauth.account.forms import SignupForm as BaseSignupForm
 from .models import User

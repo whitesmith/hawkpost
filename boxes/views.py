@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from humans.views import AuthMixin, LoginRequiredMixin
 from humans.utils import key_state
 from django.conf import settings

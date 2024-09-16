@@ -7,6 +7,9 @@ services:
       service: app
     ports:
       - "80:8000"
+    depends_on:
+      - db
+      - redis
 
   celery:
     extends:
@@ -15,9 +18,12 @@ services:
     command: pipenv run celery -A hawkpost worker --beat -l info
     volumes:
       - "./gpg_home:/home/user/.gnupg"
+    depends_on:
+      - db
+      - redis
 
   db:
-    image: postgres:9
+    image: postgres:16-alpine
     ports:
       - "5432:5432"
     environment:
@@ -26,6 +32,6 @@ services:
       - POSTGRES_DB=hawkpost_dev
 
   redis:
-    image: redis:3-alpine
+    image: redis:7-alpine
     ports:
       - "6379:6379"

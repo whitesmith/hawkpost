@@ -1,7 +1,7 @@
 from django.forms import ModelForm, Form, CharField, Textarea, BooleanField
 from .models import Box
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from sys import getsizeof
 

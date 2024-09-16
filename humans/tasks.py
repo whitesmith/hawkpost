@@ -4,7 +4,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.db.models import Q
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from .models import User, Notification
 from .utils import key_state
 import requests

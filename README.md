@@ -4,6 +4,12 @@ Hawkpost lets you create unique links that you can share with the person that de
 
 You can deploy your own server using the code from this repository or use the official server (that is running an exact copy of this repo) at [https://hawkpost.co](https://hawkpost.co).
 
+**Notice**
+
+**Hawkpost is currently in maintenance mode. This means that bug fixes will be merged and vulnerabilities in the codebase and its dependencies will be patched; however, improvements and new features will not be handled or included.**
+
+**This status might change in the future, but for the moment it will stay as is.**
+
 ## Rationale
 
 For many web and mobile development studios, no matter how hard they try to secure their client secrets (passwords, API keys, etc), the weakest link resides on the client most of the times, specially when he's not a tech savvy person. This project tries to help minimize this issue on the communication between both parties.
@@ -29,9 +35,9 @@ Base requirements:
 
 On a **Debian** based operating system execute the following steps, after cloning the repository:
 
-* Make sure you have `pipenv` installed. You can check [this page for more information](https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv)
+- Make sure you have `pipenv` installed. You can check [this page for more information](https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv)
 
-- Install the dependencies
+* Install the dependencies
 
 ```
 $ pipenv install

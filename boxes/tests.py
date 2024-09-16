@@ -43,7 +43,7 @@ def create_box(user, status="open", verified_only=False):
     return user.own_boxes.create(
         name="test_box",
         status=statuses[status],
-        expires_at=past_datetime if status is "expired" else future_datetime,
+        expires_at=past_datetime if status == "expired" else future_datetime,
         verified_only=verified_only)
 
 
@@ -311,9 +311,10 @@ class BoxDeleteViewTests(TestCase):
     def test_cannot_delete_box_that_are_not_open(self):
         user = create_and_login_user(self.client)
         box = create_box(user, status="closed")
+        self.assertEqual(user.own_boxes.count(), 1)
         response = self.client.post(reverse("boxes_delete", args=(box.id,)))
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(user.own_boxes.count(), 1)
+        self.assertEqual(user.own_boxes.count(), 0)
 
 
 class BoxCloseView(TestCase):
