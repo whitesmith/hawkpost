@@ -4,7 +4,7 @@ Hawkpost lets you create unique links that you can share with the person that de
 
 You can deploy your own server using the code from this repository or use the official server (that is running an exact copy of this repo) at [https://hawkpost.co](https://hawkpost.co).
 
-**Notice**
+## NOTICE
 
 **Hawkpost is currently in maintenance mode. This means that bug fixes will be merged and vulnerabilities in the codebase and its dependencies will be patched; however, improvements and new features will not be handled or included.**
 
