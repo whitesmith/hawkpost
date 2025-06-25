@@ -12,6 +12,13 @@ celerybeat-schedule.db
 
 # Testing files
 .coverage
+.pytest_cache/
+htmlcov/
+coverage.xml
+*.coverage
+.coverage.*
+.tox/
+.nox/
 
 # gpg homedir for signing
 gpg_home
@@ -34,3 +41,32 @@ Session.vim
 
 # Editor Stuff
 .vscode
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude settings
+.claude/*
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Poetry
+# Note: Don't ignore poetry.lock - it should be committed
+# poetry.lock

@@ -1,0 +1,100 @@
+[tool.poetry]
+name = "hawkpost"
+version = "0.1.0"
+description = "A Django-based secure messaging application"
+authors = ["Hawkpost Team"]
+readme = "README.md"
+packages = [{include = "hawkpost"}, {include = "boxes"}, {include = "humans"}, {include = "pages"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "==4.2.15"
+django-dotenv = "==1.4.2"
+psycopg2-binary = "==2.9.5"
+django-allauth = {version = "==64.2.1", extras = ["socialaccount"]}
+gnupg = "==2.3.1"
+whitenoise = "==5.3.0"
+gunicorn = "==23.0.0"
+raven = "==6.4.0"
+django-timezone-field = "==4.2.3"
+django-braces = "==1.15.0"
+django-axes = "==5.40.1"
+celery = {version = "==5.2.7", extras = ["redis"]}
+requests = "==2.32.3"
+
+[tool.poetry.group.dev.dependencies]
+django-debug-toolbar = "==3.8.1"
+django-extensions = "==3.2.1"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+pytest-django = "^4.8.0"
+
+[tool.poetry.scripts]
+test = "pytest:main"
+tests = "pytest:main"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "hawkpost.settings.test"
+python_files = ["test_*.py", "*_test.py", "tests.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--tb=short",
+    "--cov=hawkpost",
+    "--cov=boxes",
+    "--cov=humans",
+    "--cov=pages",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=html",
+    "--cov-report=xml",
+    "--cov-fail-under=80",  # Target coverage for when real tests are written
+    "-v"
+]
+testpaths = ["tests"]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "slow: Slow running tests"
+]
+
+[tool.coverage.run]
+source = ["hawkpost", "boxes", "humans", "pages"]
+branch = true
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/static/*",
+    "*/templates/*",
+    "hawkpost/wsgi.py",
+    "hawkpost/settings/*",
+    "manage.py"
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def __str__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "if typing.TYPE_CHECKING:"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.coverage.xml]
+output = "coverage.xml"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
